@@ -20,11 +20,6 @@
 </template>
 
 <script setup lang="ts">
-  import { useDevice } from '~/composables/useDevice'
-
-  // 使用设备检测 store
-  const device = useDevice()
-
   const handleIconClick = () => {
     console.log('menu')
   }

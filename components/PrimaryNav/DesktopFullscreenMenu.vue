@@ -47,14 +47,17 @@
               :class="{ active: activeMenu === item.name }"
             >
               <a
-                class="flex items-center justify-between px-8 py-4 no-underline text-lg font-light cursor-pointer transition-colors hover:bg-black/5"
-                :style="{ color: 'var(--tm-txt-primary)' }"
+                class="flex items-center justify-between px-8 py-5 no-underline text-lg font-normal cursor-pointer transition-all hover:bg-black/5"
+                :style="{
+                  color: activeMenu === item.name ? 'var(--tm-pri-0)' : 'var(--tm-txt-primary)',
+                }"
                 @click="handleMenuClick(item)"
               >
                 {{ item.name }}
                 <div
                   v-if="item.hasSubMenu"
-                  class="i-carbon-chevron-right w-4 h-4 opacity-60"
+                  class="i-carbon-chevron-right w-5 h-5 opacity-60 transition-transform"
+                  :class="{ 'rotate-90': activeMenu === item.name }"
                 ></div>
               </a>
             </li>
@@ -89,66 +92,136 @@
       <!-- Right Panel - Submenu Content -->
       <div
         v-if="activeMenu"
-        class="flex-1 p-16 overflow-y-auto"
+        class="flex-1 flex flex-col h-screen overflow-hidden"
         :style="{ backgroundColor: 'var(--tm-bg-secondary)' }"
       >
-        <!-- Submenu Title -->
-        <h2
-          class="text-5xl font-light mb-12"
-          :style="{ color: 'var(--tm-txt-primary)' }"
-        >
-          {{ activeMenu }}
-        </h2>
-
-        <!-- Submenu Items -->
-        <div
-          v-if="activeSubmenu"
-          class="grid grid-cols-3 gap-8"
-        >
-          <div
-            v-for="(subItem, index) in activeSubmenu"
-            :key="`${activeMenu}-${typeof subItem === 'string' ? subItem : subItem.name}-${index}`"
-            class="submenu-item"
-          >
-            <!-- String type submenu -->
-            <NuxtLink
-              v-if="typeof subItem === 'string'"
-              :to="`/${activeMenu.toLowerCase()}/${subItem.toLowerCase().replace(/\s+/g, '-')}`"
-              class="no-underline text-base font-normal leading-relaxed transition-colors hover:text-[var(--tm-pri-0)]"
-              :style="{ color: 'var(--tm-txt-primary)' }"
-              @click="closeMenu"
+        <!-- Search Bar -->
+        <div class="p-16 pb-8">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Type to search..."
+              class="w-full py-4 pr-12 bg-transparent border-0 border-b-2 text-lg outline-none transition-colors"
+              :style="{
+                borderColor: 'var(--tm-bd-light)',
+                color: 'var(--tm-txt-primary)',
+              }"
+              @focus="handleSearchFocus"
+              @blur="handleSearchBlur"
+            />
+            <button
+              class="absolute right-0 top-1/2 -translate-y-1/2 p-2"
+              aria-label="Search"
             >
-              {{ subItem }}
-            </NuxtLink>
+              <div class="i-carbon-search w-6 h-6"></div>
+            </button>
+          </div>
+        </div>
 
-            <!-- Object type submenu (with third level) -->
-            <div v-else>
-              <h3
-                class="text-lg font-medium mb-4 cursor-pointer transition-colors hover:text-[var(--tm-pri-0)]"
-                :style="{ color: 'var(--tm-txt-primary)' }"
-                @click="handleSubMenuClick(activeMenu, subItem)"
+        <!-- Content Area -->
+        <div class="flex-1 px-16 pb-16 overflow-y-auto">
+          <!-- Submenu Title -->
+          <h2
+            class="text-5xl font-light mb-12"
+            :style="{ color: 'var(--tm-txt-primary)' }"
+          >
+            {{ activeMenu }}
+          </h2>
+
+          <!-- Submenu Items -->
+          <div class="flex gap-16">
+            <!-- Main submenu content -->
+            <div class="flex-1">
+              <div
+                v-if="activeSubmenu && activeSubmenu.length > 0"
+                class="grid grid-cols-2 gap-x-16 gap-y-2"
               >
-                {{ subItem.name }}
-              </h3>
-              <ul
-                v-if="activeThirdMenu === `${activeMenu}-${subItem.name}` && subItem.subItems"
-                class="list-none p-0 m-0"
-              >
-                <li
-                  v-for="(thirdItem, thirdIndex) in subItem.subItems"
-                  :key="`${activeMenu}-${subItem.name}-${thirdItem}-${thirdIndex}`"
-                  class="mb-2"
+                <div
+                  v-for="(subItem, index) in activeSubmenu"
+                  :key="`${activeMenu}-${typeof subItem === 'string' ? subItem : subItem.name}-${index}`"
+                  class="submenu-item"
                 >
+                  <!-- String type submenu -->
                   <NuxtLink
-                    :to="`/${activeMenu.toLowerCase()}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}/${thirdItem.toLowerCase().replace(/\s+/g, '-')}`"
-                    class="no-underline text-sm transition-colors hover:text-[var(--tm-pri-0)]"
-                    :style="{ color: 'var(--tm-txt-secondary)' }"
+                    v-if="typeof subItem === 'string'"
+                    :to="`/${activeMenu.toLowerCase()}/${subItem.toLowerCase().replace(/\s+/g, '-')}`"
+                    class="block py-3 no-underline text-base font-normal leading-relaxed transition-colors hover:text-[var(--tm-pri-0)]"
+                    :style="{ color: 'var(--tm-txt-primary)' }"
                     @click="closeMenu"
                   >
-                    {{ thirdItem }}
+                    {{ subItem }}
                   </NuxtLink>
-                </li>
-              </ul>
+
+                  <!-- Object type submenu (with third level) -->
+                  <div v-else>
+                    <h3
+                      class="text-lg font-medium mb-4 cursor-pointer transition-colors hover:text-[var(--tm-pri-0)]"
+                      :style="{ color: 'var(--tm-txt-primary)' }"
+                      @click="handleSubMenuClick(activeMenu, subItem)"
+                    >
+                      {{ subItem.name }}
+                    </h3>
+                    <ul
+                      v-if="activeThirdMenu === `${activeMenu}-${subItem.name}` && subItem.subItems"
+                      class="list-none p-0 m-0"
+                    >
+                      <li
+                        v-for="(thirdItem, thirdIndex) in subItem.subItems"
+                        :key="`${activeMenu}-${subItem.name}-${thirdItem}-${thirdIndex}`"
+                        class="mb-2"
+                      >
+                        <NuxtLink
+                          :to="`/${activeMenu.toLowerCase()}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}/${thirdItem.toLowerCase().replace(/\s+/g, '-')}`"
+                          class="no-underline text-sm transition-colors hover:text-[var(--tm-pri-0)]"
+                          :style="{ color: 'var(--tm-txt-secondary)' }"
+                          @click="closeMenu"
+                        >
+                          {{ thirdItem }}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured section -->
+            <div
+              v-if="activeFeatured"
+              class="w-[320px] border-l pl-12"
+              :style="{ borderColor: 'var(--tm-bd-light)' }"
+            >
+              <h3
+                class="text-sm font-semibold mb-6 tracking-wider"
+                :style="{ color: 'var(--tm-txt-secondary)' }"
+              >
+                {{ activeFeatured.title }}
+              </h3>
+              <div
+                v-for="item in activeFeatured.items"
+                :key="item.name"
+                class="mb-8"
+              >
+                <NuxtLink
+                  :to="item.link"
+                  class="block no-underline group"
+                  @click="closeMenu"
+                >
+                  <h4
+                    class="text-lg font-semibold mb-3 transition-colors group-hover:text-[var(--tm-pri-0)]"
+                    :style="{ color: 'var(--tm-txt-primary)' }"
+                  >
+                    {{ item.name }}
+                  </h4>
+                  <p
+                    v-if="item.description"
+                    class="text-sm leading-relaxed"
+                    :style="{ color: 'var(--tm-txt-secondary)' }"
+                  >
+                    {{ item.description }}
+                  </p>
+                </NuxtLink>
+              </div>
             </div>
           </div>
         </div>
@@ -160,7 +233,7 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { navigateTo } from 'nuxt/app'
-  import type { MenuItem, SubMenuItem, BottomLink } from './types'
+  import type { MenuItem, SubMenuItem, BottomLink } from './types/index'
 
   interface Props {
     open: boolean
@@ -185,6 +258,11 @@
   const activeSubmenu = computed(() => {
     const item = props.menuItems.find((i) => i.name === activeMenu.value)
     return item?.subItems || []
+  })
+
+  const activeFeatured = computed(() => {
+    const item = props.menuItems.find((i) => i.name === activeMenu.value)
+    return item?.featured || null
   })
 
   const closeMenu = () => {
@@ -218,6 +296,16 @@
     if (firstWithSubmenu) {
       activeMenu.value = firstWithSubmenu.name
     }
+  }
+
+  const handleSearchFocus = (event: FocusEvent) => {
+    const input = event.target as HTMLInputElement
+    input.style.borderColor = 'var(--tm-pri-0)'
+  }
+
+  const handleSearchBlur = (event: FocusEvent) => {
+    const input = event.target as HTMLInputElement
+    input.style.borderColor = 'var(--tm-bd-light)'
   }
 </script>
 

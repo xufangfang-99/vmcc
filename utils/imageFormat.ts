@@ -54,7 +54,6 @@ export class ImageFormat {
     if (typeof window === 'undefined') return originalUrl
 
     const baseUrl = originalUrl.substring(0, originalUrl.lastIndexOf('.'))
-    const ext = originalUrl.split('.').pop()
 
     console.log('检查浏览器支持情况...')
     // 检查格式支持
