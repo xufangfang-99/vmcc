@@ -3,7 +3,6 @@
     <DarkModeSwitch />
     <ColorThemeSwitch />
     <LangTheme />
-    <Menu />
   </div>
 </template>
 
@@ -13,7 +12,6 @@
   import DarkModeSwitch from './comp/dark.vue'
   import ColorThemeSwitch from './comp/color.vue'
   import LangTheme from './comp/lang.vue'
-  import Menu from './comp/menu.vue'
 
   const theme = useTheme()
 

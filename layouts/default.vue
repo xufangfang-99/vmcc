@@ -4,6 +4,8 @@
       <div class="flex justify-between items-center h-full">
         <div class="flex items-center gap-4">
           <MenuIcon @click="handleIconClick" />
+          <Logo></Logo>
+          <PrimaryNav></PrimaryNav>
         </div>
         <ThemeSelector />
       </div>
