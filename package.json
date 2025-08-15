@@ -42,11 +42,11 @@
     "@types/node": "^22.12.0",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/parser": "^7.0.0",
-    "@unocss/nuxt": "^0.63.6",
-    "@unocss/preset-attributify": "^65.4.3",
-    "@unocss/preset-icons": "^65.4.3",
-    "@unocss/preset-uno": "^0.63.6",
-    "@unocss/vite": "^0.63.0",
+    "@unocss/nuxt": "^66.4.2",
+    "@unocss/preset-attributify": "^66.4.2",
+    "@unocss/preset-icons": "^66.4.2",
+    "@unocss/preset-uno": "^66.4.2",
+    "@unocss/vite": "^66.4.2",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "element-plus": "^2.9.3",
     "eslint": "^8.57.0",
@@ -58,7 +58,7 @@
     "sass-loader": "^16.0.4",
     "sharp": "0.33.2",
     "typescript": "5.3.3",
-    "unocss": "^65.4.3",
+    "unocss": "^66.4.2",
     "vite": "^5.0.0"
   }
 }
