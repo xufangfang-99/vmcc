@@ -199,12 +199,82 @@
     {
       name: 'Careers',
       hasSubMenu: true,
-      subItems: ['Overview', 'Search Jobs', 'Life at McKinsey', 'Interview Process'],
+      subItems: [
+        'Home',
+        'Explore',
+        'Jobs',
+        'Interviewing',
+        'Our People',
+        'Students',
+        'Tech Careers',
+        'Careers Beyond Consulting',
+        'Experienced Professionals',
+      ],
     },
     {
       name: 'About Us',
       hasSubMenu: true,
-      subItems: ['Overview', 'Our People', 'Social Impact', 'Alumni', 'Media Center'],
+      subItems: [
+        {
+          title: 'WHO WE ARE',
+          items: [
+            'Our Leadership',
+            'Purpose, Mission & Values',
+            'Our History',
+            'Our Aspiration',
+            'Our Governance',
+          ],
+        },
+        {
+          title: 'OUR COMMITMENTS',
+          items: [
+            'Our Diverse Meritocracy',
+            'Economic Opportunity',
+            'Social Responsibility',
+            'Environmental Sustainability',
+            '2024 Sustainable and Inclusive Growth Report',
+          ],
+        },
+        {
+          title: 'HOW WE WORK',
+          items: [
+            'Alliances & Acquisitions',
+            'Solutions',
+            'Client Capabilities Network',
+            'Case Studies',
+            'From idea to impact',
+          ],
+        },
+        {
+          title: 'KEEP EXPLORING',
+          items: ['Keep Exploring', 'Alumni', 'Media', 'McKinsey Blog'],
+        },
+      ],
+      featured: {
+        title: 'FEATURED',
+        items: [
+          {
+            name: 'Growing economic opportunity',
+            description: 'Helping organizations thrive, economies prosper, and people progress.',
+            link: '/our-insights/ask-mckinsey',
+          },
+          {
+            name: 'McKinsey Health Institute',
+            description:
+              'Our mission is for everyone on the planet to add years to their lives and life to their years.',
+            link: '/our-insights/mckinsey-quarterly',
+          },
+          {
+            name: 'McKinsey Institute for Economic Mobility',
+            description: 'Accelerating inclusive growth. Improving economic mobility.',
+            link: '/our-insights/mckinsey-global-institute',
+          },
+        ],
+      },
+      exploreLink: {
+        text: 'EXPLORE OUR INSIGHTS',
+        url: '/our-insights',
+      },
     },
     { name: 'McKinsey Blog', hasSubMenu: false },
   ]
