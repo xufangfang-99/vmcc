@@ -1,0 +1,23 @@
+{
+  "title": "语言切换示例",
+  "welcome": "欢迎使用",
+  "description": "这是一个多语言演示页面",
+  "changeLanguage": "切换语言",
+  "menu": {
+    "title": "菜单",
+    "home": "首页",
+    "login": "登录",
+    "imageTest": "动态图片测试",
+    "imageTest1": "静态图片测试",
+    "methodTest": "方法测试",
+    "commonConfig": "公共配置取值",
+    "useStateManage": "useState状态管理",
+    "pinaManage": "pina状态管理",
+    "pinaMultiManage": "pina多页状态管理",
+    "i18n": "国际化",
+    "network": "网络请求",
+    "envConfig": "环境配置",
+    "seoConfig": "SEO配置",
+    "themeShow": "主题色展示"
+  }
+}
