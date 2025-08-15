@@ -140,14 +140,60 @@
       name: 'Our Insights',
       hasSubMenu: true,
       subItems: [
-        'Featured Insights',
-        'McKinsey Quarterly',
-        'Most Popular',
-        'McKinsey Global Institute',
-        'Sustainability',
-        'Chief Marketing Officer',
-        'Digital',
+        {
+          title: 'TRENDING TOPICS',
+          items: [
+            'Artificial Intelligence & Gen AI',
+            'Business Resilience',
+            'Case Studies',
+            'CEO Excellence',
+            'Geopolitics',
+            'Tariffs and Global Trade',
+          ],
+        },
+        {
+          title: 'EXPLORE',
+          items: [
+            'Author Talks',
+            'Global Surveys',
+            'McKinsey Explainers',
+            'McKinsey Live',
+            'McKinsey on Books',
+            'McKinsey on Lives & Legacies',
+            'McKinsey Podcast',
+            'McKinsey Themes',
+            'McKinsey Video',
+            'Week in Charts',
+          ],
+        },
       ],
+      featured: {
+        title: 'FEATURED',
+        items: [
+          {
+            name: 'Ask McKinsey',
+            description:
+              'Get answers to the questions that matter to you—based on McKinsey insights. This pilot of our new gen AI chatbot covers digital, AI, technology, media, and telecoms. Other topics coming soon.',
+            link: '/our-insights/ask-mckinsey',
+          },
+          {
+            name: 'McKinsey Quarterly',
+            description:
+              'Our flagship business publication has been defining and informing the senior-management agenda since 1964.',
+            link: '/our-insights/mckinsey-quarterly',
+          },
+          {
+            name: 'McKinsey Global Institute',
+            description:
+              'Our mission is to help leaders in multiple sectors develop a deeper understanding of the global economy.',
+            link: '/our-insights/mckinsey-global-institute',
+          },
+        ],
+      },
+      exploreLink: {
+        text: 'EXPLORE OUR INSIGHTS',
+        url: '/our-insights',
+      },
     },
     { name: 'Locations', hasSubMenu: false },
     {

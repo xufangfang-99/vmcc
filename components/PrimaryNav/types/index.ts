@@ -4,6 +4,11 @@ export interface SubMenuItem {
   subItems?: string[]
 }
 
+export interface MenuGroup {
+  title: string
+  items: string[]
+}
+
 export interface FeaturedItem {
   name: string
   description?: string
@@ -18,8 +23,12 @@ export interface Featured {
 export interface MenuItem {
   name: string
   hasSubMenu: boolean
-  subItems?: SubMenuItem[] | string[]
+  subItems?: SubMenuItem[] | string[] | MenuGroup[]
   featured?: Featured
+  exploreLink?: {
+    text: string
+    url: string
+  }
 }
 
 export interface BottomLink {
