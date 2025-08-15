@@ -144,30 +144,74 @@
           <div class="flex gap-16">
             <!-- Main submenu content -->
             <div class="flex-1">
-              <!-- Check if subItems are grouped (Our Insights style) -->
+              <!-- Check if subItems are grouped -->
               <div v-if="isGroupedMenu">
                 <div
-                  v-for="(group, groupIndex) in activeSubmenu as MenuGroup[]"
+                  v-for="(group, groupIndex) in activeSubmenu"
                   :key="`group-${groupIndex}`"
                   class="mb-12"
                 >
                   <h3
+                    v-if="group.title || group.isGroup"
                     class="text-base font-bold mb-4 tracking-wider uppercase"
                     :style="{ color: 'var(--tm-pri-0)' }"
                   >
-                    {{ group.title }}
+                    {{ group.title || group.name }}
                   </h3>
-                  <div class="grid grid-cols-2 gap-x-16 gap-y-1">
-                    <NuxtLink
-                      v-for="(item, itemIndex) in group.items"
-                      :key="`${group.title}-${item}-${itemIndex}`"
-                      :to="`/${activeMenu.toLowerCase()}/${group.title.toLowerCase().replace(/\s+/g, '-')}/${item.toLowerCase().replace(/\s+/g, '-')}`"
-                      class="block py-2 no-underline text-base font-normal leading-relaxed transition-all hover:text-[var(--tm-pri-0)] hover:underline"
-                      :style="{ color: 'var(--tm-txt-primary)' }"
-                      @click="closeMenu"
+                  <div
+                    v-if="group.subItems && group.subItems.length > 0"
+                    class="grid grid-cols-2 gap-x-16 gap-y-1"
+                  >
+                    <div
+                      v-for="(item, itemIndex) in group.subItems"
+                      :key="`${group.title || group.name}-${item.name}-${itemIndex}`"
+                      class="submenu-item"
                     >
-                      {{ item }}
-                    </NuxtLink>
+                      <!-- Item with third level -->
+                      <div v-if="item.hasSubMenu">
+                        <h3
+                          class="text-lg font-bold mb-2 cursor-pointer transition-all hover:text-[var(--tm-pri-0)] hover:underline"
+                          :style="{
+                            color:
+                              activeThirdMenu === `${activeMenu}-${item.name}`
+                                ? 'var(--tm-pri-0)'
+                                : 'var(--tm-txt-primary)',
+                          }"
+                          @click="handleSubMenuClick(activeMenu, item)"
+                        >
+                          {{ item.name }}
+                        </h3>
+                        <ul
+                          v-if="activeThirdMenu === `${activeMenu}-${item.name}` && item.subItems"
+                          class="list-none p-0 m-0"
+                        >
+                          <li
+                            v-for="(thirdItem, thirdIndex) in item.subItems"
+                            :key="`${activeMenu}-${item.name}-${thirdItem.name}-${thirdIndex}`"
+                            class="mb-1"
+                          >
+                            <NuxtLink
+                              :to="generatePath([activeMenu, item.name, thirdItem.name])"
+                              class="no-underline text-sm transition-all hover:text-[var(--tm-pri-0)] hover:underline"
+                              :style="{ color: 'var(--tm-txt-secondary)' }"
+                              @click="closeMenu"
+                            >
+                              {{ thirdItem.name }}
+                            </NuxtLink>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- Item without third level -->
+                      <NuxtLink
+                        v-else
+                        :to="generatePath([activeMenu, group.title || group.name, item.name])"
+                        class="block py-2 no-underline text-base font-normal leading-relaxed transition-all hover:text-[var(--tm-pri-0)] hover:underline"
+                        :style="{ color: 'var(--tm-txt-primary)' }"
+                        @click="closeMenu"
+                      >
+                        {{ item.name }}
+                      </NuxtLink>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -179,22 +223,11 @@
               >
                 <div
                   v-for="(subItem, index) in activeSubmenu"
-                  :key="`${activeMenu}-${getSubMenuItemName(subItem)}-${index}`"
+                  :key="`${activeMenu}-${subItem.name}-${index}`"
                   class="submenu-item"
                 >
-                  <!-- String type submenu -->
-                  <NuxtLink
-                    v-if="typeof subItem === 'string'"
-                    :to="`/${activeMenu.toLowerCase()}/${subItem.toLowerCase().replace(/\s+/g, '-')}`"
-                    class="block py-2 no-underline text-base font-normal leading-relaxed transition-all hover:text-[var(--tm-pri-0)] hover:underline"
-                    :style="{ color: 'var(--tm-txt-primary)' }"
-                    @click="closeMenu"
-                  >
-                    {{ subItem }}
-                  </NuxtLink>
-
                   <!-- Object type submenu (with third level) -->
-                  <div v-else-if="isSubMenuItem(subItem)">
+                  <div v-if="subItem.hasSubMenu">
                     <h3
                       class="text-lg font-bold mb-2 cursor-pointer transition-all hover:text-[var(--tm-pri-0)] hover:underline"
                       :style="{
@@ -213,20 +246,30 @@
                     >
                       <li
                         v-for="(thirdItem, thirdIndex) in subItem.subItems"
-                        :key="`${activeMenu}-${subItem.name}-${thirdItem}-${thirdIndex}`"
+                        :key="`${activeMenu}-${subItem.name}-${thirdItem.name}-${thirdIndex}`"
                         class="mb-1"
                       >
                         <NuxtLink
-                          :to="`/${activeMenu.toLowerCase()}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}/${thirdItem.toLowerCase().replace(/\s+/g, '-')}`"
+                          :to="generatePath([activeMenu, subItem.name, thirdItem.name])"
                           class="no-underline text-sm transition-all hover:text-[var(--tm-pri-0)] hover:underline"
                           :style="{ color: 'var(--tm-txt-secondary)' }"
                           @click="closeMenu"
                         >
-                          {{ thirdItem }}
+                          {{ thirdItem.name }}
                         </NuxtLink>
                       </li>
                     </ul>
                   </div>
+                  <!-- Simple item -->
+                  <NuxtLink
+                    v-else
+                    :to="generatePath([activeMenu, subItem.name])"
+                    class="block py-2 no-underline text-base font-normal leading-relaxed transition-all hover:text-[var(--tm-pri-0)] hover:underline"
+                    :style="{ color: 'var(--tm-txt-primary)' }"
+                    @click="closeMenu"
+                  >
+                    {{ subItem.name }}
+                  </NuxtLink>
                 </div>
               </div>
             </div>
@@ -279,7 +322,8 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { navigateTo } from 'nuxt/app'
-  import type { MenuItem, SubMenuItem, BottomLink, MenuGroup } from './types/index'
+  import type { MenuItem, UnifiedMenuItem, BottomLink } from './types/index'
+  import { generatePath } from './types/index'
 
   interface Props {
     open: boolean
@@ -318,25 +362,8 @@
 
   const isGroupedMenu = computed(() => {
     const submenu = activeSubmenu.value
-    return submenu.length > 0 && typeof submenu[0] === 'object' && 'title' in submenu[0]
+    return submenu.length > 0 && (submenu[0].isGroup === true || !!submenu[0].title)
   })
-
-  // Type guards
-  const isSubMenuItem = (item: any): item is SubMenuItem => {
-    return typeof item === 'object' && 'name' in item && !('title' in item)
-  }
-
-  const isMenuGroup = (item: any): item is MenuGroup => {
-    return typeof item === 'object' && 'title' in item && 'items' in item
-  }
-
-  // Helper function to safely get submenu item name
-  const getSubMenuItemName = (item: string | SubMenuItem | MenuGroup): string => {
-    if (typeof item === 'string') return item
-    if (isSubMenuItem(item)) return item.name
-    if (isMenuGroup(item)) return item.title
-    return ''
-  }
 
   const closeMenu = () => {
     isOpen.value = false
@@ -347,18 +374,19 @@
   const handleMenuClick = (item: MenuItem) => {
     if (item.hasSubMenu) {
       activeMenu.value = item.name
+      activeThirdMenu.value = null
     } else {
-      navigateTo(`/${item.name.toLowerCase().replace(/\s+/g, '-')}`)
+      navigateTo(generatePath([item.name]))
       closeMenu()
     }
   }
 
-  const handleSubMenuClick = (parentName: string, subItem: SubMenuItem) => {
+  const handleSubMenuClick = (parentName: string, subItem: UnifiedMenuItem) => {
     if (subItem.hasSubMenu) {
       const key = `${parentName}-${subItem.name}`
       activeThirdMenu.value = activeThirdMenu.value === key ? null : key
     } else {
-      navigateTo(`/${parentName.toLowerCase()}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`)
+      navigateTo(generatePath([parentName, subItem.name]))
       closeMenu()
     }
   }

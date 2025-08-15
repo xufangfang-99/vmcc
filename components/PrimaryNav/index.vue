@@ -51,7 +51,7 @@
   import { navigateTo } from 'nuxt/app'
   import DesktopFullscreenMenu from './DesktopFullscreenMenu.vue'
   import MobileFullscreenMenu from './MobileFullscreenMenu.vue'
-  import type { MenuItem } from './types/index'
+  import type { MenuItem, UnifiedMenuItem } from './types/index'
 
   interface Props {
     fullscreen?: boolean
@@ -72,7 +72,15 @@
     set: (value) => emit('update:open', value),
   })
 
-  // Menu data
+  // Helper function to create submenu items
+  const createSubItems = (items: string[]): UnifiedMenuItem[] => {
+    return items.map((item) => ({
+      name: item,
+      hasSubMenu: false,
+    }))
+  }
+
+  // Menu data with unified structure
   const menuItems: MenuItem[] = [
     {
       name: 'Industries',
@@ -81,138 +89,263 @@
         {
           name: 'Aerospace & Defense',
           hasSubMenu: true,
-          subItems: [
+          subItems: createSubItems([
             'Aerospace & Defense',
             'How We Help Clients',
             'Our Insights',
             'Our People',
             'Contact Us',
-          ],
+          ]),
         },
         {
           name: 'Agriculture',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Automotive & Assembly',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Chemicals',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Consumer Packaged Goods',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Education',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Electric Power & Natural Gas',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Energy and Materials',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Engineering, Construction & Building Materials',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Financial Services',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Healthcare',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Industrials & Electronics',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Infrastructure',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Life Sciences',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Logistics',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Metals & Mining',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Oil & Gas',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Packaging & Paper',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Private Capital',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Public Sector',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Real Estate',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Retail',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Semiconductors',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Social Sector',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Technology, Media & Telecommunications',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Travel',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
       ],
     },
@@ -223,7 +356,7 @@
         {
           name: 'Artificial Intelligence',
           hasSubMenu: true,
-          subItems: [
+          subItems: createSubItems([
             'Overview',
             'Our Approach',
             'Labs',
@@ -231,87 +364,122 @@
             'Our Insights',
             'Our People',
             'Contact Us',
-          ],
+          ]),
         },
         {
           name: 'Business Building',
           hasSubMenu: true,
-          subItems: ['Overview', 'Our insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems(['Overview', 'Our insights', 'Our People', 'Contact Us']),
         },
         {
           name: 'Geopolitics',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Insights on Geopolitics', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Insights on Geopolitics',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Growth, Marketing & Sales',
           hasSubMenu: true,
-          subItems: [
+          subItems: createSubItems([
             'How We Help Clients',
             'Our Insights',
             'Our People',
             'Contact Us',
             'Solutions',
-          ],
+          ]),
         },
         {
           name: 'Implementation',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our People', 'Our Insights', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our People',
+            'Our Insights',
+            'Contact Us',
+          ]),
         },
         {
           name: 'M&A',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Operations',
           hasSubMenu: true,
-          subItems: [
+          subItems: createSubItems([
             'How We Help Clients',
             'Our Insights',
             'Case Studies',
             'Solutions',
             'Our People',
             'Contact Us',
-          ],
+          ]),
         },
         {
           name: 'Risk & Resilience',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Strategy & Corporate Finance',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'People & Organizational Performance',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
         {
           name: 'Sustainability',
           hasSubMenu: true,
-          subItems: [
+          subItems: createSubItems([
             'How We Help Clients',
             'Our Insights',
             'Our People',
             'Case Studies',
             'Careers',
             'Contact Us',
-          ],
+          ]),
         },
         {
           name: 'Technology',
           hasSubMenu: true,
-          subItems: ['Overview', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems(['Overview', 'Our Insights', 'Our People', 'Contact Us']),
         },
         {
           name: 'Transformation',
           hasSubMenu: true,
-          subItems: ['How We Help Clients', 'Our Insights', 'Our People', 'Contact Us'],
+          subItems: createSubItems([
+            'How We Help Clients',
+            'Our Insights',
+            'Our People',
+            'Contact Us',
+          ]),
         },
       ],
       featured: {
@@ -332,28 +500,223 @@
       subItems: [
         {
           title: 'TRENDING TOPICS',
-          items: [
-            'Artificial Intelligence & Gen AI',
-            'Business Resilience',
-            'Case Studies',
-            'CEO Excellence',
-            'Geopolitics',
-            'Tariffs and Global Trade',
+          name: 'TRENDING TOPICS',
+          isGroup: true,
+          hasSubMenu: true,
+          subItems: [
+            {
+              name: 'Artificial Intelligence & Gen AI',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Overview',
+                'Our Approach',
+                'Labs',
+                'Case Studies',
+                'Our Insights',
+                'Our People',
+                'Contact Us',
+              ]),
+            },
+            {
+              name: 'Business Resilience',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'Case Studies',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Overview',
+                'Who we are',
+                'Our commitments',
+                'How we work',
+                'Alumni',
+                'Media',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'CEO Excellence',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'Geopolitics',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'How We Help Clients',
+                'Insights on Geopolitics',
+                'Our People',
+                'Contact Us',
+              ]),
+            },
+            {
+              name: 'Tariffs and Global Trade',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
           ],
         },
         {
           title: 'EXPLORE',
-          items: [
-            'Author Talks',
-            'Global Surveys',
-            'McKinsey Explainers',
-            'McKinsey Live',
-            'McKinsey on Books',
-            'McKinsey on Lives & Legacies',
-            'McKinsey Podcast',
-            'McKinsey Themes',
-            'McKinsey Video',
-            'Week in Charts',
+          name: 'EXPLORE',
+          isGroup: true,
+          hasSubMenu: true,
+          subItems: [
+            {
+              name: 'Author Talks',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'Global Surveys',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey Explainers',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey Live',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey on Books',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey on Lives & Legacies',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey Podcast',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey Themes',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'McKinsey Video',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
+            {
+              name: 'Week in Charts',
+              hasSubMenu: true,
+              subItems: createSubItems([
+                'Industries',
+                'Capabilities',
+                'Our Insights',
+                'Locations',
+                'Careers',
+                'About Us',
+                'McKinsey Blog',
+              ]),
+            },
           ],
         },
       ],
@@ -363,7 +726,7 @@
           {
             name: 'Ask McKinsey',
             description:
-              'Get answers to the questions that matter to you—based on McKinsey insights. This pilot of our new gen AI chatbot covers digital, AI, technology, media, and telecoms. Other topics coming soon.',
+              'Get answers to the questions that matter to youâ€"based on McKinsey insights. This pilot of our new gen AI chatbot covers digital, AI, technology, media, and telecoms. Other topics coming soon.',
             link: '/our-insights/ask-mckinsey',
           },
           {
@@ -390,15 +753,142 @@
       name: 'Careers',
       hasSubMenu: true,
       subItems: [
-        'Home',
-        'Explore',
-        'Jobs',
-        'Interviewing',
-        'Our People',
-        'Students',
-        'Tech Careers',
-        'Careers Beyond Consulting',
-        'Experienced Professionals',
+        {
+          name: 'Home',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Explore',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Jobs',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Interviewing',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Our People',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Students',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Careers',
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Tech Careers',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Careers Beyond Consulting',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
+        {
+          name: 'Experienced Professionals',
+          hasSubMenu: true,
+          subItems: createSubItems([
+            'Home',
+            'Explore',
+            'Jobs',
+            'Interviewing',
+            'Our People',
+            'Students',
+            'Tech Careers',
+            'Careers Beyond Consulting',
+            'Experienced Professionals',
+          ]),
+        },
       ],
     },
     {
@@ -407,37 +897,49 @@
       subItems: [
         {
           title: 'WHO WE ARE',
-          items: [
+          name: 'WHO WE ARE',
+          isGroup: true,
+          hasSubMenu: true,
+          subItems: createSubItems([
             'Our Leadership',
             'Purpose, Mission & Values',
             'Our History',
             'Our Aspiration',
             'Our Governance',
-          ],
+          ]),
         },
         {
           title: 'OUR COMMITMENTS',
-          items: [
+          name: 'OUR COMMITMENTS',
+          isGroup: true,
+          hasSubMenu: true,
+          subItems: createSubItems([
             'Our Diverse Meritocracy',
             'Economic Opportunity',
             'Social Responsibility',
             'Environmental Sustainability',
             '2024 Sustainable and Inclusive Growth Report',
-          ],
+          ]),
         },
         {
           title: 'HOW WE WORK',
-          items: [
+          name: 'HOW WE WORK',
+          isGroup: true,
+          hasSubMenu: true,
+          subItems: createSubItems([
             'Alliances & Acquisitions',
             'Solutions',
             'Client Capabilities Network',
             'Case Studies',
             'From idea to impact',
-          ],
+          ]),
         },
         {
           title: 'KEEP EXPLORING',
-          items: ['Keep Exploring', 'Alumni', 'Media', 'McKinsey Blog'],
+          name: 'KEEP EXPLORING',
+          isGroup: true,
+          hasSubMenu: true,
+          subItems: createSubItems(['Keep Exploring', 'Alumni', 'Media', 'McKinsey Blog']),
         },
       ],
       featured: {
