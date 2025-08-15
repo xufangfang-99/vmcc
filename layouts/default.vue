@@ -5,7 +5,10 @@
         <div class="flex items-center gap-4">
           <MenuIcon @click="handleIconClick" />
           <Logo></Logo>
-          <PrimaryNav></PrimaryNav>
+          <!-- 仅在非移动端显示 PrimaryNav -->
+          <Responsive :not-mobile="true">
+            <PrimaryNav></PrimaryNav>
+          </Responsive>
         </div>
         <ThemeSelector />
       </div>
@@ -17,7 +20,10 @@
 </template>
 
 <script setup lang="ts">
-  import MenuIcon from './comp/menuIcon.vue'
+  import { useDevice } from '~/composables/useDevice'
+
+  // 使用设备检测 store
+  const device = useDevice()
 
   const handleIconClick = () => {
     console.log('menu')
