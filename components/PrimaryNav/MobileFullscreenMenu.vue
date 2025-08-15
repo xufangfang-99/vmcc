@@ -137,8 +137,8 @@
                 class="mb-6"
               >
                 <h3
-                  class="px-4 py-2 text-xs font-semibold tracking-wider uppercase"
-                  :style="{ color: 'var(--tm-txt-secondary)' }"
+                  class="px-4 py-2 text-sm font-bold tracking-wider uppercase"
+                  :style="{ color: 'var(--tm-pri-0)' }"
                 >
                   {{ group.title }}
                 </h3>
@@ -151,7 +151,7 @@
                   >
                     <NuxtLink
                       :to="`/${activeMenuName.toLowerCase()}/${group.title.toLowerCase().replace(/\s+/g, '-')}/${item.toLowerCase().replace(/\s+/g, '-')}`"
-                      class="block px-4 py-4 no-underline text-base transition-colors active:bg-gray-100 dark:active:bg-gray-800"
+                      class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 hover:text-[var(--tm-pri-0)] hover:underline"
                       :style="{ color: 'var(--tm-txt-primary)' }"
                       @click="closeMenu"
                     >
@@ -161,7 +161,6 @@
                 </ul>
               </div>
             </div>
-
             <!-- Regular submenu items -->
             <ul
               v-else
@@ -177,7 +176,7 @@
                 <NuxtLink
                   v-if="typeof subItem === 'string'"
                   :to="`/${activeMenuName.toLowerCase()}/${subItem.toLowerCase().replace(/\s+/g, '-')}`"
-                  class="block px-4 py-4 no-underline text-base transition-colors active:bg-gray-100 dark:active:bg-gray-800"
+                  class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 hover:text-[var(--tm-pri-0)] hover:underline"
                   :style="{ color: 'var(--tm-txt-primary)' }"
                   @click="closeMenu"
                 >
@@ -186,12 +185,12 @@
 
                 <!-- Object type -->
                 <button
-                  v-else
-                  class="flex items-center justify-between px-4 py-4 w-full no-underline transition-colors active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent"
+                  v-else-if="isSubMenuItem(subItem)"
+                  class="flex items-center justify-between px-4 py-3 w-full no-underline transition-all active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent hover:text-[var(--tm-pri-0)]"
                   :style="{ color: 'var(--tm-txt-primary)' }"
-                  @click="handleSubMenuClick(subItem as SubMenuItem)"
+                  @click="handleSubMenuClick(subItem)"
                 >
-                  {{ (subItem as SubMenuItem).name }}
+                  <span class="font-bold">{{ subItem.name }}</span>
                   <div class="i-carbon-chevron-right w-5 h-5 opacity-60"></div>
                 </button>
               </li>
@@ -203,15 +202,15 @@
               class="p-4 mt-8"
             >
               <h3
-                class="text-xs font-semibold mb-4 tracking-wider uppercase"
-                :style="{ color: 'var(--tm-txt-secondary)' }"
+                class="text-sm font-bold mb-4 tracking-wider uppercase"
+                :style="{ color: 'var(--tm-pri-0)' }"
               >
                 {{ activeFeatured.title }}
               </h3>
               <div
                 v-for="item in activeFeatured.items"
                 :key="item.name"
-                class="mb-4"
+                class="mb-2"
               >
                 <NuxtLink
                   :to="item.link"
@@ -219,7 +218,7 @@
                   @click="closeMenu"
                 >
                   <h4
-                    class="text-base font-semibold mb-2"
+                    class="text-base font-semibold mb-2 transition-all active:text-[var(--tm-pri-0)] active:underline"
                     :style="{ color: 'var(--tm-txt-primary)' }"
                   >
                     {{ item.name }}
@@ -247,7 +246,7 @@
               >
                 <NuxtLink
                   :to="`/${activeMenuName.toLowerCase()}/${activeSubMenuName.toLowerCase().replace(/\s+/g, '-')}/${thirdItem.toLowerCase().replace(/\s+/g, '-')}`"
-                  class="block px-4 py-4 no-underline text-base transition-colors active:bg-gray-100 dark:active:bg-gray-800"
+                  class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 hover:text-[var(--tm-pri-0)] hover:underline"
                   :style="{ color: 'var(--tm-txt-primary)' }"
                   @click="closeMenu"
                 >
@@ -322,6 +321,11 @@
     }
     return false
   })
+
+  // Type guards
+  const isSubMenuItem = (item: any): item is SubMenuItem => {
+    return typeof item === 'object' && 'name' in item && !('title' in item)
+  }
 
   const closeMenu = () => {
     isOpen.value = false
