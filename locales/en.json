@@ -1,0 +1,23 @@
+{
+  "title": "Language Switch Demo",
+  "welcome": "Welcome",
+  "description": "This is a multilingual demo page",
+  "changeLanguage": "Change Language",
+  "menu": {
+    "title": "Menu",
+    "home": "Home",
+    "login": "Login",
+    "imageTest": "Image Test",
+    "imageTest1": "Image Test1",
+    "methodTest": "Method Test",
+    "commonConfig": "Common Config",
+    "useStateManage": "useState Management",
+    "pinaManage": "Pinia Management",
+    "pinaMultiManage": "Pinia Multi-page",
+    "i18n": "I18n",
+    "network": "Network",
+    "envConfig": "Environment",
+    "seoConfig": "SEO Config",
+    "themeShow": "Theme Display"
+  }
+}

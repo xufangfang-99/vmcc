@@ -1,0 +1,43 @@
+{
+  "root": true,
+  "extends": ["@nuxt/eslint-config", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "vue/no-multiple-template-root": "off",
+    "no-console": "off",
+    "no-debugger": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "vue/max-attributes-per-line": [
+      "error",
+      {
+        "singleline": {
+          "max": 1
+        },
+        "multiline": {
+          "max": 1
+        }
+      }
+    ],
+    "vue/html-closing-bracket-newline": [
+      "error",
+      {
+        "singleline": "never",
+        "multiline": "always"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "htmlWhitespaceSensitivity": "ignore",
+        "singleAttributePerLine": true
+      }
+    ]
+  }
+}

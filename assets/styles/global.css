@@ -1,0 +1,239 @@
+@font-face {
+  font-family: 'Antonio';
+  src: url('/fonts/Antonio-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* 主色系列 - Primary Colors */
+  --tm-pri-0: var(--theme-primary-0, #1890ff);
+  --tm-pri-1: var(--theme-primary-1, #40a9ff);
+  --tm-pri-2: var(--theme-primary-2, #096dd9);
+
+  /* 文本颜色系统 - Text Colors */
+  --tm-txt-primary: var(--theme-text-primary, #2c3e50);
+  --tm-txt-secondary: var(--theme-text-secondary, #5e6d82);
+  --tm-txt-light: var(--theme-text-light, #8492a6);
+  --tm-txt-label: var(--theme-text-label, #1f2d3d);
+  --tm-txt-placeholder: var(--theme-text-placeholder, #c0ccda);
+  --tm-txt-disabled: var(--theme-text-disabled, #c0c4cc);
+
+  /* 背景颜色系统 */
+  --tm-bg-primary: var(--theme-background-primary, #ffffff);
+  --tm-bg-secondary: var(--theme-background-secondary, #f5f7fa);
+  --tm-bg-tertiary: var(--theme-background-tertiary, #eef2f6);
+  --tm-bg-active: var(--theme-background-active, #e6f7ff);
+  --tm-bg-disabled: var(--theme-background-disabled, #f5f7fa);
+  --tm-bg-mask: var(--theme-background-mask, rgba(0, 0, 0, 0.5));
+}
+
+/* 暗色主题变量 */
+:root[class~='dark'] {
+  /* 暗色主题主色 */
+  --tm-pri-0: var(--theme-dark-primary-0, #40a9ff);
+  --tm-pri-1: var(--theme-dark-primary-1, #1890ff);
+  --tm-pri-2: var(--theme-dark-primary-2, #096dd9);
+
+  /* 暗色主题文本色 */
+  --tm-txt-primary: var(--theme-dark-text-primary, #ffffff);
+  --tm-txt-secondary: var(--theme-dark-text-secondary, #e6f7ff);
+  --tm-txt-light: var(--theme-dark-text-light, #bae7ff);
+  --tm-txt-label: var(--theme-dark-text-label, #ffffff);
+  --tm-txt-placeholder: var(--theme-dark-text-placeholder, #8cc8ff);
+  --tm-txt-disabled: var(--theme-dark-text-disabled, #597ef7);
+
+  /* 暗色主题背景色 */
+  --tm-bg-primary: var(--theme-dark-background-primary, #001529);
+  --tm-bg-secondary: var(--theme-dark-background-secondary, #002140);
+  --tm-bg-tertiary: var(--theme-dark-background-tertiary, #00172e);
+  --tm-bg-active: var(--theme-dark-background-active, #002766);
+  --tm-bg-disabled: var(--theme-dark-background-disabled, #001f3d);
+  --tm-bg-mask: var(--theme-dark-background-mask, rgba(0, 0, 0, 0.65));
+
+  /* 暗色主题边框色 */
+  --tm-bd-primary: var(--theme-dark-border-primary, #40a9ff);
+  --tm-bd-secondary: var(--theme-dark-border-secondary, #002140);
+  --tm-bd-light: var(--theme-dark-border-light, #003a8c);
+  --tm-bd-focus: var(--theme-dark-border-focus, #1890ff);
+  --tm-bd-disabled: var(--theme-dark-border-disabled, #001529);
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--tm-bd-primary);
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family:
+    'Antonio',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  font-size: 14px;
+  background-color: var(--tm-bg-primary);
+  color: var(--tm-txt-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--tm-txt-primary);
+}
+
+p {
+  margin: 0;
+  color: var(--tm-txt-secondary);
+}
+
+a {
+  color: var(--tm-pri-0);
+  text-decoration: inherit;
+}
+
+button {
+  color: var(--tm-txt-primary);
+  background-color: var(--tm-btn-pri-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--tm-btn-pri-hover);
+}
+
+button:active {
+  background-color: var(--tm-btn-pri-active);
+}
+
+button:disabled {
+  background-color: var(--tm-btn-pri-disabled);
+  cursor: not-allowed;
+}
+
+input,
+select,
+textarea {
+  color: var(--tm-txt-primary);
+  background-color: var(--tm-bg-secondary);
+  border: 1px solid var(--tm-bd-secondary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--tm-bd-focus);
+  outline: none;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: var(--tm-bg-disabled);
+  border-color: var(--tm-bd-disabled);
+  color: var(--tm-txt-disabled);
+}
+
+::placeholder {
+  color: var(--tm-txt-placeholder);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tm-bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tm-bg-tertiary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tm-bg-active);
+}
+
+::selection {
+  background-color: var(--tm-pri-0);
+  color: #ffffff;
+}
+/* 占位符样式 */
+::placeholder {
+  color: var(--tm-txt-placeholder); /* 使用主题占位符文本色 */
+  opacity: 1;
+}
+
+/* 其他辅助类和响应式容器样式保持不变 */
+.hidden {
+  display: none;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 响应式容器 */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
