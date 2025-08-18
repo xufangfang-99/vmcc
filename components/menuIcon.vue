@@ -18,13 +18,29 @@
     <!-- Menu Content -->
     <PrimaryNav
       v-model:open="isMenuOpen"
-      :fullscreen="true"
+      :menu-items="props.menuItems"
+      :bottom-links="props.bottomLinks"
     />
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import type { MenuItem } from '~/components/NavMenu.types'
+
+  interface Props {
+    menuItems?: MenuItem[]
+    bottomLinks?: Array<{ name: string; path: string }>
+  }
+
+  const props = withDefaults(defineProps<Props>(), {
+    menuItems: () => [],
+    bottomLinks: () => [
+      { name: 'Email Subscriptions', path: '/subscriptions' },
+      { name: 'Profile', path: '/profile' },
+      { name: 'Saved Articles', path: '/saved' },
+    ],
+  })
 
   const isMenuOpen = ref(false)
 

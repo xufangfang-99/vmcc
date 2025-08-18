@@ -1,3 +1,5 @@
+// NavMenu 组件专属的类型定义
+
 // 统一的菜单项结构
 export interface UnifiedMenuItem {
   name: string
@@ -9,7 +11,7 @@ export interface UnifiedMenuItem {
   isGroup?: boolean // 标识是否为分组
 }
 
-// Featured 部分保持不变
+// Featured 部分
 export interface FeaturedItem {
   name: string
   description?: string
@@ -33,7 +35,7 @@ export interface MenuItem {
   }
 }
 
-// 底部链接保持不变
+// 底部链接
 export interface BottomLink {
   name: string
   path: string

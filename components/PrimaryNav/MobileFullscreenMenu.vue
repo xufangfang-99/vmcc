@@ -262,8 +262,8 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { navigateTo } from 'nuxt/app'
-  import type { MenuItem, UnifiedMenuItem, BottomLink } from './types/index'
-  import { generatePath, getMenuItemName } from './types/index'
+  import type { MenuItem, UnifiedMenuItem, BottomLink } from '~/components/NavMenu.types'
+  import { generatePath, getMenuItemName } from '~/components/NavMenu.types'
 
   interface NavigationItem {
     items: UnifiedMenuItem[]
