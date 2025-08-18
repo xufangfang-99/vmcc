@@ -41,7 +41,7 @@
         <nav class="flex-1 py-8">
           <ul class="list-none p-0 m-0">
             <li
-              v-for="item in menuItems"
+              v-for="(item, index) in menuItems"
               :key="item.name"
               class="relative"
               :class="{ active: activeMenu === item.name }"
@@ -53,7 +53,7 @@
                 }"
                 @click="handleMenuClick(item)"
               >
-                {{ item.name }}
+                {{ item.name }}--aa--{{ index }}
                 <div
                   v-if="item.hasSubMenu"
                   class="i-carbon-chevron-right w-5 h-5 opacity-60 transition-transform"
@@ -72,7 +72,7 @@
           ></div>
           <ul class="list-none p-0 m-0">
             <li
-              v-for="link in bottomLinks"
+              v-for="(link, linkIndex) in bottomLinks"
               :key="link.name"
               class="mb-4"
             >
@@ -82,7 +82,8 @@
                 :style="{ color: 'var(--tm-txt-primary)' }"
                 @click="closeMenu"
               >
-                {{ link.name }}
+                v-for="(link, linkIndex) in bottomLinks"
+                {{ link.name }}--bb--{{ linkIndex }}
               </NuxtLink>
             </li>
           </ul>
@@ -135,7 +136,7 @@
               :style="{ color: 'var(--tm-txt-primary)' }"
               @click="closeMenu"
             >
-              {{ activeExploreLink.text }}
+              {{ activeExploreLink.text }}9999
               <div class="i-carbon-arrow-right w-4 h-4"></div>
             </NuxtLink>
           </div>
@@ -179,7 +180,7 @@
                           }"
                           @click="handleSubMenuClick(activeMenu, item)"
                         >
-                          {{ item.name }}
+                          {{ item.name }}---{{ itemIndex }}
                         </h3>
                         <ul
                           v-if="activeThirdMenu === `${activeMenu}-${item.name}` && item.subItems"
@@ -196,7 +197,7 @@
                               :style="{ color: 'var(--tm-txt-secondary)' }"
                               @click="closeMenu"
                             >
-                              {{ thirdItem.name }}
+                              {{ thirdItem.name }}---{{ thirdIndex }}
                             </NuxtLink>
                           </li>
                         </ul>
@@ -255,7 +256,7 @@
                           :style="{ color: 'var(--tm-txt-secondary)' }"
                           @click="closeMenu"
                         >
-                          {{ thirdItem.name }}
+                          {{ thirdItem.name }}--a-{{ thirdIndex }}
                         </NuxtLink>
                       </li>
                     </ul>
@@ -322,8 +323,8 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { navigateTo } from 'nuxt/app'
-  import type { MenuItem, UnifiedMenuItem, BottomLink } from './types/index'
-  import { generatePath } from './types/index'
+  import type { MenuItem, UnifiedMenuItem, BottomLink } from '~/components/NavMenu.types'
+  import { generatePath } from '~/components/NavMenu.types'
 
   interface Props {
     open: boolean
