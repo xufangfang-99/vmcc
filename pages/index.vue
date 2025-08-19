@@ -14,6 +14,9 @@
 
     <!-- 第五屏: 行动号召 -->
     <CTASection />
+
+    <!-- 第六屏: 页脚 -->
+    <FooterSection />
   </div>
 </template>
 
@@ -23,6 +26,7 @@
   import ExpertiseSection from './Home/Components/ExpertiseSection.vue'
   import TestimonialsSection from './Home/Components/TestimonialsSection.vue'
   import CTASection from './Home/Components/CTASection.vue'
+  import FooterSection from './Home/Components/FooterSection.vue'
 
   // 设置页面使用首页布局
   definePageMeta({
