@@ -27,8 +27,9 @@
     "./**/*.json",
     "./components/**/*.vue",
     ".nuxt/nuxt.d.ts",
+    ".nuxt/types/**/*",
     "*.d.ts",
     "types/**/*.d.ts"
   ],
-  "exclude": ["node_modules", "dist", ".output", ".nuxt"]
+  "exclude": ["node_modules", "dist", ".output"]
 }

@@ -8,6 +8,12 @@ export default defineNuxtConfig({
         path: '~/components',
         global: true,
       },
+      {
+        path: '~/pages',
+        pattern: '**/*.vue',
+        global: true,
+        pathPrefix: false,
+      },
     ],
   },
   modules: [
