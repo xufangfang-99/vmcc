@@ -5,28 +5,6 @@
     <div class="bubble-2"></div>
     <div class="bubble-3"></div>
 
-    <!-- 光线扫描效果 -->
-    <div class="scan-line"></div>
-
-    <!-- 几何图形装饰 -->
-    <div class="geometric-shapes">
-      <div class="shape-triangle"></div>
-      <div class="shape-square"></div>
-      <div class="shape-hexagon"></div>
-    </div>
-
-    <!-- 光点效果 -->
-    <div class="light-dots">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    </div>
-
     <div class="container">
       <div class="content-wrapper">
         <!-- 左侧内容 -->
@@ -109,322 +87,29 @@
 <style scoped>
   .expertise-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, var(--tm-bg-secondary) 0%, var(--tm-bg-tertiary) 100%);
+    background: var(--tm-bg-secondary);
     position: relative;
     overflow: hidden;
   }
 
-  /* 浮动气泡背景 */
-  .expertise-section::before,
-  .expertise-section::after,
-  .bubble-1,
-  .bubble-2,
-  .bubble-3 {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: var(--tm-pri-0);
-    opacity: 0.05;
-    pointer-events: none;
-  }
-
+  /* 添加装饰性背景元素 */
   .expertise-section::before {
-    width: 300px;
-    height: 300px;
-    top: -150px;
-    right: 10%;
-    animation: bubble-float 25s ease-in-out infinite;
-  }
-
-  .expertise-section::after {
-    width: 200px;
-    height: 200px;
-    bottom: -100px;
-    left: 15%;
-    animation: bubble-float 20s ease-in-out infinite reverse;
-    animation-delay: -5s;
-  }
-
-  .bubble-1 {
-    width: 150px;
-    height: 150px;
-    top: 30%;
-    left: 5%;
-    background: var(--tm-pri-1);
-    opacity: 0.04;
-    animation: bubble-float 30s ease-in-out infinite;
-    animation-delay: -10s;
-  }
-
-  .bubble-2 {
-    width: 100px;
-    height: 100px;
-    top: 60%;
-    right: 8%;
-    background: var(--tm-pri-2);
-    opacity: 0.06;
-    animation: bubble-float 22s ease-in-out infinite reverse;
-    animation-delay: -15s;
-  }
-
-  .bubble-3 {
-    width: 180px;
-    height: 180px;
-    bottom: 20%;
-    right: 25%;
-    background: var(--tm-pri-0);
-    opacity: 0.03;
-    animation: bubble-float 28s ease-in-out infinite;
-    animation-delay: -7s;
-  }
-
-  /* 光线扫描效果 */
-  .scan-line {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(var(--tm-pri-0-rgb), 0.1) 50%,
-      transparent 100%
-    );
-    animation: scan 8s linear infinite;
-    pointer-events: none;
-  }
-
-  /* 几何图形装饰 */
-  .geometric-shapes {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-  }
-
-  .shape-triangle {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 87px solid var(--tm-pri-0);
-    opacity: 0.05;
-    top: 20%;
-    right: 15%;
-    animation: shape-rotate 20s linear infinite;
-  }
-
-  .shape-square {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: var(--tm-pri-1);
-    opacity: 0.04;
-    bottom: 30%;
-    left: 10%;
-    animation: shape-pulse 15s ease-in-out infinite;
-    transform: rotate(45deg);
-  }
-
-  .shape-hexagon {
-    position: absolute;
-    width: 100px;
-    height: 55px;
-    background: var(--tm-pri-2);
-    opacity: 0.03;
-    top: 50%;
-    left: 50%;
-    animation: shape-float 18s ease-in-out infinite;
-  }
-
-  .shape-hexagon::before,
-  .shape-hexagon::after {
     content: '';
     position: absolute;
-    width: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-  }
-
-  .shape-hexagon::before {
-    bottom: 100%;
-    border-bottom: 28px solid var(--tm-pri-2);
-  }
-
-  .shape-hexagon::after {
-    top: 100%;
-    border-top: 28px solid var(--tm-pri-2);
-  }
-
-  /* 光点效果 */
-  .light-dots {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-  }
-
-  .dot {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: var(--tm-pri-0);
-    border-radius: 50%;
-    opacity: 0;
-    animation: dot-blink 4s ease-in-out infinite;
-  }
-
-  .dot:nth-child(1) {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-  }
-  .dot:nth-child(2) {
-    top: 30%;
-    left: 80%;
-    animation-delay: 0.5s;
-  }
-  .dot:nth-child(3) {
-    top: 60%;
-    left: 10%;
-    animation-delay: 1s;
-  }
-  .dot:nth-child(4) {
-    top: 80%;
-    left: 60%;
-    animation-delay: 1.5s;
-  }
-  .dot:nth-child(5) {
-    top: 45%;
-    left: 40%;
-    animation-delay: 2s;
-  }
-  .dot:nth-child(6) {
-    top: 70%;
-    left: 90%;
-    animation-delay: 2.5s;
-  }
-  .dot:nth-child(7) {
-    top: 25%;
-    left: 50%;
-    animation-delay: 3s;
-  }
-  .dot:nth-child(8) {
-    top: 90%;
-    left: 30%;
-    animation-delay: 3.5s;
-  }
-
-  /* 深色模式调整 */
-  .dark .expertise-section {
-    background: linear-gradient(135deg, var(--tm-bg-primary) 0%, var(--tm-bg-secondary) 100%);
-  }
-
-  .dark .expertise-section::before,
-  .dark .expertise-section::after,
-  .dark .bubble-1,
-  .dark .bubble-2,
-  .dark .bubble-3 {
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, var(--tm-pri-0) 0%, transparent 70%);
     opacity: 0.03;
-  }
-
-  .dark .scan-line {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(var(--tm-pri-0-rgb), 0.05) 50%,
-      transparent 100%
-    );
-  }
-
-  .dark .shape-triangle,
-  .dark .shape-square,
-  .dark .shape-hexagon {
-    opacity: 0.02;
-  }
-
-  /* 动画定义 */
-  @keyframes bubble-float {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(50px, -30px) scale(1.1);
-    }
-    50% {
-      transform: translate(-30px, 50px) scale(0.9);
-    }
-    75% {
-      transform: translate(30px, 30px) scale(1.05);
-    }
-  }
-
-  @keyframes scan {
-    0% {
-      left: -100%;
-    }
-    100% {
-      left: 100%;
-    }
-  }
-
-  @keyframes shape-rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes shape-pulse {
-    0%,
-    100% {
-      transform: rotate(45deg) scale(1);
-    }
-    50% {
-      transform: rotate(45deg) scale(1.2);
-    }
-  }
-
-  @keyframes shape-float {
-    0%,
-    100% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    33% {
-      transform: translate(-30%, -70%) rotate(120deg);
-    }
-    66% {
-      transform: translate(-70%, -30%) rotate(240deg);
-    }
-  }
-
-  @keyframes dot-blink {
-    0%,
-    100% {
-      opacity: 0;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.6;
-      transform: scale(1.5);
-    }
+    transform: rotate(45deg);
+    pointer-events: none;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    position: relative;
-    z-index: 1;
   }
 
   .content-wrapper {
@@ -558,7 +243,15 @@
     z-index: -1;
   }
 
-  /* 深色模式下调整 */
+  /* 深色模式调整 */
+  .dark .expertise-section {
+    background: var(--tm-bg-primary);
+  }
+
+  .dark .expertise-section::before {
+    opacity: 0.02;
+  }
+
   .dark .feature-badge {
     background: var(--tm-pri-0);
     color: var(--tm-bg-primary);

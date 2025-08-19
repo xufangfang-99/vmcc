@@ -122,6 +122,12 @@
     position: relative;
     padding: 120px 0;
     overflow: hidden;
+    background: var(--tm-bg-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  /* 深色模式背景 */
+  .dark .cta-section {
     background: var(--tm-bg-secondary);
   }
 
@@ -140,11 +146,18 @@
     );
     opacity: 0.9;
     z-index: 1;
+    transition: opacity 0.3s ease;
   }
 
-  /* 深色模式下调整渐变 */
+  /* 深色模式下调整渐变透明度和色调 */
   .dark .gradient-background {
-    opacity: 0.85;
+    opacity: 0.8;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--tm-pri-0) 85%, black) 0%,
+      color-mix(in srgb, var(--tm-pri-1) 85%, black) 50%,
+      color-mix(in srgb, var(--tm-pri-2) 85%, black) 100%
+    );
   }
 
   .container {
@@ -158,18 +171,24 @@
   /* CTA 内容 */
   .cta-content {
     text-align: center;
-    color: white;
     max-width: 800px;
     margin: 0 auto;
   }
 
-  /* 主标题 */
+  /* 主标题 - 白色文字，深浅模式都适用 */
   .cta-title {
     font-size: 3.5rem;
     font-weight: 300;
     line-height: 1.2;
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 深色模式标题增强对比 */
+  .dark .cta-title {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
   /* 描述文字 */
@@ -177,10 +196,15 @@
     font-size: 1.25rem;
     line-height: 1.8;
     margin-bottom: 3rem;
-    opacity: 0.95;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  /* 深色模式描述文字 */
+  .dark .cta-description {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   /* 行动按钮 */
@@ -204,42 +228,57 @@
     white-space: nowrap;
   }
 
+  /* 主按钮 - 浅色模式 */
   .btn-primary {
     background: white;
     color: var(--tm-pri-0);
-  }
-
-  .dark .btn-primary {
-    background: var(--tm-bg-primary);
-    color: var(--tm-pri-0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    background: var(--tm-bg-secondary);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
   }
 
+  /* 主按钮 - 深色模式 */
+  .dark .btn-primary {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--tm-pri-0);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .btn-primary:hover {
+    background: white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  /* 次要按钮 - 浅色模式 */
   .btn-secondary {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: 2px solid white;
-  }
-
-  .dark .btn-secondary {
-    border-color: var(--tm-bg-primary);
-    color: var(--tm-bg-primary);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
   }
 
   .btn-secondary:hover {
-    background: white;
-    color: var(--tm-pri-0);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 次要按钮 - 深色模式 */
+  .dark .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.95);
   }
 
   .dark .btn-secondary:hover {
-    background: var(--tm-bg-primary);
-    color: var(--tm-pri-0);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
   /* 联系信息 */
@@ -254,20 +293,24 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.3s ease;
-    opacity: 0.9;
+  }
+
+  .dark .contact-item {
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .contact-item:hover {
-    opacity: 1;
+    color: white;
     transform: translateY(-2px);
   }
 
   .contact-item svg {
     flex-shrink: 0;
+    stroke: currentColor;
   }
 
   /* 装饰元素 */
@@ -285,12 +328,12 @@
     position: absolute;
     border-radius: 50%;
     background: white;
-    opacity: 0.1;
+    opacity: 0.08;
+    transition: opacity 0.3s ease;
   }
 
   .dark .shape {
-    background: var(--tm-bg-primary);
-    opacity: 0.15;
+    opacity: 0.05;
   }
 
   .shape-1 {
@@ -315,6 +358,59 @@
     top: 50%;
     right: 10%;
     animation: float 15s ease-in-out infinite;
+  }
+
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .cta-section {
+      padding: 80px 0;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+    }
+
+    .cta-description {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .shape-1 {
+      width: 200px;
+      height: 200px;
+      top: -100px;
+      left: -100px;
+    }
+
+    .shape-2 {
+      width: 150px;
+      height: 150px;
+      bottom: -75px;
+      right: -75px;
+    }
+
+    .shape-3 {
+      display: none;
+    }
   }
 
   /* 动画 */
