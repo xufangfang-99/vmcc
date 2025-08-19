@@ -8,6 +8,12 @@
 
     <!-- 第三屏: 精英服务 -->
     <ExpertiseSection />
+
+    <!-- 第四屏: 客户评价 -->
+    <TestimonialsSection />
+
+    <!-- 第五屏: 行动号召 -->
+    <CTASection />
   </div>
 </template>
 
@@ -15,6 +21,8 @@
   import HeroSection from './Home/Components/HeroSection.vue'
   import ServicesSection from './Home/Components/ServicesSection.vue'
   import ExpertiseSection from './Home/Components/ExpertiseSection.vue'
+  import TestimonialsSection from './Home/Components/TestimonialsSection.vue'
+  import CTASection from './Home/Components/CTASection.vue'
 
   // 设置页面使用首页布局
   definePageMeta({

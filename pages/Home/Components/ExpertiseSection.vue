@@ -1,5 +1,10 @@
 <template>
   <section class="expertise-section">
+    <!-- 浮动气泡装饰 -->
+    <div class="bubble-1"></div>
+    <div class="bubble-2"></div>
+    <div class="bubble-3"></div>
+
     <div class="container">
       <div class="content-wrapper">
         <!-- 左侧内容 -->
@@ -61,7 +66,7 @@
         <div class="right-image">
           <div class="image-container">
             <img
-              src="/images/business-meeting.jpg"
+              :src="businessMeetingImg"
               alt="专业商务会议"
               class="main-image"
             />
@@ -75,15 +80,30 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑（如需要可添加）
+  // 导入本地图片
+  import businessMeetingImg from '../images/business-meeting.jpg'
 </script>
 
 <style scoped>
   .expertise-section {
     padding: 100px 0;
-    background: var(--tm-bg-primary);
+    background: var(--tm-bg-secondary);
     position: relative;
     overflow: hidden;
+  }
+
+  /* 添加装饰性背景元素 */
+  .expertise-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, var(--tm-pri-0) 0%, transparent 70%);
+    opacity: 0.03;
+    transform: rotate(45deg);
+    pointer-events: none;
   }
 
   .container {
@@ -225,7 +245,11 @@
 
   /* 深色模式调整 */
   .dark .expertise-section {
-    background: var(--tm-bg-secondary);
+    background: var(--tm-bg-primary);
+  }
+
+  .dark .expertise-section::before {
+    opacity: 0.02;
   }
 
   .dark .feature-badge {

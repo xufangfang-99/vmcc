@@ -97,8 +97,21 @@
 <style scoped>
   .services-section {
     padding: 100px 0;
-    background: var(--tm-bg-secondary);
+    background: var(--tm-bg-primary);
     transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* 添加微妙的渐变覆盖 */
+  .services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(var(--tm-pri-0-rgb), 0.02) 100%);
+    pointer-events: none;
   }
 
   .container {
