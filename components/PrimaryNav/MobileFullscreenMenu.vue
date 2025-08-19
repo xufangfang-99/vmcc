@@ -335,41 +335,35 @@
   }
 
   const handleMenuClick = (item: MenuItem) => {
+    console.log('Mobile - handleMenuClick:', item.name)
+
     // 更新选中的一级菜单
     navigation.setSelectedPath({ firstLevel: item.name })
 
+    // 场景2：先检查一级菜单是否有特殊配置
+    const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
+
+    if (firstLevelConfig) {
+      console.log('Mobile - 场景2触发：', item.name, firstLevelConfig)
+      navigation.switchToCustom(
+        firstLevelConfig,
+        `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+      )
+      closeMenu()
+      return
+    }
+
+    // 如果有子菜单，进入子菜单
     if (item.hasSubMenu && item.subItems) {
-      // 场景2：检查一级菜单是否有特殊配置
-      const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
-
-      if (firstLevelConfig) {
-        console.log('Mobile - 场景2触发：', item.name)
-        navigation.switchToCustom(
-          firstLevelConfig,
-          `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-        )
-        closeMenu()
-      } else {
-        // 进入子菜单
-        navigationStack.value.push({
-          items: item.subItems,
-          title: item.name,
-          featured: item.featured,
-          exploreLink: item.exploreLink,
-        })
-      }
+      navigationStack.value.push({
+        items: item.subItems,
+        title: item.name,
+        featured: item.featured,
+        exploreLink: item.exploreLink,
+      })
     } else {
-      // 检查是否有特殊配置
-      const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
-
-      if (firstLevelConfig) {
-        navigation.switchToCustom(
-          firstLevelConfig,
-          `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-        )
-      } else {
-        navigateTo(generatePath([item.name]))
-      }
+      // 没有子菜单，直接导航
+      navigateTo(generatePath([item.name]))
       closeMenu()
     }
   }
@@ -378,61 +372,72 @@
     const currentNav = navigationStack.value[navigationStack.value.length - 1]
     const parentName = currentNav?.title || ''
 
-    if (item.hasSubMenu && item.subItems) {
-      // 场景3：检查二级菜单是否有特殊配置
-      const menuKey = `${parentName}-${item.name}`
-      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+    console.log('Mobile - handleNavigate:', parentName, '->', item.name)
 
-      if (secondLevelConfig) {
-        console.log('Mobile - 场景3触发：', menuKey)
-        navigation.setSelectedPath({
-          firstLevel: parentName,
-          secondLevel: item.name,
-        })
-        navigation.switchToCustom(
-          secondLevelConfig,
-          `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-        )
-        closeMenu()
-      } else {
-        // 场景1：进入三级菜单
-        console.log('Mobile - 场景1触发：显示三级菜单')
-        navigationStack.value.push({
-          items: item.subItems,
-          title: getMenuItemName(item),
-          featured: null,
-          exploreLink: null,
-          parentName: parentName,
-        })
-      }
+    // 场景3：先检查二级菜单是否有特殊配置
+    const menuKey = `${parentName}-${item.name}`
+    const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+
+    if (secondLevelConfig) {
+      console.log('Mobile - 场景3触发：', menuKey, secondLevelConfig)
+      navigation.setSelectedPath({
+        firstLevel: parentName,
+        secondLevel: item.name,
+      })
+      const basePath = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+      navigation.switchToCustom(secondLevelConfig, basePath)
+      closeMenu()
+      return
+    }
+
+    // 场景1：如果有三级菜单，进入下一级
+    if (item.hasSubMenu && item.subItems) {
+      console.log('Mobile - 场景1触发：显示三级菜单')
+      navigationStack.value.push({
+        items: item.subItems,
+        title: getMenuItemName(item),
+        featured: null,
+        exploreLink: null,
+        parentName: parentName,
+      })
+    } else {
+      // 没有子菜单也没有特殊配置，恢复默认导航
+      console.log('Mobile - 恢复默认导航并显示选中菜单')
+      navigation.switchToDefaultWithPath(parentName, item.name)
+      const path = item.link || generatePath([parentName, item.name])
+      navigateTo(path)
+      closeMenu()
     }
   }
 
   const handleDirectNavigation = (item: UnifiedMenuItem, path: string[]) => {
     const parentName = navigationStack.value[0]?.title || ''
-    const secondLevelName = path.length > 1 ? path[path.length - 1] : item.name
+    const secondLevelName =
+      navigationStack.value.length > 1
+        ? navigationStack.value[navigationStack.value.length - 1].title
+        : ''
 
-    // 检查是否是二级菜单点击
+    console.log('Mobile - handleDirectNavigation:', path, '->', item.name)
+
+    // 检查是否是二级菜单点击（navigationStack 只有一层）
     if (navigationStack.value.length === 1) {
       // 场景3：检查二级菜单是否有特殊配置
       const menuKey = `${parentName}-${item.name}`
       const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
 
       if (secondLevelConfig) {
-        console.log('Mobile - 场景3触发：', menuKey)
+        console.log('Mobile - 场景3触发（直接导航）：', menuKey, secondLevelConfig)
         navigation.setSelectedPath({
           firstLevel: parentName,
           secondLevel: item.name,
         })
-        navigation.switchToCustom(
-          secondLevelConfig,
-          `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-        )
+        const basePath = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+        navigation.switchToCustom(secondLevelConfig, basePath)
       } else {
         // 没有特殊配置，恢复默认导航并保留选中路径
         console.log('Mobile - 恢复默认导航并显示选中菜单')
         navigation.switchToDefaultWithPath(parentName, item.name)
-        const navPath = item.link || generatePath([...path, item.name])
+        const navPath = item.link || generatePath([parentName, item.name])
         navigateTo(navPath)
       }
     } else {
