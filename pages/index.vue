@@ -5,12 +5,16 @@
 
     <!-- 第二屏: 服务展示 -->
     <ServicesSection />
+
+    <!-- 第三屏: 精英服务 -->
+    <ExpertiseSection />
   </div>
 </template>
 
 <script setup lang="ts">
   import HeroSection from './Home/Components/HeroSection.vue'
   import ServicesSection from './Home/Components/ServicesSection.vue'
+  import ExpertiseSection from './Home/Components/ExpertiseSection.vue'
 
   // 设置页面使用首页布局
   definePageMeta({
