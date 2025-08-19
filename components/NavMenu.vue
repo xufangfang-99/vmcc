@@ -79,15 +79,18 @@
                         v-if="group.subItems && group.subItems.length > 0"
                         :class="getGridCols(item)"
                       >
-                        <NuxtLink
+                        <a
                           v-for="(subItem, index) in group.subItems"
                           :key="`${group.title || group.name}-${subItem.name}-${index}`"
-                          :to="generatePath([item.name, group.title || group.name, subItem.name])"
-                          class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-                          @click="closeMenu"
+                          :href="
+                            subItem.link ||
+                            generatePath([item.name, group.title || group.name, subItem.name])
+                          "
+                          class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                          @click.prevent="handleSubItemClick(item, subItem)"
                         >
                           {{ subItem.name }}
-                        </NuxtLink>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -97,15 +100,15 @@
                     v-else-if="item.subItems && item.subItems.length > 0"
                     :class="getGridCols(item)"
                   >
-                    <NuxtLink
+                    <a
                       v-for="(subItem, index) in item.subItems"
                       :key="`${subItem.name}-${index}`"
-                      :to="generatePath([item.name, subItem.name])"
-                      class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-                      @click="closeMenu"
+                      :href="subItem.link || generatePath([item.name, subItem.name])"
+                      class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                      @click.prevent="handleSubItemClick(item, subItem)"
                     >
                       {{ subItem.name }}
-                    </NuxtLink>
+                    </a>
                   </div>
                 </div>
 
@@ -162,15 +165,18 @@
                       v-if="group.subItems && group.subItems.length > 0"
                       :class="getGridCols(item)"
                     >
-                      <NuxtLink
+                      <a
                         v-for="(subItem, index) in group.subItems"
                         :key="`${group.title || group.name}-${subItem.name}-${index}`"
-                        :to="generatePath([item.name, group.title || group.name, subItem.name])"
-                        class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-                        @click="closeMenu"
+                        :href="
+                          subItem.link ||
+                          generatePath([item.name, group.title || group.name, subItem.name])
+                        "
+                        class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                        @click.prevent="handleSubItemClick(item, subItem)"
                       >
                         {{ subItem.name }}
-                      </NuxtLink>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -180,15 +186,15 @@
                   v-else-if="item.subItems && item.subItems.length > 0"
                   :class="getGridCols(item)"
                 >
-                  <NuxtLink
+                  <a
                     v-for="(subItem, index) in item.subItems"
                     :key="`${subItem.name}-${index}`"
-                    :to="generatePath([item.name, subItem.name])"
-                    class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-                    @click="closeMenu"
+                    :href="subItem.link || generatePath([item.name, subItem.name])"
+                    class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                    @click.prevent="handleSubItemClick(item, subItem)"
                   >
                     {{ subItem.name }}
-                  </NuxtLink>
+                  </a>
                 </div>
               </div>
 
@@ -278,6 +284,11 @@
       'Our Insights': '1000px',
       Careers: '500px',
       'About Us': '1200px',
+      行业: '1200px',
+      能力: '1000px',
+      洞察: '1000px',
+      职业发展: '500px',
+      关于我们: '1200px',
       default: '400px',
     }
     return widthMap[item.name] || widthMap.default
@@ -291,6 +302,11 @@
       'Our Insights': 'grid grid-cols-2 gap-2',
       Careers: 'grid grid-cols-2 gap-2',
       'About Us': 'grid grid-cols-3 gap-2',
+      行业: 'grid grid-cols-3 gap-2',
+      能力: 'grid grid-cols-2 gap-2',
+      洞察: 'grid grid-cols-2 gap-2',
+      职业发展: 'grid grid-cols-2 gap-2',
+      关于我们: 'grid grid-cols-3 gap-2',
       default: 'grid grid-cols-2 gap-2',
     }
     return colsMap[item.name] || colsMap.default
@@ -350,11 +366,28 @@
         openMenu(item)
       }
     } else {
-      navigateTo(generatePath([item.name]))
+      // 不需要在这里导航，让 handleMenuClick 处理
     }
 
     props.onMenuClick?.(item)
     emit('menu-click', item)
+  }
+
+  // 处理子菜单项点击
+  const handleSubItemClick = (parentItem: MenuItem, subItem: UnifiedMenuItem) => {
+    console.log('Submenu item clicked:', parentItem.name, '->', subItem.name)
+
+    // 触发 submenu-click 事件
+    props.onSubMenuClick?.(parentItem, subItem)
+    emit('submenu-click', parentItem, subItem)
+
+    // 如果子项没有子菜单，则导航
+    if (!subItem.hasSubMenu) {
+      const path = subItem.link || generatePath([parentItem.name, subItem.name])
+      navigateTo(path)
+    }
+
+    closeMenu()
   }
 
   // 打开菜单

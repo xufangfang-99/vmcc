@@ -166,15 +166,16 @@
                         <div class="i-carbon-chevron-right w-5 h-5 opacity-60"></div>
                       </button>
                       <!-- Item without submenu -->
-                      <NuxtLink
+                      <button
                         v-else
-                        :to="generatePath([...currentPath, group.title || group.name, item.name])"
-                        class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800"
+                        class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 w-full text-left"
                         :style="{ color: 'var(--tm-txt-primary)' }"
-                        @click="closeMenu"
+                        @click="
+                          handleDirectNavigation(item, [...currentPath, group.title || group.name])
+                        "
                       >
                         {{ item.name }}
-                      </NuxtLink>
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -202,15 +203,14 @@
                     <div class="i-carbon-chevron-right w-5 h-5 opacity-60"></div>
                   </button>
                   <!-- Item without submenu -->
-                  <NuxtLink
+                  <button
                     v-else
-                    :to="generatePath([...currentPath, item.name])"
-                    class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800"
+                    class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 w-full text-left"
                     :style="{ color: 'var(--tm-txt-primary)' }"
-                    @click="closeMenu"
+                    @click="handleDirectNavigation(item, currentPath)"
                   >
                     {{ item.name }}
-                  </NuxtLink>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -262,6 +262,8 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { navigateTo } from 'nuxt/app'
+  import { useNavigation } from '~/composables/useNavigation'
+  import { useMenuData } from '~/composables/useMenuData'
   import type { MenuItem, UnifiedMenuItem, BottomLink } from '~/components/NavMenu.types'
   import { generatePath, getMenuItemName } from '~/components/NavMenu.types'
 
@@ -270,6 +272,7 @@
     title: string
     featured?: any
     exploreLink?: any
+    parentName?: string // 添加父级名称
   }
 
   interface Props {
@@ -279,6 +282,8 @@
   }
 
   const props = defineProps<Props>()
+  const navigation = useNavigation()
+  const { specialMenuConfigs } = useMenuData()
 
   const emit = defineEmits<{
     'update:open': [value: boolean]
@@ -330,28 +335,118 @@
   }
 
   const handleMenuClick = (item: MenuItem) => {
+    // 更新选中的一级菜单
+    navigation.setSelectedPath({ firstLevel: item.name })
+
     if (item.hasSubMenu && item.subItems) {
-      navigationStack.value.push({
-        items: item.subItems,
-        title: item.name,
-        featured: item.featured,
-        exploreLink: item.exploreLink,
-      })
+      // 场景2：检查一级菜单是否有特殊配置
+      const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
+
+      if (firstLevelConfig) {
+        console.log('Mobile - 场景2触发：', item.name)
+        navigation.switchToCustom(
+          firstLevelConfig,
+          `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+        )
+        closeMenu()
+      } else {
+        // 进入子菜单
+        navigationStack.value.push({
+          items: item.subItems,
+          title: item.name,
+          featured: item.featured,
+          exploreLink: item.exploreLink,
+        })
+      }
     } else {
-      navigateTo(generatePath([item.name]))
+      // 检查是否有特殊配置
+      const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
+
+      if (firstLevelConfig) {
+        navigation.switchToCustom(
+          firstLevelConfig,
+          `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+        )
+      } else {
+        navigateTo(generatePath([item.name]))
+      }
       closeMenu()
     }
   }
 
   const handleNavigate = (item: UnifiedMenuItem) => {
+    const currentNav = navigationStack.value[navigationStack.value.length - 1]
+    const parentName = currentNav?.title || ''
+
     if (item.hasSubMenu && item.subItems) {
-      navigationStack.value.push({
-        items: item.subItems,
-        title: getMenuItemName(item),
-        featured: null,
-        exploreLink: null,
-      })
+      // 场景3：检查二级菜单是否有特殊配置
+      const menuKey = `${parentName}-${item.name}`
+      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+
+      if (secondLevelConfig) {
+        console.log('Mobile - 场景3触发：', menuKey)
+        navigation.setSelectedPath({
+          firstLevel: parentName,
+          secondLevel: item.name,
+        })
+        navigation.switchToCustom(
+          secondLevelConfig,
+          `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+        )
+        closeMenu()
+      } else {
+        // 场景1：进入三级菜单
+        console.log('Mobile - 场景1触发：显示三级菜单')
+        navigationStack.value.push({
+          items: item.subItems,
+          title: getMenuItemName(item),
+          featured: null,
+          exploreLink: null,
+          parentName: parentName,
+        })
+      }
     }
+  }
+
+  const handleDirectNavigation = (item: UnifiedMenuItem, path: string[]) => {
+    const parentName = navigationStack.value[0]?.title || ''
+    const secondLevelName = path.length > 1 ? path[path.length - 1] : item.name
+
+    // 检查是否是二级菜单点击
+    if (navigationStack.value.length === 1) {
+      // 场景3：检查二级菜单是否有特殊配置
+      const menuKey = `${parentName}-${item.name}`
+      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+
+      if (secondLevelConfig) {
+        console.log('Mobile - 场景3触发：', menuKey)
+        navigation.setSelectedPath({
+          firstLevel: parentName,
+          secondLevel: item.name,
+        })
+        navigation.switchToCustom(
+          secondLevelConfig,
+          `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+        )
+      } else {
+        // 没有特殊配置，恢复默认导航并保留选中路径
+        console.log('Mobile - 恢复默认导航并显示选中菜单')
+        navigation.switchToDefaultWithPath(parentName, item.name)
+        const navPath = item.link || generatePath([...path, item.name])
+        navigateTo(navPath)
+      }
+    } else {
+      // 三级菜单点击
+      navigation.setSelectedPath({
+        firstLevel: parentName,
+        secondLevel: secondLevelName,
+        thirdLevel: item.name,
+      })
+      const navPath = item.link || generatePath([...path, item.name])
+      navigateTo(navPath)
+    }
+
+    closeMenu()
   }
 
   const goBack = () => {
@@ -381,7 +476,7 @@
 
   /* Active state for touch devices */
   @media (hover: none) {
-    a:active {
+    button:active {
       opacity: 0.8;
     }
   }

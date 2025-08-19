@@ -1,7 +1,56 @@
 <template>
   <div class="p-5 max-w-6xl mx-auto">
-    <!-- 导航切换测试 -->
+    <!-- 原有内容 -->
     <el-card class="bg-[var(--tm-bg-primary)] border-[var(--tm-bd-primary)] mb-6">
+      <template #header>
+        <div>
+          <h3 class="text-xl font-bold text-[var(--tm-text-primary)]">按需加载测试</h3>
+        </div>
+      </template>
+      <el-space
+        direction="vertical"
+        size="large"
+        class="w-full"
+      >
+        <el-input
+          v-model="input"
+          placeholder="请输入内容"
+          class="w-full"
+          :style="{
+            '--el-input-border-color': 'var(--tm-bd-primary)',
+            '--el-input-text-color': 'var(--tm-text-primary)',
+            '--el-input-placeholder-color': 'var(--tm-text-placeholder)',
+          }"
+        />
+        <div class="flex gap-4">
+          <el-button
+            :style="{
+              backgroundColor: 'var(--tm-btn-primary-background-0)',
+              color: 'var(--tm-btn-primary-text-0)',
+              borderColor: 'var(--tm-btn-primary-border-0)',
+            }"
+          >
+            主要按钮
+          </el-button>
+          <el-button
+            type="success"
+            class="hover:opacity-90"
+          >
+            成功按钮
+          </el-button>
+          <el-button
+            type="warning"
+            class="hover:opacity-90"
+            @click="helloClick"
+          >
+            警告按钮
+          </el-button>
+        </div>
+      </el-space>
+    </el-card>
+
+    <!-- 导航切换测试 -->
+    <el-card class="bg-[var(--tm-bg-primary)] border-[var(--tm-bd-primary)]">
       <template #header>
         <div class="flex justify-between items-center">
           <h3 class="text-xl font-bold text-[var(--tm-text-primary)]">导航切换功能测试</h3>
@@ -16,46 +65,6 @@
         size="large"
         class="w-full"
       >
-        <!-- 测试场景说明 -->
-        <el-alert
-          type="success"
-          :closable="false"
-          class="mb-4"
-        >
-          <template #title>
-            <div class="text-sm">
-              <p class="mb-2"><strong>测试场景说明（点击菜单图标打开全屏菜单）：</strong></p>
-              <ul class="ml-4 list-disc space-y-1">
-                <li>
-                  <strong>场景1 - 三级菜单：</strong>
-                  <ul class="ml-4 mt-1">
-                    <li>行业 → 金融服务（显示：银行业、保险业等）</li>
-                    <li>行业 → 教育（显示：K12教育、高等教育等）</li>
-                    <li>能力 → 人工智能（显示：AI战略规划、机器学习等）</li>
-                    <li>职业发展 → 职位（显示：咨询顾问、数据分析师等）</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>场景2 - 一级菜单特殊配置：</strong>
-                  <ul class="ml-4 mt-1">
-                    <li>地点 → 显示地区选择（亚太、北美、欧洲等）</li>
-                    <li>麦肯锡博客 → 显示博客分类导航</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>场景3 - 二级菜单特殊配置：</strong>
-                  <ul class="ml-4 mt-1">
-                    <li>行业 → 农业 → 显示智慧农业等选项</li>
-                    <li>行业 → 化工 → 显示精细化工等选项</li>
-                    <li>能力 → 业务构建 → 显示商业模式创新等选项</li>
-                    <li>洞察 → 案例研究 → 显示数字化转型案例等选项</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </template>
-        </el-alert>
-
         <!-- 测试按钮组 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -168,55 +177,6 @@
             </div>
           </template>
         </el-alert>
-      </el-space>
-    </el-card>
-
-    <!-- 原有内容 -->
-    <el-card class="bg-[var(--tm-bg-primary)] border-[var(--tm-bd-primary)]">
-      <template #header>
-        <div>
-          <h3 class="text-xl font-bold text-[var(--tm-text-primary)]">按需加载测试</h3>
-        </div>
-      </template>
-      <el-space
-        direction="vertical"
-        size="large"
-        class="w-full"
-      >
-        <el-input
-          v-model="input"
-          placeholder="请输入内容"
-          class="w-full"
-          :style="{
-            '--el-input-border-color': 'var(--tm-bd-primary)',
-            '--el-input-text-color': 'var(--tm-text-primary)',
-            '--el-input-placeholder-color': 'var(--tm-text-placeholder)',
-          }"
-        />
-        <div class="flex gap-4">
-          <el-button
-            :style="{
-              backgroundColor: 'var(--tm-btn-primary-background-0)',
-              color: 'var(--tm-btn-primary-text-0)',
-              borderColor: 'var(--tm-btn-primary-border-0)',
-            }"
-          >
-            主要按钮
-          </el-button>
-          <el-button
-            type="success"
-            class="hover:opacity-90"
-          >
-            成功按钮
-          </el-button>
-          <el-button
-            type="warning"
-            class="hover:opacity-90"
-            @click="helloClick"
-          >
-            警告按钮
-          </el-button>
-        </div>
       </el-space>
     </el-card>
   </div>
