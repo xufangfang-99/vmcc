@@ -1,5 +1,25 @@
 <template>
   <section class="services-section">
+    <!-- 粒子效果 -->
+    <div class="particle-container">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- 波浪效果 -->
+    <div class="wave-container">
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">我们的优质服务</h2>
@@ -100,9 +120,10 @@
     background: var(--tm-bg-primary);
     transition: background-color 0.3s ease;
     position: relative;
+    overflow: hidden;
   }
 
-  /* 添加微妙的渐变覆盖 */
+  /* 动态网格背景 */
   .services-section::before {
     content: '';
     position: absolute;
@@ -110,14 +131,205 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(var(--tm-pri-0-rgb), 0.02) 100%);
+    background-image:
+      linear-gradient(var(--tm-pri-0) 1px, transparent 1px),
+      linear-gradient(90deg, var(--tm-pri-0) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.03;
+    animation: grid-move 20s linear infinite;
     pointer-events: none;
+  }
+
+  /* 渐变覆盖层 */
+  .services-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 20% 50%,
+      rgba(var(--tm-pri-0-rgb), 0.05) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  /* 粒子效果容器 */
+  .particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 粒子样式 */
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--tm-pri-0);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-float 10s infinite;
+  }
+
+  .particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+  }
+  .particle:nth-child(2) {
+    left: 20%;
+    animation-delay: 1s;
+  }
+  .particle:nth-child(3) {
+    left: 30%;
+    animation-delay: 2s;
+  }
+  .particle:nth-child(4) {
+    left: 40%;
+    animation-delay: 3s;
+  }
+  .particle:nth-child(5) {
+    left: 50%;
+    animation-delay: 4s;
+  }
+  .particle:nth-child(6) {
+    left: 60%;
+    animation-delay: 5s;
+  }
+  .particle:nth-child(7) {
+    left: 70%;
+    animation-delay: 6s;
+  }
+  .particle:nth-child(8) {
+    left: 80%;
+    animation-delay: 7s;
+  }
+  .particle:nth-child(9) {
+    left: 90%;
+    animation-delay: 8s;
+  }
+  .particle:nth-child(10) {
+    left: 15%;
+    animation-delay: 9s;
+  }
+
+  /* 波浪效果 */
+  .wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    pointer-events: none;
+    opacity: 0.05;
+  }
+
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: var(--tm-pri-0);
+    animation: wave-move 10s linear infinite;
+  }
+
+  .wave:nth-child(1) {
+    animation-delay: 0s;
+    opacity: 0.7;
+    clip-path: polygon(
+      0% 60%,
+      10% 55%,
+      20% 65%,
+      30% 58%,
+      40% 68%,
+      50% 60%,
+      60% 70%,
+      70% 62%,
+      80% 72%,
+      90% 65%,
+      100% 60%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  .wave:nth-child(2) {
+    animation-delay: -5s;
+    opacity: 0.5;
+    clip-path: polygon(
+      0% 70%,
+      10% 68%,
+      20% 75%,
+      30% 70%,
+      40% 78%,
+      50% 72%,
+      60% 80%,
+      70% 75%,
+      80% 82%,
+      90% 78%,
+      100% 70%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  /* 深色模式调整 */
+  .dark .services-section {
+    background: var(--tm-bg-secondary);
+  }
+
+  .dark .services-section::before {
+    opacity: 0.02;
+  }
+
+  .dark .services-section::after {
+    background: radial-gradient(
+      circle at 20% 50%,
+      rgba(var(--tm-pri-0-rgb), 0.03) 0%,
+      transparent 50%
+    );
+  }
+
+  .dark .particle {
+    opacity: 0.8;
+  }
+
+  .dark .wave-container {
+    opacity: 0.03;
+  }
+
+  /* 动画定义 */
+  @keyframes grid-move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  @keyframes wave-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
   }
 
   .section-header {
@@ -149,18 +361,67 @@
   }
 
   .service-card {
-    background: var(--tm-bg-primary);
+    background: linear-gradient(
+      135deg,
+      var(--tm-bg-primary) 0%,
+      rgba(var(--tm-pri-0-rgb), 0.02) 100%
+    );
     padding: 40px;
-    border-radius: 8px;
-    border: 1px solid var(--tm-bd-light);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(var(--tm-pri-0-rgb), 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 卡片内部装饰 */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(var(--tm-pri-0-rgb), 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
   .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-    border-color: var(--tm-bd-primary);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.1);
+    border-color: rgba(var(--tm-pri-0-rgb), 0.2);
+    background: linear-gradient(
+      135deg,
+      var(--tm-bg-primary) 0%,
+      rgba(var(--tm-pri-0-rgb), 0.04) 100%
+    );
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  /* 深色模式卡片 */
+  .dark .service-card {
+    background: linear-gradient(
+      135deg,
+      var(--tm-bg-primary) 0%,
+      rgba(var(--tm-pri-0-rgb), 0.03) 100%
+    );
+    border-color: rgba(var(--tm-pri-0-rgb), 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .service-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--tm-bg-primary) 0%,
+      rgba(var(--tm-pri-0-rgb), 0.05) 100%
+    );
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
   }
 
   /* 服务图标 */
@@ -262,6 +523,10 @@
 
   /* 响应式设计 */
   @media (max-width: 768px) {
+    .services-section {
+      padding: 60px 0;
+    }
+
     .services-grid {
       grid-template-columns: 1fr;
       gap: 30px;
