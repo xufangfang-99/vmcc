@@ -79,7 +79,7 @@
                 >
                   <span class="text-base font-normal">{{ item.name }}</span>
                   <div
-                    v-if="item.hasSubMenu"
+                    v-if="hasSubItemsOrConfig(item)"
                     class="i-carbon-chevron-right w-5 h-5 opacity-60"
                   ></div>
                 </button>
@@ -122,7 +122,7 @@
                 :to="currentExploreLink.url"
                 class="flex items-center justify-between no-underline text-sm font-semibold uppercase tracking-wider"
                 :style="{ color: 'var(--tm-txt-primary)' }"
-                @click="closeMenu"
+                @click="closeMenuAndUpdatePath"
               >
                 {{ currentExploreLink.text }}
                 <div class="i-carbon-arrow-right w-4 h-4"></div>
@@ -155,26 +155,18 @@
                       class="border-b"
                       :style="{ borderColor: 'var(--tm-bd-light)' }"
                     >
-                      <!-- Item with submenu -->
                       <button
-                        v-if="item.hasSubMenu"
                         class="flex items-center justify-between px-4 py-3 w-full no-underline transition-all active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent"
                         :style="{ color: 'var(--tm-txt-primary)' }"
-                        @click="handleNavigate(item)"
+                        @click="handleItemClick(item)"
                       >
-                        <span class="font-bold">{{ item.name }}</span>
-                        <div class="i-carbon-chevron-right w-5 h-5 opacity-60"></div>
-                      </button>
-                      <!-- Item without submenu -->
-                      <button
-                        v-else
-                        class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 w-full text-left"
-                        :style="{ color: 'var(--tm-txt-primary)' }"
-                        @click="
-                          handleDirectNavigation(item, [...currentPath, group.title || group.name])
-                        "
-                      >
-                        {{ item.name }}
+                        <span :class="{ 'font-bold': hasSubItemsOrConfig(item) }">
+                          {{ item.name }}
+                        </span>
+                        <div
+                          v-if="hasSubItemsOrConfig(item)"
+                          class="i-carbon-chevron-right w-5 h-5 opacity-60"
+                        ></div>
                       </button>
                     </li>
                   </ul>
@@ -192,24 +184,16 @@
                   class="border-b"
                   :style="{ borderColor: 'var(--tm-bd-light)' }"
                 >
-                  <!-- Item with submenu -->
                   <button
-                    v-if="item.hasSubMenu"
                     class="flex items-center justify-between px-4 py-3 w-full no-underline transition-all active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent"
                     :style="{ color: 'var(--tm-txt-primary)' }"
-                    @click="handleNavigate(item)"
+                    @click="handleItemClick(item)"
                   >
-                    <span class="font-bold">{{ item.name }}</span>
-                    <div class="i-carbon-chevron-right w-5 h-5 opacity-60"></div>
-                  </button>
-                  <!-- Item without submenu -->
-                  <button
-                    v-else
-                    class="block px-4 py-3 no-underline text-base transition-all active:bg-gray-100 dark:active:bg-gray-800 w-full text-left"
-                    :style="{ color: 'var(--tm-txt-primary)' }"
-                    @click="handleDirectNavigation(item, currentPath)"
-                  >
-                    {{ item.name }}
+                    <span :class="{ 'font-bold': hasSubItemsOrConfig(item) }">{{ item.name }}</span>
+                    <div
+                      v-if="hasSubItemsOrConfig(item)"
+                      class="i-carbon-chevron-right w-5 h-5 opacity-60"
+                    ></div>
                   </button>
                 </li>
               </ul>
@@ -234,7 +218,7 @@
                 <NuxtLink
                   :to="item.link"
                   class="block no-underline"
-                  @click="closeMenu"
+                  @click="closeMenuAndUpdatePath"
                 >
                   <h4
                     class="text-base font-semibold mb-2 transition-all active:text-[var(--tm-pri-0)] active:underline"
@@ -272,7 +256,7 @@
     title: string
     featured?: any
     exploreLink?: any
-    parentName?: string // 添加父级名称
+    level: number // 添加层级标识
   }
 
   interface Props {
@@ -307,10 +291,6 @@
     return navigationStack.value[navigationStack.value.length - 1].items
   })
 
-  const currentPath = computed(() => {
-    return navigationStack.value.map((nav) => nav.title)
-  })
-
   const currentFeatured = computed(() => {
     if (navigationStack.value.length === 0) return null
     return navigationStack.value[navigationStack.value.length - 1].featured
@@ -334,123 +314,130 @@
     navigationStack.value = []
   }
 
+  // 检查是否有子项或特殊配置
+  const hasSubItemsOrConfig = (item: MenuItem | UnifiedMenuItem) => {
+    // 如果在第一级，检查是否有场景2配置
+    if (navigationStack.value.length === 0) {
+      const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
+      if (firstLevelConfig) return true
+    }
+
+    // 如果在第二级，检查是否有场景3配置
+    if (navigationStack.value.length === 1) {
+      const parentName = navigationStack.value[0].title
+      const menuKey = `${parentName}-${item.name}`
+      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+      if (secondLevelConfig) return true
+    }
+
+    // 检查是否有子菜单
+    return item.hasSubMenu || (item.subItems && item.subItems.length > 0)
+  }
+
+  // 处理一级菜单点击
   const handleMenuClick = (item: MenuItem) => {
-    console.log('Mobile - handleMenuClick:', item.name)
+    console.log('Mobile - 一级菜单点击:', item.name)
 
-    // 更新选中的一级菜单
-    navigation.setSelectedPath({ firstLevel: item.name })
-
-    // 场景2：先检查一级菜单是否有特殊配置
+    // 场景2：检查一级菜单是否有特殊配置
     const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
 
     if (firstLevelConfig) {
-      console.log('Mobile - 场景2触发：', item.name, firstLevelConfig)
-      navigation.switchToCustom(
-        firstLevelConfig,
-        `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-      )
-      closeMenu()
-      return
-    }
-
-    // 如果有子菜单，进入子菜单
-    if (item.hasSubMenu && item.subItems) {
+      console.log('Mobile - 场景2：显示特殊配置项', item.name)
+      // 将特殊配置转换为菜单项格式，进入下一级
+      navigationStack.value.push({
+        items: firstLevelConfig,
+        title: item.name,
+        featured: null,
+        exploreLink: null,
+        level: 1,
+      })
+    } else if (item.hasSubMenu && item.subItems) {
+      // 普通子菜单
       navigationStack.value.push({
         items: item.subItems,
         title: item.name,
         featured: item.featured,
         exploreLink: item.exploreLink,
+        level: 1,
       })
     } else {
-      // 没有子菜单，直接导航
+      // 没有子菜单，直接导航并记录路径
+      navigation.setSelectedPath({ firstLevel: item.name })
       navigateTo(generatePath([item.name]))
       closeMenu()
     }
   }
 
-  const handleNavigate = (item: UnifiedMenuItem) => {
-    const currentNav = navigationStack.value[navigationStack.value.length - 1]
-    const parentName = currentNav?.title || ''
+  // 统一处理所有层级的点击
+  const handleItemClick = (item: UnifiedMenuItem) => {
+    const currentLevel = navigationStack.value.length
+    console.log(`Mobile - 第${currentLevel}级菜单点击:`, item.name)
 
-    console.log('Mobile - handleNavigate:', parentName, '->', item.name)
+    // 构建当前路径
+    const pathArray = navigationStack.value.map((nav) => nav.title)
+    pathArray.push(item.name)
 
-    // 场景3：先检查二级菜单是否有特殊配置
-    const menuKey = `${parentName}-${item.name}`
-    const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+    // 在第二级检查场景3配置
+    if (currentLevel === 1) {
+      const parentName = navigationStack.value[0].title
+      const menuKey = `${parentName}-${item.name}`
+      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
 
-    if (secondLevelConfig) {
-      console.log('Mobile - 场景3触发：', menuKey, secondLevelConfig)
-      navigation.setSelectedPath({
-        firstLevel: parentName,
-        secondLevel: item.name,
-      })
-      const basePath = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-      navigation.switchToCustom(secondLevelConfig, basePath)
-      closeMenu()
-      return
+      if (secondLevelConfig) {
+        console.log('Mobile - 场景3：显示特殊配置项', menuKey)
+        // 将特殊配置转换为菜单项格式，进入下一级
+        navigationStack.value.push({
+          items: secondLevelConfig,
+          title: item.name,
+          featured: null,
+          exploreLink: null,
+          level: 2,
+        })
+        return
+      }
     }
 
-    // 场景1：如果有三级菜单，进入下一级
+    // 场景1：检查是否有三级菜单
     if (item.hasSubMenu && item.subItems) {
-      console.log('Mobile - 场景1触发：显示三级菜单')
+      console.log('Mobile - 场景1：进入下一级菜单')
       navigationStack.value.push({
         items: item.subItems,
         title: getMenuItemName(item),
         featured: null,
         exploreLink: null,
-        parentName: parentName,
+        level: currentLevel + 1,
       })
     } else {
-      // 没有子菜单也没有特殊配置，恢复默认导航
-      console.log('Mobile - 恢复默认导航并显示选中菜单')
-      navigation.switchToDefaultWithPath(parentName, item.name)
-      const path = item.link || generatePath([parentName, item.name])
+      // 最终的菜单项，执行导航
+      console.log('Mobile - 最终导航:', pathArray)
+
+      // 根据层级设置选中路径
+      const selectedPath: any = {}
+      if (pathArray[0]) selectedPath.firstLevel = pathArray[0]
+      if (pathArray[1]) selectedPath.secondLevel = pathArray[1]
+      if (pathArray[2]) selectedPath.thirdLevel = pathArray[2]
+
+      navigation.setSelectedPath(selectedPath)
+
+      // 恢复默认导航
+      navigation.switchToDefault()
+
+      // 导航到目标页面
+      const path = item.link || generatePath(pathArray)
       navigateTo(path)
       closeMenu()
     }
   }
 
-  const handleDirectNavigation = (item: UnifiedMenuItem, path: string[]) => {
-    const parentName = navigationStack.value[0]?.title || ''
-    const secondLevelName =
-      navigationStack.value.length > 1
-        ? navigationStack.value[navigationStack.value.length - 1].title
-        : ''
+  // 关闭菜单并更新路径（用于 Featured 链接）
+  const closeMenuAndUpdatePath = () => {
+    // 设置当前路径
+    const pathArray = navigationStack.value.map((nav) => nav.title)
+    const selectedPath: any = {}
+    if (pathArray[0]) selectedPath.firstLevel = pathArray[0]
+    if (pathArray[1]) selectedPath.secondLevel = pathArray[1]
 
-    console.log('Mobile - handleDirectNavigation:', path, '->', item.name)
-
-    // 检查是否是二级菜单点击（navigationStack 只有一层）
-    if (navigationStack.value.length === 1) {
-      // 场景3：检查二级菜单是否有特殊配置
-      const menuKey = `${parentName}-${item.name}`
-      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
-
-      if (secondLevelConfig) {
-        console.log('Mobile - 场景3触发（直接导航）：', menuKey, secondLevelConfig)
-        navigation.setSelectedPath({
-          firstLevel: parentName,
-          secondLevel: item.name,
-        })
-        const basePath = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-        navigation.switchToCustom(secondLevelConfig, basePath)
-      } else {
-        // 没有特殊配置，恢复默认导航并保留选中路径
-        console.log('Mobile - 恢复默认导航并显示选中菜单')
-        navigation.switchToDefaultWithPath(parentName, item.name)
-        const navPath = item.link || generatePath([parentName, item.name])
-        navigateTo(navPath)
-      }
-    } else {
-      // 三级菜单点击
-      navigation.setSelectedPath({
-        firstLevel: parentName,
-        secondLevel: secondLevelName,
-        thirdLevel: item.name,
-      })
-      const navPath = item.link || generatePath([...path, item.name])
-      navigateTo(navPath)
-    }
-
+    navigation.setSelectedPath(selectedPath)
     closeMenu()
   }
 
