@@ -22,11 +22,11 @@
     <div class="relative w-full h-screen flex flex-col">
       <!-- 自定义头部导航 -->
       <header
-        class="hero-header absolute top-0 left-0 right-0 z-1000 py-6 transition-all duration-300 bg-gradient-to-b from-black/70 via-black/30 to-transparent"
+        class="hero-header absolute top-0 left-0 right-0 z-1000 py-4 sm:py-6 transition-all duration-300 bg-gradient-to-b from-black/70 via-black/30 to-transparent"
       >
-        <div class="max-w-1400px mx-auto px-8">
+        <div class="max-w-1400px mx-auto px-5 sm:px-8">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 sm:gap-8">
               <!-- 菜单图标 -->
               <MenuIcon
                 :menu-items="menuItems"
@@ -57,22 +57,29 @@
         </div>
       </header>
 
-      <!-- 英雄区内容 -->
-      <div class="flex-1 flex items-center text-white px-5 pt-20 md:pt-0">
-        <div class="max-w-1100px w-full mx-auto">
+      <!-- 英雄区内容 - 调整手机端padding-top -->
+      <div class="flex-1 flex items-center text-white px-5 sm:pt-32 md:pt-0">
+        <div class="max-w-1400px w-full mx-auto">
           <!-- 左侧：文字内容 -->
           <div class="max-w-800px">
-            <!-- 主标题 - 一行显示 -->
+            <!-- 主标题 - 响应式显示 -->
             <h1
-              class="hero-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight mb-8 tracking-tight opacity-0 animate-fadeInUp animate-delay-200"
+              class="hero-title font-light leading-tight mb-6 sm:mb-8 tracking-tight opacity-0 animate-fadeInUp animate-delay-200"
             >
-              <span class="text-white">精英人才</span>
-              <span class="text-blue-400 font-normal ml-2 sm:ml-4">解决方案</span>
+              <!-- 手机端：两行显示 -->
+              <span class="block sm:inline text-white text-4xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                精英人才
+              </span>
+              <span
+                class="block sm:inline text-blue-400 pl-10 text-5xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium sm:font-normal mt-1 sm:mt-0 sm:ml-4"
+              >
+                解决方案
+              </span>
             </h1>
 
             <!-- 描述文字 -->
             <p
-              class="text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
+              class="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
             >
               我们为具有前瞻性思维的企业提供优质的猎头服务、战略人力资源外包、人
               <br class="hidden lg:block" />
@@ -81,7 +88,7 @@
 
             <!-- CTA 按钮 -->
             <div
-              class="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16 opacity-0 animate-fadeInUp animate-delay-600"
+              class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12 lg:mb-16 opacity-0 animate-fadeInUp animate-delay-600"
             >
               <button
                 class="cta-button px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full border-none bg-blue-400 text-white shadow-[0_4px_20px_rgba(64,169,255,0.3)] hover:bg-blue-500 hover:transform hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(64,169,255,0.4)]"
@@ -135,11 +142,13 @@
         </div>
       </div>
 
-      <!-- 滚动提示 -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div class="w-7.5 h-12.5 border-2 border-white rounded-6.25 relative opacity-80">
+      <!-- 滚动提示 - 手机端调整位置 -->
+      <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div
+          class="w-6 h-10 sm:w-7.5 sm:h-12.5 border-2 border-white rounded-full relative opacity-60 sm:opacity-80"
+        >
           <div
-            class="absolute top-2 left-1/2 transform -translate-x-1/2 w-1 h-2.5 bg-white rounded-0.5 animate-scroll"
+            class="absolute top-1.5 sm:top-2 left-1/2 transform -translate-x-1/2 w-0.5 sm:w-1 h-2 sm:h-2.5 bg-white rounded-full animate-scroll"
           ></div>
         </div>
       </div>
@@ -260,7 +269,7 @@
 
   /* 滚动后的头部样式 */
   .hero-header.scrolled {
-    @apply fixed bg-black/90 backdrop-blur-lg py-4;
+    @apply fixed bg-black/90 backdrop-blur-lg py-3 sm:py-4;
   }
 
   /* 覆盖默认组件样式 */
@@ -373,11 +382,10 @@
     @apply translate-x-1.25;
   }
 
-  /* 手机端特殊调整 */
-  @media (max-width: 640px) {
-    /* 确保内容不会被头部遮挡 */
-    .hero-content {
-      @apply pt-32;
-    }
+  /* 手机端特殊调整 - 移除这部分，因为已经在HTML中处理 */
+  /* @media (max-width: 640px) {
+  .hero-content {
+    @apply pt-32;
   }
+} */
 </style>
