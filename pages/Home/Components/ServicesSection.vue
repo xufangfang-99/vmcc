@@ -198,7 +198,7 @@
                     class="inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold text-sm md:text-base hover:text-blue-700 dark:hover:text-blue-300 transition-colors group"
                   >
                     了解更多
-                    <Icon
+                    <div
                       name="heroicons:arrow-right"
                       class="w-4 h-4 md:w-5 md:h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
                     />
@@ -294,7 +294,7 @@
                     class="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold text-sm hover:text-purple-700 dark:hover:text-purple-300 transition-colors group"
                   >
                     探索服务
-                    <Icon
+                    <div
                       name="heroicons:arrow-right"
                       class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform"
                     />
@@ -343,7 +343,7 @@
                     class="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors group"
                   >
                     开始咨询
-                    <Icon
+                    <div
                       name="heroicons:arrow-right"
                       class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
                     />
@@ -396,7 +396,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
+  import { ref } from 'vue'
 
   const services = ref([
     {
