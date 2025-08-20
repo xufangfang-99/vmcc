@@ -2,7 +2,7 @@ import type { ThemeColors } from './types'
 
 export const earthYellowTheme: ThemeColors = {
   name: '土黄',
-  primary: ['#B8860B', '#A67A0A', '#946E09'], // 土黄色系列
+  primary: ['#B8860B', '#A67A0A', '#946E09'],
   text: {
     primary: '#332810',
     secondary: '#7A6434',
@@ -10,6 +10,13 @@ export const earthYellowTheme: ThemeColors = {
     label: '#332810',
     placeholder: '#D4C9A6',
     disabled: '#E5DCC8',
+    // 新增
+    white: '#FFFFFF',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    accent: '#B8860B',
+    accentDark: '#946E09',
   },
   background: {
     primary: '#FFFFFF',
@@ -18,6 +25,23 @@ export const earthYellowTheme: ThemeColors = {
     active: '#F2EAD7',
     disabled: '#FDFAF5',
     mask: 'rgba(0, 0, 0, 0.5)',
+    // 新增
+    card: '#FDFBF8',
+    hover: '#F2EAD7',
+    accent: '#B8860B',
+    accentLight: '#F2EAD7',
+    gradient: {
+      from: '#B8860B',
+      to: '#C8A02B', // 改为更柔和的黄色，原来是 #DAA520
+      fromDark: '#946E09',
+      toDark: '#A67A0A',
+    },
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
   },
   border: {
     primary: '#B8860B',
@@ -25,6 +49,9 @@ export const earthYellowTheme: ThemeColors = {
     light: '#F2EAD7',
     focus: '#A67A0A',
     disabled: '#E6E6E6',
+    // 新增
+    card: '#E5DCC8',
+    transparent: 'rgba(255, 255, 255, 0.3)',
   },
   button: {
     primary: {
@@ -34,6 +61,7 @@ export const earthYellowTheme: ThemeColors = {
       hoverBg: ['#A67A0A'],
       activeBg: ['#946E09'],
       disabledBg: ['#FDFAF5'],
+      shadow: ['0 4px 20px rgba(184, 134, 11, 0.3)'],
     },
     secondary: {
       background: ['#FFFFFF'],
@@ -49,6 +77,18 @@ export const earthYellowTheme: ThemeColors = {
       activeColor: ['#946E09'],
       disabledColor: ['#D4C9A6'],
     },
+    transparent: {
+      background: ['rgba(255, 255, 255, 0.1)'],
+      text: ['#FFFFFF'],
+      border: ['rgba(255, 255, 255, 0.8)'],
+      hoverBg: ['rgba(255, 255, 255, 0.2)'],
+    },
+  },
+  shadow: {
+    default: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    accent: '0 4px 20px rgba(184, 134, 11, 0.3)',
+    card: '0 2px 8px rgba(0, 0, 0, 0.08)',
   },
   dark: {
     primary: ['#DAA520', '#B8860B', '#A67A0A'],
@@ -59,6 +99,13 @@ export const earthYellowTheme: ThemeColors = {
       label: '#FFFFFF',
       placeholder: '#D4B106',
       disabled: '#8D7B3D',
+      // 新增
+      white: '#FFFFFF',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      accent: '#DAA520',
+      accentDark: '#B8860B',
     },
     background: {
       primary: '#1D1A12',
@@ -67,6 +114,23 @@ export const earthYellowTheme: ThemeColors = {
       active: '#3D3524',
       disabled: '#463D2A',
       mask: 'rgba(0, 0, 0, 0.65)',
+      // 新增
+      card: '#292418',
+      hover: '#3D3524',
+      accent: '#DAA520',
+      accentLight: '#3D3524',
+      gradient: {
+        from: '#DAA520',
+        to: '#E4BC4C', // 改为更柔和的金黄色，原来是 #FFD700
+        fromDark: '#B8860B',
+        toDark: '#DAA520',
+      },
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+      whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
     },
     border: {
       primary: '#DAA520',
@@ -74,6 +138,9 @@ export const earthYellowTheme: ThemeColors = {
       light: '#332D1F',
       focus: '#B8860B',
       disabled: '#1D1A12',
+      // 新增
+      card: '#332D1F',
+      transparent: 'rgba(255, 255, 255, 0.1)',
     },
     button: {
       primary: {
@@ -83,6 +150,7 @@ export const earthYellowTheme: ThemeColors = {
         hoverBg: ['#B8860B'],
         activeBg: ['#A67A0A'],
         disabledBg: ['#1D1A12'],
+        shadow: ['0 4px 20px rgba(218, 165, 32, 0.4)'],
       },
       secondary: {
         background: ['#1D1A12'],
@@ -98,6 +166,18 @@ export const earthYellowTheme: ThemeColors = {
         activeColor: ['#A67A0A'],
         disabledColor: ['#8D7B3D'],
       },
+      transparent: {
+        background: ['rgba(255, 255, 255, 0.05)'],
+        text: ['#FFFFFF'],
+        border: ['rgba(255, 255, 255, 0.3)'],
+        hoverBg: ['rgba(255, 255, 255, 0.15)'],
+      },
+    },
+    shadow: {
+      default: '0 4px 20px rgba(0, 0, 0, 0.2)',
+      hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
+      accent: '0 4px 20px rgba(218, 165, 32, 0.4)',
+      card: '0 2px 8px rgba(0, 0, 0, 0.2)',
     },
   },
 }

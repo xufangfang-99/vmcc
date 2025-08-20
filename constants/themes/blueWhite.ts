@@ -10,6 +10,13 @@ export const blueWhiteTheme: ThemeColors = {
     label: '#1F2D3D',
     placeholder: '#C0CCDA',
     disabled: '#C0C4CC',
+    // 新增
+    white: '#FFFFFF',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    accent: '#1890FF',
+    accentDark: '#096DD9',
   },
   background: {
     primary: '#FFFFFF',
@@ -18,6 +25,23 @@ export const blueWhiteTheme: ThemeColors = {
     active: '#E6F7FF',
     disabled: '#F5F7FA',
     mask: 'rgba(0, 0, 0, 0.5)',
+    // 新增
+    card: '#FAFBFC',
+    hover: '#F0F7FF',
+    accent: '#1890FF',
+    accentLight: '#E6F7FF',
+    gradient: {
+      from: '#3B82F6',
+      to: '#6B8CF6', // 改为偏蓝的淡紫色，原来是 #8B5CF6
+      fromDark: '#1D4ED8',
+      toDark: '#2563EB',
+    },
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
   },
   border: {
     primary: '#1890FF',
@@ -25,6 +49,9 @@ export const blueWhiteTheme: ThemeColors = {
     light: '#F0F7FF',
     focus: '#40A9FF',
     disabled: '#E6E6E6',
+    // 新增
+    card: '#E8E8E8',
+    transparent: 'rgba(255, 255, 255, 0.3)',
   },
   button: {
     primary: {
@@ -34,6 +61,7 @@ export const blueWhiteTheme: ThemeColors = {
       hoverBg: ['#40A9FF'],
       activeBg: ['#096DD9'],
       disabledBg: ['#F5F7FA'],
+      shadow: ['0 4px 20px rgba(24, 144, 255, 0.3)'],
     },
     secondary: {
       background: ['#FFFFFF'],
@@ -49,9 +77,21 @@ export const blueWhiteTheme: ThemeColors = {
       activeColor: ['#096DD9'],
       disabledColor: ['#C0C4CC'],
     },
+    transparent: {
+      background: ['rgba(255, 255, 255, 0.1)'],
+      text: ['#FFFFFF'],
+      border: ['rgba(255, 255, 255, 0.8)'],
+      hoverBg: ['rgba(255, 255, 255, 0.2)'],
+    },
+  },
+  shadow: {
+    default: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    accent: '0 4px 20px rgba(24, 144, 255, 0.3)',
+    card: '0 2px 8px rgba(0, 0, 0, 0.08)',
   },
   dark: {
-    primary: ['#40A9FF', '#1890FF', '#096DD9'], // 更亮的蓝色
+    primary: ['#40A9FF', '#1890FF', '#096DD9'],
     text: {
       primary: '#FFFFFF',
       secondary: '#E6F7FF',
@@ -59,14 +99,38 @@ export const blueWhiteTheme: ThemeColors = {
       label: '#FFFFFF',
       placeholder: '#8CC8FF',
       disabled: '#597EF7',
+      // 新增
+      white: '#FFFFFF',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      accent: '#40A9FF',
+      accentDark: '#1890FF',
     },
     background: {
-      primary: '#001529', // 深蓝黑色背景
+      primary: '#001529',
       secondary: '#002140',
       tertiary: '#00172E',
       active: '#002766',
       disabled: '#001F3D',
       mask: 'rgba(0, 0, 0, 0.65)',
+      // 新增
+      card: '#001F3D',
+      hover: '#002766',
+      accent: '#1890FF',
+      accentLight: '#002766',
+      gradient: {
+        from: '#3B82F6',
+        to: '#6FA3FF', // 改为更蓝的渐变，原来是 #8B5CF6
+        fromDark: '#2563EB',
+        toDark: '#3B82F6',
+      },
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+      whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
     },
     border: {
       primary: '#40A9FF',
@@ -74,6 +138,9 @@ export const blueWhiteTheme: ThemeColors = {
       light: '#003A8C',
       focus: '#1890FF',
       disabled: '#001529',
+      // 新增
+      card: '#003A8C',
+      transparent: 'rgba(255, 255, 255, 0.1)',
     },
     button: {
       primary: {
@@ -83,6 +150,7 @@ export const blueWhiteTheme: ThemeColors = {
         hoverBg: ['#1890FF'],
         activeBg: ['#096DD9'],
         disabledBg: ['#001529'],
+        shadow: ['0 4px 20px rgba(64, 169, 255, 0.4)'],
       },
       secondary: {
         background: ['#001529'],
@@ -98,6 +166,18 @@ export const blueWhiteTheme: ThemeColors = {
         activeColor: ['#096DD9'],
         disabledColor: ['#597EF7'],
       },
+      transparent: {
+        background: ['rgba(255, 255, 255, 0.05)'],
+        text: ['#FFFFFF'],
+        border: ['rgba(255, 255, 255, 0.3)'],
+        hoverBg: ['rgba(255, 255, 255, 0.15)'],
+      },
+    },
+    shadow: {
+      default: '0 4px 20px rgba(0, 0, 0, 0.2)',
+      hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
+      accent: '0 4px 20px rgba(64, 169, 255, 0.4)',
+      card: '0 2px 8px rgba(0, 0, 0, 0.2)',
     },
   },
 }

@@ -2,7 +2,7 @@ import type { ThemeColors } from './types'
 
 export const darkGreenTheme: ThemeColors = {
   name: '墨绿',
-  primary: ['#2C4F3D', '#1B4032', '#0D3321'], // 深绿色系列
+  primary: ['#2C4F3D', '#1B4032', '#0D3321'],
   text: {
     primary: '#1A332B',
     secondary: '#2C4F3D',
@@ -10,6 +10,13 @@ export const darkGreenTheme: ThemeColors = {
     label: '#0D3321',
     placeholder: '#A8C2B6',
     disabled: '#C2D5CC',
+    // 新增
+    white: '#FFFFFF',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    accent: '#2C4F3D',
+    accentDark: '#0D3321',
   },
   background: {
     primary: '#FFFFFF',
@@ -18,6 +25,24 @@ export const darkGreenTheme: ThemeColors = {
     active: '#E6F0EC',
     disabled: '#F5F8F7',
     mask: 'rgba(0, 0, 0, 0.5)',
+    // 新增
+    card: '#F8FAF9',
+    hover: '#E6F0EC',
+    accent: '#2C4F3D',
+    accentLight: '#E6F0EC',
+    // 浅色模式 - 调整渐变色，保持绿色系
+    gradient: {
+      from: '#2C4F3D',
+      to: '#3A6B51', // 改为更深的绿色，原来是 #3DAE6C
+      fromDark: '#0D3321',
+      toDark: '#1B4032',
+    },
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
   },
   border: {
     primary: '#2C4F3D',
@@ -25,6 +50,9 @@ export const darkGreenTheme: ThemeColors = {
     light: '#E6F0EC',
     focus: '#1B4032',
     disabled: '#E6E6E6',
+    // 新增
+    card: '#CAD9D3',
+    transparent: 'rgba(255, 255, 255, 0.3)',
   },
   button: {
     primary: {
@@ -34,6 +62,7 @@ export const darkGreenTheme: ThemeColors = {
       hoverBg: ['#1B4032'],
       activeBg: ['#0D3321'],
       disabledBg: ['#F5F8F7'],
+      shadow: ['0 4px 20px rgba(44, 79, 61, 0.3)'],
     },
     secondary: {
       background: ['#FFFFFF'],
@@ -49,6 +78,18 @@ export const darkGreenTheme: ThemeColors = {
       activeColor: ['#0D3321'],
       disabledColor: ['#C2D5CC'],
     },
+    transparent: {
+      background: ['rgba(255, 255, 255, 0.1)'],
+      text: ['#FFFFFF'],
+      border: ['rgba(255, 255, 255, 0.8)'],
+      hoverBg: ['rgba(255, 255, 255, 0.2)'],
+    },
+  },
+  shadow: {
+    default: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    accent: '0 4px 20px rgba(44, 79, 61, 0.3)',
+    card: '0 2px 8px rgba(0, 0, 0, 0.08)',
   },
   dark: {
     primary: ['#3DAE6C', '#2C4F3D', '#1B4032'],
@@ -59,6 +100,13 @@ export const darkGreenTheme: ThemeColors = {
       label: '#FFFFFF',
       placeholder: '#8AC7A3',
       disabled: '#537D63',
+      // 新增
+      white: '#FFFFFF',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      accent: '#3DAE6C',
+      accentDark: '#2C4F3D',
     },
     background: {
       primary: '#0A1F13',
@@ -67,6 +115,23 @@ export const darkGreenTheme: ThemeColors = {
       active: '#214531',
       disabled: '#2C3E35',
       mask: 'rgba(0, 0, 0, 0.65)',
+      // 新增
+      card: '#122A1C',
+      hover: '#214531',
+      accent: '#3DAE6C',
+      accentLight: '#214531',
+      gradient: {
+        from: '#3DAE6C',
+        to: '#4BC57F', // 改为更协调的亮绿色，原来是 #50C878
+        fromDark: '#2C4F3D',
+        toDark: '#3DAE6C',
+      },
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+      whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
     },
     border: {
       primary: '#3DAE6C',
@@ -74,6 +139,9 @@ export const darkGreenTheme: ThemeColors = {
       light: '#1A3526',
       focus: '#2C4F3D',
       disabled: '#0A1F13',
+      // 新增
+      card: '#1A3526',
+      transparent: 'rgba(255, 255, 255, 0.1)',
     },
     button: {
       primary: {
@@ -83,6 +151,7 @@ export const darkGreenTheme: ThemeColors = {
         hoverBg: ['#2C4F3D'],
         activeBg: ['#1B4032'],
         disabledBg: ['#0A1F13'],
+        shadow: ['0 4px 20px rgba(61, 174, 108, 0.4)'],
       },
       secondary: {
         background: ['#0A1F13'],
@@ -98,6 +167,18 @@ export const darkGreenTheme: ThemeColors = {
         activeColor: ['#1B4032'],
         disabledColor: ['#537D63'],
       },
+      transparent: {
+        background: ['rgba(255, 255, 255, 0.05)'],
+        text: ['#FFFFFF'],
+        border: ['rgba(255, 255, 255, 0.3)'],
+        hoverBg: ['rgba(255, 255, 255, 0.15)'],
+      },
+    },
+    shadow: {
+      default: '0 4px 20px rgba(0, 0, 0, 0.2)',
+      hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
+      accent: '0 4px 20px rgba(61, 174, 108, 0.4)',
+      card: '0 2px 8px rgba(0, 0, 0, 0.2)',
     },
   },
 }

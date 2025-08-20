@@ -2,7 +2,7 @@ import type { ThemeColors } from './types'
 
 export const darkRedTheme: ThemeColors = {
   name: '暗红',
-  primary: ['#8B1E3F', '#7A1835', '#69142B'], // 暗红色系列
+  primary: ['#8B1E3F', '#7A1835', '#69142B'],
   text: {
     primary: '#2D0F15',
     secondary: '#693344',
@@ -10,6 +10,13 @@ export const darkRedTheme: ThemeColors = {
     label: '#2D0F15',
     placeholder: '#D1B2BB',
     disabled: '#E5D1D7',
+    // 新增
+    white: '#FFFFFF',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    accent: '#8B1E3F',
+    accentDark: '#69142B',
   },
   background: {
     primary: '#FFFFFF',
@@ -18,6 +25,23 @@ export const darkRedTheme: ThemeColors = {
     active: '#F6E5E9',
     disabled: '#FDF6F8',
     mask: 'rgba(0, 0, 0, 0.5)',
+    // 新增
+    card: '#FDF8FA',
+    hover: '#F6E5E9',
+    accent: '#8B1E3F',
+    accentLight: '#F6E5E9',
+    gradient: {
+      from: '#8B1E3F',
+      to: '#A03356', // 改为更柔和的红色，原来是 #C41E3A
+      fromDark: '#69142B',
+      toDark: '#7A1835',
+    },
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
   },
   border: {
     primary: '#8B1E3F',
@@ -25,6 +49,9 @@ export const darkRedTheme: ThemeColors = {
     light: '#F6E5E9',
     focus: '#7A1835',
     disabled: '#E6E6E6',
+    // 新增
+    card: '#E5D1D7',
+    transparent: 'rgba(255, 255, 255, 0.3)',
   },
   button: {
     primary: {
@@ -34,6 +61,7 @@ export const darkRedTheme: ThemeColors = {
       hoverBg: ['#7A1835'],
       activeBg: ['#69142B'],
       disabledBg: ['#FDF6F8'],
+      shadow: ['0 4px 20px rgba(139, 30, 63, 0.3)'],
     },
     secondary: {
       background: ['#FFFFFF'],
@@ -49,6 +77,18 @@ export const darkRedTheme: ThemeColors = {
       activeColor: ['#69142B'],
       disabledColor: ['#D1B2BB'],
     },
+    transparent: {
+      background: ['rgba(255, 255, 255, 0.1)'],
+      text: ['#FFFFFF'],
+      border: ['rgba(255, 255, 255, 0.8)'],
+      hoverBg: ['rgba(255, 255, 255, 0.2)'],
+    },
+  },
+  shadow: {
+    default: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    accent: '0 4px 20px rgba(139, 30, 63, 0.3)',
+    card: '0 2px 8px rgba(0, 0, 0, 0.08)',
   },
   dark: {
     primary: ['#A82C4D', '#8B1E3F', '#7A1835'],
@@ -59,6 +99,13 @@ export const darkRedTheme: ThemeColors = {
       label: '#FFFFFF',
       placeholder: '#FF8CA7',
       disabled: '#85586F',
+      // 新增
+      white: '#FFFFFF',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      accent: '#A82C4D',
+      accentDark: '#8B1E3F',
     },
     background: {
       primary: '#1F0F15',
@@ -67,6 +114,24 @@ export const darkRedTheme: ThemeColors = {
       active: '#42181F',
       disabled: '#4D1B23',
       mask: 'rgba(0, 0, 0, 0.65)',
+      // 新增
+      card: '#2B1118',
+      hover: '#42181F',
+      accent: '#A82C4D',
+      accentLight: '#42181F',
+      // 深色模式
+      gradient: {
+        from: '#A82C4D',
+        to: '#C44062', // 改为更协调的粉红色，原来是 #DC143C
+        fromDark: '#8B1E3F',
+        toDark: '#A82C4D',
+      },
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+      whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
     },
     border: {
       primary: '#A82C4D',
@@ -74,6 +139,9 @@ export const darkRedTheme: ThemeColors = {
       light: '#37141B',
       focus: '#8B1E3F',
       disabled: '#1F0F15',
+      // 新增
+      card: '#37141B',
+      transparent: 'rgba(255, 255, 255, 0.1)',
     },
     button: {
       primary: {
@@ -83,6 +151,7 @@ export const darkRedTheme: ThemeColors = {
         hoverBg: ['#8B1E3F'],
         activeBg: ['#7A1835'],
         disabledBg: ['#1F0F15'],
+        shadow: ['0 4px 20px rgba(168, 44, 77, 0.4)'],
       },
       secondary: {
         background: ['#1F0F15'],
@@ -98,6 +167,18 @@ export const darkRedTheme: ThemeColors = {
         activeColor: ['#7A1835'],
         disabledColor: ['#85586F'],
       },
+      transparent: {
+        background: ['rgba(255, 255, 255, 0.05)'],
+        text: ['#FFFFFF'],
+        border: ['rgba(255, 255, 255, 0.3)'],
+        hoverBg: ['rgba(255, 255, 255, 0.15)'],
+      },
+    },
+    shadow: {
+      default: '0 4px 20px rgba(0, 0, 0, 0.2)',
+      hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
+      accent: '0 4px 20px rgba(168, 44, 77, 0.4)',
+      card: '0 2px 8px rgba(0, 0, 0, 0.2)',
     },
   },
 }

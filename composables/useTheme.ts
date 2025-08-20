@@ -36,19 +36,39 @@ export const useTheme = defineStore(
       })
 
       // 文字颜色
-      Object.entries(config.text).forEach(([key, value]: [string, string]) => {
-        variables[`--tm-txt-${key}`] = value
+      Object.entries(config.text).forEach(([key, value]) => {
+        const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+        variables[`--tm-txt-${cssKey}`] = value
       })
 
       // 背景颜色
-      Object.entries(config.background).forEach(([key, value]: [string, string]) => {
-        variables[`--tm-bg-${key}`] = value
+      Object.entries(config.background).forEach(([key, value]) => {
+        if (key === 'gradient' && typeof value === 'object' && value !== null) {
+          // 类型守卫确保 value 是对象
+          const gradientObj = value as Record<string, string>
+          Object.entries(gradientObj).forEach(([gradientKey, gradientValue]) => {
+            const cssKey = gradientKey.replace(/([A-Z])/g, '-$1').toLowerCase()
+            variables[`--tm-bg-gradient-${cssKey}`] = gradientValue
+          })
+        } else if (typeof value === 'string') {
+          const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+          variables[`--tm-bg-${cssKey}`] = value
+        }
       })
 
       // 边框颜色
-      Object.entries(config.border).forEach(([key, value]: [string, string]) => {
-        variables[`--tm-bd-${key}`] = value
+      Object.entries(config.border).forEach(([key, value]) => {
+        const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+        variables[`--tm-bd-${cssKey}`] = value
       })
+
+      // 阴影
+      if (config.shadow) {
+        Object.entries(config.shadow).forEach(([key, value]) => {
+          const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+          variables[`--tm-shadow-${cssKey}`] = value
+        })
+      }
 
       // 按钮颜色
       Object.entries(config.button).forEach(([buttonType, buttonColors]) => {
@@ -57,8 +77,8 @@ export const useTheme = defineStore(
             value.forEach((color: string, index: number) => {
               variables[`--tm-btn-${buttonType}-${key}-${index}`] = color
             })
-          } else {
-            variables[`--tm-btn-${buttonType}-${key}`] = value as string
+          } else if (typeof value === 'string') {
+            variables[`--tm-btn-${buttonType}-${key}`] = value
           }
         })
       })

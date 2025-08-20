@@ -2,7 +2,7 @@ import type { ThemeColors } from './types'
 
 export const blackGoldTheme: ThemeColors = {
   name: '黑金',
-  primary: ['#846D1B', '#715C17', '#574612'], // 蓝白色系列
+  primary: ['#846D1B', '#715C17', '#574612'],
   text: {
     primary: '#333333',
     secondary: '#666666',
@@ -10,6 +10,13 @@ export const blackGoldTheme: ThemeColors = {
     label: '#222222',
     placeholder: '#CCCCCC',
     disabled: '#999999',
+    // 新增
+    white: '#FFFFFF',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    accent: '#846D1B',
+    accentDark: '#574612',
   },
   background: {
     primary: '#FFFFFF',
@@ -18,6 +25,23 @@ export const blackGoldTheme: ThemeColors = {
     active: '#FBF6E7',
     disabled: '#F5F5F5',
     mask: 'rgba(0, 0, 0, 0.75)',
+    // 新增
+    card: '#FAFAFA',
+    hover: '#FBF6E7',
+    accent: '#846D1B',
+    accentLight: '#FBF6E7',
+    gradient: {
+      from: '#846D1B',
+      to: '#B8860B',
+      fromDark: '#574612',
+      toDark: '#715C17',
+    },
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
   },
   border: {
     primary: '#846D1B',
@@ -25,6 +49,9 @@ export const blackGoldTheme: ThemeColors = {
     light: '#F0F0F0',
     focus: '#715C17',
     disabled: '#E6E6E6',
+    // 新增
+    card: '#E8E8E8',
+    transparent: 'rgba(255, 255, 255, 0.3)',
   },
   button: {
     primary: {
@@ -34,6 +61,7 @@ export const blackGoldTheme: ThemeColors = {
       hoverBg: ['#715C17'],
       activeBg: ['#574612'],
       disabledBg: ['#262626'],
+      shadow: ['0 4px 20px rgba(132, 109, 27, 0.3)'],
     },
     secondary: {
       background: ['#1C1C1C'],
@@ -49,6 +77,18 @@ export const blackGoldTheme: ThemeColors = {
       activeColor: ['#574612'],
       disabledColor: ['#666666'],
     },
+    transparent: {
+      background: ['rgba(255, 255, 255, 0.1)'],
+      text: ['#FFFFFF'],
+      border: ['rgba(255, 255, 255, 0.8)'],
+      hoverBg: ['rgba(255, 255, 255, 0.2)'],
+    },
+  },
+  shadow: {
+    default: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    accent: '0 4px 20px rgba(132, 109, 27, 0.3)',
+    card: '0 2px 8px rgba(0, 0, 0, 0.08)',
   },
   dark: {
     primary: ['#A38A2A', '#846D1B', '#715C17'],
@@ -59,6 +99,13 @@ export const blackGoldTheme: ThemeColors = {
       label: '#FFFFFF',
       placeholder: '#999999',
       disabled: '#666666',
+      // 新增
+      white: '#FFFFFF',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      accent: '#A38A2A',
+      accentDark: '#846D1B',
     },
     background: {
       primary: '#0D0D0D',
@@ -67,6 +114,23 @@ export const blackGoldTheme: ThemeColors = {
       active: '#333333',
       disabled: '#404040',
       mask: 'rgba(0, 0, 0, 0.75)',
+      // 新增
+      card: '#1C1C1C',
+      hover: '#262626',
+      accent: '#A38A2A',
+      accentLight: '#333333',
+      gradient: {
+        from: '#A38A2A',
+        to: '#C19B4C', // 改为更柔和的浅金色，原来是 #DAA520
+        fromDark: '#846D1B',
+        toDark: '#A38A2A',
+      },
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
+      whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
+      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
+      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
     },
     border: {
       primary: '#A38A2A',
@@ -74,6 +138,9 @@ export const blackGoldTheme: ThemeColors = {
       light: '#404040',
       focus: '#846D1B',
       disabled: '#262626',
+      // 新增
+      card: '#333333',
+      transparent: 'rgba(255, 255, 255, 0.1)',
     },
     button: {
       primary: {
@@ -83,6 +150,7 @@ export const blackGoldTheme: ThemeColors = {
         hoverBg: ['#846D1B'],
         activeBg: ['#715C17'],
         disabledBg: ['#262626'],
+        shadow: ['0 4px 20px rgba(163, 138, 42, 0.4)'],
       },
       secondary: {
         background: ['#1C1C1C'],
@@ -98,6 +166,18 @@ export const blackGoldTheme: ThemeColors = {
         activeColor: ['#715C17'],
         disabledColor: ['#666666'],
       },
+      transparent: {
+        background: ['rgba(255, 255, 255, 0.05)'],
+        text: ['#FFFFFF'],
+        border: ['rgba(255, 255, 255, 0.3)'],
+        hoverBg: ['rgba(255, 255, 255, 0.15)'],
+      },
+    },
+    shadow: {
+      default: '0 4px 20px rgba(0, 0, 0, 0.2)',
+      hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
+      accent: '0 4px 20px rgba(163, 138, 42, 0.4)',
+      card: '0 2px 8px rgba(0, 0, 0, 0.2)',
     },
   },
 }
