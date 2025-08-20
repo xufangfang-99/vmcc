@@ -1,25 +1,5 @@
 <template>
   <section class="services-section">
-    <!-- 粒子效果 -->
-    <div class="particle-container">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-
-    <!-- 波浪效果 -->
-    <div class="wave-container">
-      <div class="wave"></div>
-      <div class="wave"></div>
-    </div>
-
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">我们的优质服务</h2>
@@ -46,12 +26,12 @@
               {{ feature }}
             </li>
           </ul>
-          <a
-            :href="service.link"
+          <NuxtLink
+            :to="service.link"
             class="service-link"
           >
             了解更多 →
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -156,130 +136,6 @@
     pointer-events: none;
   }
 
-  /* 粒子效果容器 */
-  .particle-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* 粒子样式 */
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--tm-pri-0);
-    border-radius: 50%;
-    opacity: 0;
-    animation: particle-float 10s infinite;
-  }
-
-  .particle:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-  }
-  .particle:nth-child(2) {
-    left: 20%;
-    animation-delay: 1s;
-  }
-  .particle:nth-child(3) {
-    left: 30%;
-    animation-delay: 2s;
-  }
-  .particle:nth-child(4) {
-    left: 40%;
-    animation-delay: 3s;
-  }
-  .particle:nth-child(5) {
-    left: 50%;
-    animation-delay: 4s;
-  }
-  .particle:nth-child(6) {
-    left: 60%;
-    animation-delay: 5s;
-  }
-  .particle:nth-child(7) {
-    left: 70%;
-    animation-delay: 6s;
-  }
-  .particle:nth-child(8) {
-    left: 80%;
-    animation-delay: 7s;
-  }
-  .particle:nth-child(9) {
-    left: 90%;
-    animation-delay: 8s;
-  }
-  .particle:nth-child(10) {
-    left: 15%;
-    animation-delay: 9s;
-  }
-
-  /* 波浪效果 */
-  .wave-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    pointer-events: none;
-    opacity: 0.05;
-  }
-
-  .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: var(--tm-pri-0);
-    animation: wave-move 10s linear infinite;
-  }
-
-  .wave:nth-child(1) {
-    animation-delay: 0s;
-    opacity: 0.7;
-    clip-path: polygon(
-      0% 60%,
-      10% 55%,
-      20% 65%,
-      30% 58%,
-      40% 68%,
-      50% 60%,
-      60% 70%,
-      70% 62%,
-      80% 72%,
-      90% 65%,
-      100% 60%,
-      100% 100%,
-      0% 100%
-    );
-  }
-
-  .wave:nth-child(2) {
-    animation-delay: -5s;
-    opacity: 0.5;
-    clip-path: polygon(
-      0% 70%,
-      10% 68%,
-      20% 75%,
-      30% 70%,
-      40% 78%,
-      50% 72%,
-      60% 80%,
-      70% 75%,
-      80% 82%,
-      90% 78%,
-      100% 70%,
-      100% 100%,
-      0% 100%
-    );
-  }
-
   /* 深色模式调整 */
   .dark .services-section {
     background: var(--tm-bg-secondary);
@@ -297,14 +153,6 @@
     );
   }
 
-  .dark .particle {
-    opacity: 0.8;
-  }
-
-  .dark .wave-container {
-    opacity: 0.03;
-  }
-
   /* 动画定义 */
   @keyframes grid-move {
     0% {
@@ -312,15 +160,6 @@
     }
     100% {
       transform: translate(50px, 50px);
-    }
-  }
-
-  @keyframes wave-move {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
     }
   }
 

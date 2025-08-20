@@ -59,7 +59,7 @@
 
       <!-- 英雄区内容 - 调整手机端padding-top -->
       <div class="flex-1 flex items-center text-white px-5 sm:pt-32 md:pt-0">
-        <div class="max-w-1400px w-full mx-auto">
+        <div class="max-w-1100px w-full mx-auto">
           <!-- 左侧：文字内容 -->
           <div class="max-w-800px">
             <!-- 主标题 - 响应式显示 -->
