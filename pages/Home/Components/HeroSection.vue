@@ -1,6 +1,6 @@
 <template>
   <!-- 全屏视频背景容器 -->
-  <div class="video-container">
+  <div class="relative w-screen h-screen overflow-hidden">
     <!-- 视频背景 -->
     <video
       ref="bgVideo"
@@ -9,73 +9,142 @@
       muted
       loop
       playsinline
-      class="bg-video"
+      class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover -z-2"
       @loadedmetadata="handleVideoLoaded"
     ></video>
 
     <!-- 视频遮罩层 -->
-    <div class="video-overlay"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 -z-1"
+    ></div>
 
     <!-- 第一屏内容（包含导航） -->
-    <div class="hero-wrapper">
+    <div class="relative w-full h-screen flex flex-col">
       <!-- 自定义头部导航 -->
-      <header class="hero-header">
-        <div class="header-container">
-          <div class="header-left">
-            <!-- 菜单图标 -->
-            <MenuIcon
-              :menu-items="menuItems"
-              @click="handleIconClick"
-            />
-            <!-- Logo -->
-            <Logo />
+      <header
+        class="hero-header absolute top-0 left-0 right-0 z-1000 py-6 transition-all duration-300 bg-gradient-to-b from-black/70 via-black/30 to-transparent"
+      >
+        <div class="max-w-1400px mx-auto px-8">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-8">
+              <!-- 菜单图标 -->
+              <MenuIcon
+                :menu-items="menuItems"
+                @click="handleIconClick"
+              />
+              <!-- Logo -->
+              <Logo />
 
-            <!-- 桌面端导航 -->
-            <Responsive :not-mobile="true">
-              <nav class="desktop-nav">
-                <NavMenu
-                  v-if="navigation.isDefaultNav"
-                  :menu-items="menuItems"
-                  @menu-click="handleMenuClick"
-                  @submenu-click="handleSubmenuClick"
-                />
-                <CustomNavMenu v-else />
-              </nav>
-            </Responsive>
-          </div>
+              <!-- 桌面端导航 -->
+              <Responsive :not-mobile="true">
+                <nav class="flex-1">
+                  <NavMenu
+                    v-if="navigation.isDefaultNav"
+                    :menu-items="menuItems"
+                    @menu-click="handleMenuClick"
+                    @submenu-click="handleSubmenuClick"
+                  />
+                  <CustomNavMenu v-else />
+                </nav>
+              </Responsive>
+            </div>
 
-          <!-- 右侧操作 -->
-          <div class="header-right">
-            <ThemeSelector />
+            <!-- 右侧操作 -->
+            <div class="flex items-center gap-4">
+              <ThemeSelector />
+            </div>
           </div>
         </div>
       </header>
 
       <!-- 英雄区内容 -->
-      <div class="hero-content">
-        <h1 class="hero-title">
-          <span class="line-1">What's</span>
-          <span class="line-2">your next</span>
-          <span class="line-3">brilliant</span>
-          <span class="line-4">move?</span>
-        </h1>
-        <div class="hero-cta">
-          <button class="cta-button">
-            Get started
-            <span class="arrow">→</span>
-          </button>
+      <div class="flex-1 flex items-center text-white px-5 pt-20 md:pt-0">
+        <div class="max-w-1100px w-full mx-auto">
+          <!-- 左侧：文字内容 -->
+          <div class="max-w-800px">
+            <!-- 主标题 - 一行显示 -->
+            <h1
+              class="hero-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight mb-8 tracking-tight opacity-0 animate-fadeInUp animate-delay-200"
+            >
+              <span class="text-white">精英人才</span>
+              <span class="text-blue-400 font-normal ml-4">解决方案</span>
+            </h1>
+
+            <!-- 描述文字 -->
+            <p
+              class="text-lg lg:text-xl leading-relaxed mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
+            >
+              我们为具有前瞻性思维的企业提供优质的猎头服务、战略人力资源外包、人
+              <br class="hidden lg:block" />
+              才派遣解决方案、组织咨询以及全面的跨境业务支持。
+            </p>
+
+            <!-- CTA 按钮 -->
+            <div
+              class="flex flex-col sm:flex-row gap-4 mb-16 opacity-0 animate-fadeInUp animate-delay-600"
+            >
+              <button
+                class="cta-button px-10 py-5 text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full border-none bg-blue-400 text-white shadow-[0_4px_20px_rgba(64,169,255,0.3)] hover:bg-blue-500 hover:transform hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(64,169,255,0.4)]"
+              >
+                了解我们的服务
+                <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </button>
+              <button
+                class="px-10 py-5 text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-white border-2 border-white/80 hover:bg-white/10 hover:border-white hover:transform hover:-translate-y-0.5"
+              >
+                安排咨询
+              </button>
+            </div>
+
+            <!-- 统计数据 - 放在左侧底部 -->
+            <div
+              class="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 opacity-0 animate-fadeInUp animate-delay-800"
+            >
+              <div class="stat-item">
+                <div
+                  class="text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-2"
+                >
+                  500+
+                </div>
+                <div class="text-sm lg:text-base opacity-80 uppercase tracking-wider">成功安置</div>
+              </div>
+              <div class="stat-item">
+                <div
+                  class="text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-2"
+                >
+                  98%
+                </div>
+                <div class="text-sm lg:text-base opacity-80 uppercase tracking-wider">
+                  客户满意度
+                </div>
+              </div>
+              <div class="stat-item">
+                <div
+                  class="text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-2"
+                >
+                  15岁以上
+                </div>
+                <div class="text-sm lg:text-base opacity-80 uppercase tracking-wider">多年经验</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- 滚动提示 -->
-      <div class="scroll-indicator">
-        <div class="scroll-icon"></div>
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="w-7.5 h-12.5 border-2 border-white rounded-6.25 relative opacity-80">
+          <div
+            class="absolute top-2 left-1/2 transform -translate-x-1/2 w-1 h-2.5 bg-white rounded-0.5 animate-scroll"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  // Script 部分保持不变
   import { ref, onMounted, onUnmounted } from 'vue'
   import { useNavigation } from '~/composables/useNavigation'
   import { useMenuData } from '~/composables/useMenuData'
@@ -83,10 +152,8 @@
   const navigation = useNavigation()
   const { menuItems, specialMenuConfigs } = useMenuData()
 
-  // 视频 URL
-  const videoUrl = ref(
-    'https://fastly-signed-us-east-1-prod.brightcovecdn.com/media/v1/pmp4/static/clear/1971571337001/11ff7e54-8d76-43b9-b28d-669872a19741/b1c9795e-2ab0-4708-a7c2-3cbf079c26a1/main.mp4?fastly_token=NjhhNGFhYTVfYjAwNDEwNDFlZjg2NTYwOTQxZjQwMzJiN2I3ZjBmOGRmMjMxYTBlZDQwMjE0ZWQ1YmQzZTE0NmU4NDM2NDQ1N18vL2Zhc3RseS1zaWduZWQtdXMtZWFzdC0xLXByb2QuYnJpZ2h0Y292ZWNkbi5jb20vbWVkaWEvdjEvcG1wNC9zdGF0aWMvY2xlYXIvMTk3MTU3MTMzNzAwMS8xMWZmN2U1NC04ZDc2LTQzYjktYjI4ZC02Njk4NzJhMTk3NDEvYjFjOTc5NWUtMmFiMC00NzA4LWE3YzItM2NiZjA3OWMyNmExL21haW4ubXA0'
-  )
+  // 视频 URL - 使用本地视频
+  const videoUrl = ref('/video/main.mp4')
 
   const bgVideo = ref<HTMLVideoElement>()
 
@@ -116,7 +183,6 @@
   const handleMenuClick = (item: any) => {
     console.log('Menu clicked:', item.name)
 
-    // 场景2：检查一级菜单是否有特殊配置
     const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
 
     if (firstLevelConfig) {
@@ -126,7 +192,6 @@
         `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
       )
     } else if (!item.hasSubMenu) {
-      // 没有子菜单且没有特殊配置，导航到相应页面
       navigation.switchToDefault()
     }
   }
@@ -134,7 +199,6 @@
   const handleSubmenuClick = (parentItem: any, subItem: any) => {
     console.log('Submenu clicked:', parentItem.name, '->', subItem.name)
 
-    // 场景1：如果点击的二级菜单有三级菜单，显示三级菜单导航
     if (subItem.hasSubMenu && subItem.subItems) {
       console.log('场景1触发：显示三级菜单')
       const basePath = `/${parentItem.name.toLowerCase().replace(/\s+/g, '-')}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`
@@ -151,9 +215,7 @@
         })),
         basePath
       )
-    }
-    // 场景3：检查二级菜单是否有特殊配置
-    else {
+    } else {
       const menuKey = `${parentItem.name}-${subItem.name}`
       const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
 
@@ -177,7 +239,6 @@
   onMounted(() => {
     window.addEventListener('scroll', handleScroll)
 
-    // 确保视频播放
     if (bgVideo.value) {
       bgVideo.value.play().catch((err: Error) => {
         console.error('Video play failed:', err)
@@ -191,260 +252,55 @@
 </script>
 
 <style scoped>
-  /* 视频容器 - 全屏 */
-  .video-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
+  /* 只保留必要的自定义样式和动画 */
 
-  /* 视频背景 */
-  .bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -2;
-  }
-
-  /* 视频遮罩 - 调整透明度确保内容可读 */
-  .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
-  }
-
-  /* 英雄区包装器 */
-  .hero-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* 自定义头部导航 */
-  .hero-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 1.5rem 0;
-    transition: all 0.3s ease;
-    /* 添加渐变背景 */
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      transparent 100%
-    );
-  }
-
+  /* 滚动后的头部样式 */
   .hero-header.scrolled {
-    position: fixed;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
+    @apply fixed bg-black/90 backdrop-blur-lg py-4;
   }
 
-  .header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  /* 覆盖默认组件样式 */
+  :deep(.logo) {
+    @apply text-white !important;
   }
 
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  :deep(.menu-icon span) {
+    @apply bg-white !important;
   }
 
-  /* 覆盖Logo样式 - 确保在深色背景上显示 */
-  .header-left :deep(.logo) {
-    color: white !important;
+  :deep(.primary-nav) {
+    @apply bg-transparent;
   }
 
-  /* 覆盖菜单图标样式 */
-  .header-left :deep(.menu-icon span) {
-    background: white !important;
+  :deep(.nav-link) {
+    @apply text-white !important opacity-90 hover:opacity-100 !important;
   }
 
-  /* 桌面端导航样式 */
-  .desktop-nav {
-    flex: 1;
+  :deep(.chevron-icon) {
+    @apply text-white !important;
   }
 
-  /* 覆盖默认导航样式 */
-  .desktop-nav :deep(.primary-nav) {
-    background: transparent;
+  :deep(.submenu-wrapper) {
+    @apply mt-5;
   }
 
-  .desktop-nav :deep(.nav-link) {
-    color: white !important;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-  }
-
-  .desktop-nav :deep(.nav-link:hover) {
-    opacity: 1;
-    color: white !important;
-  }
-
-  .desktop-nav :deep(.chevron-icon) {
-    color: white !important;
-  }
-
-  /* 覆盖子菜单样式 */
-  .desktop-nav :deep(.submenu-wrapper) {
-    margin-top: 20px; /* 增加间距避免被渐变遮挡 */
-  }
-
-  /* 右侧操作 */
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  /* 覆盖主题选择器样式 - 确保在深色背景上显示 */
-  .header-right :deep(.theme-selector) {
+  :deep(.theme-selector) {
     filter: brightness(2);
   }
 
-  .header-right :deep(.el-button) {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    color: white !important;
+  :deep(.el-button) {
+    @apply bg-white/10 !important border-white/30 !important text-white !important;
   }
 
-  .header-right :deep(.el-button:hover) {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
+  :deep(.el-button:hover) {
+    @apply bg-white/20 !important border-white/50 !important;
   }
 
-  .header-right :deep(.el-dropdown-link) {
-    color: white !important;
+  :deep(.el-dropdown-link) {
+    @apply text-white !important;
   }
 
-  /* 英雄区内容 */
-  .hero-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-  }
-
-  /* 英雄标题 */
-  .hero-title {
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: 3rem;
-    letter-spacing: -0.03em;
-  }
-
-  .hero-title span {
-    display: block;
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
-  }
-
-  .hero-title .line-1 {
-    animation-delay: 0.2s;
-  }
-  .hero-title .line-2 {
-    animation-delay: 0.4s;
-  }
-  .hero-title .line-3 {
-    animation-delay: 0.6s;
-  }
-  .hero-title .line-4 {
-    animation-delay: 0.8s;
-  }
-
-  /* CTA 按钮 */
-  .hero-cta {
-    animation: fadeInUp 0.8s ease-out 1s forwards;
-    opacity: 0;
-  }
-
-  .cta-button {
-    background: white;
-    color: #000;
-    border: none;
-    padding: 1.2rem 3rem;
-    font-size: 1.125rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .cta-button:hover {
-    background: #f0f0f0;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .cta-button .arrow {
-    transition: transform 0.3s ease;
-  }
-
-  .cta-button:hover .arrow {
-    transform: translateX(5px);
-  }
-
-  /* 滚动提示 */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-  }
-
-  .scroll-icon {
-    width: 30px;
-    height: 50px;
-    border: 2px solid white;
-    border-radius: 25px;
-    position: relative;
-  }
-
-  .scroll-icon::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 10px;
-    background: white;
-    border-radius: 2px;
-    animation: scroll 2s infinite;
-  }
-
-  /* 动画 */
+  /* 动画定义 */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -483,39 +339,41 @@
     }
   }
 
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .desktop-nav {
-      display: none;
-    }
-
-    .hero-header {
-      padding: 1rem 0;
-    }
-
-    .header-container {
-      padding: 0 1rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 12vw, 5rem);
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-    }
+  /* 动画类 */
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
   }
 
-  /* 平板适配 */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .desktop-nav {
-      gap: 1.5rem;
-    }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
 
-    .nav-link {
-      font-size: 0.9rem;
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animate-delay-800 {
+    animation-delay: 0.8s;
+  }
+
+  .animate-scroll {
+    animation: scroll 2s infinite;
+  }
+
+  /* 按钮悬停效果 */
+  .cta-button:hover span {
+    @apply translate-x-1.25;
+  }
+
+  /* 手机端特殊调整 */
+  @media (max-width: 640px) {
+    /* 确保内容不会被头部遮挡 */
+    .hero-content {
+      @apply pt-32;
     }
   }
 </style>

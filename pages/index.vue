@@ -34,11 +34,12 @@
   })
 
   useHead({
-    title: "麦肯锡 - What's your next brilliant move?",
+    title: '精英人才解决方案 - 为企业提供优质猎头服务',
     meta: [
       {
         name: 'description',
-        content: '麦肯锡全球管理咨询公司',
+        content:
+          '我们为具有前瞻性思维的企业提供优质的猎头服务、战略人力资源外包、人才派遣解决方案、组织咨询以及全面的跨境业务支持。',
       },
     ],
   })
