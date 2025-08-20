@@ -105,114 +105,127 @@
             <div
               v-for="service in services.slice(0, 2)"
               :key="service.id"
-              class="group relative bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-10 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-2xl overflow-hidden"
+              class="service-card-wrapper group relative bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 md:p-8 lg:p-10 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-2xl overflow-hidden"
             >
               <!-- 右上角动画装饰 -->
               <div
                 class="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700 blur-3xl"
               ></div>
 
-              <!-- 序号 -->
+              <!-- 序号 - 响应式定位和大小 -->
               <span
-                class="absolute top-8 right-8 text-6xl font-bold text-gray-200 dark:text-gray-700 group-hover:text-blue-100 dark:group-hover:text-blue-900/30 transition-colors"
+                class="service-number absolute top-4 right-4 md:top-8 md:right-8 text-7xl md:text-6xl font-bold text-gray-100 dark:text-gray-800 md:text-gray-200 md:dark:text-gray-700 group-hover:text-blue-50 md:group-hover:text-blue-100 dark:group-hover:text-blue-900/20 md:dark:group-hover:text-blue-900/30 transition-colors"
               >
                 0{{ service.id }}
               </span>
 
-              <!-- 图标 -->
-              <div class="relative z-10 mb-6">
-                <div
-                  class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transform group-hover:scale-110 transition-all duration-300"
-                >
-                  <svg
-                    v-if="service.icon === 'magnifying-glass'"
-                    class="w-10 h-10 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              <!-- 服务内容 - 响应式布局 -->
+              <div class="service-content">
+                <!-- 图标 -->
+                <div class="service-icon-wrapper relative z-10">
+                  <div
+                    class="service-icon w-12 h-12 md:w-16 lg:w-20 md:h-16 lg:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transform group-hover:scale-110 transition-all duration-300"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                  <svg
-                    v-else-if="service.icon === 'cube-transparent'"
-                    class="w-10 h-10 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    <svg
+                      v-if="service.icon === 'magnifying-glass'"
+                      class="w-6 h-6 md:w-8 lg:w-10 md:h-8 lg:h-10 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                    <svg
+                      v-else-if="service.icon === 'cube-transparent'"
+                      class="w-6 h-6 md:w-8 lg:w-10 md:h-8 lg:h-10 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- 文本内容 -->
+                <div class="service-text-content relative z-10">
+                  <!-- 标题 -->
+                  <h3
+                    class="service-title text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                    {{ service.title }}
+                  </h3>
+
+                  <!-- 描述 -->
+                  <p
+                    class="service-description text-gray-600 dark:text-gray-300 mb-4 md:mb-6 text-sm md:text-base leading-relaxed"
+                  >
+                    {{ service.description }}
+                  </p>
+
+                  <!-- 特性列表 -->
+                  <ul class="service-features space-y-2 md:space-y-3 mb-4 md:mb-6">
+                    <li
+                      v-for="(feature, idx) in service.features"
+                      :key="idx"
+                      class="flex items-center text-gray-700 dark:text-gray-300 text-sm md:text-base"
+                    >
+                      <div
+                        class="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 flex-shrink-0"
+                      >
+                        <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-500 rounded-full"></div>
+                        <div
+                          class="hidden md:block absolute w-6 h-6 bg-blue-500/20 rounded-full animate-ping"
+                        ></div>
+                      </div>
+                      <span>{{ feature }}</span>
+                    </li>
+                  </ul>
+
+                  <!-- 链接 -->
+                  <NuxtLink
+                    :to="service.link"
+                    class="inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold text-sm md:text-base hover:text-blue-700 dark:hover:text-blue-300 transition-colors group"
+                  >
+                    了解更多
+                    <Icon
+                      name="heroicons:arrow-right"
+                      class="w-4 h-4 md:w-5 md:h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
                     />
-                  </svg>
+                  </NuxtLink>
                 </div>
               </div>
-
-              <!-- 内容 -->
-              <h3
-                class="relative z-10 text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-              >
-                {{ service.title }}
-              </h3>
-              <p class="relative z-10 text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                {{ service.description }}
-              </p>
-
-              <!-- 特性列表 -->
-              <ul class="relative z-10 space-y-3 mb-6">
-                <li
-                  v-for="(feature, idx) in service.features"
-                  :key="idx"
-                  class="flex items-center text-gray-700 dark:text-gray-300"
-                >
-                  <!-- 装饰图标 -->
-                  <div class="flex items-center justify-center w-6 h-6 mr-3 flex-shrink-0">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <div class="absolute w-6 h-6 bg-blue-500/20 rounded-full animate-ping"></div>
-                  </div>
-                  <span>{{ feature }}</span>
-                </li>
-              </ul>
-
-              <!-- 链接 -->
-              <NuxtLink
-                :to="service.link"
-                class="relative z-10 inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors group"
-              >
-                了解更多
-                <Icon
-                  name="heroicons:arrow-right"
-                  class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform"
-                />
-              </NuxtLink>
             </div>
           </div>
 
-          <!-- 第二行：3个服务 - 手机端优化 -->
+          <!-- 第二行：3个服务 -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div
               v-for="service in services.slice(2, 5)"
               :key="service.id"
-              class="group relative bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 md:p-8 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-2xl overflow-hidden"
+              class="service-card-wrapper service-card-row2 group relative bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 md:p-8 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-2xl overflow-hidden"
             >
               <!-- 右上角动画装饰 -->
               <div
                 class="absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700 blur-3xl"
               ></div>
 
-              <!-- 手机端：图标和标题左右布局 -->
-              <div class="flex items-start md:block">
+              <!-- 服务内容 -->
+              <div class="service-content">
                 <!-- 图标 -->
-                <div class="flex-shrink-0 mr-4 md:mr-0 md:mb-6">
+                <div class="service-icon-wrapper">
                   <div
-                    class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transform group-hover:scale-110 transition-all duration-300"
+                    class="service-icon w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transform group-hover:scale-110 transition-all duration-300"
                   >
                     <svg
                       v-if="service.icon === 'user-group'"
@@ -259,49 +272,34 @@
                   </div>
                 </div>
 
-                <!-- 内容区域 -->
-                <div class="flex-1">
+                <!-- 文本内容 -->
+                <div class="service-text-content">
                   <!-- 标题 -->
                   <h3
-                    class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                    class="service-title text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
                   >
                     {{ service.title }}
                   </h3>
 
-                  <!-- 手机端：描述和链接在标题下方 -->
-                  <div class="md:hidden">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                      {{ service.description }}
-                    </p>
-                    <NuxtLink
-                      :to="service.link"
-                      class="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold text-sm hover:text-purple-700 dark:hover:text-purple-300 transition-colors group"
-                    >
-                      探索服务
-                      <Icon
-                        name="heroicons:arrow-right"
-                        class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform"
-                      />
-                    </NuxtLink>
-                  </div>
-                </div>
-              </div>
+                  <!-- 描述 -->
+                  <p
+                    class="service-description text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed"
+                  >
+                    {{ service.description }}
+                  </p>
 
-              <!-- 桌面端：保持原有的垂直布局 -->
-              <div class="hidden md:block">
-                <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                  {{ service.description }}
-                </p>
-                <NuxtLink
-                  :to="service.link"
-                  class="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold text-sm hover:text-purple-700 dark:hover:text-purple-300 transition-colors group"
-                >
-                  探索服务
-                  <Icon
-                    name="heroicons:arrow-right"
-                    class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform"
-                  />
-                </NuxtLink>
+                  <!-- 链接 -->
+                  <NuxtLink
+                    :to="service.link"
+                    class="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold text-sm hover:text-purple-700 dark:hover:text-purple-300 transition-colors group"
+                  >
+                    探索服务
+                    <Icon
+                      name="heroicons:arrow-right"
+                      class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform"
+                    />
+                  </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
@@ -398,7 +396,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
 
   const services = ref([
     {
@@ -456,6 +454,7 @@
 </script>
 
 <style scoped>
+  /* 动画延迟 */
   @keyframes pulse {
     0%,
     100% {
@@ -482,5 +481,34 @@
 
   .animation-delay-600 {
     animation-delay: 600ms;
+  }
+
+  /* 响应式布局样式 */
+  /* 手机端：图标和标题左右排列 */
+  @media (max-width: 767px) {
+    .service-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .service-icon-wrapper {
+      flex-shrink: 0;
+    }
+
+    .service-text-content {
+      flex: 1;
+    }
+  }
+
+  /* 桌面端：垂直布局 */
+  @media (min-width: 768px) {
+    .service-content {
+      display: block;
+    }
+
+    .service-icon-wrapper {
+      margin-bottom: 1.5rem;
+    }
   }
 </style>
