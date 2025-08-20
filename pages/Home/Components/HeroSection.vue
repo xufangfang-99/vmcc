@@ -67,12 +67,12 @@
               class="hero-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight mb-8 tracking-tight opacity-0 animate-fadeInUp animate-delay-200"
             >
               <span class="text-white">精英人才</span>
-              <span class="text-blue-400 font-normal ml-4">解决方案</span>
+              <span class="text-blue-400 font-normal ml-2 sm:ml-4">解决方案</span>
             </h1>
 
             <!-- 描述文字 -->
             <p
-              class="text-lg lg:text-xl leading-relaxed mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
+              class="text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
             >
               我们为具有前瞻性思维的企业提供优质的猎头服务、战略人力资源外包、人
               <br class="hidden lg:block" />
@@ -81,50 +81,54 @@
 
             <!-- CTA 按钮 -->
             <div
-              class="flex flex-col sm:flex-row gap-4 mb-16 opacity-0 animate-fadeInUp animate-delay-600"
+              class="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16 opacity-0 animate-fadeInUp animate-delay-600"
             >
               <button
-                class="cta-button px-10 py-5 text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full border-none bg-blue-400 text-white shadow-[0_4px_20px_rgba(64,169,255,0.3)] hover:bg-blue-500 hover:transform hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(64,169,255,0.4)]"
+                class="cta-button px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full border-none bg-blue-400 text-white shadow-[0_4px_20px_rgba(64,169,255,0.3)] hover:bg-blue-500 hover:transform hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(64,169,255,0.4)]"
               >
                 了解我们的服务
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
               <button
-                class="px-10 py-5 text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-white border-2 border-white/80 hover:bg-white/10 hover:border-white hover:transform hover:-translate-y-0.5"
+                class="px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-white border-2 border-white/80 hover:bg-white/10 hover:border-white hover:transform hover:-translate-y-0.5"
               >
                 安排咨询
               </button>
             </div>
 
-            <!-- 统计数据 - 放在左侧底部 -->
+            <!-- 统计数据 - 手机端调整 -->
             <div
-              class="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 opacity-0 animate-fadeInUp animate-delay-800"
+              class="flex justify-between sm:justify-start sm:gap-12 lg:gap-16 opacity-0 animate-fadeInUp animate-delay-800"
             >
               <div class="stat-item">
                 <div
-                  class="text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-2"
+                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
                 >
                   500+
                 </div>
-                <div class="text-sm lg:text-base opacity-80 uppercase tracking-wider">成功安置</div>
+                <div class="text-xs sm:text-sm lg:text-base opacity-80 uppercase tracking-wider">
+                  成功安置
+                </div>
               </div>
               <div class="stat-item">
                 <div
-                  class="text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-2"
+                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
                 >
                   98%
                 </div>
-                <div class="text-sm lg:text-base opacity-80 uppercase tracking-wider">
+                <div class="text-xs sm:text-sm lg:text-base opacity-80 uppercase tracking-wider">
                   客户满意度
                 </div>
               </div>
               <div class="stat-item">
                 <div
-                  class="text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-2"
+                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
                 >
-                  15岁以上
+                  15年+
                 </div>
-                <div class="text-sm lg:text-base opacity-80 uppercase tracking-wider">多年经验</div>
+                <div class="text-xs sm:text-sm lg:text-base opacity-80 uppercase tracking-wider">
+                  行业经验
+                </div>
               </div>
             </div>
           </div>
