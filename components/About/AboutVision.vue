@@ -110,11 +110,14 @@
 
         <!-- 右侧图片 -->
         <div class="image-section">
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-            alt="现代办公环境"
-            class="vision-image"
-          />
+          <div class="image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+              alt="现代办公环境"
+              class="vision-image"
+            />
+            <div class="image-overlay"></div>
+          </div>
           <div class="excellence-badge">
             <div class="badge-icon">
               <svg
@@ -149,12 +152,28 @@
   .about-vision {
     padding: 100px 0;
     background: var(--tm-bg-primary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 背景装饰 */
+  .about-vision::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--tm-bg-heroGradient-from) 0%, transparent 70%);
+    opacity: 0.3;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
   }
 
   .vision-grid {
@@ -178,8 +197,17 @@
   }
 
   .highlight {
-    color: #5b6cff;
+    color: var(--tm-accent-primary);
     font-weight: 600;
+    background: linear-gradient(
+      var(--tm-accent-gradient-angle, 135deg),
+      var(--tm-accent-gradient-from),
+      var(--tm-accent-gradient-to)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
   }
 
   .description {
@@ -201,18 +229,32 @@
     display: flex;
     gap: 20px;
     align-items: start;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateX(10px);
   }
 
   .feature-icon {
     width: 56px;
     height: 56px;
-    background: rgba(91, 108, 255, 0.1);
+    background: var(--tm-bg-badge);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #5b6cff;
+    color: var(--tm-accent-primary);
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    border: 1px solid var(--tm-bd-feature);
+  }
+
+  .feature-item:hover .feature-icon {
+    background: linear-gradient(135deg, var(--tm-accent-feature-from), var(--tm-accent-feature-to));
+    color: var(--tm-txt-white);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--tm-shadow-feature);
   }
 
   .feature-title {
@@ -233,36 +275,55 @@
     position: relative;
   }
 
+  .image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--tm-shadow-hero);
+  }
+
   .vision-image {
     width: 100%;
     height: 600px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--tm-accent-gradient-from) 0%, transparent 50%);
+    opacity: 0.1;
   }
 
   .excellence-badge {
     position: absolute;
     bottom: 30px;
     right: 30px;
-    background: white;
+    background: var(--tm-bg-primary);
     padding: 20px 30px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--tm-shadow-card);
     display: flex;
     align-items: center;
     gap: 16px;
+    border: 1px solid var(--tm-bd-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .badge-icon {
     width: 48px;
     height: 48px;
-    background: rgba(91, 108, 255, 0.1);
+    background: linear-gradient(
+      135deg,
+      var(--tm-accent-gradient-from),
+      var(--tm-accent-gradient-to)
+    );
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #5b6cff;
+    color: var(--tm-txt-white);
   }
 
   .badge-content h4 {
@@ -284,6 +345,12 @@
 
   .dark .excellence-badge {
     background: var(--tm-bg-primary);
+    border-color: var(--tm-bd-secondary);
+  }
+
+  .dark .feature-icon {
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-bd-transparent);
   }
 
   /* 响应式设计 */
@@ -299,47 +366,6 @@
 
     .section-title {
       font-size: 2.5rem;
-    }
-
-    .vision-image {
-      height: 400px;
-    }
-
-    .excellence-badge {
-      bottom: 20px;
-      right: 20px;
-      padding: 16px 20px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .about-vision {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-    }
-
-    .description {
-      font-size: 1rem;
-    }
-
-    .features-list {
-      gap: 24px;
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-    }
-
-    .feature-title {
-      font-size: 1.125rem;
-    }
-
-    .feature-desc {
-      font-size: 0.9rem;
     }
 
     .vision-image {

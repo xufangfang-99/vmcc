@@ -1,4 +1,3 @@
-<!-- components/about/CoreExpertise.vue -->
 <template>
   <section class="core-expertise">
     <div class="container">
@@ -15,24 +14,26 @@
       <div class="services-grid">
         <!-- 高管搜寻 -->
         <div class="service-card">
-          <div class="service-icon">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle
-                cx="11"
-                cy="11"
-                r="8"
-              ></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
+          <div class="service-header">
+            <div class="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="8"
+                ></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Executive Search</h3>
           </div>
-          <h3 class="service-title">Executive Search</h3>
           <p class="service-desc">
             Premium headhunting services for C-level and senior leadership positions across
             industries
@@ -43,30 +44,46 @@
             <li>Senior Management</li>
             <li>Specialized Roles</li>
           </ul>
-        </div>
-
-        <!-- 人力资源外包 -->
-        <div class="service-card">
-          <div class="service-icon">
+          <div class="service-action">
+            <span class="action-text">Learn More</span>
             <svg
-              width="24"
-              height="24"
+              class="action-icon"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
             >
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle
-                cx="9"
-                cy="7"
-                r="4"
-              ></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
-          <h3 class="service-title">HR Outsourcing</h3>
+        </div>
+
+        <!-- 人力资源外包 -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle
+                  cx="9"
+                  cy="7"
+                  r="4"
+                ></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">HR Outsourcing</h3>
+          </div>
           <p class="service-desc">
             Comprehensive human resources management solutions to streamline operations
           </p>
@@ -76,24 +93,40 @@
             <li>Compliance Support</li>
             <li>HR Technology</li>
           </ul>
-        </div>
-
-        <!-- 移民服务 -->
-        <div class="service-card">
-          <div class="service-icon">
+          <div class="service-action">
+            <span class="action-text">Learn More</span>
             <svg
-              width="24"
-              height="24"
+              class="action-icon"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
             >
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
-          <h3 class="service-title">Immigration Services</h3>
+        </div>
+
+        <!-- 移民服务 -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-title">Immigration Services</h3>
+          </div>
           <p class="service-desc">
             Expert immigration consultation and processing for individuals and corporations
           </p>
@@ -103,24 +136,40 @@
             <li>Corporate Immigration</li>
             <li>Family Reunification</li>
           </ul>
-        </div>
-
-        <!-- 留学服务 -->
-        <div class="service-card">
-          <div class="service-icon">
+          <div class="service-action">
+            <span class="action-text">Learn More</span>
             <svg
-              width="24"
-              height="24"
+              class="action-icon"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
             >
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
-          <h3 class="service-title">Study Abroad</h3>
+        </div>
+
+        <!-- 留学服务 -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Study Abroad</h3>
+          </div>
           <p class="service-desc">
             Complete educational consulting for international study opportunities
           </p>
@@ -130,31 +179,47 @@
             <li>Student Visas</li>
             <li>Academic Planning</li>
           </ul>
-        </div>
-
-        <!-- 战略咨询 -->
-        <div class="service-card">
-          <div class="service-icon">
+          <div class="service-action">
+            <span class="action-text">Learn More</span>
             <svg
-              width="24"
-              height="24"
+              class="action-icon"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
             >
-              <circle
-                cx="12"
-                cy="12"
-                r="3"
-              ></circle>
-              <path d="M12 1v6m0 6v6m11-11h-6m-6 0H1"></path>
-              <path
-                d="m20.5 7.5L16 12l4.5 4.5L16 12l4.5-4.5m-17 0L8 12l-4.5 4.5L8 12 3.5 7.5"
-              ></path>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
-          <h3 class="service-title">Strategic Consulting</h3>
+        </div>
+
+        <!-- 战略咨询 -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                ></circle>
+                <path d="M12 1v6m0 6v6m11-11h-6m-6 0H1"></path>
+                <path
+                  d="m20.5 7.5L16 12l4.5 4.5L16 12l4.5-4.5m-17 0L8 12l-4.5 4.5L8 12 3.5 7.5"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Strategic Consulting</h3>
+          </div>
           <p class="service-desc">
             Business strategy and organizational development advisory services
           </p>
@@ -164,30 +229,58 @@
             <li>Change Management</li>
             <li>Market Entry</li>
           </ul>
-        </div>
-
-        <!-- 综合解决方案 -->
-        <div class="service-card featured">
-          <div class="service-icon">
+          <div class="service-action">
+            <span class="action-text">Learn More</span>
             <svg
-              width="24"
-              height="24"
+              class="action-icon"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
             >
-              <path
-                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-              ></path>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
-          <h3 class="service-title">Integrated Solutions</h3>
+        </div>
+
+        <!-- 综合解决方案 -->
+        <div class="service-card featured">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Integrated Solutions</h3>
+          </div>
           <p class="service-desc">
             Seamlessly combine multiple services for comprehensive business transformation and
             growth.
           </p>
-          <button class="explore-btn">Explore Integration</button>
+          <button class="explore-btn">
+            <span>Explore Integration</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -202,12 +295,29 @@
   .core-expertise {
     padding: 100px 0;
     background: var(--tm-bg-primary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 背景装饰 */
+  .core-expertise::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -200px;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--tm-bg-heroGradient-from) 0%, transparent 60%);
+    opacity: 0.1;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
   }
 
   /* 标题区域 */
@@ -239,50 +349,94 @@
   }
 
   .service-card {
-    background: var(--tm-bg-secondary);
+    background: var(--tm-bg-feature);
     border-radius: 20px;
     padding: 40px 30px;
     transition: all 0.3s ease;
-    border: 1px solid var(--tm-bd-light);
+    border: 1px solid var(--tm-bd-feature);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 卡片悬停效果 */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--tm-accent-gradient-from),
+      var(--tm-accent-gradient-to)
+    );
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover::before {
+    transform: translateX(0);
   }
 
   .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--tm-shadow-hover);
+    border-color: var(--tm-accent-primary);
   }
 
   /* 特色卡片 */
   .service-card.featured {
-    background: linear-gradient(135deg, #5b6cff 0%, #7b8cff 100%);
-    color: white;
+    background: linear-gradient(
+      135deg,
+      var(--tm-accent-gradient-from) 0%,
+      var(--tm-accent-gradient-to) 100%
+    );
+    color: var(--tm-txt-white);
+    border: none;
+  }
+
+  /* 服务头部 - 桌面端垂直布局 */
+  .service-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
   }
 
   .service-icon {
     width: 64px;
     height: 64px;
-    background: rgba(91, 108, 255, 0.1);
+    background: var(--tm-bg-badge);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
-    color: #5b6cff;
+    margin-bottom: 16px;
+    color: var(--tm-accent-primary);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover .service-icon {
+    background: linear-gradient(135deg, var(--tm-accent-feature-from), var(--tm-accent-feature-to));
+    color: var(--tm-txt-white);
+    transform: scale(1.1) rotate(5deg);
   }
 
   .featured .service-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: var(--tm-bg-whiteAlpha20);
+    color: var(--tm-txt-white);
   }
 
   .service-title {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--tm-txt-primary);
-    margin-bottom: 16px;
+    text-align: center;
   }
 
   .featured .service-title {
-    color: white;
+    color: var(--tm-txt-white);
   }
 
   .service-desc {
@@ -293,13 +447,13 @@
   }
 
   .featured .service-desc {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--tm-txt-whiteAlpha90);
   }
 
   .service-features {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 24px 0;
   }
 
   .service-features li {
@@ -314,22 +468,46 @@
     content: '•';
     position: absolute;
     left: 8px;
-    color: #5b6cff;
+    color: var(--tm-accent-primary);
   }
 
   .featured .service-features li {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--tm-txt-whiteAlpha80);
   }
 
   .featured .service-features li::before {
-    color: white;
+    color: var(--tm-txt-white);
+  }
+
+  /* 服务操作 */
+  .service-action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--tm-accent-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover .service-action {
+    gap: 12px;
+  }
+
+  .action-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .action-icon {
+    transform: translateX(4px);
   }
 
   /* 探索按钮 */
   .explore-btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: var(--tm-bg-whiteAlpha20);
+    color: var(--tm-txt-white);
+    border: 2px solid var(--tm-bd-transparent);
     padding: 12px 32px;
     border-radius: 30px;
     font-size: 1rem;
@@ -337,12 +515,16 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .explore-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: var(--tm-bg-whiteAlpha30);
+    border-color: var(--tm-txt-white);
     transform: translateX(5px);
+    gap: 12px;
   }
 
   /* 深色模式 */
@@ -355,36 +537,131 @@
     border-color: var(--tm-bd-secondary);
   }
 
-  /* 响应式设计 */
+  /* 手机端响应式 */
   @media (max-width: 768px) {
     .core-expertise {
-      padding: 60px 0;
+      padding: 40px 0;
+    }
+
+    .section-header {
+      margin-bottom: 30px;
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
+      margin-bottom: 12px;
     }
 
     .section-subtitle {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .services-grid {
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 16px;
     }
 
     .service-card {
-      padding: 30px 24px;
+      padding: 20px 16px;
+      border-radius: 16px;
+    }
+
+    /* 手机端：图标和标题横向排列 */
+    .service-header {
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .service-icon {
-      width: 56px;
-      height: 56px;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+      border-radius: 12px;
+    }
+
+    .service-icon svg {
+      width: 20px;
+      height: 20px;
     }
 
     .service-title {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
+      text-align: left;
+      margin: 0;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .service-features {
+      margin-left: 0;
+      margin-bottom: 16px;
+    }
+
+    .service-features li {
+      font-size: 0.8125rem;
+      margin-bottom: 6px;
+      padding-left: 20px;
+    }
+
+    .service-action {
+      font-size: 0.875rem;
+    }
+
+    .explore-btn {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      justify-content: center;
+    }
+  }
+
+  /* 更小屏幕优化 */
+  @media (max-width: 480px) {
+    .core-expertise {
+      padding: 30px 0;
+    }
+
+    .services-grid {
+      gap: 12px;
+    }
+
+    .service-card {
+      padding: 16px 14px;
+    }
+
+    .service-header {
+      gap: 10px;
+    }
+
+    .service-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+    }
+
+    .service-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .service-title {
+      font-size: 1rem;
+    }
+
+    .service-desc {
+      font-size: 0.8125rem;
+    }
+
+    .service-features li {
+      font-size: 0.75rem;
     }
   }
 </style>

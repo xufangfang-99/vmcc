@@ -9,6 +9,7 @@
         class="bg-image"
       />
       <div class="bg-overlay"></div>
+      <div class="bg-pattern"></div>
     </div>
 
     <div class="container">
@@ -46,45 +47,61 @@
 
         <!-- CTA按钮 -->
         <div class="cta-buttons">
-          <button class="btn-primary">Our Services</button>
-          <button class="btn-secondary">Contact Us</button>
+          <button class="btn-primary">
+            <span>Our Services</span>
+            <svg
+              class="btn-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <button class="btn-secondary">
+            <span>Contact Us</span>
+          </button>
         </div>
 
         <!-- 统计数据 -->
         <div class="stats-row">
           <div class="stat-item">
-            <h3 class="stat-number">8+</h3>
+            <h3 class="stat-number">
+              8
+              <span class="stat-plus">+</span>
+            </h3>
             <p class="stat-label">Global Offices</p>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <h3 class="stat-number">10+</h3>
+            <h3 class="stat-number">
+              10
+              <span class="stat-plus">+</span>
+            </h3>
             <p class="stat-label">Years Experience</p>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <h3 class="stat-number">1000+</h3>
+            <h3 class="stat-number">
+              1000
+              <span class="stat-plus">+</span>
+            </h3>
             <p class="stat-label">Successful Placements</p>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <h3 class="stat-number">50+</h3>
+            <h3 class="stat-number">
+              50
+              <span class="stat-plus">+</span>
+            </h3>
             <p class="stat-label">Industry Sectors</p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- 设计署名
-    <div class="design-credit">
-      <span>Designed by</span>
-      <img
-        src="/images/readdy-logo.png"
-        alt="Readdy"
-        class="readdy-logo"
-      />
-    </div>
-    -->
   </section>
 </template>
 
@@ -118,12 +135,23 @@
   .bg-overlay {
     position: absolute;
     inset: 0;
+    /* 使用主题变量 */
     background: linear-gradient(
       135deg,
-      rgba(16, 24, 40, 0.9) 0%,
-      rgba(16, 24, 40, 0.7) 50%,
-      rgba(16, 24, 40, 0.9) 100%
+      var(--tm-bg-overlay) 0%,
+      var(--tm-bg-overlayDark) 50%,
+      var(--tm-bg-overlay) 100%
     );
+  }
+
+  /* 装饰图案 */
+  .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, var(--tm-bg-heroGradient-from) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, var(--tm-bg-heroGradient-to) 0%, transparent 40%);
+    opacity: 0.6;
   }
 
   .container {
@@ -137,10 +165,10 @@
 
   .hero-content {
     text-align: center;
-    color: white;
+    color: var(--tm-txt-hero);
   }
 
-  /* 公司徽章 */
+  /* 公司徽章 - 使用主题变量 */
   .company-badge {
     display: inline-flex;
     margin-bottom: 30px;
@@ -149,16 +177,25 @@
   .badge-icon {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: var(--tm-bg-badge);
+    border: 2px solid var(--tm-bd-hero);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--tm-accent-primary);
+    transition: all 0.3s ease;
   }
 
-  /* 标题区域 */
+  .badge-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--tm-accent-primary);
+    color: var(--tm-txt-white);
+  }
+
+  /* 标题区域 - 使用主题变量 */
   .title-section {
     margin-bottom: 40px;
   }
@@ -168,28 +205,39 @@
     font-weight: 300;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
+    color: var(--tm-txt-hero);
   }
 
   .highlight {
-    color: #5b6cff;
     font-weight: 600;
+    background: linear-gradient(
+      var(--tm-accent-gradient-angle, 135deg),
+      var(--tm-accent-gradient-from),
+      var(--tm-accent-gradient-to)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
   }
 
   .company-name {
     font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--tm-txt-heroSubtitle);
     margin-bottom: 30px;
+    letter-spacing: 0.5px;
   }
 
   .hero-description {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--tm-txt-hero);
     max-width: 800px;
     margin: 0 auto;
+    opacity: 0.9;
   }
 
-  /* CTA按钮 */
+  /* CTA按钮 - 使用主题系统 */
   .cta-buttons {
     display: flex;
     gap: 20px;
@@ -206,79 +254,137 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .btn-primary {
-    background: #5b6cff;
-    color: white;
+    background: linear-gradient(135deg, var(--tm-accent-hero-from), var(--tm-accent-hero-to));
+    color: var(--tm-txt-white);
+    box-shadow: var(--tm-shadow-accent);
   }
 
   .btn-primary:hover {
-    background: #4a5bee;
     transform: translateY(-2px);
+    box-shadow: var(--tm-shadow-hover);
+  }
+
+  .btn-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover .btn-icon {
+    transform: translateX(4px);
   }
 
   .btn-secondary {
     background: transparent;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--tm-txt-hero);
+    border: 2px solid var(--tm-bd-hero);
   }
 
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-txt-heroAccent);
+    color: var(--tm-txt-heroAccent);
   }
 
-  /* 统计数据 */
+  /* 统计数据 - 使用主题变量 */
   .stats-row {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--tm-bg-stats);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--tm-bd-stats);
+    box-shadow: var(--tm-shadow-stats);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 添加动画背景 */
+  .stats-row::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      var(--tm-bg-whiteAlpha10) 50%,
+      transparent 70%
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
   }
 
   .stat-item {
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
 
   .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #5b6cff;
     margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--tm-accent-secondary), var(--tm-accent-tertiary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+
+  .stat-plus {
+    font-size: 2rem;
+    opacity: 0.8;
   }
 
   .stat-label {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--tm-txt-heroSubtitle);
+    white-space: nowrap;
   }
 
   .stat-divider {
     width: 1px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to bottom, transparent, var(--tm-bd-hero), transparent);
   }
 
-  /* 设计署名 */
-  .design-credit {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
+  /* 深色模式适配 */
+  .dark .bg-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(10, 14, 39, 0.95) 0%,
+      rgba(10, 14, 39, 0.88) 50%,
+      rgba(10, 14, 39, 0.95) 100%
+    );
   }
 
-  .readdy-logo {
-    height: 20px;
-    opacity: 0.7;
+  .dark .badge-icon {
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-bd-transparent);
+  }
+
+  .dark .stats-row {
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-bd-transparent);
   }
 
   /* 响应式设计 */
@@ -324,12 +430,6 @@
 
     .stat-number {
       font-size: 2rem;
-    }
-
-    .design-credit {
-      bottom: 10px;
-      right: 10px;
-      font-size: 0.75rem;
     }
   }
 </style>

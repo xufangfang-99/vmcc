@@ -17,6 +17,10 @@ export const blackGoldTheme: ThemeColors = {
     whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
     accent: '#846D1B',
     accentDark: '#574612',
+    // About模块专用
+    hero: '#FFFFFF',
+    heroSubtitle: 'rgba(255, 255, 255, 0.85)',
+    heroAccent: '#C19B4C',
   },
   background: {
     primary: '#FFFFFF',
@@ -42,6 +46,16 @@ export const blackGoldTheme: ThemeColors = {
     whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
     whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
     whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    // About模块专用
+    overlay: 'rgba(255, 255, 255, 0.92)',
+    overlayDark: 'rgba(255, 255, 255, 0.85)',
+    badge: 'rgba(132, 109, 27, 0.08)',
+    feature: '#FFFBF3',
+    stats: 'rgba(132, 109, 27, 0.05)',
+    heroGradient: {
+      from: 'rgba(132, 109, 27, 0.1)',
+      to: 'rgba(184, 134, 11, 0.05)',
+    },
   },
   border: {
     primary: '#846D1B',
@@ -52,6 +66,10 @@ export const blackGoldTheme: ThemeColors = {
     // 新增
     card: '#E8E8E8',
     transparent: 'rgba(255, 255, 255, 0.3)',
+    // About模块专用
+    hero: 'rgba(132, 109, 27, 0.2)',
+    feature: 'rgba(132, 109, 27, 0.15)',
+    stats: 'rgba(132, 109, 27, 0.1)',
   },
   button: {
     primary: {
@@ -60,22 +78,22 @@ export const blackGoldTheme: ThemeColors = {
       border: ['#846D1B', '#715C17', '#574612'],
       hoverBg: ['#715C17'],
       activeBg: ['#574612'],
-      disabledBg: ['#262626'],
+      disabledBg: ['#F5F5F5'],
       shadow: ['0 4px 20px rgba(132, 109, 27, 0.3)'],
     },
     secondary: {
-      background: ['#1C1C1C'],
+      background: ['#FFFFFF'],
       text: ['#846D1B', '#715C17', '#574612'],
       border: ['#846D1B', '#715C17', '#574612'],
-      hoverBg: ['#262626'],
-      activeBg: ['#333333'],
-      disabledBg: ['#1C1C1C'],
+      hoverBg: ['#FBF6E7'],
+      activeBg: ['#F7EFD9'],
+      disabledBg: ['#F5F5F5'],
     },
     text: {
       color: ['#846D1B'],
       hoverColor: ['#715C17'],
       activeColor: ['#574612'],
-      disabledColor: ['#666666'],
+      disabledColor: ['#999999'],
     },
     transparent: {
       background: ['rgba(255, 255, 255, 0.1)'],
@@ -89,6 +107,29 @@ export const blackGoldTheme: ThemeColors = {
     hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
     accent: '0 4px 20px rgba(132, 109, 27, 0.3)',
     card: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    // About模块专用
+    feature: '0 5px 20px rgba(132, 109, 27, 0.1)',
+    stats: '0 10px 30px rgba(132, 109, 27, 0.15)',
+    hero: '0 20px 60px rgba(0, 0, 0, 0.1)',
+  },
+  accent: {
+    primary: '#846D1B',
+    secondary: '#A38A2A',
+    tertiary: '#C19B4C',
+    gradient: {
+      from: '#846D1B',
+      to: '#C19B4C',
+      angle: '135deg',
+    },
+    hero: {
+      from: '#715C17',
+      to: '#B8860B',
+      angle: '45deg',
+    },
+    feature: {
+      from: '#846D1B',
+      to: '#A38A2A',
+    },
   },
   dark: {
     primary: ['#A38A2A', '#846D1B', '#715C17'],
@@ -106,6 +147,10 @@ export const blackGoldTheme: ThemeColors = {
       whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
       accent: '#A38A2A',
       accentDark: '#846D1B',
+      // About模块专用
+      hero: '#FFFFFF',
+      heroSubtitle: 'rgba(255, 255, 255, 0.8)',
+      heroAccent: '#C19B4C',
     },
     background: {
       primary: '#0D0D0D',
@@ -121,7 +166,7 @@ export const blackGoldTheme: ThemeColors = {
       accentLight: '#333333',
       gradient: {
         from: '#A38A2A',
-        to: '#C19B4C', // 改为更柔和的浅金色，原来是 #DAA520
+        to: '#C19B4C',
         fromDark: '#846D1B',
         toDark: '#A38A2A',
       },
@@ -131,6 +176,16 @@ export const blackGoldTheme: ThemeColors = {
       whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
       whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
       whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      // About模块专用
+      overlay: 'rgba(13, 13, 13, 0.95)',
+      overlayDark: 'rgba(13, 13, 13, 0.98)',
+      badge: 'rgba(163, 138, 42, 0.15)',
+      feature: '#1A1A1A',
+      stats: 'rgba(163, 138, 42, 0.1)',
+      heroGradient: {
+        from: 'rgba(163, 138, 42, 0.2)',
+        to: 'rgba(193, 155, 76, 0.1)',
+      },
     },
     border: {
       primary: '#A38A2A',
@@ -141,6 +196,10 @@ export const blackGoldTheme: ThemeColors = {
       // 新增
       card: '#333333',
       transparent: 'rgba(255, 255, 255, 0.1)',
+      // About模块专用
+      hero: 'rgba(163, 138, 42, 0.3)',
+      feature: 'rgba(163, 138, 42, 0.2)',
+      stats: 'rgba(163, 138, 42, 0.15)',
     },
     button: {
       primary: {
@@ -178,6 +237,29 @@ export const blackGoldTheme: ThemeColors = {
       hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
       accent: '0 4px 20px rgba(163, 138, 42, 0.4)',
       card: '0 2px 8px rgba(0, 0, 0, 0.2)',
+      // About模块专用
+      feature: '0 5px 20px rgba(163, 138, 42, 0.2)',
+      stats: '0 10px 30px rgba(163, 138, 42, 0.25)',
+      hero: '0 20px 60px rgba(0, 0, 0, 0.3)',
+    },
+    accent: {
+      primary: '#A38A2A',
+      secondary: '#C19B4C',
+      tertiary: '#DAA520',
+      gradient: {
+        from: '#A38A2A',
+        to: '#DAA520',
+        angle: '135deg',
+      },
+      hero: {
+        from: '#846D1B',
+        to: '#C19B4C',
+        angle: '45deg',
+      },
+      feature: {
+        from: '#A38A2A',
+        to: '#C19B4C',
+      },
     },
   },
 }

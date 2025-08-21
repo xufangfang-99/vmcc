@@ -11,8 +11,12 @@ interface TextColors {
   whiteAlpha90: string
   whiteAlpha80: string
   whiteAlpha70: string
-  accent: string // 用于强调色（蓝色/紫色）
+  accent: string
   accentDark: string
+  // About模块专用
+  hero: string
+  heroSubtitle: string
+  heroAccent: string
 }
 
 interface BackgroundColors {
@@ -23,10 +27,10 @@ interface BackgroundColors {
   disabled: string
   mask: string
   // 新增
-  card: string // 卡片背景
-  hover: string // 悬停背景
-  accent: string // 强调色背景
-  accentLight: string // 浅强调色背景
+  card: string
+  hover: string
+  accent: string
+  accentLight: string
   gradient: {
     from: string
     to: string
@@ -39,6 +43,16 @@ interface BackgroundColors {
   whiteAlpha70: string
   whiteAlpha80: string
   whiteAlpha90: string
+  // About模块专用
+  overlay: string
+  overlayDark: string
+  badge: string
+  feature: string
+  stats: string
+  heroGradient: {
+    from: string
+    to: string
+  }
 }
 
 interface BorderColors {
@@ -48,8 +62,12 @@ interface BorderColors {
   focus: string
   disabled: string
   // 新增
-  card: string // 卡片边框
-  transparent: string // 透明边框
+  card: string
+  transparent: string
+  // About模块专用
+  hero: string
+  feature: string
+  stats: string
 }
 
 interface ShadowColors {
@@ -57,6 +75,10 @@ interface ShadowColors {
   hover: string
   accent: string
   card: string
+  // About模块专用
+  feature: string
+  stats: string
+  hero: string
 }
 
 interface ButtonColors {
@@ -67,7 +89,7 @@ interface ButtonColors {
     hoverBg: string[]
     activeBg: string[]
     disabledBg: string[]
-    shadow?: string[] // 新增阴影
+    shadow?: string[]
   }
   secondary: {
     background: string[]
@@ -83,12 +105,33 @@ interface ButtonColors {
     activeColor: string[]
     disabledColor: string[]
   }
-  // 新增透明按钮
   transparent: {
     background: string[]
     text: string[]
     border: string[]
     hoverBg: string[]
+  }
+}
+
+// 新增装饰色配置
+interface AccentColors {
+  primary: string
+  secondary: string
+  tertiary: string
+  gradient: {
+    from: string
+    to: string
+    angle?: string
+  }
+  // About模块专用渐变
+  hero: {
+    from: string
+    to: string
+    angle?: string
+  }
+  feature: {
+    from: string
+    to: string
   }
 }
 
@@ -98,7 +141,8 @@ export interface ThemeConfig {
   background: BackgroundColors
   border: BorderColors
   button: ButtonColors
-  shadow: ShadowColors // 新增阴影配置
+  shadow: ShadowColors
+  accent: AccentColors // 新增
 }
 
 export interface ThemeColors {
@@ -109,6 +153,7 @@ export interface ThemeColors {
   border: BorderColors
   button: ButtonColors
   shadow: ShadowColors
+  accent: AccentColors // 新增
   dark: ThemeConfig
 }
 

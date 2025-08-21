@@ -35,6 +35,7 @@
             <p class="office-type">Headquarters</p>
             <p class="office-desc">Asia-Pacific regional hub and global headquarters</p>
           </div>
+          <div class="office-glow"></div>
         </div>
 
         <!-- 迪拜办公室 -->
@@ -175,12 +176,29 @@
   .global-presence {
     padding: 100px 0;
     background: var(--tm-bg-secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 背景装饰 */
+  .global-presence::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--tm-bg-heroGradient-from) 0%, transparent 50%);
+    opacity: 0.1;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
   }
 
   /* 标题区域 */
@@ -219,39 +237,103 @@
     gap: 20px;
     transition: all 0.3s ease;
     border: 1px solid var(--tm-bd-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .office-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--tm-accent-gradient-from),
+      var(--tm-accent-gradient-to)
+    );
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .office-card:hover::before {
+    transform: translateX(0);
   }
 
   .office-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--tm-shadow-hover);
+    border-color: var(--tm-accent-primary);
   }
 
   /* 总部特殊样式 */
   .office-card.headquarters {
-    background: linear-gradient(135deg, #5b6cff 0%, #7b8cff 100%);
-    color: white;
+    background: linear-gradient(
+      135deg,
+      var(--tm-accent-gradient-from) 0%,
+      var(--tm-accent-gradient-to) 100%
+    );
+    color: var(--tm-txt-white);
     grid-column: span 2;
+    border: none;
+    position: relative;
+  }
+
+  /* 总部光晕效果 */
+  .office-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--tm-bg-whiteAlpha20) 0%, transparent 50%);
+    animation: pulse 3s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 
   .office-icon {
     width: 56px;
     height: 56px;
-    background: rgba(91, 108, 255, 0.1);
+    background: var(--tm-bg-badge);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: #5b6cff;
+    color: var(--tm-accent-primary);
+    transition: all 0.3s ease;
+    border: 1px solid var(--tm-bd-feature);
+  }
+
+  .office-card:hover .office-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--tm-accent-primary);
+    color: var(--tm-txt-white);
   }
 
   .headquarters .office-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: var(--tm-bg-whiteAlpha20);
+    color: var(--tm-txt-white);
+    border-color: var(--tm-bd-transparent);
   }
 
   .office-content {
     flex: 1;
+    position: relative;
+    z-index: 1;
   }
 
   .office-title {
@@ -265,12 +347,12 @@
   }
 
   .headquarters .office-title {
-    color: white;
+    color: var(--tm-txt-white);
   }
 
   .badge {
     font-size: 0.75rem;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--tm-bg-whiteAlpha30);
     padding: 2px 8px;
     border-radius: 4px;
     font-weight: 500;
@@ -278,13 +360,13 @@
 
   .office-type {
     font-size: 0.9rem;
-    color: #5b6cff;
+    color: var(--tm-accent-primary);
     margin-bottom: 8px;
     font-weight: 500;
   }
 
   .headquarters .office-type {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--tm-txt-whiteAlpha90);
   }
 
   .office-desc {
@@ -294,7 +376,7 @@
   }
 
   .headquarters .office-desc {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--tm-txt-whiteAlpha80);
   }
 
   /* 深色模式 */
@@ -305,6 +387,11 @@
   .dark .office-card {
     background: var(--tm-bg-secondary);
     border-color: var(--tm-bd-secondary);
+  }
+
+  .dark .office-icon {
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-bd-transparent);
   }
 
   /* 响应式设计 */
