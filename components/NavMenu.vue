@@ -374,6 +374,7 @@
   }
 
   // 处理子菜单项点击
+  // 处理子菜单项点击
   const handleSubItemClick = (parentItem: MenuItem, subItem: UnifiedMenuItem) => {
     console.log('Submenu item clicked:', parentItem.name, '->', subItem.name)
 
@@ -384,7 +385,29 @@
     // 如果子项没有子菜单，则导航
     if (!subItem.hasSubMenu) {
       const path = subItem.link || generatePath([parentItem.name, subItem.name])
-      navigateTo(path)
+
+      // 检查是否是锚点链接
+      if (path.includes('#')) {
+        const [pathname, hash] = path.split('#')
+        const route = useRoute()
+        const currentPath = route.path
+
+        // 判断是否在同一页面
+        if (!pathname || pathname === currentPath) {
+          // 同页面锚点跳转
+          nextTick(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+          })
+        } else {
+          // 跳转到其他页面的锚点
+          navigateTo(path)
+        }
+      } else {
+        navigateTo(path)
+      }
     }
 
     closeMenu()
