@@ -141,7 +141,7 @@
         <div class="image-content">
           <div class="image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+              src="/images/about/vision-office.jpg"
               alt="Team meeting"
               class="team-image"
             />

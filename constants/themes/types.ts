@@ -1,24 +1,34 @@
 // types.ts
+
+// 文字颜色接口
 interface TextColors {
   primary: string
   secondary: string
   light: string
+  lighter?: string // 新增，可选
   label: string
   placeholder: string
   disabled: string
-  // 新增
+  // 扩展文字颜色
   white: string
   whiteAlpha90: string
+  whiteAlpha85?: string // 新增，可选
   whiteAlpha80: string
   whiteAlpha70: string
   accent: string
   accentDark: string
-  // About模块专用
-  hero: string
-  heroSubtitle: string
-  heroAccent: string
 }
 
+// 渐变配置
+interface GradientConfig {
+  from: string
+  to: string
+  fromDark?: string
+  toDark?: string
+  angle?: string
+}
+
+// 背景颜色接口
 interface BackgroundColors {
   primary: string
   secondary: string
@@ -26,115 +36,107 @@ interface BackgroundColors {
   active: string
   disabled: string
   mask: string
-  // 新增
+  // 扩展背景颜色
   card: string
   hover: string
   accent: string
   accentLight: string
-  gradient: {
-    from: string
-    to: string
-    fromDark: string
-    toDark: string
-  }
+  gradient: GradientConfig
+  // 白色透明度系列
   whiteAlpha10: string
   whiteAlpha20: string
   whiteAlpha30: string
-  whiteAlpha70: string
-  whiteAlpha80: string
-  whiteAlpha90: string
-  // About模块专用
+  whiteAlpha05?: string // 新增，可选
+  whiteAlpha70?: string // 可选
+  whiteAlpha80?: string // 可选
+  whiteAlpha90?: string // 可选
+  // 黑色透明度系列（深色模式用）
+  blackAlpha30?: string // 新增，可选
+  // 特殊背景效果
   overlay: string
   overlayDark: string
-  badge: string
+  badge?: string // 可选，因为可能使用 whiteAlpha05
   feature: string
-  stats: string
-  heroGradient: {
-    from: string
-    to: string
-  }
+  accentGradient: Omit<GradientConfig, 'fromDark' | 'toDark'> // 原 heroGradient
 }
 
+// 边框颜色接口
 interface BorderColors {
   primary: string
   secondary: string
   light: string
   focus: string
   disabled: string
-  // 新增
+  // 扩展边框颜色
   card: string
   transparent: string
-  // About模块专用
-  hero: string
-  feature: string
-  stats: string
+  // 透明度边框
+  whiteAlpha30?: string // 新增，可选
+  whiteAlpha10?: string // 新增，可选
+  whiteAlpha05?: string // 新增，可选
+  accentAlpha15?: string // 新增，可选
+  accentAlpha20?: string // 新增，可选
 }
 
+// 阴影效果接口
 interface ShadowColors {
   default: string
   hover: string
   accent: string
   card: string
-  // About模块专用
-  feature: string
-  stats: string
-  hero: string
+  // 扩展阴影效果
+  accentLight?: string // 原 feature
+  whiteAlpha10?: string // 原 stats
+  blackAlpha50?: string // 新增，深色模式用
+  large?: string // 原 hero
 }
 
+// 按钮状态颜色
+interface ButtonStateColors {
+  background: string[]
+  text: string[]
+  border: string[]
+  hoverBg: string[]
+  activeBg: string[]
+  disabledBg: string[]
+  shadow?: string[]
+}
+
+// 文字按钮颜色
+interface TextButtonColors {
+  color: string[]
+  hoverColor: string[]
+  activeColor: string[]
+  disabledColor: string[]
+}
+
+// 透明按钮颜色
+interface TransparentButtonColors {
+  background: string[]
+  text: string[]
+  border: string[]
+  hoverBg: string[]
+}
+
+// 按钮颜色系统
 interface ButtonColors {
-  primary: {
-    background: string[]
-    text: string[]
-    border: string[]
-    hoverBg: string[]
-    activeBg: string[]
-    disabledBg: string[]
-    shadow?: string[]
-  }
-  secondary: {
-    background: string[]
-    text: string[]
-    border: string[]
-    hoverBg: string[]
-    activeBg: string[]
-    disabledBg: string[]
-  }
-  text: {
-    color: string[]
-    hoverColor: string[]
-    activeColor: string[]
-    disabledColor: string[]
-  }
-  transparent: {
-    background: string[]
-    text: string[]
-    border: string[]
-    hoverBg: string[]
-  }
+  primary: ButtonStateColors
+  secondary: Omit<ButtonStateColors, 'shadow'>
+  text: TextButtonColors
+  transparent: TransparentButtonColors
 }
 
-// 新增装饰色配置
+// 装饰色配置
 interface AccentColors {
   primary: string
   secondary: string
   tertiary: string
-  gradient: {
-    from: string
-    to: string
-    angle?: string
-  }
-  // About模块专用渐变
-  hero: {
-    from: string
-    to: string
-    angle?: string
-  }
-  feature: {
-    from: string
-    to: string
-  }
+  gradient: GradientConfig
+  hero: Omit<GradientConfig, 'fromDark' | 'toDark'>
+  feature: Pick<GradientConfig, 'from' | 'to'>
 }
 
+// 主题配置
 export interface ThemeConfig {
   primary: string[]
   text: TextColors
@@ -142,9 +144,10 @@ export interface ThemeConfig {
   border: BorderColors
   button: ButtonColors
   shadow: ShadowColors
-  accent: AccentColors // 新增
+  accent: AccentColors
 }
 
+// 完整主题颜色
 export interface ThemeColors {
   name: string
   primary: string[]
@@ -153,9 +156,9 @@ export interface ThemeColors {
   border: BorderColors
   button: ButtonColors
   shadow: ShadowColors
-  accent: AccentColors // 新增
+  accent: AccentColors
   dark: ThemeConfig
 }
 
-// 添加 ThemeType 类型定义
+// 主题类型定义
 export type ThemeType = 'blackGold' | 'blueWhite' | 'darkGreen' | 'darkRed' | 'earthYellow'

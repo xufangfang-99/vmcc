@@ -129,19 +129,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.4);
   }
 
+  /* 遮罩层 - 使用主题变量 */
   .bg-overlay {
     position: absolute;
     inset: 0;
-    /* 使用主题变量 */
-    background: linear-gradient(
-      135deg,
-      var(--tm-bg-overlay) 0%,
-      var(--tm-bg-overlayDark) 50%,
-      var(--tm-bg-overlay) 100%
-    );
+    background: var(--tm-bg-overlay);
   }
 
   /* 装饰图案 */
@@ -149,8 +143,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      radial-gradient(circle at 20% 50%, var(--tm-bg-heroGradient-from) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, var(--tm-bg-heroGradient-to) 0%, transparent 40%);
+      radial-gradient(circle at 20% 50%, var(--tm-bg-accent-gradient-from) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, var(--tm-bg-accent-gradient-to) 0%, transparent 40%);
     opacity: 0.6;
   }
 
@@ -165,7 +159,7 @@
 
   .hero-content {
     text-align: center;
-    color: var(--tm-txt-hero);
+    color: var(--tm-txt-white);
   }
 
   /* 公司徽章 - 使用主题变量 */
@@ -178,7 +172,7 @@
     width: 60px;
     height: 60px;
     background: var(--tm-bg-badge);
-    border: 2px solid var(--tm-bd-hero);
+    border: 2px solid var(--tm-bd-white-alpha30);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -193,6 +187,7 @@
     transform: scale(1.1) rotate(5deg);
     background: var(--tm-accent-primary);
     color: var(--tm-txt-white);
+    border-color: var(--tm-accent-primary);
   }
 
   /* 标题区域 - 使用主题变量 */
@@ -205,7 +200,7 @@
     font-weight: 300;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
-    color: var(--tm-txt-hero);
+    color: var(--tm-txt-white);
   }
 
   .highlight {
@@ -223,7 +218,7 @@
 
   .company-name {
     font-size: 1.125rem;
-    color: var(--tm-txt-heroSubtitle);
+    color: var(--tm-txt-white-alpha85);
     margin-bottom: 30px;
     letter-spacing: 0.5px;
   }
@@ -231,7 +226,7 @@
   .hero-description {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: var(--tm-txt-hero);
+    color: var(--tm-txt-white);
     max-width: 800px;
     margin: 0 auto;
     opacity: 0.9;
@@ -280,14 +275,14 @@
 
   .btn-secondary {
     background: transparent;
-    color: var(--tm-txt-hero);
-    border: 2px solid var(--tm-bd-hero);
+    color: var(--tm-txt-white);
+    border: 2px solid var(--tm-bd-white-alpha30);
   }
 
   .btn-secondary:hover {
-    background: var(--tm-bg-whiteAlpha10);
-    border-color: var(--tm-txt-heroAccent);
-    color: var(--tm-txt-heroAccent);
+    background: var(--tm-bg-white-alpha10);
+    border-color: var(--tm-txt-white);
+    color: var(--tm-txt-white);
   }
 
   /* 统计数据 - 使用主题变量 */
@@ -297,12 +292,12 @@
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background: var(--tm-bg-stats);
+    background: var(--tm-bg-white-alpha05);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--tm-bd-stats);
-    box-shadow: var(--tm-shadow-stats);
+    border: 1px solid var(--tm-bd-white-alpha10);
+    box-shadow: var(--tm-shadow-white-alpha10);
     position: relative;
     overflow: hidden;
   }
@@ -318,7 +313,7 @@
     background: linear-gradient(
       45deg,
       transparent 30%,
-      var(--tm-bg-whiteAlpha10) 50%,
+      var(--tm-bg-white-alpha10) 50%,
       transparent 70%
     );
     animation: shimmer 3s infinite;
@@ -357,34 +352,14 @@
 
   .stat-label {
     font-size: 0.9rem;
-    color: var(--tm-txt-heroSubtitle);
+    color: var(--tm-txt-white-alpha85);
     white-space: nowrap;
   }
 
   .stat-divider {
     width: 1px;
     height: 50px;
-    background: linear-gradient(to bottom, transparent, var(--tm-bd-hero), transparent);
-  }
-
-  /* 深色模式适配 */
-  .dark .bg-overlay {
-    background: linear-gradient(
-      135deg,
-      rgba(10, 14, 39, 0.95) 0%,
-      rgba(10, 14, 39, 0.88) 50%,
-      rgba(10, 14, 39, 0.95) 100%
-    );
-  }
-
-  .dark .badge-icon {
-    background: var(--tm-bg-whiteAlpha10);
-    border-color: var(--tm-bd-transparent);
-  }
-
-  .dark .stats-row {
-    background: var(--tm-bg-whiteAlpha10);
-    border-color: var(--tm-bd-transparent);
+    background: linear-gradient(to bottom, transparent, var(--tm-bd-white-alpha30), transparent);
   }
 
   /* 响应式设计 */

@@ -7,12 +7,14 @@ export const darkRedTheme: ThemeColors = {
     primary: '#2D0F15',
     secondary: '#693344',
     light: '#8B475C',
+    lighter: '#C94866', // 新增，暗红主题的亮色
     label: '#2D0F15',
     placeholder: '#D1B2BB',
     disabled: '#E5D1D7',
-    // 新增
+    // 扩展文字颜色
     white: '#FFFFFF',
     whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha85: 'rgba(255, 255, 255, 0.85)',
     whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
     whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
     accent: '#8B1E3F',
@@ -25,23 +27,31 @@ export const darkRedTheme: ThemeColors = {
     active: '#F6E5E9',
     disabled: '#FDF6F8',
     mask: 'rgba(0, 0, 0, 0.5)',
-    // 新增
+    // 扩展背景颜色
     card: '#FDF8FA',
     hover: '#F6E5E9',
     accent: '#8B1E3F',
     accentLight: '#F6E5E9',
     gradient: {
       from: '#8B1E3F',
-      to: '#A03356', // 改为更柔和的红色，原来是 #C41E3A
+      to: '#A03356',
       fromDark: '#69142B',
       toDark: '#7A1835',
     },
     whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
     whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
     whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
-    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
-    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
-    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha05: 'rgba(255, 255, 255, 0.05)',
+    // 特殊背景效果
+    overlay:
+      'linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%)',
+    overlayDark: 'rgba(0, 0, 0, 0.5)',
+    badge: 'rgba(255, 255, 255, 0.1)',
+    feature: '#FFF0F4',
+    accentGradient: {
+      from: 'rgba(139, 30, 63, 0.3)',
+      to: 'rgba(160, 51, 86, 0.1)',
+    },
   },
   border: {
     primary: '#8B1E3F',
@@ -49,15 +59,18 @@ export const darkRedTheme: ThemeColors = {
     light: '#F6E5E9',
     focus: '#7A1835',
     disabled: '#E6E6E6',
-    // 新增
+    // 扩展边框颜色
     card: '#E5D1D7',
     transparent: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    accentAlpha15: 'rgba(139, 30, 63, 0.15)',
   },
   button: {
     primary: {
-      background: ['#8B1E3F', '#7A1835', '#69142B'],
+      background: ['#8B1E3F'],
       text: ['#FFFFFF'],
-      border: ['#8B1E3F', '#7A1835', '#69142B'],
+      border: ['#8B1E3F'],
       hoverBg: ['#7A1835'],
       activeBg: ['#69142B'],
       disabledBg: ['#FDF6F8'],
@@ -65,8 +78,8 @@ export const darkRedTheme: ThemeColors = {
     },
     secondary: {
       background: ['#FFFFFF'],
-      text: ['#8B1E3F', '#7A1835', '#69142B'],
-      border: ['#8B1E3F', '#7A1835', '#69142B'],
+      text: ['#8B1E3F'],
+      border: ['#8B1E3F'],
       hoverBg: ['#F6E5E9'],
       activeBg: ['#E5D1D7'],
       disabledBg: ['#FDF6F8'],
@@ -89,22 +102,48 @@ export const darkRedTheme: ThemeColors = {
     hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
     accent: '0 4px 20px rgba(139, 30, 63, 0.3)',
     card: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    // 扩展阴影效果
+    accentLight: '0 5px 20px rgba(139, 30, 63, 0.1)',
+    whiteAlpha10: '0 10px 30px rgba(255, 255, 255, 0.1)',
+    large: '0 20px 60px rgba(0, 0, 0, 0.1)',
   },
+  accent: {
+    primary: '#8B1E3F',
+    secondary: '#C94866',
+    tertiary: '#E57191',
+    gradient: {
+      from: '#8B1E3F',
+      to: '#E57191',
+      angle: '135deg',
+    },
+    hero: {
+      from: '#69142B',
+      to: '#C94866',
+      angle: '45deg',
+    },
+    feature: {
+      from: '#8B1E3F',
+      to: '#C94866',
+    },
+  },
+  // 深色模式配置
   dark: {
-    primary: ['#A82C4D', '#8B1E3F', '#7A1835'],
+    primary: ['#C94866', '#8B1E3F', '#7A1835'],
     text: {
       primary: '#FFFFFF',
       secondary: '#FFE6ED',
       light: '#FFBFCD',
+      lighter: '#E57191', // 深色模式的亮粉色
       label: '#FFFFFF',
       placeholder: '#FF8CA7',
       disabled: '#85586F',
-      // 新增
+      // 扩展文字颜色
       white: '#FFFFFF',
       whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha85: 'rgba(255, 255, 255, 0.85)',
       whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
       whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
-      accent: '#A82C4D',
+      accent: '#C94866',
       accentDark: '#8B1E3F',
     },
     background: {
@@ -114,55 +153,66 @@ export const darkRedTheme: ThemeColors = {
       active: '#42181F',
       disabled: '#4D1B23',
       mask: 'rgba(0, 0, 0, 0.65)',
-      // 新增
+      // 扩展背景颜色
       card: '#2B1118',
       hover: '#42181F',
-      accent: '#A82C4D',
+      accent: '#C94866',
       accentLight: '#42181F',
-      // 深色模式
       gradient: {
-        from: '#A82C4D',
-        to: '#C44062', // 改为更协调的粉红色，原来是 #DC143C
+        from: '#C94866',
+        to: '#E57191',
         fromDark: '#8B1E3F',
-        toDark: '#A82C4D',
+        toDark: '#C94866',
       },
       whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
       whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
       whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
-      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
-      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
-      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha05: 'rgba(255, 255, 255, 0.05)',
+      blackAlpha30: 'rgba(0, 0, 0, 0.3)',
+      // 特殊背景效果 - 深色模式
+      overlay:
+        'linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.85) 100%)',
+      overlayDark: 'rgba(0, 0, 0, 0.75)',
+      badge: 'rgba(255, 255, 255, 0.05)',
+      feature: '#231016',
+      accentGradient: {
+        from: 'rgba(201, 72, 102, 0.3)',
+        to: 'rgba(229, 113, 145, 0.1)',
+      },
     },
     border: {
-      primary: '#A82C4D',
+      primary: '#C94866',
       secondary: '#2B1118',
       light: '#37141B',
       focus: '#8B1E3F',
       disabled: '#1F0F15',
-      // 新增
+      // 扩展边框颜色
       card: '#37141B',
       transparent: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha05: 'rgba(255, 255, 255, 0.05)',
+      accentAlpha20: 'rgba(201, 72, 102, 0.2)',
     },
     button: {
       primary: {
-        background: ['#A82C4D', '#8B1E3F', '#7A1835'],
+        background: ['#C94866'],
         text: ['#FFFFFF'],
-        border: ['#A82C4D', '#8B1E3F', '#7A1835'],
+        border: ['#C94866'],
         hoverBg: ['#8B1E3F'],
         activeBg: ['#7A1835'],
         disabledBg: ['#1F0F15'],
-        shadow: ['0 4px 20px rgba(168, 44, 77, 0.4)'],
+        shadow: ['0 4px 20px rgba(201, 72, 102, 0.4)'],
       },
       secondary: {
         background: ['#1F0F15'],
-        text: ['#A82C4D', '#8B1E3F', '#7A1835'],
-        border: ['#A82C4D', '#8B1E3F', '#7A1835'],
+        text: ['#C94866'],
+        border: ['#C94866'],
         hoverBg: ['#2B1118'],
         activeBg: ['#37141B'],
         disabledBg: ['#1F0F15'],
       },
       text: {
-        color: ['#A82C4D'],
+        color: ['#C94866'],
         hoverColor: ['#8B1E3F'],
         activeColor: ['#7A1835'],
         disabledColor: ['#85586F'],
@@ -177,8 +227,31 @@ export const darkRedTheme: ThemeColors = {
     shadow: {
       default: '0 4px 20px rgba(0, 0, 0, 0.2)',
       hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
-      accent: '0 4px 20px rgba(168, 44, 77, 0.4)',
+      accent: '0 4px 20px rgba(201, 72, 102, 0.4)',
       card: '0 2px 8px rgba(0, 0, 0, 0.2)',
+      // 扩展阴影效果 - 深色模式
+      accentLight: '0 5px 20px rgba(201, 72, 102, 0.2)',
+      blackAlpha50: '0 10px 30px rgba(0, 0, 0, 0.5)',
+      large: '0 20px 60px rgba(0, 0, 0, 0.3)',
+    },
+    accent: {
+      primary: '#C94866',
+      secondary: '#E57191',
+      tertiary: '#FF8FAF',
+      gradient: {
+        from: '#C94866',
+        to: '#FF8FAF',
+        angle: '135deg',
+      },
+      hero: {
+        from: '#8B1E3F',
+        to: '#E57191',
+        angle: '45deg',
+      },
+      feature: {
+        from: '#C94866',
+        to: '#E57191',
+      },
     },
   },
 }

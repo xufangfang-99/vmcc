@@ -25,7 +25,7 @@
             <h3 class="member-name">Victor Chen</h3>
             <p class="member-title">Founder & CEO</p>
             <div class="member-meta">
-              <span class="experience">🕒 15+ Years</span>
+              <span class="experience">🕐 15+ Years</span>
             </div>
             <p class="member-desc">Executive Leadership & Strategic Vision</p>
           </div>
@@ -43,7 +43,7 @@
             <h3 class="member-name">Sarah Meridian</h3>
             <p class="member-title">Global Operations Director</p>
             <div class="member-meta">
-              <span class="experience">🕒 12+ Years</span>
+              <span class="experience">🕐 12+ Years</span>
             </div>
             <p class="member-desc">International Business & Operations</p>
           </div>
@@ -61,7 +61,7 @@
             <h3 class="member-name">Michael Zhang</h3>
             <p class="member-title">Head of Executive Search</p>
             <div class="member-meta">
-              <span class="experience">🕒 14+ Years</span>
+              <span class="experience">🕐 14+ Years</span>
             </div>
             <p class="member-desc">Talent Acquisition & Leadership Recruitment</p>
           </div>
@@ -79,7 +79,7 @@
             <h3 class="member-name">Emma Rodriguez</h3>
             <p class="member-title">Immigration & Legal Director</p>
             <div class="member-meta">
-              <span class="experience">🕒 11+ Years</span>
+              <span class="experience">🕐 11+ Years</span>
             </div>
             <p class="member-desc">Immigration Law & Compliance</p>
           </div>
@@ -138,18 +138,21 @@
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tm-shadow-card);
+    border: 1px solid var(--tm-bd-light);
   }
 
   .team-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--tm-shadow-hover);
+    border-color: var(--tm-accent-primary);
   }
 
   .member-image {
     width: 100%;
     height: 320px;
     overflow: hidden;
+    position: relative;
   }
 
   .member-image img {
@@ -161,6 +164,23 @@
 
   .team-member:hover .member-image img {
     transform: scale(1.05);
+  }
+
+  /* 添加图片遮罩效果 */
+  .member-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, var(--tm-bg-primary), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .team-member:hover .member-image::after {
+    opacity: 1;
   }
 
   .member-info {
@@ -176,7 +196,7 @@
 
   .member-title {
     font-size: 1rem;
-    color: #5b6cff;
+    color: var(--tm-accent-primary);
     font-weight: 500;
     margin-bottom: 16px;
   }
@@ -194,6 +214,10 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    padding: 4px 12px;
+    background: var(--tm-bg-badge);
+    border-radius: 20px;
+    border: 1px solid var(--tm-bd-light);
   }
 
   .member-desc {
@@ -209,6 +233,16 @@
 
   .dark .team-member {
     background: var(--tm-bg-secondary);
+    border-color: var(--tm-bd-secondary);
+  }
+
+  .dark .team-member:hover {
+    border-color: var(--tm-accent-primary);
+  }
+
+  .dark .experience {
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-bd-transparent);
   }
 
   /* 响应式设计 */
@@ -254,6 +288,36 @@
 
     .member-info {
       padding: 20px;
+    }
+  }
+
+  /* 添加加载动画 */
+  .team-member {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .team-member:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .team-member:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .team-member:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .team-member:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

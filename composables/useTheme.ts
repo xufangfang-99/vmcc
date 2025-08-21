@@ -35,20 +35,27 @@ export const useTheme = defineStore(
         variables[`--tm-pri-${index}`] = color
       })
 
-      // 文字颜色
+      // 文字颜色 - 处理所有文字相关颜色
       Object.entries(config.text).forEach(([key, value]) => {
-        const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-        variables[`--tm-txt-${cssKey}`] = value
+        if (value !== undefined) {
+          // 只处理已定义的属性
+          const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+          variables[`--tm-txt-${cssKey}`] = value
+        }
       })
 
-      // 背景颜色
+      // 背景颜色 - 处理所有背景相关颜色
       Object.entries(config.background).forEach(([key, value]) => {
-        if (key === 'gradient' && typeof value === 'object' && value !== null) {
-          // 类型守卫确保 value 是对象
-          const gradientObj = value as Record<string, string>
-          Object.entries(gradientObj).forEach(([gradientKey, gradientValue]) => {
-            const cssKey = gradientKey.replace(/([A-Z])/g, '-$1').toLowerCase()
-            variables[`--tm-bg-gradient-${cssKey}`] = gradientValue
+        if (value === undefined) return // 跳过未定义的可选属性
+
+        if (typeof value === 'object' && value !== null) {
+          // 处理嵌套对象（如 gradient, accentGradient）
+          const prefix = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+          Object.entries(value).forEach(([subKey, subValue]) => {
+            if (typeof subValue === 'string') {
+              const subCssKey = subKey.replace(/([A-Z])/g, '-$1').toLowerCase()
+              variables[`--tm-bg-${prefix}-${subCssKey}`] = subValue
+            }
           })
         } else if (typeof value === 'string') {
           const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
@@ -56,17 +63,23 @@ export const useTheme = defineStore(
         }
       })
 
-      // 边框颜色
+      // 边框颜色 - 处理所有边框相关颜色
       Object.entries(config.border).forEach(([key, value]) => {
-        const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-        variables[`--tm-bd-${cssKey}`] = value
+        if (value !== undefined) {
+          // 只处理已定义的属性
+          const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+          variables[`--tm-bd-${cssKey}`] = value
+        }
       })
 
-      // 阴影
+      // 阴影 - 处理所有阴影效果
       if (config.shadow) {
         Object.entries(config.shadow).forEach(([key, value]) => {
-          const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-          variables[`--tm-shadow-${cssKey}`] = value
+          if (value !== undefined) {
+            // 只处理已定义的属性
+            const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+            variables[`--tm-shadow-${cssKey}`] = value
+          }
         })
       }
 
@@ -82,6 +95,34 @@ export const useTheme = defineStore(
           }
         })
       })
+
+      // 装饰色系统 - 全局可用的装饰色
+      if (config.accent) {
+        // 基础装饰色
+        variables[`--tm-accent-primary`] = config.accent.primary
+        variables[`--tm-accent-secondary`] = config.accent.secondary
+        variables[`--tm-accent-tertiary`] = config.accent.tertiary
+
+        // 装饰色渐变
+        if (config.accent.gradient) {
+          variables[`--tm-accent-gradient-from`] = config.accent.gradient.from
+          variables[`--tm-accent-gradient-to`] = config.accent.gradient.to
+          variables[`--tm-accent-gradient-angle`] = config.accent.gradient.angle || '135deg'
+        }
+
+        // Hero渐变
+        if (config.accent.hero) {
+          variables[`--tm-accent-hero-from`] = config.accent.hero.from
+          variables[`--tm-accent-hero-to`] = config.accent.hero.to
+          variables[`--tm-accent-hero-angle`] = config.accent.hero.angle || '45deg'
+        }
+
+        // Feature渐变
+        if (config.accent.feature) {
+          variables[`--tm-accent-feature-from`] = config.accent.feature.from
+          variables[`--tm-accent-feature-to`] = config.accent.feature.to
+        }
+      }
 
       return variables
     }
@@ -124,9 +165,9 @@ export const useTheme = defineStore(
         useHead({
           style: [
             {
-              innerHTML: Object.entries(variables)
-                .map(([key, value]) => `${key}: ${value};`)
-                .join('\n'),
+              innerHTML: `:root {\n${Object.entries(variables)
+                .map(([key, value]) => `  ${key}: ${value};`)
+                .join('\n')}\n}`,
             },
           ],
         })

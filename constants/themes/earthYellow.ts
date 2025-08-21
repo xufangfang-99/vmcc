@@ -7,12 +7,14 @@ export const earthYellowTheme: ThemeColors = {
     primary: '#332810',
     secondary: '#7A6434',
     light: '#998542',
+    lighter: '#D4A76A', // 新增，土黄主题的亮色
     label: '#332810',
     placeholder: '#D4C9A6',
     disabled: '#E5DCC8',
-    // 新增
+    // 扩展文字颜色
     white: '#FFFFFF',
     whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha85: 'rgba(255, 255, 255, 0.85)',
     whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
     whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
     accent: '#B8860B',
@@ -25,23 +27,31 @@ export const earthYellowTheme: ThemeColors = {
     active: '#F2EAD7',
     disabled: '#FDFAF5',
     mask: 'rgba(0, 0, 0, 0.5)',
-    // 新增
+    // 扩展背景颜色
     card: '#FDFBF8',
     hover: '#F2EAD7',
     accent: '#B8860B',
     accentLight: '#F2EAD7',
     gradient: {
       from: '#B8860B',
-      to: '#C8A02B', // 改为更柔和的黄色，原来是 #DAA520
+      to: '#C8A02B',
       fromDark: '#946E09',
       toDark: '#A67A0A',
     },
     whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
     whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
     whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
-    whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
-    whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
-    whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+    whiteAlpha05: 'rgba(255, 255, 255, 0.05)',
+    // 特殊背景效果
+    overlay:
+      'linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%)',
+    overlayDark: 'rgba(0, 0, 0, 0.5)',
+    badge: 'rgba(255, 255, 255, 0.1)',
+    feature: '#FFF9F0',
+    accentGradient: {
+      from: 'rgba(184, 134, 11, 0.3)',
+      to: 'rgba(200, 160, 43, 0.1)',
+    },
   },
   border: {
     primary: '#B8860B',
@@ -49,15 +59,18 @@ export const earthYellowTheme: ThemeColors = {
     light: '#F2EAD7',
     focus: '#A67A0A',
     disabled: '#E6E6E6',
-    // 新增
+    // 扩展边框颜色
     card: '#E5DCC8',
     transparent: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
+    whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+    accentAlpha15: 'rgba(184, 134, 11, 0.15)',
   },
   button: {
     primary: {
-      background: ['#B8860B', '#A67A0A', '#946E09'],
+      background: ['#B8860B'],
       text: ['#FFFFFF'],
-      border: ['#B8860B', '#A67A0A', '#946E09'],
+      border: ['#B8860B'],
       hoverBg: ['#A67A0A'],
       activeBg: ['#946E09'],
       disabledBg: ['#FDFAF5'],
@@ -65,8 +78,8 @@ export const earthYellowTheme: ThemeColors = {
     },
     secondary: {
       background: ['#FFFFFF'],
-      text: ['#B8860B', '#A67A0A', '#946E09'],
-      border: ['#B8860B', '#A67A0A', '#946E09'],
+      text: ['#B8860B'],
+      border: ['#B8860B'],
       hoverBg: ['#F2EAD7'],
       activeBg: ['#E5DCC8'],
       disabledBg: ['#FDFAF5'],
@@ -89,19 +102,45 @@ export const earthYellowTheme: ThemeColors = {
     hover: '0 8px 30px rgba(0, 0, 0, 0.12)',
     accent: '0 4px 20px rgba(184, 134, 11, 0.3)',
     card: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    // 扩展阴影效果
+    accentLight: '0 5px 20px rgba(184, 134, 11, 0.1)',
+    whiteAlpha10: '0 10px 30px rgba(255, 255, 255, 0.1)',
+    large: '0 20px 60px rgba(0, 0, 0, 0.1)',
   },
+  accent: {
+    primary: '#B8860B',
+    secondary: '#D4A76A',
+    tertiary: '#E6C584',
+    gradient: {
+      from: '#B8860B',
+      to: '#E6C584',
+      angle: '135deg',
+    },
+    hero: {
+      from: '#946E09',
+      to: '#D4A76A',
+      angle: '45deg',
+    },
+    feature: {
+      from: '#B8860B',
+      to: '#D4A76A',
+    },
+  },
+  // 深色模式配置
   dark: {
     primary: ['#DAA520', '#B8860B', '#A67A0A'],
     text: {
       primary: '#FFFFFF',
       secondary: '#FFF8E6',
       light: '#FFE9B3',
+      lighter: '#F4D03F', // 深色模式的亮金色
       label: '#FFFFFF',
       placeholder: '#D4B106',
       disabled: '#8D7B3D',
-      // 新增
+      // 扩展文字颜色
       white: '#FFFFFF',
       whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha85: 'rgba(255, 255, 255, 0.85)',
       whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
       whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
       accent: '#DAA520',
@@ -114,23 +153,32 @@ export const earthYellowTheme: ThemeColors = {
       active: '#3D3524',
       disabled: '#463D2A',
       mask: 'rgba(0, 0, 0, 0.65)',
-      // 新增
+      // 扩展背景颜色
       card: '#292418',
       hover: '#3D3524',
       accent: '#DAA520',
       accentLight: '#3D3524',
       gradient: {
         from: '#DAA520',
-        to: '#E4BC4C', // 改为更柔和的金黄色，原来是 #FFD700
+        to: '#E4BC4C',
         fromDark: '#B8860B',
         toDark: '#DAA520',
       },
       whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
       whiteAlpha20: 'rgba(255, 255, 255, 0.2)',
       whiteAlpha30: 'rgba(255, 255, 255, 0.3)',
-      whiteAlpha70: 'rgba(255, 255, 255, 0.7)',
-      whiteAlpha80: 'rgba(255, 255, 255, 0.8)',
-      whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+      whiteAlpha05: 'rgba(255, 255, 255, 0.05)',
+      blackAlpha30: 'rgba(0, 0, 0, 0.3)',
+      // 特殊背景效果 - 深色模式
+      overlay:
+        'linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.85) 100%)',
+      overlayDark: 'rgba(0, 0, 0, 0.75)',
+      badge: 'rgba(255, 255, 255, 0.05)',
+      feature: '#211E14',
+      accentGradient: {
+        from: 'rgba(218, 165, 32, 0.3)',
+        to: 'rgba(228, 188, 76, 0.1)',
+      },
     },
     border: {
       primary: '#DAA520',
@@ -138,15 +186,18 @@ export const earthYellowTheme: ThemeColors = {
       light: '#332D1F',
       focus: '#B8860B',
       disabled: '#1D1A12',
-      // 新增
+      // 扩展边框颜色
       card: '#332D1F',
       transparent: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha10: 'rgba(255, 255, 255, 0.1)',
+      whiteAlpha05: 'rgba(255, 255, 255, 0.05)',
+      accentAlpha20: 'rgba(218, 165, 32, 0.2)',
     },
     button: {
       primary: {
-        background: ['#DAA520', '#B8860B', '#A67A0A'],
+        background: ['#DAA520'],
         text: ['#FFFFFF'],
-        border: ['#DAA520', '#B8860B', '#A67A0A'],
+        border: ['#DAA520'],
         hoverBg: ['#B8860B'],
         activeBg: ['#A67A0A'],
         disabledBg: ['#1D1A12'],
@@ -154,8 +205,8 @@ export const earthYellowTheme: ThemeColors = {
       },
       secondary: {
         background: ['#1D1A12'],
-        text: ['#DAA520', '#B8860B', '#A67A0A'],
-        border: ['#DAA520', '#B8860B', '#A67A0A'],
+        text: ['#DAA520'],
+        border: ['#DAA520'],
         hoverBg: ['#292418'],
         activeBg: ['#332D1F'],
         disabledBg: ['#1D1A12'],
@@ -178,6 +229,29 @@ export const earthYellowTheme: ThemeColors = {
       hover: '0 8px 30px rgba(0, 0, 0, 0.3)',
       accent: '0 4px 20px rgba(218, 165, 32, 0.4)',
       card: '0 2px 8px rgba(0, 0, 0, 0.2)',
+      // 扩展阴影效果 - 深色模式
+      accentLight: '0 5px 20px rgba(218, 165, 32, 0.2)',
+      blackAlpha50: '0 10px 30px rgba(0, 0, 0, 0.5)',
+      large: '0 20px 60px rgba(0, 0, 0, 0.3)',
+    },
+    accent: {
+      primary: '#DAA520',
+      secondary: '#F4D03F',
+      tertiary: '#FFE55C',
+      gradient: {
+        from: '#DAA520',
+        to: '#FFE55C',
+        angle: '135deg',
+      },
+      hero: {
+        from: '#B8860B',
+        to: '#F4D03F',
+        angle: '45deg',
+      },
+      feature: {
+        from: '#DAA520',
+        to: '#F4D03F',
+      },
     },
   },
 }
