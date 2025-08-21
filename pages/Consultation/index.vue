@@ -1,16 +1,24 @@
 <template>
   <div class="consultation">
+    <!-- Hero区域: 页面介绍 -->
+    <ConsultationHero />
+
     <!-- 第一屏: 预约表单 -->
     <ConsultationForm />
 
     <!-- 第二屏: 联系方式 -->
     <ContactSection />
+
+    <!-- 第三屏: 常见问题 -->
+    <FAQSection />
   </div>
 </template>
 
 <script setup lang="ts">
+  import ConsultationHero from './Components/ConsultationHero.vue'
   import ConsultationForm from './Components/ConsultationForm.vue'
   import ContactSection from './Components/ContactSection.vue'
+  import FAQSection from './Components/FAQSection.vue'
 
   // 设置页面使用默认布局
   definePageMeta({
@@ -32,12 +40,5 @@
   .consultation {
     position: relative;
     width: 100%;
-  }
-
-  /* 手机端减少组件之间的间距 */
-  @media (max-width: 768px) {
-    .consultation > * + * {
-      margin-top: -20px; /* 负值边距让组件更紧密 */
-    }
   }
 </style>
