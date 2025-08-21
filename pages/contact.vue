@@ -17,6 +17,11 @@
 </template>
 
 <script setup lang="ts">
+  import ConsultationHero from '~/components/Contact/ConsultationHero.vue'
+  import ConsultationForm from '~/components/Contact/ConsultationForm.vue'
+  import ContactSection from '~/components/Contact/ContactSection.vue'
+  import FAQSection from '~/components/Contact/FAQSection.vue'
+  import FooterSection from '~/components/Home/FooterSection.vue'
   // 设置页面使用默认布局
   definePageMeta({
     layout: 'default',
