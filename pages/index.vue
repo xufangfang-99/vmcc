@@ -26,7 +26,7 @@
   import ExpertiseSection from './Home/Components/ExpertiseSection.vue'
   import TestimonialsSection from './Home/Components/TestimonialsSection.vue'
   import CTASection from './Home/Components/CTASection.vue'
-  import FooterSection from './Home/Components/FooterSection.vue'
+  import FooterSection from '~/components/Home/FooterSection.vue'
 
   // 设置页面使用首页布局
   definePageMeta({

@@ -1,5 +1,16 @@
 <template>
   <section class="consultation-hero">
+    <!-- 背景图片 -->
+    <div class="hero-image-bg">
+      <img
+        src="/images/comm/banner1.webp"
+        alt="背景图片"
+        class="bg-image"
+      />
+      <!-- 遮罩层 -->
+      <div class="bg-overlay"></div>
+    </div>
+
     <!-- 背景装饰 -->
     <div class="hero-background">
       <div class="gradient-bg"></div>
@@ -24,118 +35,135 @@
         <!-- 副标题 -->
         <p class="hero-subtitle">与行业顶尖的人才顾问对话，定制专属于您的人才解决方案</p>
 
-        <!-- 特点列表 -->
+        <!-- 特点列表 - 新设计 -->
+        <!-- 特点列表 - 调整结构 -->
         <div class="features-grid">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M12 2L2 7v10c0 5.5 3.84 10.74 9 12 5.16-1.26 9-6.5 9-12V7l-10-5z"></path>
-                <path d="M9 12l2 2 4-4"></path>
-              </svg>
-            </div>
-            <div class="feature-content">
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon-wrapper">
+                <svg
+                  class="feature-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 2L2 7v10c0 5.5 3.84 10.74 9 12 5.16-1.26 9-6.5 9-12V7l-10-5z"></path>
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+              </div>
               <h3 class="feature-title">100%保密承诺</h3>
-              <p class="feature-desc">多层加密保护您的商业机密</p>
             </div>
+            <p class="feature-desc">多层加密保护您的商业机密</p>
           </div>
 
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                ></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-            <div class="feature-content">
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon-wrapper">
+                <svg
+                  class="feature-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                  ></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
               <h3 class="feature-title">快速响应</h3>
-              <p class="feature-desc">24小时内专家团队对接</p>
             </div>
+            <p class="feature-desc">24小时内专家团队对接</p>
           </div>
 
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                ></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <div class="feature-content">
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon-wrapper">
+                <svg
+                  class="feature-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle
+                    cx="9"
+                    cy="7"
+                    r="4"
+                  ></circle>
+                </svg>
+              </div>
               <h3 class="feature-title">专属顾问</h3>
-              <p class="feature-desc">1对1定制化服务体验</p>
             </div>
+            <p class="feature-desc">1对1定制化服务体验</p>
           </div>
 
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-              </svg>
-            </div>
-            <div class="feature-content">
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon-wrapper">
+                <svg
+                  class="feature-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
               <h3 class="feature-title">成功保证</h3>
-              <p class="feature-desc">92%配置成功率，6个月质保</p>
             </div>
+            <p class="feature-desc">92%配置成功率，6个月质保</p>
           </div>
         </div>
 
-        <!-- 信任指标 -->
-        <div class="trust-indicators">
-          <div class="indicator">
-            <span class="indicator-number">15,000+</span>
-            <span class="indicator-label">成功案例</span>
-          </div>
-          <div class="indicator-divider"></div>
-          <div class="indicator">
-            <span class="indicator-number">500+</span>
-            <span class="indicator-label">企业客户</span>
-          </div>
-          <div class="indicator-divider"></div>
-          <div class="indicator">
-            <span class="indicator-number">50+</span>
-            <span class="indicator-label">行业覆盖</span>
+        <!-- 信任指标 - 新设计 -->
+        <div class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">
+                <span class="number">15,000</span>
+                <span class="plus">+</span>
+              </div>
+              <div class="stat-label">成功案例</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">
+                <span class="number">500</span>
+                <span class="plus">+</span>
+              </div>
+              <div class="stat-label">企业客户</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">
+                <span class="number">50</span>
+                <span class="plus">+</span>
+              </div>
+              <div class="stat-label">行业覆盖</div>
+            </div>
           </div>
         </div>
 
         <!-- 滚动提示 -->
-        <div class="scroll-hint">
+        <div
+          class="scroll-hint"
+          @click="scrollToForm"
+        >
           <span>填写表单，开始咨询</span>
           <svg
             class="scroll-icon"
@@ -155,15 +183,86 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  // 滚动到表单
+  const scrollToForm = () => {
+    const formElement = document.querySelector('.consultation-section')
+    if (formElement) {
+      formElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
 </script>
 
 <style scoped>
   .consultation-hero {
     position: relative;
-    padding: 120px 0 80px;
+    height: 100vh; /* 设置为视口高度 */
+    min-height: 600px; /* 最小高度保证内容不被挤压 */
+    padding: 60px 0 40px; /* 减少上下padding */
     overflow: hidden;
     background: var(--tm-bg-primary);
+    display: flex;
+    align-items: center;
+  }
+
+  /* 背景图片容器 */
+  .hero-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  /* 背景图片 */
+  .bg-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    animation: slowZoom 30s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  /* 遮罩层 */
+  .bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 浅色模式遮罩 */
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.85) 50%,
+      rgba(255, 255, 255, 0.92) 100%
+    );
+  }
+
+  /* 深色模式遮罩 */
+  .dark .bg-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(10, 14, 39, 0.95) 0%,
+      rgba(10, 14, 39, 0.88) 50%,
+      rgba(10, 14, 39, 0.95) 100%
+    );
   }
 
   /* 背景装饰 */
@@ -171,69 +270,99 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 1;
   }
 
   .gradient-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      135deg,
-      var(--tm-bg-gradient-from) 0%,
-      var(--tm-bg-gradient-to) 100%
+    background: radial-gradient(
+      circle at 30% 50%,
+      rgba(var(--tm-pri-0-rgb), 0.08) 0%,
+      transparent 50%
     );
-    opacity: 0.05;
   }
 
   .pattern-overlay {
     position: absolute;
     inset: 0;
     background-image:
-      radial-gradient(circle at 20% 80%, var(--tm-pri-0) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, var(--tm-pri-1) 0%, transparent 50%);
-    opacity: 0.03;
+      radial-gradient(circle at 70% 30%, rgba(var(--tm-pri-1-rgb), 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 20% 80%, rgba(var(--tm-pri-0-rgb), 0.06) 0%, transparent 40%);
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
 
   .hero-content {
     text-align: center;
+    width: 100%;
   }
 
-  /* 顶部标签 */
+  /* 顶部标签 - 玻璃态设计 */
   .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 20px;
-    background: var(--tm-bg-secondary);
+    padding: 8px 20px; /* 减小padding */
+    background: rgba(var(--tm-bg-secondary-rgb), 0.8);
     border: 1px solid var(--tm-bd-light);
     border-radius: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* 减小间距 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+
+  .dark .hero-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .hero-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .hero-badge:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   .badge-icon {
-    font-size: 1.2rem;
+    font-size: 1rem; /* 减小图标 */
   }
 
   .badge-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* 减小文字 */
     color: var(--tm-txt-secondary);
     font-weight: 500;
   }
 
+  .dark .badge-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
   /* 主标题 */
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem; /* 减小标题 */
     font-weight: 300;
     line-height: 1.2;
     color: var(--tm-txt-primary);
-    margin-bottom: 20px;
+    margin-bottom: 16px; /* 减小间距 */
+    letter-spacing: -0.02em;
+  }
+
+  .dark .hero-title {
+    color: white;
   }
 
   .hero-title .highlight {
@@ -242,97 +371,243 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
   }
 
   /* 副标题 */
   .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.125rem; /* 减小字体 */
     color: var(--tm-txt-secondary);
     max-width: 600px;
-    margin: 0 auto 60px;
+    margin: 0 auto 40px; /* 减小间距 */
     line-height: 1.5;
   }
 
-  /* 特点网格 */
+  .dark .hero-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* 特点网格 - 全新设计 */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-    max-width: 900px;
+    grid-template-columns: repeat(4, 1fr); /* 强制4列 */
+    gap: 20px; /* 减小间距 */
+    margin-bottom: 40px; /* 减小间距 */
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    text-align: left;
+  .feature-card {
+    position: relative;
+    padding: 24px 16px; /* 减小padding */
+    background: rgba(var(--tm-bg-secondary-rgb), 0.8);
+    border: 1px solid var(--tm-bd-light);
+    border-radius: 16px; /* 减小圆角 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+    overflow: hidden;
   }
 
-  .feature-icon {
-    flex-shrink: 0;
-    width: 48px;
+  .dark .feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* 悬停效果 */
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(var(--tm-pri-0-rgb), 0.1) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .feature-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  .feature-icon-wrapper {
+    width: 48px; /* 减小图标容器 */
     height: 48px;
-    background: var(--tm-bg-secondary);
+    margin: 0 auto 16px; /* 减小间距 */
+    background: linear-gradient(
+      135deg,
+      rgba(var(--tm-pri-0-rgb), 0.1),
+      rgba(var(--tm-pri-1-rgb), 0.1)
+    );
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--tm-pri-0);
+    position: relative;
   }
 
-  .feature-content {
-    flex: 1;
+  .dark .feature-icon-wrapper {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--tm-pri-0-rgb), 0.15),
+      rgba(var(--tm-pri-1-rgb), 0.15)
+    );
+  }
+
+  .feature-icon {
+    color: var(--tm-pri-0);
+    width: 24px; /* 减小图标 */
+    height: 24px;
   }
 
   .feature-title {
-    font-size: 1.125rem;
+    font-size: 1rem; /* 减小标题 */
     font-weight: 600;
     color: var(--tm-txt-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  .dark .feature-title {
+    color: white;
   }
 
   .feature-desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* 减小描述文字 */
     color: var(--tm-txt-secondary);
     line-height: 1.4;
   }
 
-  /* 信任指标 */
-  .trust-indicators {
-    display: flex;
+  .dark .feature-desc {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* 统计数据部分 - 全新设计 */
+  .stats-section {
+    margin-bottom: 30px; /* 减小间距 */
+  }
+
+  .stats-grid {
+    display: inline-flex; /* 改为inline-flex */
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    padding: 30px;
-    background: var(--tm-bg-secondary);
-    border-radius: 16px;
-    margin-bottom: 40px;
+    gap: 50px; /* 减小间距 */
+    padding: 30px 50px; /* 减小padding */
+    background: linear-gradient(
+      135deg,
+      rgba(var(--tm-bg-secondary-rgb), 0.5) 0%,
+      rgba(var(--tm-bg-secondary-rgb), 0.8) 100%
+    );
+    border: 1px solid var(--tm-bd-light);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
   }
 
-  .indicator {
+  .dark .stats-grid {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* 背景动画光效 */
+  .stats-grid::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(var(--tm-pri-0-rgb), 0.1) 60deg,
+      transparent 120deg,
+      rgba(var(--tm-pri-1-rgb), 0.1) 180deg,
+      transparent 240deg,
+      rgba(var(--tm-pri-0-rgb), 0.1) 300deg,
+      transparent 360deg
+    );
+    animation: rotate 20s linear infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .stat-item {
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
 
-  .indicator-number {
-    display: block;
-    font-size: 2rem;
+  .stat-number {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 6px; /* 减小间距 */
+  }
+
+  .stat-number .number {
+    font-size: 2rem; /* 减小数字 */
     font-weight: 700;
+    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-number .plus {
+    font-size: 1.6rem; /* 减小加号 */
+    font-weight: 600;
     color: var(--tm-pri-0);
-    margin-bottom: 4px;
+    opacity: 0.8;
   }
 
-  .indicator-label {
-    font-size: 0.9rem;
+  .stat-label {
+    font-size: 0.9rem; /* 减小标签 */
     color: var(--tm-txt-secondary);
+    font-weight: 500;
   }
 
-  .indicator-divider {
+  .dark .stat-label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .stat-divider {
     width: 1px;
-    height: 40px;
-    background: var(--tm-bd-light);
+    height: 40px; /* 减小高度 */
+    background: linear-gradient(to bottom, transparent, var(--tm-bd-light), transparent);
+  }
+
+  .dark .stat-divider {
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
   }
 
   /* 滚动提示 */
@@ -341,7 +616,21 @@
     align-items: center;
     gap: 8px;
     color: var(--tm-txt-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* 减小字体 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dark .scroll-hint {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .scroll-hint:hover {
+    transform: translateY(2px);
+  }
+
+  .dark .scroll-hint:hover {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .scroll-icon {
@@ -364,89 +653,74 @@
     }
   }
 
-  /* 深色模式 */
-  .dark .gradient-bg {
-    opacity: 0.1;
+  /* 响应式设计 - 大屏优化 */
+  @media (min-width: 1400px) {
+    .hero-title {
+      font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
   }
 
-  .dark .pattern-overlay {
-    opacity: 0.05;
+  /* 笔记本屏幕 */
+  @media (max-width: 1366px) and (max-height: 800px) {
+    .consultation-hero {
+      padding: 40px 0 30px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .features-grid {
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 20px 14px;
+    }
   }
 
-  /* 响应式 - 减少手机端留白 */
+  /* 响应式设计 - 平板 */
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stats-grid {
+      padding: 24px 30px;
+      gap: 40px;
+    }
+  }
+
+  /* 手机端特殊样式 */
   @media (max-width: 768px) {
     .consultation-hero {
-      padding: 80px 0 40px;
+      min-height: auto;
+      height: auto;
+      padding: 60px 0 40px;
+    }
+
+    .bg-image {
+      animation: none;
+      transform: translate(-50%, -50%) scale(1.05);
     }
 
     .hero-badge {
       padding: 6px 16px;
-      margin-bottom: 20px;
-    }
-
-    .badge-text {
-      font-size: 0.8rem;
-    }
-
-    .hero-title {
-      font-size: 2rem;
       margin-bottom: 16px;
     }
 
-    .hero-subtitle {
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-    }
-
-    .features-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .feature-icon {
-      width: 40px;
-      height: 40px;
-    }
-
-    .feature-title {
-      font-size: 1rem;
-    }
-
-    .feature-desc {
-      font-size: 0.85rem;
-    }
-
-    .trust-indicators {
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .indicator-divider {
-      display: none;
-    }
-
-    .indicator-number {
-      font-size: 1.5rem;
-    }
-
-    .indicator-label {
-      font-size: 0.85rem;
-    }
-
-    .scroll-hint {
-      font-size: 0.85rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .consultation-hero {
-      padding: 60px 0 30px;
+    .badge-text {
+      font-size: 0.75rem;
     }
 
     .hero-title {
       font-size: 1.75rem;
+      margin-bottom: 12px;
     }
 
     .hero-subtitle {
@@ -454,16 +728,155 @@
       margin-bottom: 30px;
     }
 
+    /* 特点网格 - 保持单列 */
     .features-grid {
-      gap: 16px;
-    }
-
-    .feature-item {
+      grid-template-columns: 1fr;
       gap: 12px;
+      margin-bottom: 30px;
     }
 
-    .trust-indicators {
+    .feature-card {
       padding: 16px;
+      text-align: left; /* 改为左对齐 */
+    }
+
+    /* 调整1: 图标和标题横向排列 */
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .feature-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      margin: 0; /* 移除原有的margin */
+      flex-shrink: 0;
+    }
+
+    .feature-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .feature-title {
+      font-size: 0.95rem;
+      margin-bottom: 0; /* 移除底部间距 */
+    }
+
+    .feature-desc {
+      font-size: 0.8rem;
+      line-height: 1.3;
+      color: var(--tm-txt-secondary);
+    }
+
+    /* 调整2: 统计数据保持横向一排 */
+    .stats-grid {
+      flex-direction: row !important; /* 强制横向 */
+      gap: 0;
+      padding: 20px 16px;
+      justify-content: space-between;
+    }
+
+    .stat-item {
+      flex: 1;
+      padding: 0 8px;
+    }
+
+    .stat-number .number {
+      font-size: 1.75rem;
+    }
+
+    .stat-number .plus {
+      font-size: 1.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+    }
+
+    /* 显示分隔线 */
+    .stat-divider {
+      display: block !important;
+      width: 1px;
+      height: 40px;
+      margin: 0;
+      background: var(--tm-bd-light);
+      opacity: 0.3;
+    }
+
+    .dark .stat-divider {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .consultation-hero {
+      padding: 50px 0 30px;
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .features-grid {
+      gap: 10px;
+    }
+
+    .feature-card {
+      padding: 14px;
+    }
+
+    .feature-header {
+      gap: 10px;
+    }
+
+    .feature-icon-wrapper {
+      width: 32px;
+      height: 32px;
+    }
+
+    .feature-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .feature-title {
+      font-size: 0.9rem;
+    }
+
+    .feature-desc {
+      font-size: 0.75rem;
+    }
+
+    .stats-grid {
+      padding: 18px 12px;
+    }
+
+    .stat-item {
+      padding: 0 6px;
+    }
+
+    .stat-number .number {
+      font-size: 1.5rem;
+    }
+
+    .stat-number .plus {
+      font-size: 1.2rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+    }
+
+    .stat-divider {
+      height: 35px;
     }
   }
 </style>

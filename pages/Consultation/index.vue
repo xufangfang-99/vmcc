@@ -11,6 +11,8 @@
 
     <!-- 第三屏: 常见问题 -->
     <FAQSection />
+    <!-- 第四屏: 页脚 -->
+    <FooterSection />
   </div>
 </template>
 
@@ -19,6 +21,7 @@
   import ConsultationForm from './Components/ConsultationForm.vue'
   import ContactSection from './Components/ContactSection.vue'
   import FAQSection from './Components/FAQSection.vue'
+  import FooterSection from '~/components/Home/FooterSection.vue'
 
   // 设置页面使用默认布局
   definePageMeta({

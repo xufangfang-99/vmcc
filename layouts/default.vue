@@ -1,16 +1,18 @@
 <template>
-  <el-container class="min-h-screen bg-[var(--tm-bg-primary)] transition-colors duration-300">
-    <el-header class="border-0 border-b border-solid border-[var(--tm-bd-primary)]">
-      <div class="flex justify-between items-center h-full">
-        <div class="flex items-center gap-4">
+  <div class="app-layout">
+    <!-- 头部导航 -->
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-left">
           <MenuIcon
             :menu-items="menuItems"
             @click="handleIconClick"
           />
-          <Logo></Logo>
+          <Logo />
+
           <!-- 仅在非移动端显示 NavMenu -->
           <Responsive :not-mobile="true">
-            <div class="flex items-center">
+            <div class="nav-wrapper">
               <!-- 默认导航 -->
               <NavMenu
                 v-if="navigation.isDefaultNav"
@@ -26,19 +28,23 @@
             </div>
           </Responsive>
         </div>
-        <ThemeSelector />
+
+        <div class="header-right">
+          <ThemeSelector />
+        </div>
       </div>
-    </el-header>
+    </header>
 
     <!-- 移动端菜单路径显示 -->
     <Responsive :mobile="true">
       <MobileMenuBreadcrumb />
     </Responsive>
 
-    <el-main class="bg-[var(--tm-bg-secondary)] transition-colors duration-300">
+    <!-- 主内容区域 -->
+    <main class="main-content">
       <slot></slot>
-    </el-main>
-  </el-container>
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -49,6 +55,23 @@
   import MenuBreadcrumb from '~/components/MenuBreadcrumb.vue'
   import MobileMenuBreadcrumb from '~/components/MobileMenuBreadcrumb.vue'
   import type { MenuItem, UnifiedMenuItem } from '~/components/NavMenu.types'
+
+  // 滚动状态
+  const isScrolled = ref(false)
+
+  // 处理滚动
+  const handleScroll = () => {
+    isScrolled.value = window.scrollY > 0
+  }
+
+  // 生命周期
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+  })
 
   const navigation = useNavigation()
   const { menuItems, specialMenuConfigs } = useMenuData()
@@ -130,8 +153,96 @@
 </script>
 
 <style scoped>
-  /* 添加一些样式以适应新的布局 */
-  .el-header {
+  .app-layout {
+    min-height: 100vh;
+    background: var(--tm-bg-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  /* 头部样式 */
+  .main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     height: 60px;
+    background: var(--tm-bg-primary);
+    border-bottom: 1px solid var(--tm-bd-primary);
+    transition: all 0.3s ease;
+  }
+
+  .header-container {
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  /* 主内容区域 */
+  .main-content {
+    min-height: calc(100vh - 60px);
+    background: var(--tm-bg-secondary);
+    transition: background-color 0.3s ease;
+  }
+
+  /* 滚动时的头部阴影效果 */
+  .main-header.scrolled {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* 深色模式下的阴影 */
+  .dark .main-header.scrolled {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 响应式设计 */
+  @media (max-width: 1024px) {
+    .header-container {
+      padding: 0 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-header {
+      height: 56px;
+    }
+
+    .header-left {
+      gap: 0.75rem;
+    }
+
+    .main-content {
+      min-height: calc(100vh - 56px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .header-container {
+      padding: 0 12px;
+    }
+
+    .header-left {
+      gap: 0.5rem;
+    }
   }
 </style>
