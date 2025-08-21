@@ -98,7 +98,7 @@
               </button>
               <!-- 方法1：使用 NuxtLink 组件（推荐） -->
               <NuxtLink
-                to="/Consultation"
+                to="/contact"
                 class="px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-white border-2 border-white/80 hover:bg-white/10 hover:border-white hover:transform hover:-translate-y-0.5"
               >
                 安排咨询
