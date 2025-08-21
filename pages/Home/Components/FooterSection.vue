@@ -12,8 +12,8 @@
 
           <!-- 社交媒体链接 -->
           <div class="social-links">
-            <a
-              href="#"
+            <NuxtLink
+              to="#"
               class="social-link"
               aria-label="LinkedIn"
             >
@@ -29,9 +29,9 @@
                   fill="currentColor"
                 />
               </svg>
-            </a>
-            <a
-              href="#"
+            </NuxtLink>
+            <NuxtLink
+              to="#"
               class="social-link"
               aria-label="Twitter"
             >
@@ -47,9 +47,9 @@
                   fill="currentColor"
                 />
               </svg>
-            </a>
-            <a
-              href="#"
+            </NuxtLink>
+            <NuxtLink
+              to="#"
               class="social-link"
               aria-label="Facebook"
             >
@@ -65,44 +65,47 @@
                   fill="currentColor"
                 />
               </svg>
-            </a>
+            </NuxtLink>
           </div>
         </div>
 
-        <!-- 中间：服务链接 -->
-        <div class="footer-column">
-          <h4 class="column-title">服务</h4>
-          <ul class="footer-links">
-            <li><a href="/services/executive-search">高管搜寻</a></li>
-            <li><a href="/services/hr-outsourcing">人力资源外包</a></li>
-            <li><a href="/services/talent-deployment">人才派遣</a></li>
-            <li><a href="/services/organizational-consulting">组织咨询</a></li>
-            <li><a href="/services/cross-border-support">跨境支持</a></li>
-          </ul>
-        </div>
+        <!-- 服务和公司链接区域 - 手机端会并排显示 -->
+        <div class="footer-links-section">
+          <!-- 服务链接 -->
+          <div class="footer-column">
+            <h4 class="column-title">服务</h4>
+            <ul class="footer-links">
+              <li><NuxtLink to="/services/executive-search">高管搜寻</NuxtLink></li>
+              <li><NuxtLink to="/services/hr-outsourcing">人力资源外包</NuxtLink></li>
+              <li><NuxtLink to="/services/talent-deployment">人才派遣</NuxtLink></li>
+              <li><NuxtLink to="/services/organizational-consulting">组织咨询</NuxtLink></li>
+              <li><NuxtLink to="/services/cross-border-support">跨境支持</NuxtLink></li>
+            </ul>
+          </div>
 
-        <!-- 右侧：公司链接 -->
-        <div class="footer-column">
-          <h4 class="column-title">公司</h4>
-          <ul class="footer-links">
-            <li><a href="/about">关于我们</a></li>
-            <li><a href="/contact">联系</a></li>
-            <li><a href="/careers">职业发展</a></li>
-            <li><a href="/insights">洞察</a></li>
-            <li><a href="/privacy">隐私政策</a></li>
-          </ul>
+          <!-- 公司链接 -->
+          <div class="footer-column">
+            <h4 class="column-title">公司</h4>
+            <ul class="footer-links">
+              <li><NuxtLink to="/about">关于我们</NuxtLink></li>
+              <li><NuxtLink to="/contact">联系</NuxtLink></li>
+              <li><NuxtLink to="/careers">职业发展</NuxtLink></li>
+              <li><NuxtLink to="/insights">洞察</NuxtLink></li>
+              <li><NuxtLink to="/privacy">隐私政策</NuxtLink></li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- 底部版权信息 -->
       <div class="footer-bottom">
         <div class="copyright">
-          <p>2024 Elite Talent Solutions。保留所有权利。</p>
+          <p>© 2024 Elite Talent Solutions</p>
         </div>
         <div class="bottom-links">
-          <a href="/terms">条款</a>
-          <a href="/privacy">隐私</a>
-          <a href="/cookies">曲奇饼</a>
+          <NuxtLink to="/terms">条款</NuxtLink>
+          <NuxtLink to="/privacy">隐私</NuxtLink>
+          <NuxtLink to="/cookies">Cookies</NuxtLink>
         </div>
       </div>
     </div>
@@ -152,6 +155,11 @@
     grid-template-columns: 2fr 1fr 1fr;
     gap: 80px;
     margin-bottom: 60px;
+  }
+
+  /* 桌面端服务和公司链接布局 */
+  .footer-links-section {
+    display: contents; /* 在桌面端让子元素直接参与父级网格 */
   }
 
   /* 公司信息列 */
@@ -305,26 +313,145 @@
       grid-column: 1 / -1;
       max-width: 100%;
     }
+
+    .footer-links-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column: 1 / -1;
+      gap: 40px;
+    }
   }
 
+  /* 手机端优化 */
   @media (max-width: 768px) {
     .footer-section {
-      padding: 60px 0 30px;
+      padding: 40px 0 20px;
+    }
+
+    .container {
+      padding: 0 16px;
     }
 
     .footer-content {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 24px;
+      margin-bottom: 24px;
     }
 
-    .footer-bottom {
+    /* 公司信息优化 */
+    .footer-logo {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .company-description {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* 社交媒体链接优化 */
+    .social-links {
+      gap: 0.5rem;
+    }
+
+    .social-link {
+      width: 32px;
+      height: 32px;
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* 服务和公司模块并排显示 */
+    .footer-links-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* 列标题优化 */
+    .column-title {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* 链接列表优化 - 紧凑布局 */
+    .footer-links {
+      display: flex;
       flex-direction: column;
-      gap: 20px;
-      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0;
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      padding: 0.125rem 0;
+      color: var(--tm-txt-light);
+    }
+
+    /* 底部版权区优化 */
+    .footer-bottom {
+      padding-top: 16px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright p {
+      font-size: 0.6875rem;
     }
 
     .bottom-links {
+      gap: 0.75rem;
+    }
+
+    .bottom-links a {
+      font-size: 0.6875rem;
+    }
+  }
+
+  /* 小屏幕手机进一步优化 */
+  @media (max-width: 480px) {
+    .footer-section {
+      padding: 30px 0 16px;
+    }
+
+    /* 保持两列布局但调整间距 */
+    .footer-links-section {
       gap: 1.5rem;
+    }
+
+    .footer-links {
+      gap: 0.375rem;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+    }
+
+    /* 底部版权区保持横向但更紧凑 */
+    .footer-bottom {
+      padding-top: 12px;
+    }
+
+    .copyright p,
+    .bottom-links a {
+      font-size: 0.625rem;
+    }
+
+    .bottom-links {
+      gap: 0.5rem;
     }
   }
 
