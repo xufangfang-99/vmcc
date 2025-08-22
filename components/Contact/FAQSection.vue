@@ -44,15 +44,46 @@
         </div>
       </div>
 
-      <!-- 底部 CTA -->
-      <div class="faq-cta">
-        <h3 class="cta-title">Still Have Questions?</h3>
-        <p class="cta-subtitle">
-          Our professional consultants are ready to provide personalized answers
-        </p>
-        <div class="cta-buttons">
-          <button class="cta-button primary">Consult an Expert</button>
-          <button class="cta-button secondary">Schedule a Call</button>
+      <!-- 底部 CTA - 全新卡片设计 -->
+      <div class="cta-wrapper">
+        <div class="cta-card">
+          <div class="cta-pattern"></div>
+          <div class="cta-content">
+            <h3 class="cta-title">Still Have Questions?</h3>
+            <p class="cta-subtitle">
+              Our professional consultants are ready to provide personalized answers
+            </p>
+            <div class="cta-buttons">
+              <button class="cta-button primary">
+                <span>Consult an Expert</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14m-7-7l7 7-7 7" />
+                </svg>
+              </button>
+              <button class="cta-button secondary">
+                <span>Schedule a Call</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -218,49 +249,83 @@
     color: var(--tm-txt-secondary);
   }
 
-  /* 底部 CTA - 浅色模式默认样式 */
-  .faq-cta {
-    text-align: center;
+  /* 底部 CTA - 全新卡片设计 */
+  .cta-wrapper {
+    margin-top: 80px;
+  }
+
+  .cta-card {
+    position: relative;
+    background: var(--tm-bg-primary);
+    border-radius: 24px;
     padding: 60px;
-    background: var(--tm-bg-active);
-    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
     border: 1px solid var(--tm-bd-light);
-    color: var(--tm-txt-primary);
+    overflow: hidden;
+  }
+
+  /* 装饰图案 */
+  .cta-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+    background:
+      radial-gradient(circle at 30% 30%, var(--tm-pri-0) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, var(--tm-pri-1) 0%, transparent 50%);
+    transform: translate(50%, -50%);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
   }
 
   .cta-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 12px;
+    font-size: 2.5rem;
+    font-weight: 700;
     color: var(--tm-txt-primary);
+    margin-bottom: 16px;
   }
 
   .cta-subtitle {
-    font-size: 1.125rem;
-    margin-bottom: 30px;
+    font-size: 1.25rem;
     color: var(--tm-txt-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 20px;
   }
 
   .cta-button {
-    padding: 14px 32px;
+    padding: 16px 32px;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cta-button svg {
+    transition: transform 0.3s ease;
   }
 
   .cta-button.primary {
     background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
     color: white;
-    border: none;
     box-shadow: 0 4px 20px rgba(var(--tm-pri-0-rgb), 0.3);
   }
 
@@ -269,54 +334,20 @@
     box-shadow: 0 8px 30px rgba(var(--tm-pri-0-rgb), 0.4);
   }
 
+  .cta-button.primary:hover svg {
+    transform: translateX(4px);
+  }
+
   .cta-button.secondary {
-    background: transparent;
+    background: var(--tm-bg-secondary);
     color: var(--tm-pri-0);
-    border-color: var(--tm-pri-0);
+    border: 2px solid var(--tm-bd-light);
   }
 
   .cta-button.secondary:hover {
-    background: var(--tm-pri-0);
-    color: white;
+    background: var(--tm-bg-active);
+    border-color: var(--tm-pri-0);
     transform: translateY(-2px);
-  }
-
-  /* 深色模式下的CTA样式 */
-  .dark .faq-cta {
-    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
-    border-color: transparent;
-    color: white;
-  }
-
-  .dark .cta-title {
-    color: white;
-  }
-
-  .dark .cta-subtitle {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .dark .cta-button.primary {
-    background: white;
-    color: var(--tm-pri-0);
-    border-color: white;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-  }
-
-  .dark .cta-button.primary:hover {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
-  }
-
-  .dark .cta-button.secondary {
-    background: transparent;
-    color: white;
-    border-color: white;
-  }
-
-  .dark .cta-button.secondary:hover {
-    background: white;
-    color: var(--tm-pri-0);
   }
 
   /* 深色模式 */
@@ -329,7 +360,31 @@
     border-color: var(--tm-bd-secondary);
   }
 
+  .dark .faq-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
   .dark .faq-item.active {
+    border-color: var(--tm-pri-0);
+  }
+
+  .dark .cta-card {
+    background: var(--tm-bg-secondary);
+    border-color: var(--tm-bd-secondary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .cta-pattern {
+    opacity: 0.05;
+  }
+
+  .dark .cta-button.secondary {
+    background: var(--tm-bg-primary);
+    border-color: var(--tm-bd-secondary);
+  }
+
+  .dark .cta-button.secondary:hover {
+    background: var(--tm-bg-active);
     border-color: var(--tm-pri-0);
   }
 
@@ -374,18 +429,27 @@
       line-height: 1.6;
     }
 
-    .faq-cta {
-      padding: 30px 20px;
+    .cta-wrapper {
+      margin-top: 40px;
+    }
+
+    .cta-card {
+      padding: 40px 24px;
+    }
+
+    .cta-pattern {
+      width: 200px;
+      height: 200px;
     }
 
     .cta-title {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
+      font-size: 1.75rem;
+      margin-bottom: 12px;
     }
 
     .cta-subtitle {
       font-size: 1rem;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .cta-buttons {
@@ -395,7 +459,8 @@
 
     .cta-button {
       width: 100%;
-      padding: 12px 24px;
+      justify-content: center;
+      padding: 14px 24px;
     }
   }
 
@@ -435,17 +500,28 @@
       font-size: 0.85rem;
     }
 
-    .faq-cta {
-      padding: 25px 16px;
+    .cta-card {
+      padding: 30px 20px;
       border-radius: 16px;
     }
 
     .cta-title {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
 
     .cta-subtitle {
       font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .cta-button {
+      font-size: 0.95rem;
+      padding: 12px 20px;
+    }
+
+    .cta-button svg {
+      width: 18px;
+      height: 18px;
     }
   }
 </style>
