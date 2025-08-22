@@ -1,4 +1,3 @@
-<!-- components/about/AboutHero.vue -->
 <template>
   <section class="about-hero">
     <!-- 背景图片 -->
@@ -30,11 +29,15 @@
           </div>
         </div>
 
-        <!-- 标题区域 -->
+        <!-- 标题区域 - 使用 Logo 组件 -->
         <div class="title-section">
           <h1 class="hero-title">
-            About
-            <span class="highlight">VMMC</span>
+            <span class="about-text">About</span>
+            <VMMCLogoInline
+              class="highlight-logo"
+              :size="'1.2em'"
+              color="gradient"
+            />
           </h1>
           <p class="company-name">Victor Meridian Management Consultancies L.L.C</p>
 
@@ -106,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import VMMCLogoInline from '~/components/Logo/VMMCLogoInline.vue'
 </script>
 
 <style scoped>
@@ -201,19 +204,30 @@
     letter-spacing: -0.02em;
     margin-bottom: 10px;
     color: var(--tm-txt-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
   }
 
-  .highlight {
-    font-weight: 600;
-    background: linear-gradient(
-      var(--tm-accent-gradient-angle, 135deg),
-      var(--tm-accent-gradient-from),
-      var(--tm-accent-gradient-to)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
+  .about-text {
+    font-weight: 300;
+  }
+
+  /* Logo 样式 */
+  .highlight-logo {
+    display: inline-flex;
+    align-items: center;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      filter: drop-shadow(0 0 10px var(--tm-accent-gradient-from));
+    }
+    to {
+      filter: drop-shadow(0 0 20px var(--tm-accent-gradient-to));
+    }
   }
 
   .company-name {
@@ -366,6 +380,8 @@
   @media (max-width: 768px) {
     .hero-title {
       font-size: 2.5rem;
+      flex-direction: column;
+      gap: 0.2em;
     }
 
     .company-name {
