@@ -1,21 +1,22 @@
 <template>
-  <nav class="primary-nav">
+  <nav class="flex items-center">
     <ul class="flex items-center gap-6 list-none p-0 m-0">
       <li
         v-for="item in menuItems"
         :key="item.name"
         ref="menuItemRefs"
-        class="relative nav-item-container"
+        class="relative"
       >
         <a
-          class="nav-link text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-pri-0)] flex items-center gap-1 px-2"
+          class="group relative flex items-center gap-1 px-2 text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-accent-primary)] no-underline"
           :class="{
-            'active-menu-item': activeItem?.name === item.name,
+            'text-[var(--tm-accent-primary)]': activeItem?.name === item.name,
             'py-2': hasVerticalLayout,
             'py-4': !hasVerticalLayout,
           }"
           :style="{
-            color: activeItem?.name === item.name ? 'var(--tm-pri-0)' : 'var(--tm-txt-primary)',
+            color:
+              activeItem?.name === item.name ? 'var(--tm-accent-primary)' : 'var(--tm-txt-primary)',
           }"
           @mouseenter="() => handleMouseEnter(item)"
           @click="handleNavClick(item)"
@@ -23,7 +24,8 @@
           {{ item.name }}
           <span
             v-if="item.hasSubMenu"
-            class="chevron-icon"
+            class="inline-flex items-center transition-transform duration-200"
+            :class="{ 'rotate-180': activeItem?.name === item.name && showSubmenu }"
           >
             <svg
               width="12"
@@ -41,32 +43,49 @@
               />
             </svg>
           </span>
+          <!-- Underline animation -->
+          <span
+            class="absolute bottom-2 left-2 right-2 h-0.5 bg-[var(--tm-accent-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+            :class="{ '!scale-x-100': activeItem?.name === item.name }"
+          ></span>
         </a>
 
-        <!-- 下拉子菜单 -->
-        <Transition name="submenu-fade">
+        <!-- Dropdown submenu -->
+        <Transition
+          enter-active-class="transition duration-200 ease-out"
+          enter-from-class="opacity-0 -translate-y-2"
+          enter-to-class="opacity-100 translate-y-0"
+          leave-active-class="transition duration-150 ease-in"
+          leave-from-class="opacity-100 translate-y-0"
+          leave-to-class="opacity-0 -translate-y-2"
+        >
           <div
             v-if="showSubmenu && activeItem?.name === item.name && item.hasSubMenu"
-            class="submenu-wrapper absolute top-full z-[9999]"
+            class="absolute top-full z-[9999]"
             :style="getSubmenuStyle(item)"
             @mouseenter="handleSubmenuMouseEnter"
             @mouseleave="handleSubmenuMouseLeave"
           >
-            <!-- 连接区域 -->
+            <!-- Connection area to prevent hover gap -->
             <div class="h-2"></div>
 
-            <!-- 实际的下拉内容 -->
+            <!-- Actual dropdown content -->
             <div
-              class="bg-white dark:bg-gray-800 shadow-xl rounded-lg border border-gray-200 dark:border-gray-700 p-6"
+              class="rounded-lg p-6"
+              :style="{
+                backgroundColor: 'var(--tm-bg-card)',
+                border: '1px solid var(--tm-bd-card)',
+                boxShadow: 'var(--tm-shadow-hover)',
+              }"
             >
-              <!-- 如果有 Featured，使用左右布局 -->
+              <!-- Layout with Featured section -->
               <div
                 v-if="item.featured"
                 class="flex gap-8"
               >
-                <!-- 左侧：主要内容 -->
+                <!-- Left: Main content -->
                 <div class="flex-1">
-                  <!-- 有分组的菜单 (如 Our Insights, About Us) -->
+                  <!-- Grouped menus (e.g., Our Insights, About Us) -->
                   <div v-if="hasGroups(item)">
                     <div
                       v-for="(group, groupIndex) in item.subItems"
@@ -75,7 +94,8 @@
                     >
                       <h3
                         v-if="group.title || group.isGroup"
-                        class="text-xs font-bold mb-3 tracking-wider uppercase text-gray-600 dark:text-gray-400"
+                        class="text-xs font-bold mb-3 tracking-wider uppercase"
+                        :style="{ color: 'var(--tm-txt-light)' }"
                       >
                         {{ group.title || group.name }}
                       </h3>
@@ -90,16 +110,23 @@
                             subItem.link ||
                             generatePath([item.name, group.title || group.name, subItem.name])
                           "
-                          class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                          class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
+                          :style="{ color: 'var(--tm-txt-secondary)' }"
                           @click.prevent="handleSubItemClick(item, subItem)"
+                          @mouseenter="(e) => handleDropdownHover(e, true)"
+                          @mouseleave="(e) => handleDropdownHover(e, false)"
                         >
-                          {{ subItem.name }}
+                          <span class="relative z-10">{{ subItem.name }}</span>
+                          <!-- Left border animation -->
+                          <span
+                            class="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-0 bg-[var(--tm-accent-primary)] group-hover/item:h-[70%] transition-all duration-300"
+                          ></span>
                         </a>
                       </div>
                     </div>
                   </div>
 
-                  <!-- 普通列表菜单 (如 Capabilities) -->
+                  <!-- Regular list menus (e.g., Capabilities) -->
                   <div
                     v-else-if="item.subItems && item.subItems.length > 0"
                     :class="getGridCols(item)"
@@ -108,18 +135,29 @@
                       v-for="(subItem, index) in item.subItems"
                       :key="`${subItem.name}-${index}`"
                       :href="subItem.link || generatePath([item.name, subItem.name])"
-                      class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                      class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
+                      :style="{ color: 'var(--tm-txt-secondary)' }"
                       @click.prevent="handleSubItemClick(item, subItem)"
+                      @mouseenter="(e) => handleDropdownHover(e, true)"
+                      @mouseleave="(e) => handleDropdownHover(e, false)"
                     >
-                      {{ subItem.name }}
+                      <span class="relative z-10">{{ subItem.name }}</span>
+                      <!-- Left border animation -->
+                      <span
+                        class="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-0 bg-[var(--tm-accent-primary)] group-hover/item:h-[70%] transition-all duration-300"
+                      ></span>
                     </a>
                   </div>
                 </div>
 
-                <!-- 右侧：Featured 部分 -->
-                <div class="w-72 border-l border-gray-200 dark:border-gray-700 pl-8">
+                <!-- Right: Featured section -->
+                <div
+                  class="w-72 pl-8"
+                  :style="{ borderLeft: '1px solid var(--tm-bd-light)' }"
+                >
                   <h3
-                    class="text-xs font-bold mb-4 tracking-wider uppercase text-gray-600 dark:text-gray-400"
+                    class="text-xs font-bold mb-4 tracking-wider uppercase"
+                    :style="{ color: 'var(--tm-txt-light)' }"
                   >
                     {{ item.featured.title }}
                   </h3>
@@ -130,17 +168,19 @@
                     >
                       <NuxtLink
                         :to="featuredItem.link"
-                        class="block group"
+                        class="block group/featured no-underline"
                         @click="closeMenu"
                       >
                         <h4
-                          class="text-sm font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[var(--tm-pri-0)] mb-1"
+                          class="text-sm font-semibold mb-1 transition-colors group-hover/featured:text-[var(--tm-accent-primary)]"
+                          :style="{ color: 'var(--tm-txt-primary)' }"
                         >
                           {{ featuredItem.name }}
                         </h4>
                         <p
                           v-if="featuredItem.description"
-                          class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                          class="text-xs leading-relaxed"
+                          :style="{ color: 'var(--tm-txt-light)' }"
                         >
                           {{ featuredItem.description }}
                         </p>
@@ -150,9 +190,9 @@
                 </div>
               </div>
 
-              <!-- 没有 Featured 的菜单保持原样 -->
+              <!-- Menus without Featured section -->
               <div v-else>
-                <!-- 有分组的菜单 (如没有 Featured 的分组菜单) -->
+                <!-- Grouped menus -->
                 <div v-if="hasGroups(item)">
                   <div
                     v-for="(group, groupIndex) in item.subItems"
@@ -161,7 +201,8 @@
                   >
                     <h3
                       v-if="group.title || group.isGroup"
-                      class="text-xs font-bold mb-3 tracking-wider uppercase text-gray-600 dark:text-gray-400"
+                      class="text-xs font-bold mb-3 tracking-wider uppercase"
+                      :style="{ color: 'var(--tm-txt-light)' }"
                     >
                       {{ group.title || group.name }}
                     </h3>
@@ -176,16 +217,23 @@
                           subItem.link ||
                           generatePath([item.name, group.title || group.name, subItem.name])
                         "
-                        class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                        class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
+                        :style="{ color: 'var(--tm-txt-secondary)' }"
                         @click.prevent="handleSubItemClick(item, subItem)"
+                        @mouseenter="(e) => handleDropdownHover(e, true)"
+                        @mouseleave="(e) => handleDropdownHover(e, false)"
                       >
-                        {{ subItem.name }}
+                        <span class="relative z-10">{{ subItem.name }}</span>
+                        <!-- Left border animation -->
+                        <span
+                          class="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-0 bg-[var(--tm-accent-primary)] group-hover/item:h-[70%] transition-all duration-300"
+                        ></span>
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <!-- 普通列表菜单 (如 Industries, Careers) -->
+                <!-- Regular list menus -->
                 <div
                   v-else-if="item.subItems && item.subItems.length > 0"
                   :class="getGridCols(item)"
@@ -194,10 +242,17 @@
                     v-for="(subItem, index) in item.subItems"
                     :key="`${subItem.name}-${index}`"
                     :href="subItem.link || generatePath([item.name, subItem.name])"
-                    class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                    class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
+                    :style="{ color: 'var(--tm-txt-secondary)' }"
                     @click.prevent="handleSubItemClick(item, subItem)"
+                    @mouseenter="(e) => handleDropdownHover(e, true)"
+                    @mouseleave="(e) => handleDropdownHover(e, false)"
                   >
-                    {{ subItem.name }}
+                    <span class="relative z-10">{{ subItem.name }}</span>
+                    <!-- Left border animation -->
+                    <span
+                      class="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-0 bg-[var(--tm-accent-primary)] group-hover/item:h-[70%] transition-all duration-300"
+                    ></span>
                   </a>
                 </div>
               </div>
@@ -205,11 +260,13 @@
               <!-- Explore Link -->
               <div
                 v-if="item.exploreLink"
-                class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700"
+                class="mt-6 pt-6"
+                :style="{ borderTop: '1px solid var(--tm-bd-light)' }"
               >
                 <NuxtLink
                   :to="item.exploreLink.url"
-                  class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--tm-pri-0)] hover:underline"
+                  class="inline-flex items-center gap-2 text-sm font-semibold hover:underline no-underline transition-colors"
+                  :style="{ color: 'var(--tm-accent-primary)' }"
                   @click="closeMenu"
                 >
                   {{ item.exploreLink.text }}
@@ -237,7 +294,7 @@
     </ul>
   </nav>
 
-  <!-- 调试信息 -->
+  <!-- Debug info (hidden by default) -->
   <div
     v-if="false"
     class="fixed bottom-4 right-4 bg-black text-white p-4 rounded-lg text-xs z-[10000]"
@@ -249,8 +306,8 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onUnmounted, onMounted } from 'vue'
-  import { navigateTo } from 'nuxt/app'
+  import { ref, onUnmounted, onMounted, nextTick } from 'vue'
+  import { navigateTo, useRoute } from 'nuxt/app'
   import type { MenuItem, UnifiedMenuItem } from './NavMenu.types'
   import { generatePath } from './NavMenu.types'
 
@@ -275,32 +332,34 @@
     'active-change': [item: MenuItem | null]
   }>()
 
-  // 状态
+  // State
   const activeItem = ref<MenuItem | null>(null)
   const showSubmenu = ref(false)
   let closeTimer: NodeJS.Timeout | null = null
   const menuItemRefs = ref<HTMLElement[]>([])
 
-  // 获取子菜单宽度配置
+  // Get submenu width configuration
   const getSubmenuWidth = (item: MenuItem): string => {
-    // 根据不同菜单设置不同宽度
+    // Set different widths based on menu type
     const widthMap: Record<string, string> = {
-      Industries: '1200px',
-      Capabilities: '1000px',
-      'Our Insights': '1000px',
-      Careers: '500px',
-      'About Us': '1200px',
-      行业: '1200px',
-      能力: '1000px',
-      洞察: '1000px',
-      职业发展: '500px',
-      关于我们: '1200px',
-      default: '400px',
+      Industries: '800px',
+      Capabilities: '600px',
+      'Our Insights': '600px',
+      Careers: '400px',
+      'About Us': '600px',
+      'About Victor Meridian': '800px',
+      // Chinese menu items
+      行业: '800px',
+      能力: '600px',
+      洞察: '600px',
+      职业发展: '400px',
+      关于我们: '600px',
+      default: '320px',
     }
     return widthMap[item.name] || widthMap.default
   }
 
-  // 获取网格列数
+  // Get grid columns configuration
   const getGridCols = (item: MenuItem): string => {
     const colsMap: Record<string, string> = {
       Industries: 'grid grid-cols-3 gap-2',
@@ -308,22 +367,18 @@
       'Our Insights': 'grid grid-cols-2 gap-2',
       Careers: 'grid grid-cols-2 gap-2',
       'About Us': 'grid grid-cols-3 gap-2',
-      行业: 'grid grid-cols-3 gap-2',
-      能力: 'grid grid-cols-2 gap-2',
-      洞察: 'grid grid-cols-2 gap-2',
-      职业发展: 'grid grid-cols-2 gap-2',
-      关于我们: 'grid grid-cols-3 gap-2',
+      'About Victor Meridian': 'grid grid-cols-3 gap-2',
       default: 'grid grid-cols-2 gap-2',
     }
     return colsMap[item.name] || colsMap.default
   }
 
-  // 判断是否有分组
+  // Check if menu has groups
   const hasGroups = (item: MenuItem): boolean => {
     return item.subItems?.some((subItem) => subItem.isGroup === true || !!subItem.title) || false
   }
 
-  // 计算子菜单样式
+  // Calculate submenu position and style
   const getSubmenuStyle = (item: MenuItem) => {
     const width = getSubmenuWidth(item)
     const index = props.menuItems.findIndex((menuItem) => menuItem.name === item.name)
@@ -333,23 +388,23 @@
       return { width, left: '0' }
     }
 
-    // 获取菜单项的位置信息
+    // Get menu item position info
     const rect = menuItemEl.getBoundingClientRect()
     const submenuWidth = parseInt(width)
     const windowWidth = window.innerWidth
     const rightEdge = rect.left + submenuWidth
-    const margin = 20 // 距离屏幕边缘的最小距离
+    const margin = 20 // Minimum distance from screen edge
 
     let left = '0'
 
-    // 如果子菜单会超出右边界
+    // If submenu would exceed right boundary
     if (rightEdge > windowWidth - margin) {
-      // 计算需要向左偏移多少
+      // Calculate how much to shift left
       const offset = rightEdge - (windowWidth - margin)
       left = `-${offset}px`
     }
 
-    // 如果子菜单会超出左边界
+    // If submenu would exceed left boundary
     const leftEdge = rect.left + parseInt(left)
     if (leftEdge < margin) {
       left = `${margin - rect.left}px`
@@ -361,7 +416,7 @@
     }
   }
 
-  // 处理导航点击
+  // Handle navigation click
   const handleNavClick = (item: MenuItem) => {
     console.log('Nav clicked:', item.name, 'hasSubMenu:', item.hasSubMenu)
 
@@ -371,36 +426,33 @@
       } else {
         openMenu(item)
       }
-    } else {
-      // 不需要在这里导航，让 handleMenuClick 处理
     }
 
     props.onMenuClick?.(item)
     emit('menu-click', item)
   }
 
-  // 处理子菜单项点击
-  // 处理子菜单项点击
+  // Handle submenu item click
   const handleSubItemClick = (parentItem: MenuItem, subItem: UnifiedMenuItem) => {
     console.log('Submenu item clicked:', parentItem.name, '->', subItem.name)
 
-    // 触发 submenu-click 事件
+    // Emit submenu-click event
     props.onSubMenuClick?.(parentItem, subItem)
     emit('submenu-click', parentItem, subItem)
 
-    // 如果子项没有子菜单，则导航
+    // Navigate if subitem doesn't have submenu
     if (!subItem.hasSubMenu) {
       const path = subItem.link || generatePath([parentItem.name, subItem.name])
 
-      // 检查是否是锚点链接
+      // Check if it's an anchor link
       if (path.includes('#')) {
         const [pathname, hash] = path.split('#')
         const route = useRoute()
         const currentPath = route.path
 
-        // 判断是否在同一页面
+        // Check if on same page
         if (!pathname || pathname === currentPath) {
-          // 同页面锚点跳转
+          // Same page anchor navigation
           nextTick(() => {
             const element = document.getElementById(hash)
             if (element) {
@@ -408,7 +460,7 @@
             }
           })
         } else {
-          // 跳转到其他页面的锚点
+          // Navigate to anchor on different page
           navigateTo(path)
         }
       } else {
@@ -419,7 +471,19 @@
     closeMenu()
   }
 
-  // 打开菜单
+  // Handle dropdown item hover
+  const handleDropdownHover = (event: MouseEvent, isHovering: boolean) => {
+    const target = event.currentTarget as HTMLElement
+    if (isHovering) {
+      target.style.backgroundColor = 'var(--tm-bg-hover)'
+      target.style.color = 'var(--tm-txt-primary)'
+    } else {
+      target.style.backgroundColor = 'transparent'
+      target.style.color = 'var(--tm-txt-secondary)'
+    }
+  }
+
+  // Open menu
   const openMenu = (item: MenuItem) => {
     clearCloseTimer()
     activeItem.value = item
@@ -428,7 +492,7 @@
     console.log('Menu opened:', item.name, 'subItems:', item.subItems?.length)
   }
 
-  // 关闭菜单
+  // Close menu
   const closeMenu = () => {
     console.log('Closing menu')
     showSubmenu.value = false
@@ -436,7 +500,7 @@
     emit('active-change', null)
   }
 
-  // 清除关闭定时器
+  // Clear close timer
   const clearCloseTimer = () => {
     if (closeTimer) {
       clearTimeout(closeTimer)
@@ -444,7 +508,7 @@
     }
   }
 
-  // 设置关闭定时器
+  // Set close timer
   const setCloseTimer = () => {
     clearCloseTimer()
     closeTimer = setTimeout(() => {
@@ -452,7 +516,7 @@
     }, 300)
   }
 
-  // 处理鼠标进入菜单项
+  // Handle mouse enter on menu item
   const handleMouseEnter = (item: MenuItem) => {
     console.log('Mouse enter:', item.name)
 
@@ -461,21 +525,21 @@
     }
   }
 
-  // 处理鼠标进入子菜单
+  // Handle mouse enter on submenu
   const handleSubmenuMouseEnter = () => {
     console.log('Mouse enter submenu')
     clearCloseTimer()
   }
 
-  // 处理鼠标离开子菜单
+  // Handle mouse leave from submenu
   const handleSubmenuMouseLeave = () => {
     console.log('Mouse leave submenu')
     setCloseTimer()
   }
 
-  // 监听整个导航区域的鼠标离开事件
+  // Listen to mouse leave event on entire nav area
   onMounted(() => {
-    const navElement = document.querySelector('.primary-nav')
+    const navElement = document.querySelector('nav')
     if (navElement) {
       navElement.addEventListener('mouseleave', () => {
         console.log('Mouse leave nav')
@@ -484,58 +548,24 @@
     }
   })
 
-  // 清理
+  // Cleanup
   onUnmounted(() => {
     clearCloseTimer()
   })
 </script>
 
 <style scoped>
-  .primary-nav {
-    display: flex;
-    align-items: center;
+  /* Minimal styles that can't be easily expressed with UnoCSS */
+
+  /* Dark mode specific shadow enhancement */
+  .dark .dropdown-content {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 
-  /* 导航项容器 */
-  .nav-item-container {
-    position: relative;
-  }
-
-  /* 菜单链接 */
-  .nav-link {
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* 子菜单包装器 */
-  .submenu-wrapper {
-    pointer-events: auto;
-  }
-
-  /* 箭头图标 */
-  .chevron-icon {
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.2s ease;
-  }
-
-  .nav-link:hover .chevron-icon {
-    transform: rotate(180deg);
-  }
-
-  /* 子菜单过渡动画 */
-  .submenu-fade-enter-active,
-  .submenu-fade-leave-active {
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
-  }
-
-  .submenu-fade-enter-from,
-  .submenu-fade-leave-to {
-    opacity: 0;
-    transform: translateY(-10px);
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    nav ul {
+      @apply gap-4;
+    }
   }
 </style>

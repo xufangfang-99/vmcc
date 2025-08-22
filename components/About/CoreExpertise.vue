@@ -1,286 +1,576 @@
 <template>
-  <section class="core-expertise">
-    <div class="container">
-      <!-- 标题 -->
-      <div class="section-header">
-        <h2 class="section-title">Our Core Expertise</h2>
-        <p class="section-subtitle">
+  <section class="relative overflow-hidden bg-[var(--tm-bg-primary)] py-20 md:py-24 transition-all">
+    <!-- 背景装饰 -->
+    <div class="absolute inset-0 opacity-5">
+      <div
+        class="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"
+        :style="{ backgroundColor: 'var(--tm-accent-primary)', opacity: 0.3 }"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"
+        :style="{ backgroundColor: 'var(--tm-accent-gradient-to)', opacity: 0.3 }"
+      ></div>
+    </div>
+
+    <div class="container relative z-10 max-w-7xl mx-auto px-5">
+      <!-- 标题区域 -->
+      <div class="text-center mb-16 lg:mb-20">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-light mb-5 text-[var(--tm-txt-primary)]">
+          Our Core Expertise
+        </h2>
+        <p
+          class="text-lg md:text-xl leading-relaxed text-[var(--tm-txt-secondary)] max-w-3xl mx-auto"
+        >
           Comprehensive service portfolio designed to address every aspect of your human capital and
           business development needs
         </p>
       </div>
 
-      <!-- 服务网格 -->
-      <div class="services-grid">
-        <!-- 高管搜寻 -->
-        <div class="service-card">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="11"
-                  cy="11"
-                  r="8"
-                ></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </div>
-            <h3 class="service-title">Executive Search</h3>
-          </div>
-          <p class="service-desc">
-            Premium headhunting services for C-level and senior leadership positions across
-            industries
-          </p>
-          <ul class="service-features">
-            <li>C-Suite Recruitment</li>
-            <li>Board Directors</li>
-            <li>Senior Management</li>
-            <li>Specialized Roles</li>
-          </ul>
-          <div class="service-action">
-            <span class="action-text">Learn More</span>
-            <svg
-              class="action-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
+      <!-- 服务概览卡片 - 2列布局 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <!-- 人才解决方案卡片 -->
+        <div
+          class="group relative bg-[var(--tm-bg-card)] rounded-2xl p-8 lg:p-10 border border-[var(--tm-bd-card)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+          ></div>
 
-        <!-- 人力资源外包 -->
-        <div class="service-card">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                ></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h3 class="service-title">HR Outsourcing</h3>
-          </div>
-          <p class="service-desc">
-            Comprehensive human resources management solutions to streamline operations
-          </p>
-          <ul class="service-features">
-            <li>Payroll Management</li>
-            <li>Benefits Administration</li>
-            <li>Compliance Support</li>
-            <li>HR Technology</li>
-          </ul>
-          <div class="service-action">
-            <span class="action-text">Learn More</span>
-            <svg
-              class="action-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+          <div class="flex items-center gap-4 mb-6">
+            <div
+              class="w-16 h-16 bg-[var(--tm-bg-badge)] rounded-2xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[var(--tm-accent-feature-from)] group-hover:to-[var(--tm-accent-feature-to)] transition-all duration-300"
             >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- 移民服务 -->
-        <div class="service-card">
-          <div class="service-header">
-            <div class="service-icon">
               <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
+                class="w-8 h-8 text-[var(--tm-accent-primary)] group-hover:text-white transition-colors"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-            </div>
-            <h3 class="service-title">Immigration Services</h3>
-          </div>
-          <p class="service-desc">
-            Expert immigration consultation and processing for individuals and corporations
-          </p>
-          <ul class="service-features">
-            <li>Work Permits</li>
-            <li>Residency Applications</li>
-            <li>Corporate Immigration</li>
-            <li>Family Reunification</li>
-          </ul>
-          <div class="service-action">
-            <span class="action-text">Learn More</span>
-            <svg
-              class="action-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- 留学服务 -->
-        <div class="service-card">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
-            </div>
-            <h3 class="service-title">Study Abroad</h3>
-          </div>
-          <p class="service-desc">
-            Complete educational consulting for international study opportunities
-          </p>
-          <ul class="service-features">
-            <li>University Applications</li>
-            <li>Scholarship Guidance</li>
-            <li>Student Visas</li>
-            <li>Academic Planning</li>
-          </ul>
-          <div class="service-action">
-            <span class="action-text">Learn More</span>
-            <svg
-              class="action-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- 战略咨询 -->
-        <div class="service-card">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="3"
-                ></circle>
-                <path d="M12 1v6m0 6v6m11-11h-6m-6 0H1"></path>
-                <path
-                  d="m20.5 7.5L16 12l4.5 4.5L16 12l4.5-4.5m-17 0L8 12l-4.5 4.5L8 12 3.5 7.5"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="service-title">Strategic Consulting</h3>
-          </div>
-          <p class="service-desc">
-            Business strategy and organizational development advisory services
-          </p>
-          <ul class="service-features">
-            <li>Business Strategy</li>
-            <li>Organizational Design</li>
-            <li>Change Management</li>
-            <li>Market Entry</li>
-          </ul>
-          <div class="service-action">
-            <span class="action-text">Learn More</span>
-            <svg
-              class="action-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- 综合解决方案 -->
-        <div class="service-card featured">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
               >
                 <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
             </div>
-            <h3 class="service-title">Integrated Solutions</h3>
+            <h3 class="text-2xl font-semibold text-[var(--tm-txt-primary)]">Talent Solutions</h3>
           </div>
-          <p class="service-desc">
-            Seamlessly combine multiple services for comprehensive business transformation and
-            growth.
+
+          <p class="text-[var(--tm-txt-secondary)] mb-6 leading-relaxed">
+            With deep industry insights and professional expertise, we provide customized talent
+            strategy services for enterprises, helping organizations achieve sustainable
+            development.
           </p>
-          <button class="explore-btn">
-            <span>Explore Integration</span>
+
+          <div
+            class="flex items-center gap-2 text-[var(--tm-accent-primary)] font-medium cursor-pointer group/link"
+          >
+            <span>Explore Services</span>
             <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
+              class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
+              viewBox="0 0 24 24"
             >
-              <path d="M5 12h14M12 5l7 7-7 7" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
-          </button>
+          </div>
+        </div>
+
+        <!-- 全球业务支持卡片 -->
+        <div
+          class="group relative bg-[var(--tm-bg-card)] rounded-2xl p-8 lg:p-10 border border-[var(--tm-bd-card)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+          ></div>
+
+          <div class="flex items-center gap-4 mb-6">
+            <div
+              class="w-16 h-16 bg-[var(--tm-bg-badge)] rounded-2xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[var(--tm-accent-feature-from)] group-hover:to-[var(--tm-accent-feature-to)] transition-all duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-[var(--tm-accent-primary)] group-hover:text-white transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold text-[var(--tm-txt-primary)]">Global Business</h3>
+          </div>
+
+          <p class="text-[var(--tm-txt-secondary)] mb-6 leading-relaxed">
+            Providing comprehensive support for enterprise internationalization, including
+            cross-border compliance, cultural integration, and localization strategies.
+          </p>
+
+          <div
+            class="flex items-center gap-2 text-[var(--tm-accent-primary)] font-medium cursor-pointer group/link"
+          >
+            <span>Learn More</span>
+            <svg
+              class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 详细服务网格 - 原有的6个服务 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Executive Search -->
+        <div
+          class="group bg-[var(--tm-bg-card)] rounded-xl p-6 border border-[var(--tm-bd-card)] hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <div>
+            <!-- 使用计算属性动态切换布局 -->
+            <div :class="serviceCardClass">
+              <div :class="iconWrapperClass">
+                <svg
+                  class="w-7 h-7 text-[var(--tm-accent-primary)]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="8"
+                  ></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">Executive Search</h3>
+            </div>
+            <p
+              class="text-sm text-[var(--tm-txt-secondary)] mb-4 leading-relaxed"
+              :class="textAlignClass"
+            >
+              Premium headhunting services for C-level and senior leadership positions across
+              industries
+            </p>
+            <ul class="text-sm text-[var(--tm-txt-secondary)] space-y-2 w-full md:text-left">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                C-Suite Recruitment
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Board Directors
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Senior Management
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- HR Outsourcing -->
+        <div
+          class="group bg-[var(--tm-bg-card)] rounded-xl p-6 border border-[var(--tm-bd-card)] hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <div>
+            <div :class="serviceCardClass">
+              <div :class="iconWrapperClass">
+                <svg
+                  class="w-7 h-7 text-[var(--tm-accent-primary)]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle
+                    cx="9"
+                    cy="7"
+                    r="4"
+                  ></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">HR Outsourcing</h3>
+            </div>
+            <p
+              class="text-sm text-[var(--tm-txt-secondary)] mb-4 leading-relaxed"
+              :class="textAlignClass"
+            >
+              Comprehensive human resources management solutions to streamline operations
+            </p>
+            <ul class="text-sm text-[var(--tm-txt-secondary)] space-y-2 w-full md:text-left">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Payroll Management
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Benefits Administration
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Compliance Support
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Flexible Staffing -->
+        <div
+          class="group bg-[var(--tm-bg-card)] rounded-xl p-6 border border-[var(--tm-bd-card)] hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <div>
+            <div :class="serviceCardClass">
+              <div :class="iconWrapperClass">
+                <svg
+                  class="w-7 h-7 text-[var(--tm-accent-primary)]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">Flexible Staffing</h3>
+            </div>
+            <p
+              class="text-sm text-[var(--tm-txt-secondary)] mb-4 leading-relaxed"
+              :class="textAlignClass"
+            >
+              Rapidly respond to changing business needs with professional talent solutions
+            </p>
+            <ul class="text-sm text-[var(--tm-txt-secondary)] space-y-2 w-full md:text-left">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Rapid Deployment
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Skills Matching
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Cost Optimization
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Immigration Services -->
+        <div
+          class="group bg-[var(--tm-bg-card)] rounded-xl p-6 border border-[var(--tm-bd-card)] hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <div>
+            <div :class="serviceCardClass">
+              <div :class="iconWrapperClass">
+                <svg
+                  class="w-7 h-7 text-[var(--tm-accent-primary)]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">
+                Immigration Services
+              </h3>
+            </div>
+            <p
+              class="text-sm text-[var(--tm-txt-secondary)] mb-4 leading-relaxed"
+              :class="textAlignClass"
+            >
+              Expert immigration consultation and processing for individuals and corporations
+            </p>
+            <ul class="text-sm text-[var(--tm-txt-secondary)] space-y-2 w-full md:text-left">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Work Permits
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Residency Applications
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Corporate Immigration
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Study Abroad -->
+        <div
+          class="group bg-[var(--tm-bg-card)] rounded-xl p-6 border border-[var(--tm-bd-card)] hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <div>
+            <div :class="serviceCardClass">
+              <div :class="iconWrapperClass">
+                <svg
+                  class="w-7 h-7 text-[var(--tm-accent-primary)]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">Study Abroad</h3>
+            </div>
+            <p
+              class="text-sm text-[var(--tm-txt-secondary)] mb-4 leading-relaxed"
+              :class="textAlignClass"
+            >
+              Complete educational consulting for international study opportunities
+            </p>
+            <ul class="text-sm text-[var(--tm-txt-secondary)] space-y-2 w-full md:text-left">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                University Applications
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Scholarship Guidance
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Student Visas
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Organizational Performance -->
+        <div
+          class="group bg-[var(--tm-bg-card)] rounded-xl p-6 border border-[var(--tm-bd-card)] hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <div>
+            <div :class="serviceCardClass">
+              <div :class="iconWrapperClass">
+                <svg
+                  class="w-7 h-7 text-[var(--tm-accent-primary)]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">
+                Organizational Performance
+              </h3>
+            </div>
+            <p
+              class="text-sm text-[var(--tm-txt-secondary)] mb-4 leading-relaxed"
+              :class="textAlignClass"
+            >
+              Through scientific diagnosis and change management, we help build high-performance
+              teams
+            </p>
+            <ul class="text-sm text-[var(--tm-txt-secondary)] space-y-2 w-full md:text-left">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Organizational Diagnosis
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Change Management
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--tm-accent-primary)]"></span>
+                Team Development
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategic Consulting - 特色服务卡片 -->
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div
+          class="group relative rounded-2xl p-8 lg:p-12 text-white overflow-hidden"
+          :style="{
+            background: `linear-gradient(135deg, var(--tm-accent-hero-from) 0%, var(--tm-accent-hero-to) 100%)`,
+          }"
+        >
+          <div
+            class="absolute -top-32 -right-32 w-64 h-64 rounded-full opacity-10 group-hover:opacity-20 blur-3xl bg-[var(--tm-bg-whiteAlpha10)] transition-opacity duration-700"
+          ></div>
+
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-16 h-16 bg-[var(--tm-bg-whiteAlpha20)] backdrop-blur-sm rounded-2xl flex items-center justify-center"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-bold">Strategic Consulting</h3>
+              </div>
+
+              <p class="mb-6 text-lg leading-relaxed text-[var(--tm-txt-whiteAlpha90)]">
+                Based on data-driven insights, we develop forward-looking talent strategies for
+                enterprises, building sustainable competitive advantages.
+              </p>
+
+              <button
+                class="inline-flex items-center px-6 py-3 bg-white text-[var(--tm-accent-primary)] rounded-full font-semibold hover:bg-[var(--tm-bg-hover)] transition-all group/btn"
+              >
+                Start Consultation
+                <svg
+                  class="w-5 h-5 ml-2 transform group-hover/btn:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-[var(--tm-bg-whiteAlpha10)] backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="font-bold text-sm">1</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Talent Planning</h4>
+                  <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
+                    Tailored workforce strategies for your growth
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-[var(--tm-bg-whiteAlpha10)] backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="font-bold text-sm">2</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Succession Planning</h4>
+                  <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
+                    Ensure leadership continuity and stability
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-[var(--tm-bg-whiteAlpha10)] backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="font-bold text-sm">3</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Capability Building</h4>
+                  <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
+                    Develop core competencies for the future
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-[var(--tm-bg-whiteAlpha10)] backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="font-bold text-sm">4</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Digital Transformation</h4>
+                  <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
+                    Leverage technology for HR innovation
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 综合解决方案 CTA -->
+      <div class="mt-16 text-center">
+        <div
+          class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-full cursor-pointer hover:shadow-[var(--tm-shadow-accent)] hover:scale-105 transition-all duration-300"
+          :style="{
+            background: `linear-gradient(to right, var(--tm-accent-gradient-from), var(--tm-accent-gradient-to))`,
+          }"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            ></path>
+          </svg>
+          <span class="text-lg font-semibold">Explore Integrated Solutions</span>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -288,380 +578,52 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { computed } from 'vue'
+  import { useTheme } from '~/composables/useTheme'
+  import { useDevice } from '~/composables/useDevice'
+
+  const theme = useTheme()
+  const device = useDevice()
+  const isDark = computed(() => theme.isDark)
+
+  // 根据设备类型动态调整样式
+  const serviceCardClass = computed(() => {
+    return device.isMobile
+      ? 'flex items-center gap-3 mb-4'
+      : 'flex flex-col items-center text-center gap-0'
+  })
+
+  const iconWrapperClass = computed(() => {
+    return device.isMobile
+      ? 'w-14 h-14 bg-[var(--tm-bg-badge)] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0'
+      : 'w-14 h-14 bg-[var(--tm-bg-badge)] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform'
+  })
+
+  const textAlignClass = computed(() => {
+    return device.isMobile ? '' : 'text-center'
+  })
 </script>
 
 <style scoped>
-  .core-expertise {
-    padding: 100px 0;
-    background: var(--tm-bg-primary);
-    position: relative;
-    overflow: hidden;
+  /* 保留必要的动画关键帧 */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
   }
 
-  /* 背景装饰 */
-  .core-expertise::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -200px;
-    transform: translateY(-50%);
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, var(--tm-bg-heroGradient-from) 0%, transparent 60%);
-    opacity: 0.1;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* 标题区域 */
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--tm-txt-primary);
-    margin-bottom: 20px;
-  }
-
-  .section-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--tm-txt-secondary);
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  /* 服务网格 */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
-  }
-
-  .service-card {
-    background: var(--tm-bg-feature);
-    border-radius: 20px;
-    padding: 40px 30px;
-    transition: all 0.3s ease;
-    border: 1px solid var(--tm-bd-feature);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* 卡片悬停效果 */
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(
-      90deg,
-      var(--tm-accent-gradient-from),
-      var(--tm-accent-gradient-to)
-    );
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-
-  .service-card:hover::before {
-    transform: translateX(0);
-  }
-
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--tm-shadow-hover);
-    border-color: var(--tm-accent-primary);
-  }
-
-  /* 特色卡片 */
-  .service-card.featured {
-    background: linear-gradient(
-      135deg,
-      var(--tm-accent-gradient-from) 0%,
-      var(--tm-accent-gradient-to) 100%
-    );
-    color: var(--tm-txt-white);
-    border: none;
-  }
-
-  /* 服务头部 - 桌面端垂直布局 */
-  .service-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-
-  .service-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--tm-bg-badge);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    color: var(--tm-accent-primary);
-    transition: all 0.3s ease;
-  }
-
-  .service-card:hover .service-icon {
-    background: linear-gradient(135deg, var(--tm-accent-feature-from), var(--tm-accent-feature-to));
-    color: var(--tm-txt-white);
-    transform: scale(1.1) rotate(5deg);
-  }
-
-  .featured .service-icon {
-    background: var(--tm-bg-whiteAlpha20);
-    color: var(--tm-txt-white);
-  }
-
-  .service-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--tm-txt-primary);
-    text-align: center;
-  }
-
-  .featured .service-title {
-    color: var(--tm-txt-white);
-  }
-
-  .service-desc {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--tm-txt-secondary);
-    margin-bottom: 24px;
-  }
-
-  .featured .service-desc {
-    color: var(--tm-txt-whiteAlpha90);
-  }
-
-  .service-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px 0;
-  }
-
-  .service-features li {
-    position: relative;
-    padding-left: 24px;
-    margin-bottom: 12px;
-    font-size: 0.95rem;
-    color: var(--tm-txt-secondary);
-  }
-
-  .service-features li::before {
-    content: '•';
-    position: absolute;
-    left: 8px;
-    color: var(--tm-accent-primary);
-  }
-
-  .featured .service-features li {
-    color: var(--tm-txt-whiteAlpha80);
-  }
-
-  .featured .service-features li::before {
-    color: var(--tm-txt-white);
-  }
-
-  /* 服务操作 */
-  .service-action {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--tm-accent-primary);
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .service-card:hover .service-action {
-    gap: 12px;
-  }
-
-  .action-icon {
-    transition: transform 0.3s ease;
-  }
-
-  .service-card:hover .action-icon {
-    transform: translateX(4px);
-  }
-
-  /* 探索按钮 */
-  .explore-btn {
-    background: var(--tm-bg-whiteAlpha20);
-    color: var(--tm-txt-white);
-    border: 2px solid var(--tm-bd-transparent);
-    padding: 12px 32px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .explore-btn:hover {
-    background: var(--tm-bg-whiteAlpha30);
-    border-color: var(--tm-txt-white);
-    transform: translateX(5px);
-    gap: 12px;
-  }
-
-  /* 深色模式 */
-  .dark .core-expertise {
+  /* 深色模式调整 */
+  .dark section {
     background: var(--tm-bg-secondary);
   }
 
-  .dark .service-card {
+  .dark .bg-\[var\(--tm-bg-card\)\] {
     background: var(--tm-bg-primary);
-    border-color: var(--tm-bd-secondary);
-  }
-
-  /* 手机端响应式 */
-  @media (max-width: 768px) {
-    .core-expertise {
-      padding: 40px 0;
-    }
-
-    .section-header {
-      margin-bottom: 30px;
-    }
-
-    .section-title {
-      font-size: 1.75rem;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .services-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .service-card {
-      padding: 20px 16px;
-      border-radius: 16px;
-    }
-
-    /* 手机端：图标和标题横向排列 */
-    .service-header {
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .service-icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 0;
-      flex-shrink: 0;
-      border-radius: 12px;
-    }
-
-    .service-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .service-title {
-      font-size: 1.1rem;
-      text-align: left;
-      margin: 0;
-    }
-
-    .service-desc {
-      font-size: 0.875rem;
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-
-    .service-features {
-      margin-left: 0;
-      margin-bottom: 16px;
-    }
-
-    .service-features li {
-      font-size: 0.8125rem;
-      margin-bottom: 6px;
-      padding-left: 20px;
-    }
-
-    .service-action {
-      font-size: 0.875rem;
-    }
-
-    .explore-btn {
-      width: 100%;
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      justify-content: center;
-    }
-  }
-
-  /* 更小屏幕优化 */
-  @media (max-width: 480px) {
-    .core-expertise {
-      padding: 30px 0;
-    }
-
-    .services-grid {
-      gap: 12px;
-    }
-
-    .service-card {
-      padding: 16px 14px;
-    }
-
-    .service-header {
-      gap: 10px;
-    }
-
-    .service-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-    }
-
-    .service-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .service-title {
-      font-size: 1rem;
-    }
-
-    .service-desc {
-      font-size: 0.8125rem;
-    }
-
-    .service-features li {
-      font-size: 0.75rem;
-    }
   }
 </style>
