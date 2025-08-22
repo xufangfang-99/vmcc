@@ -1,53 +1,36 @@
 <template>
   <div class="about-page">
-    <!-- Hero 部分 -->
+    <!-- 保持现有的 section 结构不变 -->
     <section id="company-intro">
       <AboutHero />
     </section>
-
-    <!-- 愿景与使命 -->
     <section id="vision-mission">
       <AboutVision />
     </section>
-
-    <!-- 全球布局 -->
     <section id="global-presence">
       <GlobalPresence />
     </section>
-
-    <!-- 核心专长 -->
     <section id="core-expertise">
       <CoreExpertise />
     </section>
-
-    <!-- 卓越承诺 -->
     <section id="commitment-excellence">
       <CommitmentExcellence />
     </section>
-
-    <!-- 领导团队 -->
     <section id="leadership-team">
       <LeadershipTeam />
     </section>
-
-    <!-- 核心价值观 -->
     <section id="core-values">
       <CoreValues />
     </section>
-
-    <!-- 认证与标准 -->
     <section id="certifications">
       <CertificationsStandards />
     </section>
-
-    <!-- 页脚 -->
     <FooterSection />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { onMounted } from 'vue'
-  import { useRoute } from 'vue-router'
+  import { useScrollTo } from '~/composables/useScrollTo'
 
   // 导入所有组件
   import AboutHero from '~/components/About/AboutHero.vue'
@@ -60,35 +43,15 @@
   import CertificationsStandards from '~/components/About/CertificationsStandards.vue'
   import FooterSection from '~/components/Home/FooterSection.vue'
 
-  const route = useRoute()
+  // 使用通用的滚动处理
+  const { handleRouteHash } = useScrollTo()
 
-  // 处理锚点跳转
-  onMounted(() => {
-    if (route.hash) {
-      setTimeout(() => {
-        const element = document.querySelector(route.hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }, 100)
-    }
-  })
-
-  // 监听路由变化
-  watch(
-    () => route.hash,
-    (newHash) => {
-      if (newHash) {
-        const element = document.querySelector(newHash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }
-    }
-  )
+  // 自动处理路由中的 hash
+  handleRouteHash()
 </script>
 
 <style scoped>
+  /* 保持现有样式不变 */
   .about-page {
     background: var(--tm-bg-primary);
   }

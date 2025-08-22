@@ -92,6 +92,7 @@
             >
               <button
                 class="cta-button px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full border-none bg-blue-400 text-white shadow-[0_4px_20px_rgba(64,169,255,0.3)] hover:bg-blue-500 hover:transform hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(64,169,255,0.4)]"
+                @click="scrollToServices"
               >
                 了解我们的服务
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -163,6 +164,13 @@
   import { ref, onMounted, onUnmounted } from 'vue'
   import { useNavigation } from '~/composables/useNavigation'
   import { useMenuData } from '~/composables/useMenuData'
+  import { useScrollTo } from '~/composables/useScrollTo'
+  const { scrollToElement } = useScrollTo()
+
+  // 滚动到服务区域
+  const scrollToServices = () => {
+    scrollToElement('services-section')
+  }
 
   const navigation = useNavigation()
   const { menuItems, specialMenuConfigs } = useMenuData()
