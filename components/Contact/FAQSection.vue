@@ -1,30 +1,32 @@
 <template>
-  <section class="faq-section">
-    <div class="container">
+  <section class="py-100px bg-tm-bg-secondary dark:bg-tm-bg-primary">
+    <div class="max-w-900px mx-auto px-5">
       <!-- 标题区域 -->
-      <div class="section-header">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Learn more about our services and processes</p>
+      <div class="text-center mb-60px">
+        <h2 class="text-3rem font-300 text-tm-txt-primary mb-4">Frequently Asked Questions</h2>
+        <p class="text-1.25rem text-tm-txt-secondary">
+          Learn more about our services and processes
+        </p>
       </div>
 
       <!-- FAQ 列表 -->
-      <div class="faq-container">
+      <div class="mb-80px">
         <div
           v-for="(item, index) in faqItems"
           :key="index"
-          class="faq-item"
-          :class="{ active: activeIndex === index }"
+          class="bg-tm-bg-primary dark:bg-tm-bg-secondary rounded-12px mb-4 overflow-hidden transition-all duration-300 border border-tm-bd-light dark:border-tm-bd-secondary hover:shadow-lg"
+          :class="{ '!border-tm-pri-0': activeIndex === index }"
         >
           <button
-            class="faq-question"
+            class="w-full px-30px py-24px bg-transparent border-none text-left cursor-pointer flex justify-between items-center gap-5 transition-all duration-300"
             @click="toggleFAQ(index)"
           >
-            <span>{{ item.question }}</span>
+            <span class="text-1.125rem font-600 text-tm-txt-primary">
+              {{ item.question }}
+            </span>
             <svg
-              class="faq-icon"
-              :class="{ rotate: activeIndex === index }"
-              width="24"
-              height="24"
+              class="flex-shrink-0 transition-transform duration-300 text-tm-pri-0 w-6 h-6"
+              :class="{ 'rotate-180': activeIndex === index }"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -34,55 +36,68 @@
             </svg>
           </button>
           <div
-            class="faq-answer"
-            :class="{ show: activeIndex === index }"
+            class="overflow-hidden transition-all duration-300"
+            :style="{
+              maxHeight: activeIndex === index ? '500px' : '0',
+              opacity: activeIndex === index ? '1' : '0',
+            }"
           >
-            <div class="faq-answer-content">
-              {{ item.answer }}
+            <div class="px-30px pb-24px">
+              <p class="text-1rem leading-1.8 text-tm-txt-secondary">
+                {{ item.answer }}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 底部 CTA - 全新卡片设计 -->
-      <div class="cta-wrapper">
-        <div class="cta-card">
-          <div class="cta-pattern"></div>
-          <div class="cta-content">
-            <h3 class="cta-title">Still Have Questions?</h3>
-            <p class="cta-subtitle">
-              Our professional consultants are ready to provide personalized answers
-            </p>
-            <div class="cta-buttons">
-              <button class="cta-button primary">
-                <span>Consult an Expert</span>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14m-7-7l7 7-7 7" />
-                </svg>
-              </button>
-              <button class="cta-button secondary">
-                <span>Schedule a Call</span>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-              </button>
-            </div>
+      <!-- 底部 CTA -->
+      <div
+        class="relative bg-tm-bg-primary dark:bg-tm-bg-secondary rounded-24px p-60px shadow-lg dark:shadow-2xl border border-tm-bd-light dark:border-tm-bd-secondary overflow-hidden"
+      >
+        <!-- 简单的装饰 -->
+        <div
+          class="absolute top-0 right-0 w-300px h-300px opacity-10 dark:opacity-5 transform translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        >
+          <div class="w-full h-full rounded-full bg-gradient-to-br from-tm-pri-0 to-tm-pri-1"></div>
+        </div>
+
+        <div class="relative z-1 text-center">
+          <h3 class="text-2.5rem font-700 text-tm-txt-primary mb-4">Still Have Questions?</h3>
+          <p class="text-1.25rem text-tm-txt-secondary mb-40px max-w-600px mx-auto">
+            Our professional consultants are ready to provide personalized answers
+          </p>
+          <div class="flex justify-center gap-5 flex-wrap">
+            <button
+              class="px-32px py-16px rounded-50px text-1.05rem font-600 cursor-pointer transition-all duration-300 border-none inline-flex items-center gap-2 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <span>Consult an Expert</span>
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14m-7-7l7 7-7 7" />
+              </svg>
+            </button>
+            <button
+              class="px-32px py-16px rounded-50px text-1.05rem font-600 cursor-pointer transition-all duration-300 inline-flex items-center gap-2 bg-tm-bg-secondary dark:bg-tm-bg-primary text-tm-pri-0 border-2 border-tm-bd-light dark:border-tm-bd-secondary hover:bg-tm-bg-active dark:hover:bg-tm-bg-active hover:border-tm-pri-0 hover:-translate-y-0.5"
+            >
+              <span>Schedule a Call</span>
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -147,381 +162,121 @@
 </script>
 
 <style scoped>
-  .faq-section {
-    padding: 100px 0;
-    background: var(--tm-bg-secondary);
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* 标题区域 */
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--tm-txt-primary);
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.25rem;
-    color: var(--tm-txt-secondary);
-  }
-
-  /* FAQ 容器 */
-  .faq-container {
-    margin-bottom: 80px;
-  }
-
-  /* FAQ 项目 */
-  .faq-item {
-    background: var(--tm-bg-primary);
-    border-radius: 12px;
-    margin-bottom: 16px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid var(--tm-bd-light);
-  }
-
-  .faq-item:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .faq-item.active {
-    border-color: var(--tm-pri-0);
-  }
-
-  /* 问题按钮 */
-  .faq-question {
-    width: 100%;
-    padding: 24px 30px;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    transition: all 0.3s ease;
-  }
-
-  .faq-question span {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--tm-txt-primary);
-    line-height: 1.5;
-  }
-
-  .faq-icon {
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-    color: var(--tm-pri-0);
-  }
-
-  .faq-icon.rotate {
-    transform: rotate(180deg);
-  }
-
-  /* 答案区域 */
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .faq-answer.show {
-    max-height: 500px;
-  }
-
-  .faq-answer-content {
-    padding: 0 30px 24px;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--tm-txt-secondary);
-  }
-
-  /* 底部 CTA - 全新卡片设计 */
-  .cta-wrapper {
-    margin-top: 80px;
-  }
-
-  .cta-card {
-    position: relative;
-    background: var(--tm-bg-primary);
-    border-radius: 24px;
-    padding: 60px;
+  /* 自定义阴影 */
+  .shadow-lg {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-    border: 1px solid var(--tm-bd-light);
-    overflow: hidden;
   }
 
-  /* 装饰图案 */
-  .cta-pattern {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    opacity: 0.1;
-    background:
-      radial-gradient(circle at 30% 30%, var(--tm-pri-0) 0%, transparent 50%),
-      radial-gradient(circle at 70% 70%, var(--tm-pri-1) 0%, transparent 50%);
-    transform: translate(50%, -50%);
-  }
-
-  .cta-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-
-  .cta-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--tm-txt-primary);
-    margin-bottom: 16px;
-  }
-
-  .cta-subtitle {
-    font-size: 1.25rem;
-    color: var(--tm-txt-secondary);
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .cta-button {
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .cta-button svg {
-    transition: transform 0.3s ease;
-  }
-
-  .cta-button.primary {
-    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
-    color: white;
-    box-shadow: 0 4px 20px rgba(var(--tm-pri-0-rgb), 0.3);
-  }
-
-  .cta-button.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(var(--tm-pri-0-rgb), 0.4);
-  }
-
-  .cta-button.primary:hover svg {
-    transform: translateX(4px);
-  }
-
-  .cta-button.secondary {
-    background: var(--tm-bg-secondary);
-    color: var(--tm-pri-0);
-    border: 2px solid var(--tm-bd-light);
-  }
-
-  .cta-button.secondary:hover {
-    background: var(--tm-bg-active);
-    border-color: var(--tm-pri-0);
-    transform: translateY(-2px);
-  }
-
-  /* 深色模式 */
-  .dark .faq-section {
-    background: var(--tm-bg-primary);
-  }
-
-  .dark .faq-item {
-    background: var(--tm-bg-secondary);
-    border-color: var(--tm-bd-secondary);
-  }
-
-  .dark .faq-item:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .dark .faq-item.active {
-    border-color: var(--tm-pri-0);
-  }
-
-  .dark .cta-card {
-    background: var(--tm-bg-secondary);
-    border-color: var(--tm-bd-secondary);
+  .dark .shadow-lg {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   }
 
-  .dark .cta-pattern {
-    opacity: 0.05;
+  .shadow-xl {
+    box-shadow: 0 4px 20px rgba(var(--tm-pri-0-rgb), 0.3);
   }
 
-  .dark .cta-button.secondary {
-    background: var(--tm-bg-primary);
-    border-color: var(--tm-bd-secondary);
+  .hover\:shadow-xl:hover {
+    box-shadow: 0 8px 30px rgba(var(--tm-pri-0-rgb), 0.4);
   }
 
-  .dark .cta-button.secondary:hover {
-    background: var(--tm-bg-active);
-    border-color: var(--tm-pri-0);
+  /* 渐变背景 */
+  .bg-gradient-to-r {
+    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
   }
 
-  /* 响应式 - 减少手机端留白 */
+  .bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
+  }
+
+  /* FAQ答案文本样式 */
+  .px-30px p {
+    margin: 0;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  /* 响应式 */
   @media (max-width: 768px) {
-    .faq-section {
+    section {
       padding: 40px 0;
     }
 
-    .section-header {
+    .mb-60px {
       margin-bottom: 30px;
     }
 
-    .section-title {
-      font-size: 1.75rem;
-      margin-bottom: 8px;
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-    }
-
-    .faq-container {
+    .mb-80px {
       margin-bottom: 40px;
     }
 
-    .faq-item {
-      margin-bottom: 10px;
+    h2 {
+      font-size: 1.75rem;
     }
 
-    .faq-question {
-      padding: 16px 20px;
+    h3 {
+      font-size: 1.75rem;
     }
 
-    .faq-question span {
+    .text-1\.25rem {
       font-size: 1rem;
     }
 
-    .faq-answer-content {
-      padding: 0 20px 16px;
-      font-size: 0.9rem;
-      line-height: 1.6;
+    .px-30px {
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
-    .cta-wrapper {
-      margin-top: 40px;
+    .py-24px {
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
 
-    .cta-card {
+    .p-60px {
       padding: 40px 24px;
     }
 
-    .cta-pattern {
-      width: 200px;
-      height: 200px;
-    }
-
-    .cta-title {
-      font-size: 1.75rem;
-      margin-bottom: 12px;
-    }
-
-    .cta-subtitle {
-      font-size: 1rem;
+    .mb-40px {
       margin-bottom: 30px;
     }
 
-    .cta-buttons {
-      flex-direction: column;
-      gap: 12px;
+    button {
+      width: 100%;
     }
 
-    .cta-button {
-      width: 100%;
-      justify-content: center;
-      padding: 14px 24px;
+    .flex-wrap {
+      flex-direction: column;
     }
   }
 
-  /* 小屏手机 */
   @media (max-width: 480px) {
-    .faq-section {
-      padding: 30px 0;
-    }
-
-    .section-header {
-      margin-bottom: 25px;
-    }
-
-    .section-title {
+    h2 {
       font-size: 1.5rem;
     }
 
-    .section-subtitle {
-      font-size: 0.9rem;
+    h3 {
+      font-size: 1.5rem;
     }
 
-    .faq-question {
-      padding: 14px 16px;
-    }
-
-    .faq-question span {
+    .text-1\.125rem {
       font-size: 0.95rem;
     }
 
-    .faq-icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    .faq-answer-content {
-      padding: 0 16px 14px;
+    .text-1rem {
       font-size: 0.85rem;
     }
 
-    .cta-card {
-      padding: 30px 20px;
-      border-radius: 16px;
-    }
-
-    .cta-title {
-      font-size: 1.5rem;
-    }
-
-    .cta-subtitle {
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-
-    .cta-button {
+    .text-1\.05rem {
       font-size: 0.95rem;
-      padding: 12px 20px;
     }
 
-    .cta-button svg {
-      width: 18px;
-      height: 18px;
+    .px-32px {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .py-16px {
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
   }
 </style>
