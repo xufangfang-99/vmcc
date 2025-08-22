@@ -2,241 +2,271 @@
   <Transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed inset-0 z-[9999]"
+      class="fixed inset-0 z-9999 bg-[var(--tm-bg-primary)]"
     >
-      <div
-        class="absolute inset-0 h-full w-full overflow-hidden flex flex-col"
-        :style="{ backgroundColor: 'var(--tm-bg-primary)' }"
-      >
+      <!-- Mobile Container -->
+      <div class="h-full w-full flex flex-col">
         <!-- Mobile Header -->
         <div
-          class="flex items-center justify-between p-4 border-b sticky top-0 z-10"
+          class="flex items-center justify-between p-4 border-b sticky top-0 z-10 backdrop-blur-sm"
           :style="{
             borderColor: 'var(--tm-bd-primary)',
             backgroundColor: 'var(--tm-bg-primary)',
+            minHeight: navigationStack.length === 0 ? '80px' : '60px',
           }"
         >
+          <!-- Back/Close Button -->
           <button
-            class="p-2 -ml-2"
+            class="p-2 -ml-2 rounded-lg active:bg-gray-100 dark:active:bg-gray-800 transition-colors"
             @click="navigationStack.length > 0 ? goBack() : closeMenu()"
           >
-            <div
-              v-if="navigationStack.length === 0"
-              class="i-carbon-close w-6 h-6"
-            ></div>
-            <div
-              v-else
-              class="i-carbon-chevron-left w-6 h-6"
-            ></div>
-          </button>
-          <div class="text-center flex-1">
-            <h2
-              class="text-lg font-medium m-0"
-              :style="{ color: 'var(--tm-txt-primary)' }"
+            <Transition
+              name="icon-switch"
+              mode="out-in"
             >
-              {{ currentTitle }}
-            </h2>
+              <div
+                v-if="navigationStack.length === 0"
+                key="close"
+                class="i-carbon-close w-6 h-6"
+              ></div>
+              <div
+                v-else
+                key="back"
+                class="i-carbon-chevron-left w-6 h-6"
+              ></div>
+            </Transition>
+          </button>
+
+          <!-- Title with animation -->
+          <div class="text-center flex-1 overflow-hidden">
+            <Transition
+              name="title-slide"
+              mode="out-in"
+            >
+              <div
+                :key="currentTitle"
+                class="px-2"
+              >
+                <h2
+                  class="text-lg font-medium m-0 truncate"
+                  :style="{ color: 'var(--tm-txt-primary)' }"
+                >
+                  {{ currentTitle }}
+                </h2>
+                <p
+                  v-if="currentSubtitle"
+                  class="text-xs op-70 mt-1 truncate"
+                  :style="{ color: 'var(--tm-txt-secondary)' }"
+                >
+                  {{ currentSubtitle }}
+                </p>
+              </div>
+            </Transition>
           </div>
+
+          <!-- Placeholder for balance -->
           <div class="w-10"></div>
         </div>
 
-        <!-- Search Bar (visible on all levels) -->
-        <div
-          class="px-4 py-3 border-b"
-          :style="{ borderColor: 'var(--tm-bd-light)' }"
-        >
-          <div class="relative">
-            <input
-              type="text"
-              placeholder="Type to search..."
-              class="w-full py-2 pr-10 pl-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-base outline-none"
-              :style="{ color: 'var(--tm-txt-primary)' }"
-            />
-            <button
-              class="absolute right-2 top-1/2 -translate-y-1/2"
-              aria-label="Search"
-            >
-              <div class="i-carbon-search w-5 h-5 opacity-60"></div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile Content -->
-        <div class="flex-1 overflow-y-auto">
-          <!-- Main Menu (Root Level) -->
-          <nav v-if="navigationStack.length === 0">
-            <ul class="list-none p-0 m-0">
-              <li
-                v-for="item in menuItems"
-                :key="item.name"
-                class="border-b"
-                :style="{ borderColor: 'var(--tm-bd-light)' }"
-              >
-                <button
-                  class="flex items-center justify-between px-4 py-4 w-full no-underline transition-colors active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent"
-                  :style="{ color: 'var(--tm-txt-primary)' }"
-                  @click="handleMenuClick(item)"
-                >
-                  <span class="text-base font-normal">{{ item.name }}</span>
-                  <div
-                    v-if="hasSubItemsOrConfig(item)"
-                    class="i-carbon-chevron-right w-5 h-5 opacity-60"
-                  ></div>
-                </button>
-              </li>
-            </ul>
-
-            <!-- Bottom Links -->
+        <!-- Mobile Content with slide transition -->
+        <div class="flex-1 overflow-hidden relative">
+          <Transition
+            :name="transitionName"
+            mode="out-in"
+          >
             <div
-              class="border-t mt-8 py-4"
-              :style="{ borderColor: 'var(--tm-bd-primary)' }"
+              :key="navigationStack.length"
+              class="absolute inset-0 overflow-y-auto overscroll-contain"
             >
-              <ul class="list-none p-0 m-0">
-                <li
-                  v-for="link in bottomLinks"
-                  :key="link.name"
-                  class="mb-1"
+              <!-- Main Menu (Root Level) -->
+              <nav v-if="navigationStack.length === 0">
+                <!-- Menu Items -->
+                <ul class="list-none p-0 m-0">
+                  <li
+                    v-for="(item, index) in menuItems"
+                    :key="item.name"
+                    class="border-b border-[var(--tm-bd-light)] animate-fade-in"
+                    :style="{ animationDelay: `${index * 50}ms` }"
+                  >
+                    <button
+                      class="flex items-center justify-between px-6 py-4 w-full transition-colors active:bg-[var(--tm-bg-active)] text-left"
+                      :style="{ color: 'var(--tm-txt-primary)' }"
+                      @click="handleMenuClick(item)"
+                    >
+                      <span class="text-base font-normal">{{ item.name }}</span>
+                      <div
+                        v-if="hasSubItemsOrConfig(item)"
+                        class="i-carbon-chevron-right w-5 h-5 op-60"
+                      ></div>
+                    </button>
+                  </li>
+                </ul>
+
+                <!-- Bottom Links -->
+                <div class="mt-8 py-6 px-6 border-t border-[var(--tm-bd-primary)]">
+                  <div class="grid grid-cols-2 gap-3">
+                    <NuxtLink
+                      v-for="(link, index) in bottomLinks"
+                      :key="link.name"
+                      :to="link.path"
+                      class="block py-3 px-4 text-center rounded-lg bg-[var(--tm-bg-secondary)] transition-all active:scale-95 animate-fade-in"
+                      :style="{
+                        color: 'var(--tm-txt-secondary)',
+                        animationDelay: `${(menuItems.length + index) * 50}ms`,
+                      }"
+                      @click="closeMenu"
+                    >
+                      <span class="text-sm">{{ link.name }}</span>
+                    </NuxtLink>
+                  </div>
+                </div>
+              </nav>
+
+              <!-- Submenu Navigation -->
+              <nav
+                v-else
+                class="min-h-full"
+              >
+                <!-- Explore Link Banner -->
+                <div
+                  v-if="currentExploreLink"
+                  class="sticky top-0 z-5 bg-[var(--tm-accent-primary)] px-6 py-4"
                 >
                   <NuxtLink
-                    :to="link.path"
-                    class="block px-4 py-2 no-underline text-sm"
-                    :style="{ color: 'var(--tm-txt-secondary)' }"
-                    @click="closeMenu"
+                    :to="currentExploreLink.url"
+                    class="flex items-center justify-between text-white no-underline"
+                    @click="closeMenuAndUpdatePath"
                   >
-                    {{ link.name }}
+                    <span class="text-sm font-semibold uppercase tracking-wider">
+                      {{ currentExploreLink.text }}
+                    </span>
+                    <div class="i-carbon-arrow-right w-5 h-5"></div>
                   </NuxtLink>
-                </li>
-              </ul>
-            </div>
-          </nav>
+                </div>
 
-          <!-- Submenu Navigation -->
-          <nav v-else>
-            <!-- EXPLORE OUR INSIGHTS link for mobile -->
-            <div
-              v-if="currentExploreLink"
-              class="px-4 py-4 border-b"
-              :style="{ borderColor: 'var(--tm-bd-light)' }"
-            >
-              <NuxtLink
-                :to="currentExploreLink.url"
-                class="flex items-center justify-between no-underline text-sm font-semibold uppercase tracking-wider"
-                :style="{ color: 'var(--tm-txt-primary)' }"
-                @click="closeMenuAndUpdatePath"
-              >
-                {{ currentExploreLink.text }}
-                <div class="i-carbon-arrow-right w-4 h-4"></div>
-              </NuxtLink>
-            </div>
+                <!-- Dynamic submenu content -->
+                <div class="pb-20">
+                  <!-- Handle groups -->
+                  <template v-if="hasGroups">
+                    <div
+                      v-for="(group, groupIndex) in currentItems"
+                      :key="`group-${groupIndex}`"
+                      class="mb-6 animate-fade-in"
+                      :style="{ animationDelay: `${groupIndex * 100}ms` }"
+                    >
+                      <h3
+                        v-if="group.title || group.isGroup"
+                        class="px-6 py-3 text-sm font-bold tracking-wider uppercase bg-[var(--tm-bg-secondary)]"
+                        :style="{ color: 'var(--tm-accent-primary)' }"
+                      >
+                        {{ group.title || group.name }}
+                      </h3>
+                      <ul
+                        v-if="group.subItems"
+                        class="list-none p-0 m-0"
+                      >
+                        <li
+                          v-for="(item, itemIndex) in group.subItems"
+                          :key="`${group.title || group.name}-${item.name}-${itemIndex}`"
+                          class="border-b border-[var(--tm-bd-light)] animate-slide-up"
+                          :style="{ animationDelay: `${groupIndex * 100 + itemIndex * 30}ms` }"
+                        >
+                          <button
+                            class="flex items-center justify-between px-6 py-4 w-full transition-all active:bg-[var(--tm-bg-active)] text-left"
+                            :style="{ color: 'var(--tm-txt-primary)' }"
+                            @click="handleItemClick(item)"
+                          >
+                            <span
+                              class="text-base"
+                              :class="{ 'font-medium': hasSubItemsOrConfig(item) }"
+                            >
+                              {{ item.name }}
+                            </span>
+                            <div
+                              v-if="hasSubItemsOrConfig(item)"
+                              class="i-carbon-chevron-right w-5 h-5 op-60"
+                            ></div>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </template>
 
-            <!-- Dynamic submenu content -->
-            <div>
-              <!-- Handle groups -->
-              <template v-if="hasGroups">
-                <div
-                  v-for="(group, groupIndex) in currentItems"
-                  :key="`group-${groupIndex}`"
-                  class="mb-6"
-                >
-                  <h3
-                    v-if="group.title || group.isGroup"
-                    class="px-4 py-2 text-sm font-bold tracking-wider uppercase"
-                    :style="{ color: 'var(--tm-pri-0)' }"
-                  >
-                    {{ group.title || group.name }}
-                  </h3>
+                  <!-- Regular items -->
                   <ul
-                    v-if="group.subItems"
+                    v-else
                     class="list-none p-0 m-0"
                   >
                     <li
-                      v-for="(item, itemIndex) in group.subItems"
-                      :key="`${group.title || group.name}-${item.name}-${itemIndex}`"
-                      class="border-b"
-                      :style="{ borderColor: 'var(--tm-bd-light)' }"
+                      v-for="(item, index) in currentItems"
+                      :key="`item-${index}`"
+                      class="border-b border-[var(--tm-bd-light)] animate-slide-up"
+                      :style="{ animationDelay: `${index * 50}ms` }"
                     >
                       <button
-                        class="flex items-center justify-between px-4 py-3 w-full no-underline transition-all active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent"
+                        class="flex items-center justify-between px-6 py-4 w-full transition-all active:bg-[var(--tm-bg-active)] text-left"
                         :style="{ color: 'var(--tm-txt-primary)' }"
                         @click="handleItemClick(item)"
                       >
-                        <span :class="{ 'font-bold': hasSubItemsOrConfig(item) }">
+                        <span
+                          class="text-base"
+                          :class="{ 'font-medium': hasSubItemsOrConfig(item) }"
+                        >
                           {{ item.name }}
                         </span>
                         <div
                           v-if="hasSubItemsOrConfig(item)"
-                          class="i-carbon-chevron-right w-5 h-5 opacity-60"
+                          class="i-carbon-chevron-right w-5 h-5 op-60"
                         ></div>
                       </button>
                     </li>
                   </ul>
+
+                  <!-- Featured section with better mobile design -->
+                  <div
+                    v-if="currentFeatured"
+                    class="p-6 mt-8 bg-[var(--tm-bg-secondary)]"
+                  >
+                    <h3
+                      class="text-sm font-bold mb-6 tracking-wider uppercase flex items-center gap-3"
+                      :style="{ color: 'var(--tm-accent-primary)' }"
+                    >
+                      <span class="w-8 h-px bg-current"></span>
+                      {{ currentFeatured.title }}
+                    </h3>
+                    <div class="space-y-4">
+                      <NuxtLink
+                        v-for="(item, index) in currentFeatured.items"
+                        :key="item.name"
+                        :to="item.link"
+                        class="block p-4 rounded-lg bg-[var(--tm-bg-primary)] border border-[var(--tm-bd-light)] transition-all active:scale-98 animate-fade-in"
+                        :style="{ animationDelay: `${index * 100 + 200}ms` }"
+                        @click="closeMenuAndUpdatePath"
+                      >
+                        <h4
+                          class="text-base font-semibold mb-2"
+                          :style="{ color: 'var(--tm-txt-primary)' }"
+                        >
+                          {{ item.name }}
+                        </h4>
+                        <p
+                          v-if="item.description"
+                          class="text-sm leading-relaxed op-80"
+                          :style="{ color: 'var(--tm-txt-secondary)' }"
+                        >
+                          {{ item.description }}
+                        </p>
+                        <div class="mt-3 flex items-center gap-2 text-[var(--tm-accent-primary)]">
+                          <span class="text-xs font-medium uppercase">Learn More</span>
+                          <div class="i-carbon-arrow-right w-3 h-3"></div>
+                        </div>
+                      </NuxtLink>
+                    </div>
+                  </div>
                 </div>
-              </template>
-
-              <!-- Regular items -->
-              <ul
-                v-else
-                class="list-none p-0 m-0"
-              >
-                <li
-                  v-for="(item, index) in currentItems"
-                  :key="`item-${index}`"
-                  class="border-b"
-                  :style="{ borderColor: 'var(--tm-bd-light)' }"
-                >
-                  <button
-                    class="flex items-center justify-between px-4 py-3 w-full no-underline transition-all active:bg-gray-100 dark:active:bg-gray-800 text-left border-none bg-transparent"
-                    :style="{ color: 'var(--tm-txt-primary)' }"
-                    @click="handleItemClick(item)"
-                  >
-                    <span :class="{ 'font-bold': hasSubItemsOrConfig(item) }">{{ item.name }}</span>
-                    <div
-                      v-if="hasSubItemsOrConfig(item)"
-                      class="i-carbon-chevron-right w-5 h-5 opacity-60"
-                    ></div>
-                  </button>
-                </li>
-              </ul>
+              </nav>
             </div>
-
-            <!-- Featured section for mobile -->
-            <div
-              v-if="currentFeatured"
-              class="p-4 mt-8"
-            >
-              <h3
-                class="text-sm font-bold mb-4 tracking-wider uppercase"
-                :style="{ color: 'var(--tm-pri-0)' }"
-              >
-                {{ currentFeatured.title }}
-              </h3>
-              <div
-                v-for="item in currentFeatured.items"
-                :key="item.name"
-                class="mb-2"
-              >
-                <NuxtLink
-                  :to="item.link"
-                  class="block no-underline"
-                  @click="closeMenuAndUpdatePath"
-                >
-                  <h4
-                    class="text-base font-semibold mb-2 transition-all active:text-[var(--tm-pri-0)] active:underline"
-                    :style="{ color: 'var(--tm-txt-primary)' }"
-                  >
-                    {{ item.name }}
-                  </h4>
-                  <p
-                    v-if="item.description"
-                    class="text-sm leading-relaxed"
-                    :style="{ color: 'var(--tm-txt-secondary)' }"
-                  >
-                    {{ item.description }}
-                  </p>
-                </NuxtLink>
-              </div>
-            </div>
-          </nav>
+          </Transition>
         </div>
       </div>
     </div>
@@ -256,7 +286,7 @@
     title: string
     featured?: any
     exploreLink?: any
-    level: number // 添加层级标识
+    level: number
   }
 
   interface Props {
@@ -280,10 +310,16 @@
 
   // Navigation stack to track current position
   const navigationStack = ref<NavigationItem[]>([])
+  const isGoingBack = ref(false)
 
   const currentTitle = computed(() => {
-    if (navigationStack.value.length === 0) return 'McKinsey & Company'
+    if (navigationStack.value.length === 0) return 'VMMC'
     return navigationStack.value[navigationStack.value.length - 1].title
+  })
+
+  const currentSubtitle = computed(() => {
+    if (navigationStack.value.length === 0) return 'Victor Meridian Management Consultancies'
+    return null
   })
 
   const currentItems = computed(() => {
@@ -305,13 +341,22 @@
     return currentItems.value.some((item) => item.isGroup === true || !!item.title)
   })
 
+  // Dynamic transition based on navigation direction
+  const transitionName = computed(() => {
+    return isGoingBack.value ? 'slide-back' : 'slide-forward'
+  })
+
   const closeMenu = () => {
     isOpen.value = false
-    resetMenu()
+    // 延迟重置，让关闭动画完成
+    setTimeout(() => {
+      resetMenu()
+    }, 300)
   }
 
   const resetMenu = () => {
     navigationStack.value = []
+    isGoingBack.value = false
   }
 
   // 检查是否有子项或特殊配置
@@ -337,13 +382,13 @@
   // 处理一级菜单点击
   const handleMenuClick = (item: MenuItem) => {
     console.log('Mobile - 一级菜单点击:', item.name)
+    isGoingBack.value = false
 
     // 场景2：检查一级菜单是否有特殊配置
     const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
 
     if (firstLevelConfig) {
       console.log('Mobile - 场景2：显示特殊配置项', item.name)
-      // 将特殊配置转换为菜单项格式，进入下一级
       navigationStack.value.push({
         items: firstLevelConfig,
         title: item.name,
@@ -372,6 +417,7 @@
   const handleItemClick = (item: UnifiedMenuItem) => {
     const currentLevel = navigationStack.value.length
     console.log(`Mobile - 第${currentLevel}级菜单点击:`, item.name)
+    isGoingBack.value = false
 
     // 构建当前路径
     const pathArray = navigationStack.value.map((nav) => nav.title)
@@ -385,7 +431,6 @@
 
       if (secondLevelConfig) {
         console.log('Mobile - 场景3：显示特殊配置项', menuKey)
-        // 将特殊配置转换为菜单项格式，进入下一级
         navigationStack.value.push({
           items: secondLevelConfig,
           title: item.name,
@@ -418,8 +463,6 @@
       if (pathArray[2]) selectedPath.thirdLevel = pathArray[2]
 
       navigation.setSelectedPath(selectedPath)
-
-      // 恢复默认导航
       navigation.switchToDefault()
 
       // 导航到目标页面
@@ -442,15 +485,20 @@
   }
 
   const goBack = () => {
+    isGoingBack.value = true
     navigationStack.value.pop()
+    // 重置方向标志
+    setTimeout(() => {
+      isGoingBack.value = false
+    }, 300)
   }
 </script>
 
 <style scoped>
-  /* Transitions */
+  /* Base Transitions */
   .slide-enter-active,
   .slide-leave-active {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   .slide-enter-from {
@@ -461,15 +509,114 @@
     transform: translateX(-100%);
   }
 
+  /* Icon switch transition */
+  .icon-switch-enter-active,
+  .icon-switch-leave-active {
+    transition: all 0.2s ease;
+  }
+
+  .icon-switch-enter-from {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+
+  .icon-switch-leave-to {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  /* Title slide transition */
+  .title-slide-enter-active,
+  .title-slide-leave-active {
+    transition: all 0.2s ease;
+  }
+
+  .title-slide-enter-from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  .title-slide-leave-to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  /* Content navigation transitions */
+  .slide-forward-enter-active,
+  .slide-forward-leave-active,
+  .slide-back-enter-active,
+  .slide-back-leave-active {
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .slide-forward-enter-from {
+    transform: translateX(100%);
+  }
+
+  .slide-forward-leave-to {
+    transform: translateX(-30%);
+    opacity: 0.5;
+  }
+
+  .slide-back-enter-from {
+    transform: translateX(-30%);
+    opacity: 0.5;
+  }
+
+  .slide-back-leave-to {
+    transform: translateX(100%);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
   /* Smooth scrolling on iOS */
-  .overflow-y-auto {
+  .overscroll-contain {
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Active state for touch devices */
+  /* Active states for better touch feedback */
   @media (hover: none) {
     button:active {
-      opacity: 0.8;
+      transform: scale(0.98);
+    }
+  }
+
+  /* Safe area for notched devices */
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .pb-20 {
+      padding-bottom: calc(5rem + env(safe-area-inset-bottom));
     }
   }
 </style>
