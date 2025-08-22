@@ -3,8 +3,8 @@
     <div class="container">
       <!-- 标题区域 -->
       <div class="section-header">
-        <h2 class="section-title">常见问题</h2>
-        <p class="section-subtitle">了解关于我们服务和流程的常见问题解答</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Learn more about our services and processes</p>
       </div>
 
       <!-- FAQ 列表 -->
@@ -46,11 +46,13 @@
 
       <!-- 底部 CTA -->
       <div class="faq-cta">
-        <h3 class="cta-title">还有其他问题？</h3>
-        <p class="cta-subtitle">我们的专业顾问随时准备为您提供个性化的解答</p>
+        <h3 class="cta-title">Still Have Questions?</h3>
+        <p class="cta-subtitle">
+          Our professional consultants are ready to provide personalized answers
+        </p>
         <div class="cta-buttons">
-          <button class="cta-button primary">咨询专家</button>
-          <button class="cta-button secondary">预约通话</button>
+          <button class="cta-button primary">Consult an Expert</button>
+          <button class="cta-button secondary">Schedule a Call</button>
         </div>
       </div>
     </div>
@@ -66,44 +68,44 @@
   // FAQ数据
   const faqItems = ref([
     {
-      question: '猎头搜寻流程通常需要多长时间？',
+      question: 'How long does the executive search process typically take?',
       answer:
-        '我们的高管搜寻流程通常需要8-12周，从初步需求沟通到最终候选人入职。具体时间取决于职位的复杂程度、市场状况和特定要求。在整个过程中，我们会定期向客户汇报进展，保持密切沟通。对于紧急需求，我们可以启动快速通道，在4-6周内完成招聘。',
+        'Our executive search process typically takes 8-12 weeks, from initial requirement discussion to final candidate placement. The specific timeline depends on the complexity of the position, market conditions, and specific requirements. Throughout the process, we provide regular progress updates to maintain close communication. For urgent needs, we can activate fast-track channels to complete recruitment within 4-6 weeks.',
     },
     {
-      question: '你们专注于哪些行业领域？',
+      question: 'Which industries do you specialize in?',
       answer:
-        '我们服务于50+行业领域，包括科技、金融、医疗健康、制造业、零售、能源和专业服务等。我们的全球团队在传统行业和新兴领域都拥有深厚的专业知识，能够为任何行业需求提供专业化的人才解决方案。特别在数字化转型、人工智能、新能源等前沿领域，我们拥有独特的人才网络。',
+        'We serve 50+ industry sectors, including technology, finance, healthcare, manufacturing, retail, energy, and professional services. Our global team possesses deep expertise in both traditional industries and emerging fields, enabling us to provide specialized talent solutions for any industry need. We have particularly unique talent networks in cutting-edge areas such as digital transformation, artificial intelligence, and renewable energy.',
     },
     {
-      question: '你们为企业和个人都提供服务吗？',
+      question: 'Do you provide services for both companies and individuals?',
       answer:
-        '是的，我们既为寻求人才解决方案的企业客户服务，也为寻求职业发展的个人提供支持，包括职业规划咨询、移民服务和海外教育机会。这种双向服务模式让我们能够深入理解人才市场的供需两端，创造更好的匹配效果。我们相信，只有真正理解候选人的职业诉求，才能为企业找到最合适的人才。',
+        "Yes, we serve both corporate clients seeking talent solutions and individuals pursuing career development, including career planning consultation, immigration services, and overseas education opportunities. This dual-service model allows us to deeply understand both sides of the talent market, creating better matches. We believe that only by truly understanding candidates' career aspirations can we find the most suitable talent for companies.",
     },
     {
-      question: '你们的人才配置成功率是多少？',
+      question: 'What is your talent placement success rate?',
       answer:
-        '我们保持着92%的配置成功率和95%的客户满意度。更重要的是，我们推荐的候选人在入职后的12个月留任率高达96%。这得益于我们严格的评估流程、深入的文化匹配分析，以及入职后的持续跟进服务。我们不仅关注技能匹配，更注重候选人与企业文化的契合度。',
+        'We maintain a 92% placement success rate and 95% client satisfaction rate. More importantly, candidates we recommend have a 96% retention rate after 12 months of employment. This is due to our rigorous evaluation process, in-depth cultural fit analysis, and continuous post-placement support services. We focus not only on skill matching but also on the alignment between candidates and company culture.',
     },
     {
-      question: '如何确保搜寻过程的保密性？',
+      question: 'How do you ensure confidentiality during the search process?',
       answer:
-        '保密性是我们工作的基石。我们采用多层保密措施：签署严格的保密协议、使用加密通信系统、限制信息访问权限、采用代号系统处理敏感职位。我们的顾问都经过专业的保密培训，确保客户信息和候选人隐私得到最高级别的保护。对于特别敏感的搜寻项目，我们提供专属团队和独立的工作环境。',
+        'Confidentiality is the cornerstone of our work. We employ multi-layered security measures: signing strict confidentiality agreements, using encrypted communication systems, restricting information access permissions, and utilizing code systems for sensitive positions. All our consultants undergo professional confidentiality training to ensure the highest level of protection for client information and candidate privacy. For particularly sensitive search projects, we provide dedicated teams and isolated work environments.',
     },
     {
-      question: 'VMMC与其他猎头公司有什么不同？',
+      question: 'What makes VMMC different from other recruitment firms?',
       answer:
-        '我们的独特优势在于：1) 全球化网络覆盖100+城市，能够进行跨境人才搜寻；2) 行业专精，每个顾问平均拥有10年以上特定行业经验；3) 端到端服务，从人才战略咨询到入职后辅导；4) 创新技术，运用AI和大数据提升搜寻效率；5) 成果导向，提供6个月的人才保证期。我们不仅是猎头，更是您的战略人才伙伴。',
+        'Our unique advantages include: 1) Global network covering 100+ cities, enabling cross-border talent searches; 2) Industry specialization, with each consultant averaging 10+ years of specific industry experience; 3) End-to-end service, from talent strategy consulting to post-placement coaching; 4) Innovative technology, leveraging AI and big data to enhance search efficiency; 5) Results-oriented approach, offering a 6-month talent guarantee period. We are not just headhunters, but your strategic talent partners.',
     },
     {
-      question: '你们为初创企业提供服务吗？',
+      question: 'Do you provide services for startups?',
       answer:
-        '当然！我们特别设立了初创企业服务部门，理解初创公司的独特需求。我们提供灵活的付费方案、快速响应机制，以及专门的创业人才库。我们帮助过500+初创企业构建核心团队，从联合创始人到关键技术人才。针对初创企业预算限制，我们还提供股权合作等创新合作模式。',
+        "Absolutely! We have a dedicated startup services department that understands the unique needs of emerging companies. We offer flexible payment plans, rapid response mechanisms, and access to specialized startup talent pools. We've helped 500+ startups build core teams, from co-founders to key technical talent. For budget-conscious startups, we also offer innovative collaboration models such as equity partnerships.",
     },
     {
-      question: '对于紧急招聘需求，你们能多快响应？',
+      question: 'How quickly can you respond to urgent hiring needs?',
       answer:
-        '我们提供24小时快速响应服务。收到紧急需求后，我们会在2小时内安排专属顾问对接，24小时内提供初步人才方案，72小时内推荐首批候选人。我们维护着随时可激活的人才储备库，涵盖各行业的高端人才。对于极其紧急的需求，我们可以调动全球资源，确保在最短时间内找到合适人选。',
+        'We provide 24-hour rapid response service. Upon receiving urgent requirements, we arrange dedicated consultant liaison within 2 hours, provide initial talent solutions within 24 hours, and recommend first batch candidates within 72 hours. We maintain an always-ready talent reserve pool covering high-end professionals across various industries. For extremely urgent needs, we can mobilize global resources to ensure finding suitable candidates in the shortest possible time.',
     },
   ])
 
@@ -216,25 +218,27 @@
     color: var(--tm-txt-secondary);
   }
 
-  /* 底部 CTA */
+  /* 底部 CTA - 浅色模式默认样式 */
   .faq-cta {
     text-align: center;
     padding: 60px;
-    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
+    background: var(--tm-bg-active);
     border-radius: 20px;
-    color: white;
+    border: 1px solid var(--tm-bd-light);
+    color: var(--tm-txt-primary);
   }
 
   .cta-title {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 12px;
+    color: var(--tm-txt-primary);
   }
 
   .cta-subtitle {
     font-size: 1.125rem;
     margin-bottom: 30px;
-    opacity: 0.9;
+    color: var(--tm-txt-secondary);
   }
 
   .cta-buttons {
@@ -254,27 +258,65 @@
   }
 
   .cta-button.primary {
-    background: white;
-    color: var(--tm-pri-0);
-    border-color: white;
+    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 20px rgba(var(--tm-pri-0-rgb), 0.3);
   }
 
   .cta-button.primary:hover {
-    background: transparent;
-    color: white;
     transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(var(--tm-pri-0-rgb), 0.4);
   }
 
   .cta-button.secondary {
     background: transparent;
+    color: var(--tm-pri-0);
+    border-color: var(--tm-pri-0);
+  }
+
+  .cta-button.secondary:hover {
+    background: var(--tm-pri-0);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* 深色模式下的CTA样式 */
+  .dark .faq-cta {
+    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
+    border-color: transparent;
+    color: white;
+  }
+
+  .dark .cta-title {
+    color: white;
+  }
+
+  .dark .cta-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .dark .cta-button.primary {
+    background: white;
+    color: var(--tm-pri-0);
+    border-color: white;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .cta-button.primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .cta-button.secondary {
+    background: transparent;
     color: white;
     border-color: white;
   }
 
-  .cta-button.secondary:hover {
+  .dark .cta-button.secondary:hover {
     background: white;
     color: var(--tm-pri-0);
-    transform: translateY(-2px);
   }
 
   /* 深色模式 */

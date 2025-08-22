@@ -4,7 +4,7 @@
     <div class="hero-image-bg">
       <img
         src="/images/comm/banner1.webp"
-        alt="背景图片"
+        alt="Background image"
         class="bg-image"
       />
       <!-- 遮罩层 -->
@@ -22,18 +22,21 @@
         <!-- 顶部标签 -->
         <div class="hero-badge">
           <span class="badge-icon">🌍</span>
-          <span class="badge-text">覆盖100+城市的全球人才网络</span>
+          <span class="badge-text">Global Talent Network Covering 100+ Cities</span>
         </div>
 
         <!-- 主标题 -->
         <h1 class="hero-title">
-          开启您的
-          <span class="highlight">人才战略</span>
-          咨询之旅
+          Unlock Your
+          <span class="highlight">Talent Strategy</span>
+          Journey
         </h1>
 
         <!-- 副标题 -->
-        <p class="hero-subtitle">与行业顶尖的人才顾问对话，定制专属于您的人才解决方案</p>
+        <p class="hero-subtitle">
+          Connect with industry-leading talent consultants to create customized solutions for your
+          business
+        </p>
 
         <!-- 特点列表 - 新设计 -->
         <!-- 特点列表 - 调整结构 -->
@@ -54,9 +57,9 @@
                   <path d="M9 12l2 2 4-4"></path>
                 </svg>
               </div>
-              <h3 class="feature-title">100%保密承诺</h3>
+              <h3 class="feature-title">100% Confidential</h3>
             </div>
-            <p class="feature-desc">多层加密保护您的商业机密</p>
+            <p class="feature-desc">Multi-layer encryption protects your business secrets</p>
           </div>
 
           <div class="feature-card">
@@ -79,9 +82,9 @@
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <h3 class="feature-title">快速响应</h3>
+              <h3 class="feature-title">Fast Response</h3>
             </div>
-            <p class="feature-desc">24小时内专家团队对接</p>
+            <p class="feature-desc">Expert team contact within 24 hours</p>
           </div>
 
           <div class="feature-card">
@@ -104,9 +107,9 @@
                   ></circle>
                 </svg>
               </div>
-              <h3 class="feature-title">专属顾问</h3>
+              <h3 class="feature-title">Dedicated Advisor</h3>
             </div>
-            <p class="feature-desc">1对1定制化服务体验</p>
+            <p class="feature-desc">1-on-1 personalized service experience</p>
           </div>
 
           <div class="feature-card">
@@ -124,9 +127,9 @@
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                 </svg>
               </div>
-              <h3 class="feature-title">成功保证</h3>
+              <h3 class="feature-title">Success Guarantee</h3>
             </div>
-            <p class="feature-desc">92%配置成功率，6个月质保</p>
+            <p class="feature-desc">92% placement success rate, 6-month warranty</p>
           </div>
         </div>
 
@@ -138,7 +141,7 @@
                 <span class="number">15,000</span>
                 <span class="plus">+</span>
               </div>
-              <div class="stat-label">成功案例</div>
+              <div class="stat-label">Success Stories</div>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
@@ -146,7 +149,7 @@
                 <span class="number">500</span>
                 <span class="plus">+</span>
               </div>
-              <div class="stat-label">企业客户</div>
+              <div class="stat-label">Enterprise Clients</div>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
@@ -154,7 +157,7 @@
                 <span class="number">50</span>
                 <span class="plus">+</span>
               </div>
-              <div class="stat-label">行业覆盖</div>
+              <div class="stat-label">Industries Covered</div>
             </div>
           </div>
         </div>
@@ -164,7 +167,7 @@
           class="scroll-hint"
           @click="scrollToForm"
         >
-          <span>填写表单，开始咨询</span>
+          <span>Fill out the form to start consultation</span>
           <svg
             class="scroll-icon"
             width="20"
