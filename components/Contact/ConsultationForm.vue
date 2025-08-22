@@ -3,8 +3,10 @@
     <div class="container">
       <!-- 页面标题 -->
       <div class="page-header">
-        <h1 class="page-title">预约免费咨询</h1>
-        <p class="page-subtitle">分享您的需求，让我们的专家为您量身定制完美的解决方案</p>
+        <h1 class="page-title">Schedule a Free Consultation</h1>
+        <p class="page-subtitle">
+          Share your needs and let our experts craft the perfect solution for you
+        </p>
       </div>
 
       <!-- 表单容器 -->
@@ -20,7 +22,7 @@
                 for="firstName"
                 class="form-label"
               >
-                名
+                First Name
                 <span class="required">*</span>
               </label>
               <input
@@ -28,7 +30,7 @@
                 v-model="formData.firstName"
                 type="text"
                 class="form-input"
-                placeholder="请输入您的名字"
+                placeholder="Enter your first name"
                 required
               />
             </div>
@@ -37,7 +39,7 @@
                 for="lastName"
                 class="form-label"
               >
-                姓
+                Last Name
                 <span class="required">*</span>
               </label>
               <input
@@ -45,7 +47,7 @@
                 v-model="formData.lastName"
                 type="text"
                 class="form-input"
-                placeholder="请输入您的姓氏"
+                placeholder="Enter your last name"
                 required
               />
             </div>
@@ -58,7 +60,7 @@
                 for="email"
                 class="form-label"
               >
-                邮箱地址
+                Email Address
                 <span class="required">*</span>
               </label>
               <input
@@ -75,7 +77,7 @@
                 for="phone"
                 class="form-label"
               >
-                联系电话
+                Phone Number
                 <span class="required">*</span>
               </label>
               <input
@@ -83,7 +85,7 @@
                 v-model="formData.phone"
                 type="tel"
                 class="form-input"
-                placeholder="+86 138 0000 0000"
+                placeholder="+1 234 567 8900"
                 required
               />
             </div>
@@ -96,7 +98,7 @@
                 for="company"
                 class="form-label"
               >
-                公司名称
+                Company Name
                 <span class="required">*</span>
               </label>
               <input
@@ -104,7 +106,7 @@
                 v-model="formData.company"
                 type="text"
                 class="form-input"
-                placeholder="您的公司名称"
+                placeholder="Your company name"
                 required
               />
             </div>
@@ -113,7 +115,7 @@
                 for="position"
                 class="form-label"
               >
-                您的职位
+                Your Position
                 <span class="required">*</span>
               </label>
               <input
@@ -121,7 +123,7 @@
                 v-model="formData.position"
                 type="text"
                 class="form-input"
-                placeholder="CEO、人力资源总监等"
+                placeholder="CEO, HR Director, etc."
                 required
               />
             </div>
@@ -134,7 +136,7 @@
                 for="service"
                 class="form-label"
               >
-                感兴趣的服务
+                Service of Interest
                 <span class="required">*</span>
               </label>
               <select
@@ -147,14 +149,14 @@
                   value=""
                   disabled
                 >
-                  请选择服务类型
+                  Select a service
                 </option>
-                <option value="executive-search">高管猎头</option>
-                <option value="hr-outsourcing">人力资源外包</option>
-                <option value="talent-deployment">人才派遣</option>
-                <option value="organizational-consulting">组织咨询</option>
-                <option value="cross-border-support">跨境支持</option>
-                <option value="strategic-consulting">战略咨询</option>
+                <option value="executive-search">Executive Search</option>
+                <option value="hr-outsourcing">HR Outsourcing</option>
+                <option value="flexible-staffing">Flexible Staffing</option>
+                <option value="immigration-services">Immigration Services</option>
+                <option value="study-abroad">Study Abroad</option>
+                <option value="organizational-performance">Organizational Performance</option>
               </select>
             </div>
             <div class="form-group">
@@ -162,7 +164,7 @@
                 for="timeline"
                 class="form-label"
               >
-                项目时间
+                Project Timeline
                 <span class="required">*</span>
               </label>
               <select
@@ -175,76 +177,41 @@
                   value=""
                   disabled
                 >
-                  请选择时间安排
+                  Select timeline
                 </option>
-                <option value="immediate">紧急（1周内）</option>
-                <option value="1-month">1个月内</option>
-                <option value="1-3-months">1-3个月</option>
-                <option value="3-6-months">3-6个月</option>
-                <option value="planning">仅作规划</option>
+                <option value="immediate">Urgent (Within 1 week)</option>
+                <option value="1-month">Within 1 month</option>
+                <option value="1-3-months">1-3 months</option>
+                <option value="3-6-months">3-6 months</option>
+                <option value="planning">Planning only</option>
               </select>
             </div>
           </div>
 
-          <!-- 第五行：预算和联系方式 -->
+          <!-- 第五行：预算（移除了首选联系方式） -->
           <div class="form-row">
             <div class="form-group">
               <label
                 for="budget"
                 class="form-label"
               >
-                预算范围
+                Budget Range
               </label>
               <select
                 id="budget"
                 v-model="formData.budget"
                 class="form-select"
               >
-                <option value="">请选择预算范围（选填）</option>
-                <option value="<50万">50万以下</option>
-                <option value="50-100万">50-100万</option>
-                <option value="100-200万">100-200万</option>
-                <option value="200-500万">200-500万</option>
-                <option value=">500万">500万以上</option>
+                <option value="">Select budget range (Optional)</option>
+                <option value="<50k">Less than $50k</option>
+                <option value="50-100k">$50k - $100k</option>
+                <option value="100-200k">$100k - $200k</option>
+                <option value="200-500k">$200k - $500k</option>
+                <option value=">500k">More than $500k</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">
-                首选联系方式
-                <span class="required">*</span>
-              </label>
-              <div class="radio-group">
-                <label class="radio-label">
-                  <input
-                    v-model="formData.contactMethod"
-                    type="radio"
-                    name="contactMethod"
-                    value="email"
-                    required
-                  />
-                  <span class="radio-text">邮件</span>
-                </label>
-                <label class="radio-label">
-                  <input
-                    v-model="formData.contactMethod"
-                    type="radio"
-                    name="contactMethod"
-                    value="phone"
-                    required
-                  />
-                  <span class="radio-text">电话</span>
-                </label>
-                <label class="radio-label">
-                  <input
-                    v-model="formData.contactMethod"
-                    type="radio"
-                    name="contactMethod"
-                    value="wechat"
-                    required
-                  />
-                  <span class="radio-text">微信</span>
-                </label>
-              </div>
+              <!-- 占位保持布局对齐 -->
             </div>
           </div>
 
@@ -255,7 +222,7 @@
                 for="details"
                 class="form-label"
               >
-                项目详情
+                Project Details
                 <span class="required">*</span>
               </label>
               <textarea
@@ -263,11 +230,11 @@
                 v-model="formData.details"
                 class="form-textarea"
                 rows="4"
-                placeholder="请描述您的需求、面临的挑战或具体要求..."
+                placeholder="Please describe your needs, challenges, or specific requirements..."
                 maxlength="500"
                 required
               ></textarea>
-              <div class="char-counter">{{ formData.details.length }}/500 字符</div>
+              <div class="char-counter">{{ formData.details.length }}/500 characters</div>
             </div>
           </div>
 
@@ -278,13 +245,13 @@
               class="submit-button"
               :disabled="isSubmitting"
             >
-              <span v-if="!isSubmitting">提交预约</span>
+              <span v-if="!isSubmitting">Submit Request</span>
               <span
                 v-else
                 class="loading"
               >
                 <div class="spinner"></div>
-                处理中...
+                Processing...
               </span>
             </button>
           </div>
@@ -310,7 +277,7 @@
     timeline: '',
     budget: '',
     details: '',
-    contactMethod: 'phone',
+    // 移除了 contactMethod 字段
   })
 
   const handleSubmit = async () => {
@@ -319,11 +286,11 @@
     try {
       console.log('表单数据:', formData.value)
       await new Promise((resolve) => setTimeout(resolve, 2000))
-      alert('感谢您的预约！我们将在24小时内与您联系。')
+      alert('Thank you for your inquiry! We will contact you within 24 hours.')
       resetForm()
     } catch (error) {
       console.error('提交表单出错:', error)
-      alert('提交失败，请稍后重试或直接联系我们。')
+      alert('Submission failed. Please try again or contact us directly.')
     } finally {
       isSubmitting.value = false
     }
@@ -341,7 +308,7 @@
       timeline: '',
       budget: '',
       details: '',
-      contactMethod: 'phone',
+      // 移除了 contactMethod 重置
     }
   }
 </script>
@@ -363,7 +330,7 @@
     width: 100%;
   }
 
-  /* 页面标题 - 减小间距 */
+  /* 页面标题 - 减少间距 */
   .page-header {
     text-align: center;
     margin-bottom: 30px;
@@ -453,29 +420,7 @@
     margin-top: 4px;
   }
 
-  .radio-group {
-    display: flex;
-    gap: 20px;
-    margin-top: 10px;
-  }
-
-  .radio-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .radio-label input[type='radio'] {
-    margin-right: 6px;
-    width: 18px;
-    height: 18px;
-    accent-color: var(--tm-pri-0);
-  }
-
-  .radio-text {
-    font-size: 0.95rem;
-    color: var(--tm-txt-primary);
-  }
+  /* 移除了 radio-group 相关样式 */
 
   .form-actions {
     margin-top: 30px;
@@ -601,16 +546,7 @@
       font-size: 0.7rem;
     }
 
-    /* 单选按钮垂直排列 */
-    .radio-group {
-      flex-direction: column;
-      gap: 8px; /* 减少间距 */
-      margin-top: 6px; /* 减少顶部间距 */
-    }
-
-    .radio-label {
-      padding: 4px 0; /* 减少内边距 */
-    }
+    /* 移除了单选按钮垂直排列样式 */
 
     /* 全宽按钮 */
     .submit-button {
