@@ -28,11 +28,12 @@
   })
 
   useHead({
-    title: '预约咨询 - 精英人才解决方案',
+    title: 'Book a Consultation - Elite Talent Solutions',
     meta: [
       {
         name: 'description',
-        content: '与我们的专家预约免费咨询，探讨您的人才需求和解决方案。',
+        content:
+          'Schedule a free consultation with our experts to discuss your talent needs and explore tailored solutions.',
       },
     ],
   })
