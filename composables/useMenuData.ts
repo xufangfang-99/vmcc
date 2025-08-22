@@ -300,7 +300,7 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: '麦肯锡博客',
+      name: 'Home',
       hasSubMenu: false,
     },
   ]

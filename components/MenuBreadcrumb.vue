@@ -1,30 +1,52 @@
 <template>
-  <div
-    v-if="hasSelection"
-    class="menu-breadcrumb flex items-center gap-2"
+  <Transition
+    enter-active-class="transition duration-300 ease-out"
+    enter-from-class="opacity-0 -translate-y-1"
+    enter-to-class="opacity-100 translate-y-0"
+    leave-active-class="transition duration-200 ease-in"
+    leave-from-class="opacity-100 translate-y-0"
+    leave-to-class="opacity-0 -translate-y-1"
   >
-    <span class="separator text-gray-400">/</span>
-    <span
-      v-if="selectedPath.firstLevel"
-      class="breadcrumb-item text-sm font-normal"
-      :style="{ color: 'var(--tm-txt-secondary)' }"
+    <div
+      v-if="hasSelection"
+      class="flex items-center gap-2 w-full pl-0 mt-0.5"
     >
-      {{ selectedPath.firstLevel }}
-    </span>
-    <span
-      v-if="selectedPath.secondLevel"
-      class="separator text-gray-400"
-    >
-      /
-    </span>
-    <span
-      v-if="selectedPath.secondLevel"
-      class="breadcrumb-item text-sm font-medium"
-      :style="{ color: 'var(--tm-txt-primary)' }"
-    >
-      {{ selectedPath.secondLevel }}
-    </span>
-  </div>
+      <!-- Leading separator -->
+      <span
+        class="text-lg leading-none"
+        :style="{ color: 'var(--tm-txt-light)' }"
+      >
+        /
+      </span>
+
+      <!-- First level breadcrumb -->
+      <span
+        v-if="selectedPath.firstLevel"
+        class="text-sm font-normal transition-colors duration-200"
+        :style="{ color: 'var(--tm-txt-secondary)' }"
+      >
+        {{ selectedPath.firstLevel }}
+      </span>
+
+      <!-- First separator -->
+      <span
+        v-if="selectedPath.firstLevel && selectedPath.secondLevel"
+        class="text-lg leading-none"
+        :style="{ color: 'var(--tm-txt-light)' }"
+      >
+        /
+      </span>
+
+      <!-- Second level breadcrumb -->
+      <span
+        v-if="selectedPath.secondLevel"
+        class="text-sm font-medium transition-colors duration-200"
+        :style="{ color: 'var(--tm-txt-primary)' }"
+      >
+        {{ selectedPath.secondLevel }}
+      </span>
+    </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
@@ -34,47 +56,22 @@
   const navigation = useNavigation()
   const selectedPath = computed(() => navigation.selectedPath)
 
+  // Check if there's any breadcrumb selection
   const hasSelection = computed(() => {
     return selectedPath.value.firstLevel || selectedPath.value.secondLevel
   })
 </script>
 
 <style scoped>
-  .menu-breadcrumb {
-    animation: fadeIn 0.3s ease;
-    width: 100%;
-    padding-left: 0;
-    margin-top: 2px;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .separator {
-    font-size: 18px;
-    line-height: 1;
-  }
-
-  .breadcrumb-item {
-    transition: color 0.2s ease;
-  }
-
-  /* 响应式设计 */
+  /* Mobile responsive adjustments */
   @media (max-width: 768px) {
-    .menu-breadcrumb {
+    /* Use UnoCSS classes in template instead */
+    .text-sm {
       font-size: 0.875rem;
     }
 
-    .separator {
-      font-size: 16px;
+    span[class*='text-lg'] {
+      font-size: 1rem;
     }
   }
 </style>
