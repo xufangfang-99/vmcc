@@ -5,9 +5,10 @@
       <div class="footer-content">
         <!-- 左侧：公司信息 -->
         <div class="footer-column company-info">
-          <h3 class="footer-logo">虚拟机管理中心</h3>
+          <h3 class="footer-logo">Victor Meridian Management Consultancies</h3>
           <p class="company-description">
-            为具有前瞻性思维的组织提供精英人才解决方案。我们将全球杰出的专业人士与行业领先的公司联系起来。
+            Providing elite talent solutions for forward-thinking organizations. We connect
+            exceptional professionals with industry-leading companies worldwide.
           </p>
 
           <!-- 社交媒体链接 -->
@@ -73,25 +74,29 @@
         <div class="footer-links-section">
           <!-- 服务链接 -->
           <div class="footer-column">
-            <h4 class="column-title">服务</h4>
+            <h4 class="column-title">Services</h4>
             <ul class="footer-links">
-              <li><NuxtLink to="/services/executive-search">高管搜寻</NuxtLink></li>
-              <li><NuxtLink to="/services/hr-outsourcing">人力资源外包</NuxtLink></li>
-              <li><NuxtLink to="/services/talent-deployment">人才派遣</NuxtLink></li>
-              <li><NuxtLink to="/services/organizational-consulting">组织咨询</NuxtLink></li>
-              <li><NuxtLink to="/services/cross-border-support">跨境支持</NuxtLink></li>
+              <li><NuxtLink to="/services/executive-search">Executive Search</NuxtLink></li>
+              <li><NuxtLink to="/services/hr-outsourcing">HR Outsourcing</NuxtLink></li>
+              <li><NuxtLink to="/services/talent-deployment">Talent Deployment</NuxtLink></li>
+              <li>
+                <NuxtLink to="/services/organizational-consulting">
+                  Organizational Consulting
+                </NuxtLink>
+              </li>
+              <li><NuxtLink to="/services/cross-border-support">Cross-Border Support</NuxtLink></li>
             </ul>
           </div>
 
           <!-- 公司链接 -->
           <div class="footer-column">
-            <h4 class="column-title">公司</h4>
+            <h4 class="column-title">Company</h4>
             <ul class="footer-links">
-              <li><NuxtLink to="/about">关于我们</NuxtLink></li>
-              <li><NuxtLink to="/contact">联系</NuxtLink></li>
-              <li><NuxtLink to="/careers">职业发展</NuxtLink></li>
-              <li><NuxtLink to="/insights">洞察</NuxtLink></li>
-              <li><NuxtLink to="/privacy">隐私政策</NuxtLink></li>
+              <li><NuxtLink to="/about">About Us</NuxtLink></li>
+              <li><NuxtLink to="/contact">Contact</NuxtLink></li>
+              <li><NuxtLink to="/careers">Careers</NuxtLink></li>
+              <li><NuxtLink to="/insights">Insights</NuxtLink></li>
+              <li><NuxtLink to="/privacy">Privacy Policy</NuxtLink></li>
             </ul>
           </div>
         </div>
@@ -100,11 +105,11 @@
       <!-- 底部版权信息 -->
       <div class="footer-bottom">
         <div class="copyright">
-          <p>© 2024 Elite Talent Solutions</p>
+          <p>© 2025 Victor Meridian Management Consultancies L.L.C. All rights reserved.</p>
         </div>
         <div class="bottom-links">
-          <NuxtLink to="/terms">条款</NuxtLink>
-          <NuxtLink to="/privacy">隐私</NuxtLink>
+          <NuxtLink to="/terms">Terms</NuxtLink>
+          <NuxtLink to="/privacy">Privacy</NuxtLink>
           <NuxtLink to="/cookies">Cookies</NuxtLink>
         </div>
       </div>

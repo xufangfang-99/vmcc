@@ -3,8 +3,10 @@
     <div class="container">
       <!-- 标题区域 -->
       <div class="section-header">
-        <h2 class="section-title">深受行业领袖信赖</h2>
-        <p class="section-subtitle">看看我们的客户对我们的优质人才解决方案的评价</p>
+        <h2 class="section-title">Trusted by Industry Leaders</h2>
+        <p class="section-subtitle">
+          Discover what our clients say about our exceptional talent solutions
+        </p>
       </div>
 
       <!-- 评价卡片网格 -->
@@ -31,19 +33,20 @@
           </div>
 
           <p class="testimonial-text">
-            他们的高管搜索能力无与伦比。他们为我们找到了一位完美的CEO，彻底改变了公司的发展轨迹。
+            Their executive search capabilities are unmatched. They found us a perfect CEO who
+            completely transformed our company's trajectory.
           </p>
 
           <div class="testimonial-author">
             <img
               :src="chenShaLaImg"
-              alt="陈莎拉"
+              alt="Sarah Chen"
               class="author-avatar"
             />
             <div class="author-info">
-              <h4 class="author-name">陈莎拉</h4>
-              <p class="author-title">董事会主席</p>
-              <p class="author-company">TechGlobal公司</p>
+              <h4 class="author-name">Sarah Chen</h4>
+              <p class="author-title">Board Chairperson</p>
+              <p class="author-company">TechGlobal Inc.</p>
             </div>
           </div>
         </div>
@@ -70,19 +73,20 @@
           </div>
 
           <p class="testimonial-text">
-            人力资源外包解决方案简化了我们的运营，降低了40%的成本，同时提高了员工满意度。
+            The HR outsourcing solution streamlined our operations, reducing costs by 40% while
+            improving employee satisfaction.
           </p>
 
           <div class="testimonial-author">
             <img
               :src="mikeImg"
-              alt="迈克尔·罗德里格斯"
+              alt="Michael Rodriguez"
               class="author-avatar"
             />
             <div class="author-info">
-              <h4 class="author-name">迈克尔·罗德里格斯</h4>
-              <p class="author-title">首席运营官</p>
-              <p class="author-company">创新公司</p>
+              <h4 class="author-name">Michael Rodriguez</h4>
+              <p class="author-title">Chief Operating Officer</p>
+              <p class="author-company">Innovation Corp</p>
             </div>
           </div>
         </div>
@@ -109,19 +113,20 @@
           </div>
 
           <p class="testimonial-text">
-            他们的跨境专业知识使我们的欧洲扩张之路更加顺畅。卓越的服务和文化理解。
+            Their cross-border expertise made our European expansion seamless. Exceptional service
+            and cultural understanding.
           </p>
 
           <div class="testimonial-author">
             <img
               :src="aimaTangImg"
-              alt="艾玛·汤普森"
+              alt="Emma Thompson"
               class="author-avatar"
             />
             <div class="author-info">
-              <h4 class="author-name">艾玛·汤普森</h4>
-              <p class="author-title">全球运营副总裁</p>
-              <p class="author-company">千年钱工业</p>
+              <h4 class="author-name">Emma Thompson</h4>
+              <p class="author-title">VP Global Operations</p>
+              <p class="author-company">Millennium Industries</p>
             </div>
           </div>
         </div>
