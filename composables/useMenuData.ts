@@ -300,8 +300,10 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: 'Home',
+      name: 'Home', // 可以是任何语言
       hasSubMenu: false,
+      link: '/',
+      isHome: true, // 可选：添加标识
     },
   ]
 

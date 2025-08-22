@@ -1,5 +1,3 @@
-// NavMenu 组件专属的类型定义
-
 // 统一的菜单项结构
 export interface UnifiedMenuItem {
   name: string
@@ -33,6 +31,8 @@ export interface MenuItem {
     text: string
     url: string
   }
+  link?: string // 添加 link 属性
+  isHome?: boolean // 添加 isHome 标识
 }
 
 // 底部链接

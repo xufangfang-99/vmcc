@@ -68,12 +68,12 @@
             >
               <!-- 手机端：两行显示 -->
               <span class="block sm:inline text-white text-4xl sm:text-4xl lg:text-5xl xl:text-6xl">
-                精英人才
+                Elite Talent
               </span>
               <span
-                class="block sm:inline text-blue-400 pl-10 text-5xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium sm:font-normal mt-1 sm:mt-0 sm:ml-4"
+                class="block sm:inline text-blue-400 pl-0 sm:pl-0 text-5xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium sm:font-normal mt-1 sm:mt-0 sm:ml-4"
               >
-                解决方案
+                Solutions
               </span>
             </h1>
 
@@ -81,9 +81,11 @@
             <p
               class="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
             >
-              我们为具有前瞻性思维的企业提供优质的猎头服务、战略人力资源外包、人
+              We deliver premium executive search, strategic HR outsourcing, talent deployment
               <br class="hidden lg:block" />
-              才派遣解决方案、组织咨询以及全面的跨境业务支持。
+              solutions, organizational consulting, and comprehensive cross-border business support
+              <br class="hidden lg:block" />
+              for forward-thinking enterprises.
             </p>
 
             <!-- CTA 按钮 -->
@@ -94,15 +96,14 @@
                 class="cta-button px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full border-none bg-blue-400 text-white shadow-[0_4px_20px_rgba(64,169,255,0.3)] hover:bg-blue-500 hover:transform hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(64,169,255,0.4)]"
                 @click="scrollToServices"
               >
-                了解我们的服务
+                Explore Our Services
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
-              <!-- 方法1：使用 NuxtLink 组件（推荐） -->
               <NuxtLink
                 to="/contact"
                 class="px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-white border-2 border-white/80 hover:bg-white/10 hover:border-white hover:transform hover:-translate-y-0.5"
               >
-                安排咨询
+                Schedule Consultation
               </NuxtLink>
             </div>
 
@@ -117,7 +118,7 @@
                   500+
                 </div>
                 <div class="text-xs sm:text-sm lg:text-base opacity-80 uppercase tracking-wider">
-                  成功安置
+                  Successful Placements
                 </div>
               </div>
               <div class="stat-item">
@@ -127,17 +128,17 @@
                   98%
                 </div>
                 <div class="text-xs sm:text-sm lg:text-base opacity-80 uppercase tracking-wider">
-                  客户满意度
+                  Client Satisfaction
                 </div>
               </div>
               <div class="stat-item">
                 <div
                   class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
                 >
-                  15年+
+                  15+
                 </div>
                 <div class="text-xs sm:text-sm lg:text-base opacity-80 uppercase tracking-wider">
-                  行业经验
+                  Years of Excellence
                 </div>
               </div>
             </div>
@@ -160,20 +161,16 @@
 </template>
 
 <script setup lang="ts">
-  // Script 部分保持不变
   import { ref, onMounted, onUnmounted } from 'vue'
   import { useNavigation } from '~/composables/useNavigation'
   import { useMenuData } from '~/composables/useMenuData'
+  import { useMenuHandler } from '~/composables/useMenuHandler'
   import { useScrollTo } from '~/composables/useScrollTo'
-  const { scrollToElement } = useScrollTo()
-
-  // 滚动到服务区域
-  const scrollToServices = () => {
-    scrollToElement('services-section')
-  }
 
   const navigation = useNavigation()
-  const { menuItems, specialMenuConfigs } = useMenuData()
+  const { menuItems } = useMenuData()
+  const { handleMenuClick, handleSubmenuClick, handleIconClick } = useMenuHandler()
+  const { scrollToElement } = useScrollTo()
 
   // 视频 URL - 使用本地视频
   const videoUrl = ref('/video/main.mp4')
@@ -183,6 +180,11 @@
   // 视频加载完成处理
   const handleVideoLoaded = () => {
     console.log('Video loaded successfully')
+  }
+
+  // 滚动到服务区域
+  const scrollToServices = () => {
+    scrollToElement('services-section')
   }
 
   // 监听滚动
@@ -195,66 +197,6 @@
         header.classList.add('scrolled')
       } else {
         header.classList.remove('scrolled')
-      }
-    }
-  }
-
-  const handleIconClick = () => {
-    console.log('menu icon clicked')
-  }
-
-  const handleMenuClick = (item: any) => {
-    console.log('Menu clicked:', item.name)
-
-    const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
-
-    if (firstLevelConfig) {
-      console.log('场景2触发：', item.name, firstLevelConfig)
-      navigation.switchToCustom(
-        firstLevelConfig,
-        `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-      )
-    } else if (!item.hasSubMenu) {
-      navigation.switchToDefault()
-    }
-  }
-
-  const handleSubmenuClick = (parentItem: any, subItem: any) => {
-    console.log('Submenu clicked:', parentItem.name, '->', subItem.name)
-
-    if (subItem.hasSubMenu && subItem.subItems) {
-      console.log('场景1触发：显示三级菜单')
-      const basePath = `/${parentItem.name.toLowerCase().replace(/\s+/g, '-')}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`
-
-      navigation.setSelectedPath({
-        firstLevel: parentItem.name,
-        secondLevel: subItem.name,
-      })
-
-      navigation.switchToCustom(
-        subItem.subItems.map((item: any) => ({
-          name: item.name,
-          link: item.link || `${basePath}/${item.name.toLowerCase().replace(/\s+/g, '-')}`,
-        })),
-        basePath
-      )
-    } else {
-      const menuKey = `${parentItem.name}-${subItem.name}`
-      const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
-
-      if (secondLevelConfig) {
-        console.log('场景3触发：', menuKey, secondLevelConfig)
-        const basePath = `/${parentItem.name.toLowerCase().replace(/\s+/g, '-')}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`
-
-        navigation.setSelectedPath({
-          firstLevel: parentItem.name,
-          secondLevel: subItem.name,
-        })
-
-        navigation.switchToCustom(secondLevelConfig, basePath)
-      } else {
-        console.log('没有特殊配置，恢复默认导航并显示选中的菜单')
-        navigation.switchToDefaultWithPath(parentItem.name, subItem.name)
       }
     }
   }
@@ -391,11 +333,4 @@
   .cta-button:hover span {
     @apply translate-x-1.25;
   }
-
-  /* 手机端特殊调整 - 移除这部分，因为已经在HTML中处理 */
-  /* @media (max-width: 640px) {
-  .hero-content {
-    @apply pt-32;
-  }
-} */
 </style>
