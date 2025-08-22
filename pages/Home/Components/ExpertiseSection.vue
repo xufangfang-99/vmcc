@@ -7,11 +7,12 @@
         class="header-wrapper"
       >
         <h2 class="section-title">
-          <span class="title-prefix">为什么选择我们的</span>
-          <span class="title-highlight">精英服务</span>
+          <span class="title-prefix">Why Choose Our</span>
+          <span class="title-highlight">Elite Services</span>
         </h2>
         <p class="section-subtitle">
-          我们将数十年的经验与创新方法相结合，提供无与伦比的人才解决方案，推动企业成功
+          We combine decades of experience with innovative approaches to deliver unparalleled talent
+          solutions that drive business success
         </p>
       </div>
 
@@ -52,7 +53,7 @@
                 </span>
                 +
               </div>
-              <div class="stat-label">国家覆盖</div>
+              <div class="stat-label">Countries Covered</div>
             </div>
           </div>
           <div class="stat-item">
@@ -85,7 +86,7 @@
                 </span>
                 +
               </div>
-              <div class="stat-label">行业领域</div>
+              <div class="stat-label">Industry Sectors</div>
             </div>
           </div>
           <div class="stat-item">
@@ -111,7 +112,7 @@
                 </span>
                 %
               </div>
-              <div class="stat-label">成功率</div>
+              <div class="stat-label">Success Rate</div>
             </div>
           </div>
           <div class="stat-item">
@@ -137,7 +138,7 @@
                 </span>
                 +
               </div>
-              <div class="stat-label">年行业经验</div>
+              <div class="stat-label">Years of Experience</div>
             </div>
           </div>
         </div>
@@ -150,7 +151,7 @@
           <div class="image-wrapper">
             <img
               :src="businessMeetingImg"
-              alt="专业商务会议"
+              alt="Professional Business Meeting"
               class="main-image"
             />
             <!-- 浮动卡片 -->
@@ -178,7 +179,7 @@
                   </span>
                   +
                 </div>
-                <div class="card-desc">全球企业信赖</div>
+                <div class="card-desc">Global Enterprises Trust</div>
               </div>
             </div>
           </div>
@@ -194,7 +195,7 @@
             <div class="image-wrapper">
               <img
                 :src="businessMeetingImg"
-                alt="专业商务会议"
+                alt="Professional Business Meeting"
                 class="main-image"
               />
               <!-- 浮动卡片 -->
@@ -222,7 +223,7 @@
                     </span>
                     +
                   </div>
-                  <div class="card-desc">全球企业信赖</div>
+                  <div class="card-desc">Global Enterprises Trust</div>
                 </div>
               </div>
             </div>
@@ -261,9 +262,12 @@
                     ></line>
                   </svg>
                 </div>
-                <h4 class="feature-title">全球网络覆盖</h4>
+                <h4 class="feature-title">Global Network Coverage</h4>
               </div>
-              <p class="feature-desc">遍布50多个国家的顶级专业人士网络，深入了解各地市场特点</p>
+              <p class="feature-desc">
+                Top-tier professional network spanning 50+ countries with deep understanding of
+                local markets
+              </p>
             </div>
 
             <div class="feature-card">
@@ -281,9 +285,11 @@
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                   </svg>
                 </div>
-                <h4 class="feature-title">行业专业知识</h4>
+                <h4 class="feature-title">Industry Expertise</h4>
               </div>
-              <p class="feature-desc">深耕25个以上行业领域，拥有资深行业顾问团队</p>
+              <p class="feature-desc">
+                Deep specialization in 25+ industry sectors with seasoned advisory teams
+              </p>
             </div>
 
             <div class="feature-card">
@@ -302,9 +308,12 @@
                     ></path>
                   </svg>
                 </div>
-                <h4 class="feature-title">AI驱动创新</h4>
+                <h4 class="feature-title">AI-Driven Innovation</h4>
               </div>
-              <p class="feature-desc">结合人工智能技术与资深顾问经验，提供数据驱动的精准匹配</p>
+              <p class="feature-desc">
+                Combining artificial intelligence with senior consultant expertise for data-driven
+                precision matching
+              </p>
             </div>
 
             <div class="feature-card">
@@ -321,9 +330,12 @@
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   </svg>
                 </div>
-                <h4 class="feature-title">严格保密机制</h4>
+                <h4 class="feature-title">Strict Confidentiality</h4>
               </div>
-              <p class="feature-desc">银行级安全标准，保护客户商业机密和候选人隐私</p>
+              <p class="feature-desc">
+                Bank-level security standards protecting client business secrets and candidate
+                privacy
+              </p>
             </div>
           </div>
         </div>
@@ -333,7 +345,7 @@
           ref="processRef"
           class="process-section"
         >
-          <h3 class="process-title">我们的专业服务流程</h3>
+          <h3 class="process-title">Our Professional Service Process</h3>
           <div class="process-timeline">
             <div class="process-line">
               <div class="process-line-progress"></div>
@@ -341,29 +353,29 @@
             <div class="process-item">
               <div class="process-number">01</div>
               <div class="process-content">
-                <h4>需求分析</h4>
-                <p>深入了解企业文化和职位需求</p>
+                <h4>Needs Analysis</h4>
+                <p>Deep understanding of company culture and position requirements</p>
               </div>
             </div>
             <div class="process-item">
               <div class="process-number">02</div>
               <div class="process-content">
-                <h4>人才搜寻</h4>
-                <p>运用全球网络精准定位候选人</p>
+                <h4>Talent Search</h4>
+                <p>Leveraging global network for precise candidate targeting</p>
               </div>
             </div>
             <div class="process-item">
               <div class="process-number">03</div>
               <div class="process-content">
-                <h4>评估筛选</h4>
-                <p>专业评估确保最佳匹配</p>
+                <h4>Assessment & Screening</h4>
+                <p>Professional evaluation ensuring optimal match</p>
               </div>
             </div>
             <div class="process-item">
               <div class="process-number">04</div>
               <div class="process-content">
-                <h4>入职辅导</h4>
-                <p>持续跟进确保顺利融入</p>
+                <h4>Onboarding Support</h4>
+                <p>Continuous follow-up ensuring smooth integration</p>
               </div>
             </div>
           </div>
@@ -393,8 +405,8 @@
               </svg>
             </div>
             <div class="promise-content">
-              <h4>60天完成搜寻</h4>
-              <p>平均60天内为您找到理想人选</p>
+              <h4>60-Day Search Completion</h4>
+              <p>Finding your ideal candidate within 60 days on average</p>
             </div>
           </div>
           <div class="promise-card">
@@ -425,8 +437,8 @@
               </svg>
             </div>
             <div class="promise-content">
-              <h4>90天人才保证</h4>
-              <p>提供90天人才保证期服务</p>
+              <h4>90-Day Talent Guarantee</h4>
+              <p>Providing 90-day talent guarantee period service</p>
             </div>
           </div>
           <div class="promise-card">
@@ -446,8 +458,8 @@
               </svg>
             </div>
             <div class="promise-content">
-              <h4>24/7全球响应</h4>
-              <p>跨时区无缝服务支持</p>
+              <h4>24/7 Global Response</h4>
+              <p>Cross-timezone seamless service support</p>
             </div>
           </div>
         </div>

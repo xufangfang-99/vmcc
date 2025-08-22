@@ -6,20 +6,21 @@
       <div class="cta-content">
         <!-- 主标题 -->
         <h2 class="cta-title">
-          准备改变你的
+          Ready to Transform
           <br />
-          人才战略？
+          Your Talent Strategy?
         </h2>
 
         <!-- 描述文字 -->
         <p class="cta-description">
-          与我们合作，解锁卓越的人才解决方案，推动您的业务发展。让我们探讨如何提升您的组织。
+          Partner with us to unlock exceptional talent solutions that drive your business forward.
+          Let's explore how we can elevate your organization.
         </p>
 
         <!-- 行动按钮 -->
         <div class="cta-buttons">
-          <button class="btn-primary">开始您的旅程</button>
-          <button class="btn-secondary">预约咨询</button>
+          <button class="btn-primary">Start Your Journey</button>
+          <button class="btn-secondary">Book a Consultation</button>
         </div>
 
         <!-- 联系信息 -->
@@ -98,7 +99,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span>24/7 全球支持</span>
+            <span>24/7 Global Support</span>
           </div>
         </div>
       </div>
@@ -424,59 +425,6 @@
     }
     66% {
       transform: translate(-20px, 20px) scale(0.95);
-    }
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .cta-section {
-      padding: 80px 0;
-    }
-
-    .cta-title {
-      font-size: 2.5rem;
-    }
-
-    .cta-description {
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-      max-width: 280px;
-    }
-
-    .contact-info {
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .shape-1 {
-      width: 200px;
-      height: 200px;
-      top: -100px;
-      left: -100px;
-    }
-
-    .shape-2 {
-      width: 150px;
-      height: 150px;
-      bottom: -75px;
-      right: -75px;
-    }
-
-    .shape-3 {
-      display: none;
     }
   }
 
