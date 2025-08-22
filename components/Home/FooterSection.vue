@@ -1,18 +1,29 @@
 <template>
-  <footer class="footer-section">
-    <div class="container">
+  <footer
+    class="relative overflow-hidden bg-[var(--tm-bg-primary)] border-t border-[var(--tm-bd-light)] !py-20 md:py-80px dark:bg-[#0a0a0a] dark:border-white/10"
+  >
+    <!-- 背景装饰 -->
+    <div
+      class="absolute top-0 left--50% right--50% h-px bg-gradient-to-r from-transparent via-[var(--tm-pri-0)] to-transparent opacity-30"
+    ></div>
+
+    <div class="max-w-1200px mx-auto px-5">
       <!-- 主要内容区 -->
       <div class="footer-content">
         <!-- 左侧：公司信息 -->
-        <div class="footer-column company-info">
-          <h3 class="footer-logo">Victor Meridian Management Consultancies</h3>
-          <p class="company-description">
+        <div class="company-info">
+          <h3
+            class="text-24px font-semibold mb-6 bg-gradient-to-r from-[var(--tm-pri-0)] to-[var(--tm-pri-1)] bg-clip-text text-transparent"
+          >
+            Victor Meridian Management Consultancies
+          </h3>
+          <p class="text-15px leading-relaxed text-[var(--tm-txt-secondary)] mb-8">
             Providing elite talent solutions for forward-thinking organizations. We connect
             exceptional professionals with industry-leading companies worldwide.
           </p>
 
           <!-- 社交媒体链接 -->
-          <div class="social-links">
+          <div class="flex gap-4">
             <NuxtLink
               to="#"
               class="social-link"
@@ -74,43 +85,128 @@
         <div class="footer-links-section">
           <!-- 服务链接 -->
           <div class="footer-column">
-            <h4 class="column-title">Services</h4>
-            <ul class="footer-links">
-              <li><NuxtLink to="/services/executive-search">Executive Search</NuxtLink></li>
-              <li><NuxtLink to="/services/hr-outsourcing">HR Outsourcing</NuxtLink></li>
-              <li><NuxtLink to="/services/talent-deployment">Talent Deployment</NuxtLink></li>
-              <li>
-                <NuxtLink to="/services/organizational-consulting">
+            <h4 class="text-base font-semibold mb-6 text-[var(--tm-txt-primary)]">Services</h4>
+            <ul class="list-none p-0 m-0">
+              <li class="mb-4">
+                <NuxtLink
+                  to="/services/executive-search"
+                  class="footer-link"
+                >
+                  Executive Search
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/services/hr-outsourcing"
+                  class="footer-link"
+                >
+                  HR Outsourcing
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/services/talent-deployment"
+                  class="footer-link"
+                >
+                  Talent Deployment
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/services/organizational-consulting"
+                  class="footer-link"
+                >
                   Organizational Consulting
                 </NuxtLink>
               </li>
-              <li><NuxtLink to="/services/cross-border-support">Cross-Border Support</NuxtLink></li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/services/cross-border-support"
+                  class="footer-link"
+                >
+                  Cross-Border Support
+                </NuxtLink>
+              </li>
             </ul>
           </div>
 
           <!-- 公司链接 -->
           <div class="footer-column">
-            <h4 class="column-title">Company</h4>
-            <ul class="footer-links">
-              <li><NuxtLink to="/about">About Us</NuxtLink></li>
-              <li><NuxtLink to="/contact">Contact</NuxtLink></li>
-              <li><NuxtLink to="/careers">Careers</NuxtLink></li>
-              <li><NuxtLink to="/insights">Insights</NuxtLink></li>
-              <li><NuxtLink to="/privacy">Privacy Policy</NuxtLink></li>
+            <h4 class="text-base font-semibold mb-6 text-[var(--tm-txt-primary)]">Company</h4>
+            <ul class="list-none p-0 m-0">
+              <li class="mb-4">
+                <NuxtLink
+                  to="/about"
+                  class="footer-link"
+                >
+                  About Us
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/contact"
+                  class="footer-link"
+                >
+                  Contact
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/careers"
+                  class="footer-link"
+                >
+                  Careers
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/insights"
+                  class="footer-link"
+                >
+                  Insights
+                </NuxtLink>
+              </li>
+              <li class="mb-4">
+                <NuxtLink
+                  to="/privacy"
+                  class="footer-link"
+                >
+                  Privacy Policy
+                </NuxtLink>
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
       <!-- 底部版权信息 -->
-      <div class="footer-bottom">
-        <div class="copyright">
-          <p>© 2025 Victor Meridian Management Consultancies L.L.C. All rights reserved.</p>
+      <div
+        class="pt-10 border-t border-[var(--tm-bd-light)] dark:border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <div>
+          <p class="text-14px text-[var(--tm-txt-secondary)] m-0">
+            © 2025 Victor Meridian Management Consultancies L.L.C. All rights reserved.
+          </p>
         </div>
-        <div class="bottom-links">
-          <NuxtLink to="/terms">Terms</NuxtLink>
-          <NuxtLink to="/privacy">Privacy</NuxtLink>
-          <NuxtLink to="/cookies">Cookies</NuxtLink>
+        <div class="flex gap-8">
+          <NuxtLink
+            to="/terms"
+            class="text-14px text-[var(--tm-txt-secondary)] hover:text-[var(--tm-pri-0)] transition-colors"
+          >
+            Terms
+          </NuxtLink>
+          <NuxtLink
+            to="/privacy"
+            class="text-14px text-[var(--tm-txt-secondary)] hover:text-[var(--tm-pri-0)] transition-colors"
+          >
+            Privacy
+          </NuxtLink>
+          <NuxtLink
+            to="/cookies"
+            class="text-14px text-[var(--tm-txt-secondary)] hover:text-[var(--tm-pri-0)] transition-colors"
+          >
+            Cookies
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -122,39 +218,7 @@
 </script>
 
 <style scoped>
-  .footer-section {
-    background: var(--tm-bg-primary);
-    border-top: 1px solid var(--tm-bd-light);
-    padding: 80px 0 40px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* 深色模式背景 */
-  .dark .footer-section {
-    background: #0a0a0a;
-    border-top-color: rgba(255, 255, 255, 0.1);
-  }
-
-  /* 背景装饰 */
-  .footer-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    right: -50%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--tm-pri-0) 50%, transparent 100%);
-    opacity: 0.3;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* 主要内容布局 */
+  /* 主要内容布局 - 保持原有的复杂 grid 结构 */
   .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -172,139 +236,20 @@
     max-width: 400px;
   }
 
-  .footer-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: var(--tm-txt-primary);
-    background: linear-gradient(135deg, var(--tm-pri-0) 0%, var(--tm-pri-1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .company-description {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--tm-txt-secondary);
-    margin-bottom: 2rem;
-  }
-
-  /* 社交媒体链接 */
-  .social-links {
-    display: flex;
-    gap: 1rem;
-  }
-
+  /* 社交链接样式 */
   .social-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--tm-bg-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--tm-txt-secondary);
-    transition: all 0.3s ease;
-    border: 1px solid var(--tm-bd-light);
+    @apply w-10 h-10 rounded-full bg-[var(--tm-bg-secondary)] flex items-center justify-center
+    text-[var(--tm-txt-secondary)] transition-all duration-300 border border-[var(--tm-bd-light)]
+    hover:bg-[var(--tm-pri-0)] hover:text-white hover:translate-y--2px hover:border-[var(--tm-pri-0)]
+    dark:bg-white/5 dark:border-white/10;
   }
 
-  .social-link:hover {
-    background: var(--tm-pri-0);
-    color: white;
-    transform: translateY(-2px);
-    border-color: var(--tm-pri-0);
-  }
-
-  .dark .social-link {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .dark .social-link:hover {
-    background: var(--tm-pri-0);
-    border-color: var(--tm-pri-0);
-  }
-
-  /* 列标题 */
-  .column-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: var(--tm-txt-primary);
-  }
-
-  /* 链接列表 */
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-links li {
-    margin-bottom: 1rem;
-  }
-
-  .footer-links a {
-    color: var(--tm-txt-secondary);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-
-  .footer-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--tm-pri-0);
-    transition: width 0.3s ease;
-  }
-
-  .footer-links a:hover {
-    color: var(--tm-pri-0);
-  }
-
-  .footer-links a:hover::after {
-    width: 100%;
-  }
-
-  /* 底部版权区 */
-  .footer-bottom {
-    padding-top: 40px;
-    border-top: 1px solid var(--tm-bd-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .dark .footer-bottom {
-    border-top-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .copyright p {
-    font-size: 0.875rem;
-    color: var(--tm-txt-secondary);
-    margin: 0;
-  }
-
-  .bottom-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .bottom-links a {
-    font-size: 0.875rem;
-    color: var(--tm-txt-secondary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .bottom-links a:hover {
-    color: var(--tm-pri-0);
+  /* 链接样式 */
+  .footer-link {
+    @apply text-[var(--tm-txt-secondary)] text-15px transition-all duration-300 relative
+    hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px
+    after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)]
+    after:transition-[width] after:duration-300 hover:after:w-full;
   }
 
   /* 响应式设计 */
@@ -329,49 +274,32 @@
 
   /* 手机端优化 */
   @media (max-width: 768px) {
-    .footer-section {
-      padding: 40px 0 20px;
-    }
-
-    .container {
-      padding: 0 16px;
+    footer {
+      @apply py-10;
     }
 
     .footer-content {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
+      @apply grid-cols-1 gap-6 mb-6;
     }
 
-    /* 公司信息优化 */
-    .footer-logo {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
+    .company-info h3 {
+      @apply text-20px mb-3;
     }
 
-    .company-description {
-      font-size: 0.875rem;
-      line-height: 1.5;
-      margin-bottom: 1rem;
+    .company-info p {
+      @apply text-14px leading-normal mb-4;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    /* 社交媒体链接优化 */
-    .social-links {
-      gap: 0.5rem;
-    }
-
     .social-link {
-      width: 32px;
-      height: 32px;
+      @apply w-8 h-8;
     }
 
     .social-link svg {
-      width: 16px;
-      height: 16px;
+      @apply w-4 h-4;
     }
 
     /* 服务和公司模块并排显示 */
@@ -381,90 +309,68 @@
       gap: 2rem;
     }
 
-    /* 列标题优化 */
-    .column-title {
-      font-size: 0.875rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
+    .footer-column h4 {
+      @apply text-14px mb-3 font-semibold;
     }
 
-    /* 链接列表优化 - 紧凑布局 */
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+    .footer-column li {
+      @apply mb-2;
     }
 
-    .footer-links li {
-      margin-bottom: 0;
+    .footer-link {
+      @apply text-13px py-0.5 text-[var(--tm-txt-light)];
     }
 
-    .footer-links a {
-      font-size: 0.8125rem;
-      padding: 0.125rem 0;
-      color: var(--tm-txt-light);
-    }
-
-    /* 底部版权区优化 */
     .footer-bottom {
-      padding-top: 16px;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      @apply pt-4 flex-row justify-between items-center;
     }
 
-    .copyright p {
-      font-size: 0.6875rem;
+    .footer-bottom p {
+      @apply text-11px;
     }
 
-    .bottom-links {
-      gap: 0.75rem;
+    .footer-bottom .flex {
+      @apply gap-3;
     }
 
-    .bottom-links a {
-      font-size: 0.6875rem;
+    .footer-bottom a {
+      @apply text-11px;
     }
   }
 
   /* 小屏幕手机进一步优化 */
   @media (max-width: 480px) {
-    .footer-section {
-      padding: 30px 0 16px;
+    footer {
+      @apply py-8;
     }
 
-    /* 保持两列布局但调整间距 */
     .footer-links-section {
-      gap: 1.5rem;
+      @apply gap-6;
     }
 
-    .footer-links {
-      gap: 0.375rem;
+    .footer-column li {
+      @apply mb-1.5;
     }
 
-    .footer-links a {
-      font-size: 0.75rem;
+    .footer-link {
+      @apply text-12px;
     }
 
-    /* 底部版权区保持横向但更紧凑 */
     .footer-bottom {
-      padding-top: 12px;
+      @apply pt-3;
     }
 
-    .copyright p,
-    .bottom-links a {
-      font-size: 0.625rem;
+    .footer-bottom p,
+    .footer-bottom a {
+      @apply text-10px;
     }
 
-    .bottom-links {
-      gap: 0.5rem;
+    .footer-bottom .flex {
+      @apply gap-2;
     }
   }
 
   /* 动画效果 */
-  .footer-section {
-    animation: fadeIn 0.8s ease-out;
-  }
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -474,5 +380,9 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  footer {
+    animation: fadeIn 0.8s ease-out;
   }
 </style>
