@@ -1,18 +1,24 @@
 <template>
-  <section class="contact-section">
-    <div class="container">
+  <section class="py-100px bg-tm-bg-primary dark:bg-tm-bg-secondary">
+    <div class="max-w-1200px mx-auto px-5">
       <!-- 标题区域 -->
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Multiple ways to connect with our global team of experts</p>
+      <div class="text-center mb-60px">
+        <h2 class="text-3rem font-300 text-tm-txt-primary mb-4">Get In Touch</h2>
+        <p class="text-1.25rem text-tm-txt-secondary">
+          Multiple ways to connect with our global team of experts
+        </p>
       </div>
 
       <!-- 联系方式网格 -->
-      <div class="contact-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-30px mb-80px">
         <!-- 电话支持 -->
-        <div class="contact-card">
-          <div class="contact-header">
-            <div class="contact-icon">
+        <div
+          class="text-center p-10 bg-tm-bg-secondary dark:bg-tm-bg-primary rounded-16px transition-all duration-300 hover:-translate-y-5px hover:shadow-contact"
+        >
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div
+              class="w-60px h-60px bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-16px flex items-center justify-center text-white flex-shrink-0"
+            >
               <svg
                 width="24"
                 height="24"
@@ -26,21 +32,25 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="contact-title">Phone Support</h3>
+            <h3 class="text-1.25rem font-600 text-tm-txt-primary m-0">Phone Support</h3>
           </div>
           <a
             href="tel:+15551234567"
-            class="contact-link"
+            class="inline-block text-1.125rem text-tm-pri-0 no-underline mb-2 transition-colors duration-300 hover:text-tm-pri-1"
           >
             +1 (555) 123-4567
           </a>
-          <p class="contact-desc">24/7 Global Hotline</p>
+          <p class="text-0.9rem text-tm-txt-secondary">24/7 Global Hotline</p>
         </div>
 
         <!-- 邮件支持 -->
-        <div class="contact-card">
-          <div class="contact-header">
-            <div class="contact-icon">
+        <div
+          class="text-center p-10 bg-tm-bg-secondary dark:bg-tm-bg-primary rounded-16px transition-all duration-300 hover:-translate-y-5px hover:shadow-contact"
+        >
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div
+              class="w-60px h-60px bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-16px flex items-center justify-center text-white flex-shrink-0"
+            >
               <svg
                 width="24"
                 height="24"
@@ -55,21 +65,25 @@
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <h3 class="contact-title">Email Support</h3>
+            <h3 class="text-1.25rem font-600 text-tm-txt-primary m-0">Email Support</h3>
           </div>
           <a
             href="mailto:info@vmmcglobal.com"
-            class="contact-link"
+            class="inline-block text-1.125rem text-tm-pri-0 no-underline mb-2 transition-colors duration-300 hover:text-tm-pri-1"
           >
             info@vmmcglobal.com
           </a>
-          <p class="contact-desc">Response within 4 hours</p>
+          <p class="text-0.9rem text-tm-txt-secondary">Response within 4 hours</p>
         </div>
 
         <!-- 在线聊天 -->
-        <div class="contact-card">
-          <div class="contact-header">
-            <div class="contact-icon">
+        <div
+          class="text-center p-10 bg-tm-bg-secondary dark:bg-tm-bg-primary rounded-16px transition-all duration-300 hover:-translate-y-5px hover:shadow-contact"
+        >
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div
+              class="w-60px h-60px bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-16px flex items-center justify-center text-white flex-shrink-0"
+            >
               <svg
                 width="24"
                 height="24"
@@ -83,16 +97,24 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="contact-title">Live Chat</h3>
+            <h3 class="text-1.25rem font-600 text-tm-txt-primary m-0">Live Chat</h3>
           </div>
-          <button class="contact-link chat-button">Available Now</button>
-          <p class="contact-desc">Instant assistance</p>
+          <button
+            class="bg-transparent border-none cursor-pointer text-1.125rem text-tm-pri-0 p-0 mb-2 transition-colors duration-300 hover:text-tm-pri-1"
+          >
+            Available Now
+          </button>
+          <p class="text-0.9rem text-tm-txt-secondary">Instant assistance</p>
         </div>
 
         <!-- 预约会议 -->
-        <div class="contact-card">
-          <div class="contact-header">
-            <div class="contact-icon">
+        <div
+          class="text-center p-10 bg-tm-bg-secondary dark:bg-tm-bg-primary rounded-16px transition-all duration-300 hover:-translate-y-5px hover:shadow-contact"
+        >
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div
+              class="w-60px h-60px bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-16px flex items-center justify-center text-white flex-shrink-0"
+            >
               <svg
                 width="24"
                 height="24"
@@ -129,20 +151,28 @@
                 ></line>
               </svg>
             </div>
-            <h3 class="contact-title">Schedule Meeting</h3>
+            <h3 class="text-1.25rem font-600 text-tm-txt-primary m-0">Schedule Meeting</h3>
           </div>
-          <button class="contact-link">Book Online</button>
-          <p class="contact-desc">Choose your preferred time</p>
+          <button
+            class="bg-transparent border-none cursor-pointer text-1.125rem text-tm-pri-0 p-0 mb-2 transition-colors duration-300 hover:text-tm-pri-1"
+          >
+            Book Online
+          </button>
+          <p class="text-0.9rem text-tm-txt-secondary">Choose your preferred time</p>
         </div>
       </div>
 
       <!-- 办公室位置 -->
-      <div class="offices-section">
-        <div class="office-grid">
-          <!-- 新加坡办公室 -->
-          <div class="office-card featured">
-            <div class="office-header">
-              <div class="office-icon">
+      <div class="pt-40px border-t border-tm-bd-light dark:border-tm-bd-secondary">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-30px">
+          <!-- 新加坡办公室 - 特色卡片 -->
+          <div
+            class="bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 text-white rounded-16px p-30px transition-all duration-300 hover:-translate-y-5px hover:shadow-office"
+          >
+            <div class="flex items-center gap-15px mb-5">
+              <div
+                class="w-48px h-48px bg-white/20 rounded-12px flex items-center justify-center text-white"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -160,41 +190,45 @@
                 </svg>
               </div>
               <div>
-                <h3 class="office-title">Singapore</h3>
-                <p class="office-subtitle">Global Headquarters</p>
+                <h3 class="text-1.5rem font-600 mb-1">Singapore</h3>
+                <p class="text-0.9rem opacity-90">Global Headquarters</p>
               </div>
             </div>
-            <div class="office-details">
-              <p class="office-address">
+            <div class="mb-5">
+              <p class="mb-15px leading-1.6">
                 1 Marina Bay Sands, Level 20
                 <br />
                 Singapore 018956
               </p>
-              <p class="office-info">
-                <span class="info-icon">📞</span>
+              <p class="text-0.9rem mb-2 opacity-90">
+                <span class="mr-2">📞</span>
                 +65 6123 4567
               </p>
-              <p class="office-info">
-                <span class="info-icon">✉️</span>
+              <p class="text-0.9rem mb-2 opacity-90">
+                <span class="mr-2">✉️</span>
                 singapore@vmmcglobal.com
               </p>
-              <p class="office-info">
-                <span class="info-icon">🕒</span>
+              <p class="text-0.9rem mb-2 opacity-90">
+                <span class="mr-2">🕐</span>
                 Mon-Fri: 9:00 AM - 6:00 PM SGT
               </p>
             </div>
             <NuxtLink
               to="/contact"
-              class="visit-link"
+              class="inline-block px-6 py-2.5 bg-white/20 text-white no-underline rounded-25px font-500 transition-all duration-300 hover:bg-white/30 hover:translate-x-5px"
             >
               Visit Headquarters
             </NuxtLink>
           </div>
 
           <!-- 迪拜办公室 -->
-          <div class="office-card">
-            <div class="office-header">
-              <div class="office-icon">
+          <div
+            class="bg-tm-bg-secondary dark:bg-tm-bg-primary rounded-16px p-30px transition-all duration-300 hover:-translate-y-5px hover:shadow-office"
+          >
+            <div class="flex items-center gap-15px mb-5">
+              <div
+                class="w-48px h-48px bg-tm-bg-primary dark:bg-tm-bg-secondary rounded-12px flex items-center justify-center text-tm-pri-0"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -212,26 +246,30 @@
                 </svg>
               </div>
               <div>
-                <h3 class="office-title">Dubai</h3>
-                <p class="office-subtitle">Middle East Office</p>
+                <h3 class="text-1.5rem font-600 mb-1 text-tm-txt-primary">Dubai</h3>
+                <p class="text-0.9rem text-tm-txt-secondary">Middle East Office</p>
               </div>
             </div>
-            <div class="office-details">
-              <p class="office-address">
+            <div class="mb-5">
+              <p class="mb-15px leading-1.6 text-tm-txt-primary">
                 Dubai International Financial Centre
                 <br />
                 Gate Village 3, Level 15, Dubai, UAE
               </p>
-              <p class="office-info">+971 4 123 4567</p>
-              <p class="office-info">dubai@vmmcglobal.com</p>
-              <p class="office-info">Sun-Thu: 9:00 AM - 6:00 PM GST</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">+971 4 123 4567</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">dubai@vmmcglobal.com</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">Sun-Thu: 9:00 AM - 6:00 PM GST</p>
             </div>
           </div>
 
           <!-- 上海办公室 -->
-          <div class="office-card">
-            <div class="office-header">
-              <div class="office-icon">
+          <div
+            class="bg-tm-bg-secondary dark:bg-tm-bg-primary rounded-16px p-30px transition-all duration-300 hover:-translate-y-5px hover:shadow-office"
+          >
+            <div class="flex items-center gap-15px mb-5">
+              <div
+                class="w-48px h-48px bg-tm-bg-primary dark:bg-tm-bg-secondary rounded-12px flex items-center justify-center text-tm-pri-0"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -249,19 +287,19 @@
                 </svg>
               </div>
               <div>
-                <h3 class="office-title">Shanghai</h3>
-                <p class="office-subtitle">China Operations</p>
+                <h3 class="text-1.5rem font-600 mb-1 text-tm-txt-primary">Shanghai</h3>
+                <p class="text-0.9rem text-tm-txt-secondary">China Operations</p>
               </div>
             </div>
-            <div class="office-details">
-              <p class="office-address">
+            <div class="mb-5">
+              <p class="mb-15px leading-1.6 text-tm-txt-primary">
                 Shanghai World Financial Center
                 <br />
                 Level 85, Pudong, Shanghai 200120
               </p>
-              <p class="office-info">+86 21 1234 5678</p>
-              <p class="office-info">shanghai@vmmcglobal.com</p>
-              <p class="office-info">Mon-Fri: 9:00 AM - 6:00 PM CST</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">+86 21 1234 5678</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">shanghai@vmmcglobal.com</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">Mon-Fri: 9:00 AM - 6:00 PM CST</p>
             </div>
           </div>
         </div>
@@ -275,453 +313,206 @@
 </script>
 
 <style scoped>
-  .contact-section {
-    padding: 100px 0;
-    background: var(--tm-bg-primary);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* 标题区域 */
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--tm-txt-primary);
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.25rem;
-    color: var(--tm-txt-secondary);
-  }
-
-  /* 联系方式网格 */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
-  }
-
-  .contact-card {
-    text-align: center;
-    padding: 40px 30px;
-    background: var(--tm-bg-secondary);
-    border-radius: 16px;
-    transition: all 0.3s ease;
-  }
-
-  .contact-card:hover {
-    transform: translateY(-5px);
+  /* 自定义阴影 */
+  .hover\:shadow-contact:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
-  /* 头部容器 - 图标和标题横向排列 */
-  .contact-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
+  .dark .hover\:shadow-contact:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
-  .contact-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0;
-    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    flex-shrink: 0;
-  }
-
-  .contact-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--tm-txt-primary);
-    margin: 0;
-  }
-
-  .contact-link {
-    display: inline-block;
-    font-size: 1.125rem;
-    color: var(--tm-pri-0);
-    text-decoration: none;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-  }
-
-  .contact-link:hover {
-    color: var(--tm-pri-1);
-  }
-
-  .chat-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.125rem;
-    padding: 0;
-  }
-
-  .contact-desc {
-    font-size: 0.9rem;
-    color: var(--tm-txt-secondary);
-  }
-
-  /* 办公室部分 */
-  .offices-section {
-    padding-top: 40px;
-    border-top: 1px solid var(--tm-bd-light);
-  }
-
-  .office-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-  }
-
-  .office-card {
-    background: var(--tm-bg-secondary);
-    border-radius: 16px;
-    padding: 30px;
-    transition: all 0.3s ease;
-  }
-
-  .office-card.featured {
-    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
-    color: white;
-  }
-
-  .office-card:hover {
-    transform: translateY(-5px);
+  .hover\:shadow-office:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
-  .office-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+  .dark .hover\:shadow-office:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
-  .office-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+  /* 渐变背景 */
+  .bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--tm-pri-0), var(--tm-pri-1));
   }
 
-  .office-card:not(.featured) .office-icon {
-    background: var(--tm-bg-primary);
-    color: var(--tm-pri-0);
-  }
-
-  .office-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .office-card:not(.featured) .office-title {
-    color: var(--tm-txt-primary);
-  }
-
-  .office-subtitle {
-    font-size: 0.9rem;
-    opacity: 0.9;
-  }
-
-  .office-card:not(.featured) .office-subtitle {
-    color: var(--tm-txt-secondary);
-  }
-
-  .office-details {
-    margin-bottom: 20px;
-  }
-
-  .office-address {
-    margin-bottom: 15px;
-    line-height: 1.6;
-  }
-
-  .office-card:not(.featured) .office-address {
-    color: var(--tm-txt-primary);
-  }
-
-  .office-info {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
-    opacity: 0.9;
-  }
-
-  .office-card:not(.featured) .office-info {
-    color: var(--tm-txt-secondary);
-  }
-
-  .info-icon {
-    margin-right: 8px;
-  }
-
-  .visit-link {
-    display: inline-block;
-    padding: 10px 24px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .visit-link:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateX(5px);
-  }
-
-  /* 深色模式 */
-  .dark .contact-section {
-    background: var(--tm-bg-secondary);
-  }
-
-  .dark .contact-card,
-  .dark .office-card:not(.featured) {
-    background: var(--tm-bg-primary);
-  }
-
-  .dark .offices-section {
-    border-top-color: var(--tm-bd-secondary);
-  }
-
-  /* 手机端响应式 - 减少留白 */
+  /* 响应式调整 */
   @media (max-width: 768px) {
-    .contact-section {
-      padding: 40px 0;
+    /* 标题 */
+    .text-3rem {
+      font-size: 1.75rem;
     }
 
-    .container {
-      padding: 0 16px;
+    .text-1\.25rem {
+      font-size: 1rem;
     }
 
-    .section-header {
+    /* 间距 */
+    .py-100px {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .mb-60px {
       margin-bottom: 30px;
     }
 
-    .section-title {
-      font-size: 1.75rem;
-      margin-bottom: 8px;
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-      line-height: 1.3;
-    }
-
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 15px;
+    .mb-80px {
       margin-bottom: 35px;
     }
 
-    .contact-card {
-      padding: 20px 16px;
-      text-align: left;
-    }
-
-    /* 手机端调整头部布局 */
-    .contact-header {
-      justify-content: flex-start;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-    }
-
-    .contact-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .contact-title {
-      font-size: 1.1rem;
-    }
-
-    .contact-link {
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .contact-desc {
-      font-size: 0.85rem;
-    }
-
-    /* 办公室部分 */
-    .offices-section {
-      padding-top: 25px;
-    }
-
-    .office-grid {
-      grid-template-columns: 1fr;
+    .gap-30px {
       gap: 15px;
     }
 
-    .office-card {
-      padding: 20px;
+    .p-10 {
+      padding: 20px 16px;
     }
 
-    .office-header {
-      margin-bottom: 15px;
-      gap: 12px;
+    /* 联系卡片移动端左对齐 */
+    .text-center {
+      text-align: left;
     }
 
-    .office-icon {
+    .justify-center {
+      justify-content: flex-start;
+    }
+
+    /* 图标尺寸 */
+    .w-60px {
       width: 40px;
+    }
+
+    .h-60px {
       height: 40px;
     }
 
-    .office-title {
+    .text-1\.125rem {
+      font-size: 1rem;
+    }
+
+    /* 办公室部分 */
+    .pt-40px {
+      padding-top: 25px;
+    }
+
+    .p-30px {
+      padding: 20px;
+    }
+
+    .w-48px {
+      width: 40px;
+    }
+
+    .h-48px {
+      height: 40px;
+    }
+
+    .text-1\.5rem {
       font-size: 1.25rem;
     }
 
-    .office-subtitle {
-      font-size: 0.85rem;
-    }
-
-    .office-details {
-      margin-bottom: 15px;
-    }
-
-    .office-address {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-
-    .office-info {
-      font-size: 0.85rem;
-      margin-bottom: 6px;
-    }
-
-    .visit-link {
-      padding: 8px 20px;
-      font-size: 0.9rem;
-    }
-
-    .office-card.featured {
+    /* 特色卡片顺序 */
+    .grid > div:first-child {
       order: -1;
     }
   }
 
-  /* 小屏手机进一步优化 */
   @media (max-width: 480px) {
-    .contact-section {
-      padding: 30px 0;
-    }
-
-    .section-header {
-      margin-bottom: 25px;
-    }
-
-    .section-title {
+    /* 标题 */
+    .text-3rem {
       font-size: 1.5rem;
-      margin-bottom: 6px;
     }
 
-    .section-subtitle {
+    .text-1\.25rem {
       font-size: 0.9rem;
     }
 
-    .contact-grid {
-      gap: 12px;
+    /* 间距 */
+    .py-100px {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .mb-60px {
+      margin-bottom: 25px;
+    }
+
+    .mb-80px {
       margin-bottom: 30px;
     }
 
-    .contact-card {
-      padding: 18px 14px;
-    }
-
-    .contact-header {
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .contact-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-    }
-
-    .contact-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .contact-title {
-      font-size: 1.05rem;
-    }
-
-    .contact-link {
-      font-size: 0.95rem;
-    }
-
-    .contact-desc {
-      font-size: 0.8rem;
-    }
-
-    .offices-section {
-      padding-top: 20px;
-    }
-
-    .office-grid {
+    .gap-30px {
       gap: 12px;
     }
 
-    .office-card {
-      padding: 16px;
+    .p-10 {
+      padding: 18px 14px;
     }
 
-    .office-header {
-      margin-bottom: 12px;
-    }
-
-    .office-icon {
+    /* 图标 */
+    .w-60px {
       width: 36px;
+    }
+
+    .h-60px {
       height: 36px;
     }
 
-    .office-title {
+    .rounded-16px {
+      border-radius: 10px;
+    }
+
+    .gap-3 {
+      gap: 8px;
+    }
+
+    .mb-5 {
+      margin-bottom: 10px;
+    }
+
+    .text-1\.25rem {
+      font-size: 1.05rem;
+    }
+
+    .text-1\.125rem {
+      font-size: 0.95rem;
+    }
+
+    .text-0\.9rem {
+      font-size: 0.8rem;
+    }
+
+    /* 办公室部分 */
+    .pt-40px {
+      padding-top: 20px;
+    }
+
+    .p-30px {
+      padding: 16px;
+    }
+
+    .gap-15px {
+      gap: 12px;
+    }
+
+    .w-48px {
+      width: 36px;
+    }
+
+    .h-48px {
+      height: 36px;
+    }
+
+    .text-1\.5rem {
       font-size: 1.15rem;
     }
 
-    .office-subtitle {
-      font-size: 0.8rem;
-    }
-
-    .office-address {
+    .text-0\.9rem {
       font-size: 0.85rem;
     }
 
-    .office-info {
-      font-size: 0.8rem;
+    .mb-15px {
+      margin-bottom: 10px;
     }
   }
 </style>
