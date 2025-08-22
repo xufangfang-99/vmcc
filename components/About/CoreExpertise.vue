@@ -579,12 +579,9 @@
 
 <script setup lang="ts">
   import { computed } from 'vue'
-  import { useTheme } from '~/composables/useTheme'
   import { useDevice } from '~/composables/useDevice'
 
-  const theme = useTheme()
   const device = useDevice()
-  const isDark = computed(() => theme.isDark)
 
   // 根据设备类型动态调整样式
   const serviceCardClass = computed(() => {
