@@ -2,70 +2,115 @@
   <Transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed inset-0 z-9999 bg-[var(--tm-bg-primary)]"
+      class="fixed inset-0 z-9999"
     >
+      <!-- Background gradient -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute inset-0"
+          :style="{
+            background: `linear-gradient(135deg, var(--tm-bg-primary) 0%, var(--tm-bg-secondary) 100%)`,
+          }"
+        ></div>
+        <!-- Decorative elements -->
+        <div
+          class="absolute -top-20 -right-20 w-80 h-80 rounded-full op-5"
+          :style="{
+            background: `radial-gradient(circle, var(--tm-accent-primary), transparent)`,
+          }"
+        ></div>
+      </div>
+
       <!-- Mobile Container -->
-      <div class="h-full w-full flex flex-col">
+      <div class="relative h-full w-full flex flex-col">
         <!-- Mobile Header -->
         <div
-          class="flex items-center justify-between p-4 border-b sticky top-0 z-10 backdrop-blur-sm"
+          class="relative overflow-hidden"
           :style="{
-            borderColor: 'var(--tm-bd-primary)',
-            backgroundColor: 'var(--tm-bg-primary)',
-            minHeight: navigationStack.length === 0 ? '80px' : '60px',
+            background:
+              navigationStack.length === 0
+                ? `linear-gradient(to bottom, var(--tm-bg-primary), transparent)`
+                : 'transparent',
           }"
         >
-          <!-- Back/Close Button -->
-          <button
-            class="p-2 -ml-2 rounded-lg active:bg-gray-100 dark:active:bg-gray-800 transition-colors"
-            @click="navigationStack.length > 0 ? goBack() : closeMenu()"
+          <div
+            class="flex items-center justify-between p-5 transition-all duration-300"
+            :style="{
+              paddingTop: navigationStack.length === 0 ? '2rem' : '1.25rem',
+              paddingBottom: navigationStack.length === 0 ? '1.5rem' : '1.25rem',
+            }"
           >
-            <Transition
-              name="icon-switch"
-              mode="out-in"
+            <!-- Back/Close Button -->
+            <button
+              class="relative p-3 -ml-3 rounded-2xl transition-all duration-300 hover:bg-white/10 active:scale-95"
+              @click="navigationStack.length > 0 ? goBack() : closeMenu()"
             >
-              <div
-                v-if="navigationStack.length === 0"
-                key="close"
-                class="i-carbon-close w-6 h-6"
-              ></div>
-              <div
-                v-else
-                key="back"
-                class="i-carbon-chevron-left w-6 h-6"
-              ></div>
-            </Transition>
-          </button>
-
-          <!-- Title with animation -->
-          <div class="text-center flex-1 overflow-hidden">
-            <Transition
-              name="title-slide"
-              mode="out-in"
-            >
-              <div
-                :key="currentTitle"
-                class="px-2"
-              >
-                <h2
-                  class="text-lg font-medium m-0 truncate"
-                  :style="{ color: 'var(--tm-txt-primary)' }"
+              <div class="relative">
+                <Transition
+                  name="icon-switch"
+                  mode="out-in"
                 >
-                  {{ currentTitle }}
-                </h2>
-                <p
-                  v-if="currentSubtitle"
-                  class="text-xs op-70 mt-1 truncate"
-                  :style="{ color: 'var(--tm-txt-secondary)' }"
-                >
-                  {{ currentSubtitle }}
-                </p>
+                  <div
+                    v-if="navigationStack.length === 0"
+                    key="close"
+                    class="i-carbon-close w-6 h-6"
+                    :style="{ color: 'var(--tm-txt-primary)' }"
+                  ></div>
+                  <div
+                    v-else
+                    key="back"
+                    class="i-carbon-arrow-left w-6 h-6"
+                    :style="{ color: 'var(--tm-txt-primary)' }"
+                  ></div>
+                </Transition>
               </div>
-            </Transition>
+              <!-- Ripple effect -->
+              <div
+                class="absolute inset-0 rounded-2xl bg-white/20 scale-0 active:scale-100 transition-transform duration-300"
+              ></div>
+            </button>
+
+            <!-- Title with animation -->
+            <div class="text-center flex-1 overflow-hidden px-4">
+              <Transition
+                name="title-slide"
+                mode="out-in"
+              >
+                <div :key="currentTitle">
+                  <h2
+                    class="font-light m-0 transition-all duration-300"
+                    :class="navigationStack.length === 0 ? 'text-2xl tracking-wider' : 'text-lg'"
+                    :style="{
+                      color:
+                        navigationStack.length === 0
+                          ? 'var(--tm-accent-primary)'
+                          : 'var(--tm-txt-primary)',
+                    }"
+                  >
+                    {{ currentTitle }}
+                  </h2>
+                  <p
+                    v-if="currentSubtitle"
+                    class="text-xs op-60 mt-2 font-light tracking-wide animate-fade-in"
+                    :style="{ color: 'var(--tm-txt-secondary)' }"
+                  >
+                    {{ currentSubtitle }}
+                  </p>
+                </div>
+              </Transition>
+            </div>
+
+            <!-- Balance placeholder -->
+            <div class="w-12"></div>
           </div>
 
-          <!-- Placeholder for balance -->
-          <div class="w-10"></div>
+          <!-- Decorative line -->
+          <div
+            class="absolute bottom-0 left-0 right-0 h-px"
+            :style="{
+              background: `linear-gradient(to right, transparent, var(--tm-bd-light), transparent)`,
+            }"
+          ></div>
         </div>
 
         <!-- Mobile Content with slide transition -->
@@ -79,44 +124,74 @@
               class="absolute inset-0 overflow-y-auto overscroll-contain"
             >
               <!-- Main Menu (Root Level) -->
-              <nav v-if="navigationStack.length === 0">
-                <!-- Menu Items -->
-                <ul class="list-none p-0 m-0">
+              <nav
+                v-if="navigationStack.length === 0"
+                class="py-4"
+              >
+                <!-- Menu Items with cards -->
+                <ul class="list-none p-4 m-0 space-y-3">
                   <li
                     v-for="(item, index) in menuItems"
                     :key="item.name"
-                    class="border-b border-[var(--tm-bd-light)] animate-fade-in"
-                    :style="{ animationDelay: `${index * 50}ms` }"
+                    class="animate-slide-up op-0"
+                    :style="{ animationDelay: `${index * 60}ms` }"
                   >
                     <button
-                      class="flex items-center justify-between px-6 py-4 w-full transition-colors active:bg-[var(--tm-bg-active)] text-left"
-                      :style="{ color: 'var(--tm-txt-primary)' }"
+                      class="group relative w-full p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 active:scale-98 active:bg-white/10"
                       @click="handleMenuClick(item)"
                     >
-                      <span class="text-base font-normal">{{ item.name }}</span>
+                      <div class="flex items-center justify-between">
+                        <span
+                          class="text-base font-normal transition-colors duration-300 group-active:text-[var(--tm-accent-primary)]"
+                          :style="{ color: 'var(--tm-txt-primary)' }"
+                        >
+                          {{ item.name }}
+                        </span>
+                        <div
+                          v-if="hasSubItemsOrConfig(item)"
+                          class="i-carbon-chevron-right w-5 h-5 op-40 transition-all duration-300 group-active:translate-x-1 group-active:op-70"
+                        ></div>
+                      </div>
+                      <!-- Gradient overlay on hover -->
                       <div
-                        v-if="hasSubItemsOrConfig(item)"
-                        class="i-carbon-chevron-right w-5 h-5 op-60"
+                        class="absolute inset-0 rounded-2xl op-0 group-active:op-100 transition-opacity duration-300 pointer-events-none"
+                        :style="{
+                          background: `linear-gradient(135deg, var(--tm-accent-primary) 0%, transparent 60%)`,
+                        }"
                       ></div>
                     </button>
                   </li>
                 </ul>
 
-                <!-- Bottom Links -->
-                <div class="mt-8 py-6 px-6 border-t border-[var(--tm-bd-primary)]">
+                <!-- Bottom Links with modern design -->
+                <div class="mt-auto p-6">
+                  <div
+                    class="mb-6 h-px"
+                    :style="{
+                      background: `linear-gradient(to right, transparent 20%, var(--tm-bd-light) 50%, transparent 80%)`,
+                    }"
+                  ></div>
                   <div class="grid grid-cols-2 gap-3">
                     <NuxtLink
                       v-for="(link, index) in bottomLinks"
                       :key="link.name"
                       :to="link.path"
-                      class="block py-3 px-4 text-center rounded-lg bg-[var(--tm-bg-secondary)] transition-all active:scale-95 animate-fade-in"
+                      class="group relative py-4 px-5 text-center rounded-xl bg-gradient-to-br from-white/5 to-white/8 backdrop-blur-sm transition-all duration-300 active:scale-95 animate-fade-in op-0 overflow-hidden"
                       :style="{
-                        color: 'var(--tm-txt-secondary)',
-                        animationDelay: `${(menuItems.length + index) * 50}ms`,
+                        animationDelay: `${(menuItems.length + index) * 60}ms`,
                       }"
                       @click="closeMenu"
                     >
-                      <span class="text-sm">{{ link.name }}</span>
+                      <span
+                        class="relative text-sm font-light transition-colors duration-300 group-active:text-[var(--tm-accent-primary)]"
+                        :style="{ color: 'var(--tm-txt-secondary)' }"
+                      >
+                        {{ link.name }}
+                      </span>
+                      <!-- Shine effect -->
+                      <div
+                        class="absolute inset-0 -translate-x-full group-active:translate-x-full transition-transform duration-500 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                      ></div>
                     </NuxtLink>
                   </div>
                 </div>
@@ -127,65 +202,91 @@
                 v-else
                 class="min-h-full"
               >
-                <!-- Explore Link Banner -->
+                <!-- Explore Link Banner with gradient -->
                 <div
                   v-if="currentExploreLink"
-                  class="sticky top-0 z-5 bg-[var(--tm-accent-primary)] px-6 py-4"
+                  class="sticky top-0 z-5 overflow-hidden"
                 >
+                  <div
+                    class="absolute inset-0"
+                    :style="{
+                      background: `linear-gradient(135deg, var(--tm-accent-primary), var(--tm-accent-secondary))`,
+                    }"
+                  ></div>
                   <NuxtLink
                     :to="currentExploreLink.url"
-                    class="flex items-center justify-between text-white no-underline"
+                    class="relative flex items-center justify-between text-white no-underline px-6 py-5 group"
                     @click="closeMenuAndUpdatePath"
                   >
-                    <span class="text-sm font-semibold uppercase tracking-wider">
-                      {{ currentExploreLink.text }}
-                    </span>
-                    <div class="i-carbon-arrow-right w-5 h-5"></div>
+                    <div>
+                      <span class="text-sm font-semibold uppercase tracking-wider">
+                        {{ currentExploreLink.text }}
+                      </span>
+                      <div
+                        class="h-0.5 w-0 bg-white/80 transition-all duration-300 group-active:w-full mt-1"
+                      ></div>
+                    </div>
+                    <div
+                      class="i-carbon-arrow-right w-5 h-5 transition-transform duration-300 group-active:translate-x-2"
+                    ></div>
                   </NuxtLink>
                 </div>
 
                 <!-- Dynamic submenu content -->
-                <div class="pb-20">
+                <div class="p-4 pb-20">
                   <!-- Handle groups -->
                   <template v-if="hasGroups">
                     <div
                       v-for="(group, groupIndex) in currentItems"
                       :key="`group-${groupIndex}`"
-                      class="mb-6 animate-fade-in"
+                      class="mb-8 animate-fade-in op-0"
                       :style="{ animationDelay: `${groupIndex * 100}ms` }"
                     >
                       <h3
                         v-if="group.title || group.isGroup"
-                        class="px-6 py-3 text-sm font-bold tracking-wider uppercase bg-[var(--tm-bg-secondary)]"
-                        :style="{ color: 'var(--tm-accent-primary)' }"
+                        class="flex items-center gap-3 mb-4 px-2"
                       >
-                        {{ group.title || group.name }}
+                        <span
+                          class="w-8 h-px"
+                          :style="{ backgroundColor: 'var(--tm-accent-primary)' }"
+                        ></span>
+                        <span
+                          class="text-xs font-bold tracking-wider uppercase"
+                          :style="{ color: 'var(--tm-accent-primary)' }"
+                        >
+                          {{ group.title || group.name }}
+                        </span>
                       </h3>
                       <ul
                         v-if="group.subItems"
-                        class="list-none p-0 m-0"
+                        class="list-none p-0 m-0 space-y-2"
                       >
                         <li
                           v-for="(item, itemIndex) in group.subItems"
                           :key="`${group.title || group.name}-${item.name}-${itemIndex}`"
-                          class="border-b border-[var(--tm-bd-light)] animate-slide-up"
-                          :style="{ animationDelay: `${groupIndex * 100 + itemIndex * 30}ms` }"
+                          class="animate-slide-up op-0"
+                          :style="{ animationDelay: `${groupIndex * 100 + itemIndex * 40}ms` }"
                         >
                           <button
-                            class="flex items-center justify-between px-6 py-4 w-full transition-all active:bg-[var(--tm-bg-active)] text-left"
-                            :style="{ color: 'var(--tm-txt-primary)' }"
+                            class="group relative w-full p-4 rounded-xl bg-white/3 transition-all duration-300 active:bg-white/8 active:scale-98 text-left"
                             @click="handleItemClick(item)"
                           >
-                            <span
-                              class="text-base"
-                              :class="{ 'font-medium': hasSubItemsOrConfig(item) }"
-                            >
-                              {{ item.name }}
-                            </span>
-                            <div
-                              v-if="hasSubItemsOrConfig(item)"
-                              class="i-carbon-chevron-right w-5 h-5 op-60"
-                            ></div>
+                            <div class="flex items-center justify-between">
+                              <span
+                                class="text-base transition-colors duration-300"
+                                :class="{
+                                  'font-medium': hasSubItemsOrConfig(item),
+                                  'group-active:text-[var(--tm-accent-primary)]': true,
+                                }"
+                                :style="{ color: 'var(--tm-txt-primary)' }"
+                              >
+                                {{ item.name }}
+                              </span>
+                              <div
+                                v-if="hasSubItemsOrConfig(item)"
+                                class="i-carbon-chevron-right w-5 h-5 op-40 transition-all duration-300 group-active:translate-x-1"
+                              ></div>
+                            </div>
                           </button>
                         </li>
                       </ul>
@@ -195,71 +296,94 @@
                   <!-- Regular items -->
                   <ul
                     v-else
-                    class="list-none p-0 m-0"
+                    class="list-none p-0 m-0 space-y-2"
                   >
                     <li
                       v-for="(item, index) in currentItems"
                       :key="`item-${index}`"
-                      class="border-b border-[var(--tm-bd-light)] animate-slide-up"
-                      :style="{ animationDelay: `${index * 50}ms` }"
+                      class="animate-slide-up op-0"
+                      :style="{ animationDelay: `${index * 60}ms` }"
                     >
                       <button
-                        class="flex items-center justify-between px-6 py-4 w-full transition-all active:bg-[var(--tm-bg-active)] text-left"
-                        :style="{ color: 'var(--tm-txt-primary)' }"
+                        class="group relative w-full p-4 rounded-xl bg-white/3 transition-all duration-300 active:bg-white/8 active:scale-98 text-left"
                         @click="handleItemClick(item)"
                       >
-                        <span
-                          class="text-base"
-                          :class="{ 'font-medium': hasSubItemsOrConfig(item) }"
-                        >
-                          {{ item.name }}
-                        </span>
-                        <div
-                          v-if="hasSubItemsOrConfig(item)"
-                          class="i-carbon-chevron-right w-5 h-5 op-60"
-                        ></div>
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="text-base transition-colors duration-300"
+                            :class="{
+                              'font-medium': hasSubItemsOrConfig(item),
+                              'group-active:text-[var(--tm-accent-primary)]': true,
+                            }"
+                            :style="{ color: 'var(--tm-txt-primary)' }"
+                          >
+                            {{ item.name }}
+                          </span>
+                          <div
+                            v-if="hasSubItemsOrConfig(item)"
+                            class="i-carbon-chevron-right w-5 h-5 op-40 transition-all duration-300 group-active:translate-x-1"
+                          ></div>
+                        </div>
                       </button>
                     </li>
                   </ul>
 
-                  <!-- Featured section with better mobile design -->
+                  <!-- Featured section with modern cards -->
                   <div
                     v-if="currentFeatured"
-                    class="p-6 mt-8 bg-[var(--tm-bg-secondary)]"
+                    class="mt-10"
                   >
-                    <h3
-                      class="text-sm font-bold mb-6 tracking-wider uppercase flex items-center gap-3"
-                      :style="{ color: 'var(--tm-accent-primary)' }"
-                    >
-                      <span class="w-8 h-px bg-current"></span>
-                      {{ currentFeatured.title }}
+                    <h3 class="flex items-center gap-3 mb-6 px-2">
+                      <span
+                        class="w-8 h-px"
+                        :style="{ backgroundColor: 'var(--tm-accent-primary)' }"
+                      ></span>
+                      <span
+                        class="text-xs font-bold tracking-wider uppercase"
+                        :style="{ color: 'var(--tm-accent-primary)' }"
+                      >
+                        {{ currentFeatured.title }}
+                      </span>
                     </h3>
                     <div class="space-y-4">
                       <NuxtLink
                         v-for="(item, index) in currentFeatured.items"
                         :key="item.name"
                         :to="item.link"
-                        class="block p-4 rounded-lg bg-[var(--tm-bg-primary)] border border-[var(--tm-bd-light)] transition-all active:scale-98 animate-fade-in"
-                        :style="{ animationDelay: `${index * 100 + 200}ms` }"
+                        class="group block relative p-5 rounded-2xl overflow-hidden transition-all duration-300 active:scale-98 animate-fade-in op-0"
+                        :style="{
+                          animationDelay: `${index * 100 + 300}ms`,
+                          background: `linear-gradient(135deg, var(--tm-bg-accent-gradient-from) 0%, var(--tm-bg-accent-gradient-to) 100%)`,
+                        }"
                         @click="closeMenuAndUpdatePath"
                       >
-                        <h4
-                          class="text-base font-semibold mb-2"
-                          :style="{ color: 'var(--tm-txt-primary)' }"
-                        >
-                          {{ item.name }}
-                        </h4>
-                        <p
-                          v-if="item.description"
-                          class="text-sm leading-relaxed op-80"
-                          :style="{ color: 'var(--tm-txt-secondary)' }"
-                        >
-                          {{ item.description }}
-                        </p>
-                        <div class="mt-3 flex items-center gap-2 text-[var(--tm-accent-primary)]">
-                          <span class="text-xs font-medium uppercase">Learn More</span>
-                          <div class="i-carbon-arrow-right w-3 h-3"></div>
+                        <div class="relative z-10">
+                          <h4
+                            class="text-lg font-medium mb-2"
+                            :style="{ color: 'var(--tm-txt-white)' }"
+                          >
+                            {{ item.name }}
+                          </h4>
+                          <p
+                            v-if="item.description"
+                            class="text-sm leading-relaxed op-90 mb-3"
+                            :style="{ color: 'var(--tm-txt-white)' }"
+                          >
+                            {{ item.description }}
+                          </p>
+                          <div class="flex items-center gap-2 text-white">
+                            <span class="text-xs font-medium uppercase tracking-wider op-80">
+                              Learn More
+                            </span>
+                            <div
+                              class="i-carbon-arrow-right w-4 h-4 transition-transform duration-300 group-active:translate-x-2"
+                            ></div>
+                          </div>
                         </div>
+                        <!-- Gradient overlay -->
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent op-0 group-active:op-100 transition-opacity duration-300"
+                        ></div>
                       </NuxtLink>
                     </div>
                   </div>
@@ -498,7 +622,7 @@
   /* Base Transitions */
   .slide-enter-active,
   .slide-leave-active {
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .slide-enter-from {
@@ -512,33 +636,33 @@
   /* Icon switch transition */
   .icon-switch-enter-active,
   .icon-switch-leave-active {
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .icon-switch-enter-from {
     opacity: 0;
-    transform: rotate(-90deg);
+    transform: scale(0.8) rotate(-90deg);
   }
 
   .icon-switch-leave-to {
     opacity: 0;
-    transform: rotate(90deg);
+    transform: scale(0.8) rotate(90deg);
   }
 
   /* Title slide transition */
   .title-slide-enter-active,
   .title-slide-leave-active {
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .title-slide-enter-from {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateY(-10px);
   }
 
   .title-slide-leave-to {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(10px);
   }
 
   /* Content navigation transitions */
@@ -546,36 +670,36 @@
   .slide-forward-leave-active,
   .slide-back-enter-active,
   .slide-back-leave-active {
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .slide-forward-enter-from {
     transform: translateX(100%);
+    opacity: 0.5;
   }
 
   .slide-forward-leave-to {
-    transform: translateX(-30%);
-    opacity: 0.5;
+    transform: translateX(-50%);
+    opacity: 0;
   }
 
   .slide-back-enter-from {
-    transform: translateX(-30%);
-    opacity: 0.5;
+    transform: translateX(-50%);
+    opacity: 0;
   }
 
   .slide-back-leave-to {
     transform: translateX(100%);
+    opacity: 0.5;
   }
 
   /* Animations */
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
 
@@ -591,26 +715,17 @@
   }
 
   .animate-fade-in {
-    opacity: 0;
-    animation: fadeIn 0.4s ease-out forwards;
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .animate-slide-up {
-    opacity: 0;
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   /* Smooth scrolling on iOS */
   .overscroll-contain {
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-  }
-
-  /* Active states for better touch feedback */
-  @media (hover: none) {
-    button:active {
-      transform: scale(0.98);
-    }
   }
 
   /* Safe area for notched devices */
