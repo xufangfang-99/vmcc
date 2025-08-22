@@ -8,8 +8,12 @@
         class="relative nav-item-container"
       >
         <a
-          class="nav-link text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-pri-0)] flex items-center gap-1 py-4 px-2"
-          :class="{ 'active-menu-item': activeItem?.name === item.name }"
+          class="nav-link text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-pri-0)] flex items-center gap-1 px-2"
+          :class="{
+            'active-menu-item': activeItem?.name === item.name,
+            'py-2': hasVerticalLayout,
+            'py-4': !hasVerticalLayout,
+          }"
           :style="{
             color: activeItem?.name === item.name ? 'var(--tm-pri-0)' : 'var(--tm-txt-primary)',
           }"
@@ -255,12 +259,14 @@
     showSubmenuOnHover?: boolean
     onMenuClick?: (item: MenuItem) => void
     onSubMenuClick?: (parentItem: MenuItem, subItem: UnifiedMenuItem) => void
+    hasVerticalLayout?: boolean
   }
 
   const props = withDefaults(defineProps<Props>(), {
     showSubmenuOnHover: true,
     onMenuClick: () => undefined,
     onSubMenuClick: () => undefined,
+    hasVerticalLayout: false,
   })
 
   const emit = defineEmits<{

@@ -13,18 +13,22 @@
           <!-- 仅在非移动端显示 NavMenu -->
           <Responsive :not-mobile="true">
             <div class="nav-wrapper">
-              <!-- 默认导航 -->
-              <NavMenu
+              <!-- 默认导航 - 改为上下布局 -->
+              <div
                 v-if="navigation.isDefaultNav"
-                :menu-items="menuItems"
-                @menu-click="handleMenuClick"
-                @submenu-click="handleSubmenuClick"
-              />
+                class="nav-vertical-container"
+              >
+                <!-- 显示选中的菜单路径 -->
+                <MenuBreadcrumb />
+                <NavMenu
+                  :menu-items="menuItems"
+                  :has-vertical-layout="true"
+                  @menu-click="handleMenuClick"
+                  @submenu-click="handleSubmenuClick"
+                />
+              </div>
               <!-- 自定义导航 -->
-              <CustomNavMenu v-else />
-
-              <!-- 显示选中的菜单路径 -->
-              <MenuBreadcrumb v-if="navigation.isDefaultNav" />
+              <CustomNavMenu />
             </div>
           </Responsive>
         </div>
@@ -164,7 +168,8 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 60px;
+    height: auto;
+    min-height: 60px;
     background: var(--tm-bg-primary);
     border-bottom: 1px solid var(--tm-bd-primary);
     transition: all 0.3s ease;
@@ -189,8 +194,19 @@
 
   .nav-wrapper {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     flex: 1;
+  }
+
+  /* 新增：垂直布局容器 */
+  .nav-vertical-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    padding: 8px 0;
   }
 
   .header-right {
@@ -224,7 +240,7 @@
 
   @media (max-width: 768px) {
     .main-header {
-      height: 56px;
+      min-height: 56px;
     }
 
     .header-left {
@@ -233,6 +249,11 @@
 
     .main-content {
       min-height: calc(100vh - 56px);
+    }
+
+    .nav-vertical-container {
+      padding: 6px 0;
+      gap: 2px;
     }
   }
 
