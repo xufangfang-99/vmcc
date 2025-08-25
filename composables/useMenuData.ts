@@ -1,10 +1,9 @@
 import type { MenuItem } from '~/components/NavMenu.types'
 
 export const useMenuData = () => {
-  // 中文菜单数据
   const menuItems: MenuItem[] = [
     {
-      name: '行业',
+      name: 'Industries',
       hasSubMenu: true,
       subItems: [
         { name: 'Aerospace & Defense', hasSubMenu: false },
@@ -254,10 +253,10 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: 'HOME',
+      name: 'HOME', // 可以是任何语言
       hasSubMenu: false,
       link: '/',
-      isHome: true,
+      isHome: true, // 可选：添加标识
     },
   ]
 
@@ -310,38 +309,8 @@ export const useMenuData = () => {
         { name: '作者专栏', link: '/blog/authors' },
       ],
     },
-    // 二级菜单的特殊配置 - 更新为新的行业分类
+    // 二级菜单的特殊配置
     secondLevel: {
-      '行业-Aerospace & Defense': [
-        { name: '国防采购', link: '/industries/aerospace-defense/procurement' },
-        { name: '航空制造', link: '/industries/aerospace-defense/manufacturing' },
-        { name: '太空技术', link: '/industries/aerospace-defense/space' },
-        { name: '军工服务', link: '/industries/aerospace-defense/services' },
-      ],
-      '行业-Agriculture': [
-        { name: '智慧农业', link: '/industries/agriculture/smart' },
-        { name: '农业科技', link: '/industries/agriculture/tech' },
-        { name: '供应链优化', link: '/industries/agriculture/supply-chain' },
-        { name: '可持续农业', link: '/industries/agriculture/sustainable' },
-      ],
-      '行业-Financial Services': [
-        { name: '银行业', link: '/industries/financial-services/banking' },
-        { name: '保险业', link: '/industries/financial-services/insurance' },
-        { name: '资产管理', link: '/industries/financial-services/asset-management' },
-        { name: '支付科技', link: '/industries/financial-services/fintech' },
-      ],
-      '行业-Healthcare': [
-        { name: '医院管理', link: '/industries/healthcare/hospital' },
-        { name: '医疗器械', link: '/industries/healthcare/devices' },
-        { name: '数字医疗', link: '/industries/healthcare/digital' },
-        { name: '健康保险', link: '/industries/healthcare/insurance' },
-      ],
-      '行业-Technology, Media & Telecommunications': [
-        { name: '互联网', link: '/industries/tmt/internet' },
-        { name: '软件服务', link: '/industries/tmt/software' },
-        { name: '通信运营商', link: '/industries/tmt/telecom' },
-        { name: '媒体娱乐', link: '/industries/tmt/media' },
-      ],
       '能力-业务构建': [
         { name: '商业模式创新', link: '/capabilities/business-building/model' },
         { name: '创业孵化', link: '/capabilities/business-building/incubation' },
