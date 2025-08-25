@@ -195,7 +195,7 @@
               </div>
             </div>
             <div class="mb-5">
-              <p class="mb-15px leading-1.6">
+              <p class="mb-15px">
                 1 Marina Bay Sands, Level 20
                 <br />
                 Singapore 018956
@@ -251,7 +251,7 @@
               </div>
             </div>
             <div class="mb-5">
-              <p class="mb-15px leading-1.6 text-tm-txt-primary">
+              <p class="mb-15px text-tm-txt-primary">
                 Dubai International Financial Centre
                 <br />
                 Gate Village 3, Level 15, Dubai, UAE

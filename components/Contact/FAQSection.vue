@@ -43,7 +43,7 @@
             }"
           >
             <div class="px-30px pb-24px">
-              <p class="text-1rem leading-1.8 text-tm-txt-secondary">
+              <p class="text-1rem text-tm-txt-secondary">
                 {{ item.answer }}
               </p>
             </div>
