@@ -362,7 +362,7 @@
 
   const props = defineProps<Props>()
   const navigation = useNavigation()
-  const { specialMenuConfigs } = useMenuData()
+  const { specialMenuConfigs, industriesThirdLevelItems } = useMenuData()
 
   const emit = defineEmits<{
     'update:open': [value: boolean]
@@ -446,9 +446,37 @@
     }
   }
 
+  // 🔥 修复后的 handleNavigation 函数
   const handleNavigation = (item: UnifiedMenuItem, parentName: string) => {
     console.log('Desktop menu navigation:', parentName, '->', item.name)
 
+    // 🔥 新增：特殊处理 Industries 的二级菜单 - 显示固定的三级菜单
+    if (parentName === 'Industries') {
+      console.log('Desktop menu - Industries 二级菜单触发：显示固定三级菜单')
+
+      // 构建基础路径
+      const basePath = `/industries/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+
+      // 生成固定的三级菜单结构
+      const thirdLevelItems = industriesThirdLevelItems.map((thirdItem) => ({
+        name: thirdItem,
+        link: `${basePath}/${thirdItem.toLowerCase().replace(/\s+/g, '-')}`,
+        hasSubMenu: false,
+      }))
+
+      // 更新选中路径
+      navigation.setSelectedPath({
+        firstLevel: parentName,
+        secondLevel: item.name,
+      })
+
+      // 切换到自定义导航显示三级菜单
+      navigation.switchToCustom(thirdLevelItems, basePath)
+      closeMenu()
+      return
+    }
+
+    // 原有逻辑保持不变
     const basePath = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
 
     const menuKey = `${parentName}-${item.name}`

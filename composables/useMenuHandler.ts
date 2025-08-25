@@ -7,14 +7,26 @@ export const useMenuHandler = () => {
   const { specialMenuConfigs, industriesThirdLevelItems } = useMenuData()
   const route = useRoute()
 
+  // 新增：重置导航到首页状态的函数
+  const resetToHome = () => {
+    console.log('重置导航到首页状态')
+
+    // 清除所有选中路径
+    navigation.clearSelectedPath()
+
+    // 切换回默认导航
+    navigation.switchToDefault()
+
+    console.log('导航状态重置完成')
+  }
+
   const handleMenuClick = (item: MenuItem) => {
     console.log('Menu clicked:', item.name, 'link:', item.link)
 
     // 方案1：通过 link 判断是否是主页（推荐）
     if (item.link === '/') {
       // 重置导航状态
-      navigation.switchToDefault()
-      navigation.clearSelectedPath()
+      resetToHome()
 
       // 如果已经在主页，不需要导航
       if (route.path === '/') {
@@ -26,8 +38,7 @@ export const useMenuHandler = () => {
 
     // 方案2：如果使用了 isHome 标识
     if (item.isHome) {
-      navigation.switchToDefault()
-      navigation.clearSelectedPath()
+      resetToHome()
       return navigateTo('/')
     }
 
@@ -123,5 +134,6 @@ export const useMenuHandler = () => {
     handleMenuClick,
     handleSubmenuClick,
     handleIconClick,
+    resetToHome, // 导出重置函数，供Logo组件使用
   }
 }
