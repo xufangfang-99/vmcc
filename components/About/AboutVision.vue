@@ -111,10 +111,11 @@
         <!-- 右侧图片 -->
         <div class="image-section">
           <div class="image-wrapper">
-            <img
-              src="/images/about/hero-bg.jpg"
+            <OptImage
+              :src="heroImageSrc"
               alt="现代办公环境"
               class="vision-image"
+              @error="handleImageError"
             />
             <div class="image-overlay"></div>
           </div>
@@ -145,7 +146,28 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  const heroImageSrc = computed(() => {
+    return '/images/comm/about/hero-bg.jpg'
+  })
+  const handleImageError = (event: Event) => {
+    const img = event.target as HTMLImageElement
+    if (!img) return
+
+    console.error('Hero图片加载失败:', img.src)
+
+    // 防止事件冒泡，避免影响路由
+    event.preventDefault()
+    event.stopPropagation()
+
+    // 如果深色模式图片加载失败，尝试加载浅色版本
+    if (img.src.includes('hero-bg-dark')) {
+      console.log('深色hero图片加载失败，切换到浅色版本')
+      img.src = '/images/comm/about/hero-bg.jpg'
+    } else {
+      console.log('Hero图片完全加载失败，隐藏图片')
+      img.style.display = 'none'
+    }
+  }
 </script>
 
 <style scoped>
