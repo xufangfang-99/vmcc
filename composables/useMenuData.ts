@@ -6,32 +6,56 @@ export const useMenuData = () => {
       name: 'Industries',
       hasSubMenu: true,
       subItems: [
-        { name: 'Aerospace & Defense', hasSubMenu: false },
-        { name: 'Agriculture', hasSubMenu: false },
-        { name: 'Automotive & Assembly', hasSubMenu: false },
-        { name: 'Chemicals', hasSubMenu: false },
-        { name: 'Consumer Packaged Goods', hasSubMenu: false },
-        { name: 'Education', hasSubMenu: false },
-        { name: 'Electric Power & Natural Gas', hasSubMenu: false },
-        { name: 'Energy and Materials', hasSubMenu: false },
-        { name: 'Engineering, Construction & Building Materials', hasSubMenu: false },
-        { name: 'Financial Services', hasSubMenu: false },
-        { name: 'Healthcare', hasSubMenu: false },
-        { name: 'Industrials & Electronics', hasSubMenu: false },
-        { name: 'Infrastructure', hasSubMenu: false },
-        { name: 'Life Sciences', hasSubMenu: false },
-        { name: 'Logistics', hasSubMenu: false },
-        { name: 'Metals & Mining', hasSubMenu: false },
-        { name: 'Oil & Gas', hasSubMenu: false },
-        { name: 'Packaging & Paper', hasSubMenu: false },
-        { name: 'Private Capital', hasSubMenu: false },
-        { name: 'Public Sector', hasSubMenu: false },
-        { name: 'Real Estate', hasSubMenu: false },
-        { name: 'Retail', hasSubMenu: false },
-        { name: 'Semiconductors', hasSubMenu: false },
-        { name: 'Social Sector', hasSubMenu: false },
-        { name: 'Technology, Media & Telecommunications', hasSubMenu: false },
-        { name: 'Travel', hasSubMenu: false },
+        { name: 'Aerospace & Defense', hasSubMenu: false, link: '/industries/aerospace-defense' },
+        { name: 'Agriculture', hasSubMenu: false, link: '/industries/agriculture' },
+        {
+          name: 'Automotive & Assembly',
+          hasSubMenu: false,
+          link: '/industries/automotive-assembly',
+        },
+        { name: 'Chemicals', hasSubMenu: false, link: '/industries/chemicals' },
+        {
+          name: 'Consumer Packaged Goods',
+          hasSubMenu: false,
+          link: '/industries/consumer-packaged-goods',
+        },
+        { name: 'Education', hasSubMenu: false, link: '/industries/education' },
+        {
+          name: 'Electric Power & Natural Gas',
+          hasSubMenu: false,
+          link: '/industries/electric-power-natural-gas',
+        },
+        { name: 'Energy and Materials', hasSubMenu: false, link: '/industries/energy-materials' },
+        {
+          name: 'Engineering, Construction & Building Materials',
+          hasSubMenu: false,
+          link: '/industries/engineering-construction-building-materials',
+        },
+        { name: 'Financial Services', hasSubMenu: false, link: '/industries/financial-services' },
+        { name: 'Healthcare', hasSubMenu: false, link: '/industries/healthcare' },
+        {
+          name: 'Industrials & Electronics',
+          hasSubMenu: false,
+          link: '/industries/industrials-electronics',
+        },
+        { name: 'Infrastructure', hasSubMenu: false, link: '/industries/infrastructure' },
+        { name: 'Life Sciences', hasSubMenu: false, link: '/industries/life-sciences' },
+        { name: 'Logistics', hasSubMenu: false, link: '/industries/logistics' },
+        { name: 'Metals & Mining', hasSubMenu: false, link: '/industries/metals-mining' },
+        { name: 'Oil & Gas', hasSubMenu: false, link: '/industries/oil-gas' },
+        { name: 'Packaging & Paper', hasSubMenu: false, link: '/industries/packaging-paper' },
+        { name: 'Private Capital', hasSubMenu: false, link: '/industries/private-capital' },
+        { name: 'Public Sector', hasSubMenu: false, link: '/industries/public-sector' },
+        { name: 'Real Estate', hasSubMenu: false, link: '/industries/real-estate' },
+        { name: 'Retail', hasSubMenu: false, link: '/industries/retail' },
+        { name: 'Semiconductors', hasSubMenu: false, link: '/industries/semiconductors' },
+        { name: 'Social Sector', hasSubMenu: false, link: '/industries/social-sector' },
+        {
+          name: 'Technology, Media & Telecommunications',
+          hasSubMenu: false,
+          link: '/industries/technology-media-telecommunications',
+        },
+        { name: 'Travel', hasSubMenu: false, link: '/industries/travel' },
       ],
     },
     {
@@ -253,17 +277,26 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: 'HOME', // 可以是任何语言
+      name: 'HOME',
       hasSubMenu: false,
       link: '/',
-      isHome: true, // 可选：添加标识
+      isHome: true,
     },
+  ]
+
+  // Industries 三级菜单项 - 直接导航到页面，不需要四级菜单
+  const industriesThirdLevelItems = [
+    'How We Help Clients',
+    'Our Insights',
+    'Our People',
+    'Contact Us',
   ]
 
   // 特殊菜单配置
   const specialMenuConfigs: {
     firstLevel: Record<string, any[]>
     secondLevel: Record<string, any[]>
+    thirdLevel: Record<string, any[]>
   } = {
     // 一级菜单的特殊配置
     firstLevel: {
@@ -309,6 +342,7 @@ export const useMenuData = () => {
         { name: '作者专栏', link: '/blog/authors' },
       ],
     },
+
     // 二级菜单的特殊配置
     secondLevel: {
       '能力-业务构建': [
@@ -372,10 +406,14 @@ export const useMenuData = () => {
         { name: '公共部门', link: '/careers/beyond/public' },
       ],
     },
+
+    // 三级菜单配置 - 不再需要为 Industries 生成四级菜单
+    thirdLevel: {},
   }
 
   return {
     menuItems,
     specialMenuConfigs,
+    industriesThirdLevelItems,
   }
 }

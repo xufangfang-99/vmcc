@@ -4,7 +4,7 @@ import { useMenuData } from './useMenuData'
 
 export const useMenuHandler = () => {
   const navigation = useNavigation()
-  const { specialMenuConfigs } = useMenuData()
+  const { specialMenuConfigs, industriesThirdLevelItems } = useMenuData()
   const route = useRoute()
 
   const handleMenuClick = (item: MenuItem) => {
@@ -68,6 +68,22 @@ export const useMenuHandler = () => {
       firstLevel: parentItem.name,
       secondLevel: subItem.name,
     })
+
+    // 特殊处理 Industries 的二级菜单 - 显示固定的三级菜单
+    if (parentItem.name === 'Industries') {
+      console.log('Industries 二级菜单触发：显示固定三级菜单')
+      const basePath = `/industries/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`
+
+      // 生成固定的三级菜单结构 - 这些都是最终页面，不需要更多子菜单
+      const thirdLevelItems = industriesThirdLevelItems.map((item) => ({
+        name: item,
+        link: `${basePath}/${item.toLowerCase().replace(/\s+/g, '-')}`,
+        hasSubMenu: false,
+      }))
+
+      navigation.switchToCustom(thirdLevelItems, basePath)
+      return
+    }
 
     // 场景1：如果点击的二级菜单有三级菜单
     if (subItem.hasSubMenu && subItem.subItems) {

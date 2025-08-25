@@ -342,14 +342,12 @@
   const getSubmenuWidth = (item: MenuItem): string => {
     // Set different widths based on menu type
     const widthMap: Record<string, string> = {
-      Industries: '800px',
+      Industries: '1000px',
       Capabilities: '600px',
       'Our Insights': '600px',
       Careers: '400px',
       'About Us': '600px',
       'About Victor Meridian': '800px',
-      // Chinese menu items
-      行业: '800px',
       能力: '600px',
       洞察: '600px',
       职业发展: '400px',
