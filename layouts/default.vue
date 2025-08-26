@@ -1,9 +1,16 @@
 <template>
-  <div class="app-layout">
+  <div class="min-h-screen bg-[var(--tm-bg-primary)] transition-colors duration-300 ease">
     <!-- 头部导航 -->
-    <header class="main-header">
-      <div class="header-container">
-        <div class="header-left">
+    <header
+      :class="[
+        'sticky top-0 z-1000 h-auto min-h-60px md:min-h-56px bg-[var(--tm-bg-primary)] border-b border-[var(--tm-bd-primary)] transition-all duration-300 ease',
+        isScrolled ? 'header-scrolled' : '',
+      ]"
+    >
+      <div
+        class="max-w-1400px h-full mx-auto px-12px sm:px-16px lg:px-20px flex justify-between items-center"
+      >
+        <div class="flex items-center gap-2 sm:gap-3 lg:gap-4 flex-1">
           <MenuIcon
             :menu-items="menuItems"
             @click="handleIconClick"
@@ -12,11 +19,11 @@
 
           <!-- 仅在非移动端显示 NavMenu -->
           <Responsive :not-mobile="true">
-            <div class="nav-wrapper">
+            <div class="flex items-stretch flex-1">
               <!-- 默认导航 - 改为上下布局 -->
               <div
                 v-if="navigation.isDefaultNav"
-                class="nav-vertical-container"
+                class="flex flex-col items-start justify-center gap-0.5 md:gap-1 w-full py-6px md:py-8px"
               >
                 <!-- 显示选中的菜单路径 -->
                 <MenuBreadcrumb />
@@ -33,7 +40,7 @@
           </Responsive>
         </div>
 
-        <div class="header-right">
+        <div class="flex items-center">
           <ThemeSelector />
         </div>
       </div>
@@ -45,11 +52,14 @@
     </Responsive>
 
     <!-- 主内容区域 -->
-    <main class="main-content">
+    <main
+      class="min-h-[calc(100vh-60px)] md:min-h-[calc(100vh-56px)] bg-[var(--tm-bg-secondary)] transition-colors duration-300 ease"
+    >
       <slot></slot>
     </main>
   </div>
 </template>
+
 <script setup lang="ts">
   import { useNavigation } from '~/composables/useNavigation'
   import { useMenuData } from '~/composables/useMenuData'
@@ -81,114 +91,14 @@
   const { handleMenuClick, handleSubmenuClick, handleIconClick } = useMenuHandler()
 </script>
 
-<style scoped>
-  .app-layout {
-    min-height: 100vh;
-    background: var(--tm-bg-primary);
-    transition: background-color 0.3s ease;
-  }
-
-  /* 头部样式 */
-  .main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: auto;
-    min-height: 60px;
-    background: var(--tm-bg-primary);
-    border-bottom: 1px solid var(--tm-bd-primary);
-    transition: all 0.3s ease;
-  }
-
-  .header-container {
-    max-width: 1400px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-  }
-
-  .nav-wrapper {
-    display: flex;
-    align-items: stretch;
-    flex: 1;
-  }
-
-  /* 新增：垂直布局容器 */
-  .nav-vertical-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 4px;
-    width: 100%;
-    padding: 8px 0;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
-
-  /* 主内容区域 */
-  .main-content {
-    min-height: calc(100vh - 60px);
-    background: var(--tm-bg-secondary);
-    transition: background-color 0.3s ease;
-  }
-
+<style>
   /* 滚动时的头部阴影效果 */
-  .main-header.scrolled {
+  .header-scrolled {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   /* 深色模式下的阴影 */
-  .dark .main-header.scrolled {
+  .dark .header-scrolled {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 1024px) {
-    .header-container {
-      padding: 0 16px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .main-header {
-      min-height: 56px;
-    }
-
-    .header-left {
-      gap: 0.75rem;
-    }
-
-    .main-content {
-      min-height: calc(100vh - 56px);
-    }
-
-    .nav-vertical-container {
-      padding: 6px 0;
-      gap: 2px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .header-container {
-      padding: 0 12px;
-    }
-
-    .header-left {
-      gap: 0.5rem;
-    }
   }
 </style>
