@@ -163,8 +163,29 @@
             </p>
           </div>
 
-          <!-- Maintenance Repair and Overhaul (MRO) -->
+          <!-- Security and cybersecurity -->
           <div class="animate-fade-in-up animation-delay-600">
+            <h3
+              class="text-2xl font-semibold mb-6"
+              :style="{ color: 'var(--tm-txt-primary)' }"
+            >
+              Security and cybersecurity
+            </h3>
+            <p
+              class="text-sm leading-relaxed"
+              :style="{ color: 'var(--tm-txt-secondary)' }"
+            >
+              We help incumbents and new entrants in the physical security and cybersecurity markets
+              craft strategies to succeed. As the aerospace and defense industry relies on more
+              connectivity technologies today, our digital security experts help clients find
+              solutions to secure and protect the industry's technology backbone, mission-critical
+              to the development, manufacture, operation, and maintenance of aerospace and defense
+              equipment.
+            </p>
+          </div>
+
+          <!-- Maintenance Repair and Overhaul (MRO) -->
+          <div class="animate-fade-in-up animation-delay-700">
             <div class="flex items-start justify-between mb-6">
               <h3
                 class="text-2xl font-semibold"

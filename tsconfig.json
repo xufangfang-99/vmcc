@@ -29,7 +29,8 @@
     ".nuxt/nuxt.d.ts",
     ".nuxt/types/**/*",
     "*.d.ts",
-    "types/**/*.d.ts"
+    "types/**/*.d.ts",
+    "pages/Industries/AerospaceDefense/HowWeHelpClients/AerospaceIndustryIntro.vue"
   ],
   "exclude": ["node_modules", "dist", ".output"]
 }

@@ -69,49 +69,78 @@
           </p>
         </div>
 
-        <!-- 简化的统计信息或关键指标 -->
+        <!-- 专业统计数据 -->
         <div class="mt-16 flex justify-center animate-fade-in-up animation-delay-600">
-          <div class="grid grid-cols-3 gap-8 md:gap-12 text-center">
-            <div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            <div class="relative">
               <div
                 class="text-3xl md:text-4xl font-light mb-2"
                 :style="{ color: 'var(--tm-accent-primary)' }"
               >
-                15+
+                15
               </div>
               <div
-                class="text-sm font-medium tracking-wider uppercase"
+                class="text-sm font-medium tracking-wider uppercase leading-tight"
                 :style="{ color: 'var(--tm-txt-secondary)' }"
               >
-                Years Experience
+                countries served
               </div>
+              <!-- 分隔线 -->
+              <div
+                class="hidden md:block absolute right-0 top-2 bottom-2 w-px"
+                :style="{ backgroundColor: 'var(--tm-bd-light)' }"
+              ></div>
+            </div>
+            <div class="relative">
+              <div
+                class="text-3xl md:text-4xl font-light mb-2"
+                :style="{ color: 'var(--tm-accent-primary)' }"
+              >
+                10
+              </div>
+              <div
+                class="text-sm font-medium tracking-wider uppercase leading-tight"
+                :style="{ color: 'var(--tm-txt-secondary)' }"
+              >
+                of the top 20 defense companies served
+              </div>
+              <!-- 分隔线 -->
+              <div
+                class="hidden md:block absolute right-0 top-2 bottom-2 w-px"
+                :style="{ backgroundColor: 'var(--tm-bd-light)' }"
+              ></div>
+            </div>
+            <div class="relative">
+              <div
+                class="text-3xl md:text-4xl font-light mb-2"
+                :style="{ color: 'var(--tm-accent-primary)' }"
+              >
+                12
+              </div>
+              <div
+                class="text-sm font-medium tracking-wider uppercase leading-tight"
+                :style="{ color: 'var(--tm-txt-secondary)' }"
+              >
+                of the top 25 global aerospace companies served
+              </div>
+              <!-- 分隔线 -->
+              <div
+                class="hidden md:block absolute right-0 top-2 bottom-2 w-px"
+                :style="{ backgroundColor: 'var(--tm-bd-light)' }"
+              ></div>
             </div>
             <div>
               <div
                 class="text-3xl md:text-4xl font-light mb-2"
                 :style="{ color: 'var(--tm-accent-primary)' }"
               >
-                100+
+                >200
               </div>
               <div
-                class="text-sm font-medium tracking-wider uppercase"
+                class="text-sm font-medium tracking-wider uppercase leading-tight"
                 :style="{ color: 'var(--tm-txt-secondary)' }"
               >
-                Industry Experts
-              </div>
-            </div>
-            <div>
-              <div
-                class="text-3xl md:text-4xl font-light mb-2"
-                :style="{ color: 'var(--tm-accent-primary)' }"
-              >
-                500+
-              </div>
-              <div
-                class="text-sm font-medium tracking-wider uppercase"
-                :style="{ color: 'var(--tm-txt-secondary)' }"
-              >
-                Successful Projects
+                A&D experts
               </div>
             </div>
           </div>

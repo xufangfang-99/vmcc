@@ -16,16 +16,20 @@
     <!-- 服务行业 -->
     <SectorsWeServe />
 
+    <!-- 我们的团队 -->
+    <OurPeople />
+
     <!-- 其他页面内容可以在这里添加 -->
     <!-- 例如：案例研究、客户证言等 -->
   </div>
 </template>
 
 <script setup>
-  import IndustryPageHeader from './AerospaceDefense/HowWeHelpClients/IndustryPageHeader.vue'
-  import IndustryIntroSection from './AerospaceDefense/HowWeHelpClients/IndustryIntroSection.vue'
-  import HowWeHelpClients from './AerospaceDefense/HowWeHelpClients/HowWeHelpClients.vue'
-  import SectorsWeServe from './AerospaceDefense/HowWeHelpClients/SectorsWeServe.vue'
+  import IndustryPageHeader from './AerospaceDefense/HowWeHelpClients/AerospacePageHeader.vue'
+  import IndustryIntroSection from './AerospaceDefense/HowWeHelpClients/AerospaceIndustryIntro.vue'
+  import HowWeHelpClients from './AerospaceDefense/HowWeHelpClients/AerospaceHowWeHelpClients.vue'
+  import SectorsWeServe from './AerospaceDefense/HowWeHelpClients/AerospaceSectorsWeServe.vue'
+  import OurPeople from './AerospaceDefense/HowWeHelpClients/AerospaceOurPeople.vue'
 
   // 页面数据
   const industryName = 'Aerospace & Defense'
