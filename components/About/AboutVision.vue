@@ -1,31 +1,42 @@
 <!-- components/about/AboutVision.vue -->
 <template>
-  <section class="about-vision">
-    <div class="container">
-      <div class="vision-grid">
+  <section class="about-vision py-100px bg-[var(--tm-bg-secondary)] relative overflow-hidden">
+    <!-- 背景装饰 -->
+    <div class="background-decoration"></div>
+
+    <div class="max-w-1200px mx-auto px-20px relative z-1">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-80px items-center">
         <!-- 左侧内容 -->
-        <div class="content-section">
-          <h2 class="section-title">
+        <div class="pr-0 lg:pr-40px">
+          <h2 class="text-3xl lg:text-5xl font-light text-[var(--tm-txt-primary)] mb-30px">
             Global Vision,
-            <span class="highlight">Local Expertise</span>
+            <span
+              class="text-[var(--tm-accent-primary)] font-semibold bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] bg-clip-text text-transparent inline-block"
+            >
+              Local Expertise
+            </span>
           </h2>
 
-          <p class="description">
+          <p class="text-lg text-[var(--tm-txt-secondary)] mb-20px">
             VMMC combines extensive industry experience with a global perspective, leveraging
             top-tier worldwide resources to establish a comprehensive service framework that
             seamlessly integrates localized execution with global coordination.
           </p>
 
-          <p class="description">
+          <p class="text-lg text-[var(--tm-txt-secondary)] mb-20px">
             Our commitment extends beyond traditional consulting. We partner with enterprise clients
             and individuals to provide transformative solutions that drive sustainable growth and
             success in an increasingly connected world.
           </p>
 
           <!-- 特点列表 -->
-          <div class="features-list">
-            <div class="feature-item">
-              <div class="feature-icon">
+          <div class="mt-40px flex flex-col gap-30px">
+            <div
+              class="feature-item flex gap-20px items-start transition-transform duration-300 ease hover:translate-x-10px"
+            >
+              <div
+                class="feature-icon w-56px h-56px bg-[var(--tm-bg-badge)] rounded-12px flex items-center justify-center text-[var(--tm-accent-primary)] flex-shrink-0 transition-all duration-300 ease border border-[var(--tm-bd-feature)]"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -45,16 +56,22 @@
                 </svg>
               </div>
               <div>
-                <h3 class="feature-title">Global Network</h3>
-                <p class="feature-desc">
+                <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)] mb-8px">
+                  Global Network
+                </h3>
+                <p class="text-sm text-[var(--tm-txt-secondary)]">
                   Strategic offices across Asia-Pacific and Middle East regions, ensuring
                   comprehensive market coverage and local expertise.
                 </p>
               </div>
             </div>
 
-            <div class="feature-item">
-              <div class="feature-icon">
+            <div
+              class="feature-item flex gap-20px items-start transition-transform duration-300 ease hover:translate-x-10px"
+            >
+              <div
+                class="feature-icon w-56px h-56px bg-[var(--tm-bg-badge)] rounded-12px flex items-center justify-center text-[var(--tm-accent-primary)] flex-shrink-0 transition-all duration-300 ease border border-[var(--tm-bd-feature)]"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -69,16 +86,22 @@
                 </svg>
               </div>
               <div>
-                <h3 class="feature-title">Comprehensive Services</h3>
-                <p class="feature-desc">
+                <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)] mb-8px">
+                  Comprehensive Services
+                </h3>
+                <p class="text-sm text-[var(--tm-txt-secondary)]">
                   One-stop solutions covering executive search, HR outsourcing, immigration, study
                   abroad, and strategic consulting services.
                 </p>
               </div>
             </div>
 
-            <div class="feature-item">
-              <div class="feature-icon">
+            <div
+              class="feature-item flex gap-20px items-start transition-transform duration-300 ease hover:translate-x-10px"
+            >
+              <div
+                class="feature-icon w-56px h-56px bg-[var(--tm-bg-badge)] rounded-12px flex items-center justify-center text-[var(--tm-accent-primary)] flex-shrink-0 transition-all duration-300 ease border border-[var(--tm-bd-feature)]"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -98,8 +121,10 @@
                 </svg>
               </div>
               <div>
-                <h3 class="feature-title">Expert Advisory</h3>
-                <p class="feature-desc">
+                <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)] mb-8px">
+                  Expert Advisory
+                </h3>
+                <p class="text-sm text-[var(--tm-txt-secondary)]">
                   Seasoned industry experts with average 10+ years experience, delivering deep
                   insights and tailored solutions.
                 </p>
@@ -109,18 +134,24 @@
         </div>
 
         <!-- 右侧图片 -->
-        <div class="image-section">
-          <div class="image-wrapper">
+        <div class="relative">
+          <div class="relative rounded-20px overflow-hidden shadow-[var(--tm-shadow-hero)]">
             <OptImage
               :src="heroImageSrc"
               alt="现代办公环境"
-              class="vision-image"
+              class="w-full h-150 lg:h-600px object-cover"
               @error="handleImageError"
             />
-            <div class="image-overlay"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[var(--tm-accent-gradient-from)] to-transparent opacity-10"
+            ></div>
           </div>
-          <div class="excellence-badge">
-            <div class="badge-icon">
+          <div
+            class="excellence-badge absolute bottom-30px right-30px bg-[var(--tm-bg-primary)] p-20px px-30px rounded-16px shadow-[var(--tm-shadow-card)] flex items-center gap-16px border border-[var(--tm-bd-card)] backdrop-blur-10px"
+          >
+            <div
+              class="w-48px h-48px bg-gradient-to-br from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] rounded-12px flex items-center justify-center text-white"
+            >
               <svg
                 width="24"
                 height="24"
@@ -134,9 +165,9 @@
                 ></path>
               </svg>
             </div>
-            <div class="badge-content">
-              <h4>Excellence</h4>
-              <p>Recognized Leader</p>
+            <div>
+              <h4 class="text-lg font-semibold text-[var(--tm-txt-primary)] mb-4px">Excellence</h4>
+              <p class="text-sm text-[var(--tm-txt-secondary)]">Recognized Leader</p>
             </div>
           </div>
         </div>
@@ -149,6 +180,7 @@
   const heroImageSrc = computed(() => {
     return '/images/comm/about/hero-bg.jpg'
   })
+
   const handleImageError = (event: Event) => {
     const img = event.target as HTMLImageElement
     if (!img) return
@@ -170,16 +202,11 @@
   }
 </script>
 
-<style scoped>
-  .about-vision {
-    padding: 100px 0;
-    background: var(--tm-bg-primary);
-    position: relative;
-    overflow: hidden;
-  }
+<style>
+  /* 只保留复杂样式 */
 
   /* 背景装饰 */
-  .about-vision::before {
+  .background-decoration::before {
     content: '';
     position: absolute;
     top: -200px;
@@ -190,88 +217,7 @@
     opacity: 0.3;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .vision-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  /* 内容区域 */
-  .content-section {
-    padding-right: 40px;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    font-weight: 300;
-    line-height: 1.2;
-    color: var(--tm-txt-primary);
-    margin-bottom: 30px;
-  }
-
-  .highlight {
-    color: var(--tm-accent-primary);
-    font-weight: 600;
-    background: linear-gradient(
-      var(--tm-accent-gradient-angle, 135deg),
-      var(--tm-accent-gradient-from),
-      var(--tm-accent-gradient-to)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-
-  .description {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: var(--tm-txt-secondary);
-    margin-bottom: 20px;
-  }
-
-  /* 特点列表 */
-  .features-list {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .feature-item {
-    display: flex;
-    gap: 20px;
-    align-items: start;
-    transition: transform 0.3s ease;
-  }
-
-  .feature-item:hover {
-    transform: translateX(10px);
-  }
-
-  .feature-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--tm-bg-badge);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--tm-accent-primary);
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-    border: 1px solid var(--tm-bd-feature);
-  }
-
+  /* 特色项目悬停效果 */
   .feature-item:hover .feature-icon {
     background: linear-gradient(135deg, var(--tm-accent-feature-from), var(--tm-accent-feature-to));
     color: var(--tm-txt-white);
@@ -279,88 +225,7 @@
     box-shadow: var(--tm-shadow-feature);
   }
 
-  .feature-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--tm-txt-primary);
-    margin-bottom: 8px;
-  }
-
-  .feature-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--tm-txt-secondary);
-  }
-
-  /* 图片区域 */
-  .image-section {
-    position: relative;
-  }
-
-  .image-wrapper {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--tm-shadow-hero);
-  }
-
-  .vision-image {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-  }
-
-  .image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--tm-accent-gradient-from) 0%, transparent 50%);
-    opacity: 0.1;
-  }
-
-  .excellence-badge {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: var(--tm-bg-primary);
-    padding: 20px 30px;
-    border-radius: 16px;
-    box-shadow: var(--tm-shadow-card);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    border: 1px solid var(--tm-bd-card);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .badge-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(
-      135deg,
-      var(--tm-accent-gradient-from),
-      var(--tm-accent-gradient-to)
-    );
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--tm-txt-white);
-  }
-
-  .badge-content h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--tm-txt-primary);
-    margin-bottom: 4px;
-  }
-
-  .badge-content p {
-    font-size: 0.9rem;
-    color: var(--tm-txt-secondary);
-  }
-
-  /* 深色模式 */
+  /* 深色模式适配 */
   .dark .about-vision {
     background: var(--tm-bg-secondary);
   }
@@ -373,31 +238,5 @@
   .dark .feature-icon {
     background: var(--tm-bg-whiteAlpha10);
     border-color: var(--tm-bd-transparent);
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 968px) {
-    .vision-grid {
-      grid-template-columns: 1fr;
-      gap: 50px;
-    }
-
-    .content-section {
-      padding-right: 0;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-    }
-
-    .vision-image {
-      height: 300px;
-    }
-
-    .excellence-badge {
-      position: static;
-      margin-top: 20px;
-      width: 100%;
-    }
   }
 </style>

@@ -292,7 +292,7 @@
               </div>
             </div>
             <div class="mb-5">
-              <p class="mb-15px leading-1.6 text-tm-txt-primary">
+              <p class="mb-15px text-tm-txt-primary">
                 Shanghai World Financial Center
                 <br />
                 Level 85, Pudong, Shanghai 200120

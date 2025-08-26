@@ -1,22 +1,26 @@
 <template>
-  <section class="about-hero">
+  <section class="relative min-h-screen flex items-center overflow-hidden">
     <!-- 背景图片 -->
-    <div class="hero-bg">
+    <div class="absolute inset-0 z-0">
       <OptImage
         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
-        alt="团队协作"
-        class="bg-image"
+        alt="团队合作"
+        class="w-full h-full object-cover"
         :auto-dark-mode="true"
       />
-      <div class="bg-overlay"></div>
-      <div class="bg-pattern"></div>
+      <!-- 遮罩层 -->
+      <div class="absolute inset-0 bg-black/60"></div>
+      <!-- 装饰图案 -->
+      <div class="absolute inset-0 bg-gradient-radial-pattern opacity-60"></div>
     </div>
 
-    <div class="container">
-      <div class="hero-content">
+    <div class="relative z-1 max-w-1200px mx-auto px-20px w-full">
+      <div class="text-center text-white">
         <!-- Logo区域 -->
-        <div class="company-badge">
-          <div class="badge-icon">
+        <div class="inline-flex mb-30px">
+          <div
+            class="company-badge w-60px h-60px bg-[var(--tm-bg-badge)] border-2 border-[var(--tm-bd-white-alpha30)] rounded-16px flex items-center justify-center backdrop-blur-10px text-[var(--tm-accent-primary)] transition-all duration-300 ease hover:scale-110 hover:rotate-5 hover:bg-[var(--tm-accent-primary)] hover:text-white hover:border-[var(--tm-accent-primary)]"
+          >
             <svg
               width="24"
               height="24"
@@ -30,19 +34,23 @@
           </div>
         </div>
 
-        <!-- 标题区域 - 使用 Logo 组件 -->
-        <div class="title-section">
-          <h1 class="hero-title">
-            <span class="about-text">About</span>
+        <!-- 标题区域 -->
+        <div class="mb-40px">
+          <h1
+            class="text-4xl md:text-6xl font-light tracking-tight mb-10px text-white flex items-center justify-center gap-0.3em flex-col md:flex-row"
+          >
+            <span class="font-light">About</span>
             <VMMCLogoInline
-              class="highlight-logo"
+              class="highlight-logo inline-flex items-center animate-glow"
               :size="'1.2em'"
               color="gradient"
             />
           </h1>
-          <p class="company-name">Victor Meridian Management Consultancies L.L.C</p>
+          <p class="text-lg text-[var(--tm-txt-white-alpha85)] mb-30px tracking-wider">
+            Victor Meridian Management Consultancies L.L.C
+          </p>
 
-          <p class="hero-description">
+          <p class="text-xl leading-relaxed text-white max-w-800px mx-auto opacity-90">
             A global comprehensive human resources and consulting firm headquartered in Singapore,
             delivering exceptional one-stop services across executive search, HR outsourcing,
             immigration, study abroad, and strategic consulting.
@@ -50,13 +58,13 @@
         </div>
 
         <!-- CTA按钮 -->
-        <div class="cta-buttons">
-          <button class="btn-primary">
+        <div class="cta-buttons flex gap-20px justify-center mb-60px">
+          <button
+            class="btn-primary px-32px py-12px rounded-30px text-base font-medium border-none cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-gradient-to-br from-[var(--tm-accent-hero-from)] to-[var(--tm-accent-hero-to)] text-white shadow-[var(--tm-shadow-accent)] hover:translate-y--2px hover:shadow-[var(--tm-shadow-hover)]"
+          >
             <span>Our Services</span>
             <svg
-              class="btn-icon"
-              width="20"
-              height="20"
+              class="btn-icon w-20px h-20px transition-transform duration-300 ease"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -65,43 +73,69 @@
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
-          <button class="btn-secondary">
+          <button
+            class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white"
+          >
             <span>Contact Us</span>
           </button>
         </div>
 
         <!-- 统计数据 -->
-        <div class="stats-row">
-          <div class="stat-item">
-            <h3 class="stat-number">
+        <div
+          class="stats-row flex justify-center items-center gap-40px p-40px bg-[var(--tm-bg-white-alpha05)] rounded-20px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] relative overflow-hidden flex-wrap"
+        >
+          <div class="text-center relative z-1">
+            <h3
+              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+            >
               8
-              <span class="stat-plus">+</span>
+              <span class="text-2xl opacity-80">+</span>
             </h3>
-            <p class="stat-label">Global Offices</p>
+            <p class="text-sm text-[var(--tm-txt-white-alpha85)] whitespace-nowrap">
+              Global Offices
+            </p>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <h3 class="stat-number">
+          <div
+            class="w-px h-50px bg-gradient-to-b from-transparent via-[var(--tm-bd-white-alpha30)] to-transparent hidden md:block"
+          ></div>
+          <div class="text-center relative z-1">
+            <h3
+              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+            >
               10
-              <span class="stat-plus">+</span>
+              <span class="text-2xl opacity-80">+</span>
             </h3>
-            <p class="stat-label">Years Experience</p>
+            <p class="text-sm text-[var(--tm-txt-white-alpha85)] whitespace-nowrap">
+              Years Experience
+            </p>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <h3 class="stat-number">
+          <div
+            class="w-px h-50px bg-gradient-to-b from-transparent via-[var(--tm-bd-white-alpha30)] to-transparent hidden md:block"
+          ></div>
+          <div class="text-center relative z-1">
+            <h3
+              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+            >
               1000
-              <span class="stat-plus">+</span>
+              <span class="text-2xl opacity-80">+</span>
             </h3>
-            <p class="stat-label">Successful Placements</p>
+            <p class="text-sm text-[var(--tm-txt-white-alpha85)] whitespace-nowrap">
+              Successful Placements
+            </p>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <h3 class="stat-number">
+          <div
+            class="w-px h-50px bg-gradient-to-b from-transparent via-[var(--tm-bd-white-alpha30)] to-transparent hidden md:block"
+          ></div>
+          <div class="text-center relative z-1">
+            <h3
+              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+            >
               50
-              <span class="stat-plus">+</span>
+              <span class="text-2xl opacity-80">+</span>
             </h3>
-            <p class="stat-label">Industry Sectors</p>
+            <p class="text-sm text-[var(--tm-txt-white-alpha85)] whitespace-nowrap">
+              Industry Sectors
+            </p>
           </div>
         </div>
       </div>
@@ -113,115 +147,17 @@
   import VMMCLogoInline from '~/components/Logo/VMMCLogoInline.vue'
 </script>
 
-<style scoped>
-  .about-hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
+<style>
+  /* 只保留无法用 UnoCSS 表达的复杂样式 */
 
-  /* 背景样式 */
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* 遮罩层 - 使用主题变量 */
-  .bg-overlay {
-    position: absolute;
-    inset: 0;
-    background: var(--tm-bg-overlay);
-  }
-
-  /* 装饰图案 */
-  .bg-pattern {
-    position: absolute;
-    inset: 0;
+  /* 背景渐变图案 */
+  .bg-gradient-radial-pattern {
     background-image:
       radial-gradient(circle at 20% 50%, var(--tm-bg-accent-gradient-from) 0%, transparent 40%),
       radial-gradient(circle at 80% 80%, var(--tm-bg-accent-gradient-to) 0%, transparent 40%);
-    opacity: 0.6;
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
-  }
-
-  .hero-content {
-    text-align: center;
-    color: var(--tm-txt-white);
-  }
-
-  /* 公司徽章 - 使用主题变量 */
-  .company-badge {
-    display: inline-flex;
-    margin-bottom: 30px;
-  }
-
-  .badge-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--tm-bg-badge);
-    border: 2px solid var(--tm-bd-white-alpha30);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--tm-accent-primary);
-    transition: all 0.3s ease;
-  }
-
-  .badge-icon:hover {
-    transform: scale(1.1) rotate(5deg);
-    background: var(--tm-accent-primary);
-    color: var(--tm-txt-white);
-    border-color: var(--tm-accent-primary);
-  }
-
-  /* 标题区域 - 使用主题变量 */
-  .title-section {
-    margin-bottom: 40px;
-  }
-
-  .hero-title {
-    font-size: 4rem;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    margin-bottom: 10px;
-    color: var(--tm-txt-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3em;
-  }
-
-  .about-text {
-    font-weight: 300;
-  }
-
-  /* Logo 样式 */
-  .highlight-logo {
-    display: inline-flex;
-    align-items: center;
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
+  /* Logo 发光动画 */
   @keyframes glow {
     from {
       filter: drop-shadow(0 0 10px var(--tm-accent-gradient-from));
@@ -231,93 +167,16 @@
     }
   }
 
-  .company-name {
-    font-size: 1.125rem;
-    color: var(--tm-txt-white-alpha85);
-    margin-bottom: 30px;
-    letter-spacing: 0.5px;
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
   }
 
-  .hero-description {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--tm-txt-white);
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-  }
-
-  /* CTA按钮 - 使用主题系统 */
-  .cta-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 60px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    padding: 12px 32px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--tm-accent-hero-from), var(--tm-accent-hero-to));
-    color: var(--tm-txt-white);
-    box-shadow: var(--tm-shadow-accent);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--tm-shadow-hover);
-  }
-
-  .btn-icon {
-    transition: transform 0.3s ease;
-  }
-
+  /* 按钮悬停效果 */
   .btn-primary:hover .btn-icon {
     transform: translateX(4px);
   }
 
-  .btn-secondary {
-    background: transparent;
-    color: var(--tm-txt-white);
-    border: 2px solid var(--tm-bd-white-alpha30);
-  }
-
-  .btn-secondary:hover {
-    background: var(--tm-bg-white-alpha10);
-    border-color: var(--tm-txt-white);
-    color: var(--tm-txt-white);
-  }
-
-  /* 统计数据 - 使用主题变量 */
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 40px;
-    background: var(--tm-bg-white-alpha05);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--tm-bd-white-alpha10);
-    box-shadow: var(--tm-shadow-white-alpha10);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* 添加动画背景 */
+  /* 统计区域闪光动画 */
   .stats-row::before {
     content: '';
     position: absolute;
@@ -343,61 +202,15 @@
     }
   }
 
-  .stat-item {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, var(--tm-accent-secondary), var(--tm-accent-tertiary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-
-  .stat-plus {
-    font-size: 2rem;
-    opacity: 0.8;
-  }
-
-  .stat-label {
-    font-size: 0.9rem;
-    color: var(--tm-txt-white-alpha85);
-    white-space: nowrap;
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, transparent, var(--tm-bd-white-alpha30), transparent);
-  }
-
-  /* 响应式设计 */
+  /* 移动端适配 */
   @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2.5rem;
-      flex-direction: column;
-      gap: 0.2em;
-    }
-
-    .company-name {
-      font-size: 1rem;
-    }
-
-    .hero-description {
-      font-size: 1.1rem;
-    }
-
     .cta-buttons {
       flex-direction: column;
-      width: 100%;
+      align-items: center;
       max-width: 300px;
-      margin: 0 auto 40px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
     }
 
     .btn-primary,
@@ -406,21 +219,16 @@
     }
 
     .stats-row {
-      flex-wrap: wrap;
       gap: 20px;
       padding: 20px;
     }
 
-    .stat-item {
+    .stats-row .text-center {
       flex: 1 1 40%;
       min-width: 120px;
     }
 
-    .stat-divider {
-      display: none;
-    }
-
-    .stat-number {
+    .stats-row h3 {
       font-size: 2rem;
     }
   }
