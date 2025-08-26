@@ -131,9 +131,19 @@
 
   // Generate URL path from menu item name
   const generatePath = (name: string, parentName?: string) => {
-    const slug = name.toLowerCase().replace(/\s+/g, '-')
+    // 正确处理 & 符号和空格
+    const slug = name
+      .toLowerCase()
+      .replace(/\s*&\s*/g, '-') // "Aerospace & Defense" → "aerospace-defense"
+      .replace(/\s+/g, '-') // 处理其他空格
+      .replace(/[^a-z0-9-]/g, '') // 移除其他特殊字符
+
     if (parentName) {
-      const parentSlug = parentName.toLowerCase().replace(/\s+/g, '-')
+      const parentSlug = parentName
+        .toLowerCase()
+        .replace(/\s*&\s*/g, '-')
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '')
       return basePath.value ? `${basePath.value}/${parentSlug}/${slug}` : `/${parentSlug}/${slug}`
     }
     return basePath.value ? `${basePath.value}/${slug}` : `/${slug}`

@@ -6,7 +6,7 @@ export const useMenuData = () => {
       name: 'Industries',
       hasSubMenu: true,
       subItems: [
-        { name: 'Aerospace & Defense', hasSubMenu: false, link: '/industries/aerospace-defense' },
+        { name: 'Aerospace Defense', hasSubMenu: false, link: '/industries/aerospace-defense' },
         { name: 'Agriculture', hasSubMenu: false, link: '/industries/agriculture' },
         {
           name: 'Automotive & Assembly',

@@ -25,11 +25,11 @@
 </template>
 
 <script setup>
-  import IndustryPageHeader from './AerospaceDefense/HowWeHelpClients/AerospacePageHeader.vue'
-  import IndustryIntroSection from './AerospaceDefense/HowWeHelpClients/AerospaceIndustryIntro.vue'
-  import HowWeHelpClients from './AerospaceDefense/HowWeHelpClients/AerospaceHowWeHelpClients.vue'
-  import SectorsWeServe from './AerospaceDefense/HowWeHelpClients/AerospaceSectorsWeServe.vue'
-  import OurPeople from './AerospaceDefense/HowWeHelpClients/AerospaceOurPeople.vue'
+  import IndustryPageHeader from '~/components/Industries/AerospaceDefense/HowWeHelpClients/AerospacePageHeader.vue'
+  import IndustryIntroSection from '~/components/Industries/AerospaceDefense/HowWeHelpClients/AerospaceIndustryIntro.vue'
+  import HowWeHelpClients from '~/components/Industries/AerospaceDefense/HowWeHelpClients/AerospaceHowWeHelpClients.vue'
+  import SectorsWeServe from '~/components/Industries/AerospaceDefense/HowWeHelpClients/AerospaceSectorsWeServe.vue'
+  import OurPeople from '~/components/Industries/AerospaceDefense/HowWeHelpClients/AerospaceOurPeople.vue'
 
   // 页面数据
   const industryName = 'Aerospace & Defense'
