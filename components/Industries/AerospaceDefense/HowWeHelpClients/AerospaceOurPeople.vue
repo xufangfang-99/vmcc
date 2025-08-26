@@ -1,5 +1,5 @@
 <template>
-  <div class="relative py-16 md:py-24 overflow-hidden">
+  <div class="relative py-64px md:py-96px overflow-hidden">
     <!-- 背景层 -->
     <div class="absolute inset-0">
       <div
@@ -11,66 +11,116 @@
 
       <!-- 装饰元素 -->
       <div
-        class="absolute top-16 right-16 w-36 h-36 rounded-full opacity-5"
+        class="absolute top-64px right-64px w-144px h-144px rounded-full opacity-5"
         :style="{ backgroundColor: 'var(--tm-accent-secondary)' }"
       ></div>
       <div
-        class="absolute bottom-20 left-16 w-20 h-20 rounded-full opacity-5"
+        class="absolute bottom-80px left-64px w-80px h-80px rounded-full opacity-5"
         :style="{ backgroundColor: 'var(--tm-accent-primary)' }"
       ></div>
     </div>
 
     <!-- 内容区域 -->
-    <div class="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="relative z-10 max-w-1400px mx-auto px-16px md:px-32px">
       <!-- 标题部分 -->
-      <div class="text-center mb-16 animate-fade-in-up">
+      <div class="text-center mb-64px animate-fade-in-up">
         <h2
-          class="text-xs font-bold tracking-wider uppercase mb-4"
+          class="text-12px font-bold tracking-wider uppercase mb-16px"
           :style="{ color: 'var(--tm-txt-light)' }"
         >
           OUR PEOPLE
         </h2>
         <div
-          class="w-24 h-0.5 mx-auto"
+          class="w-96px h-2px mx-auto"
           :style="{ backgroundColor: 'var(--tm-accent-primary)' }"
         ></div>
       </div>
 
       <!-- 团队成员网格 -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-16">
-        <!-- 成员卡片 1 -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-32px lg:gap-48px mb-64px">
+        <!-- 成员卡片 1 - 新加坡 -->
         <div
           class="group relative animate-fade-in-up"
           :style="{ animationDelay: '0.1s' }"
         >
           <div
-            class="relative p-8 rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+            class="relative p-32px rounded-16px transition-all duration-300 hover:shadow-lg hover:scale-105"
             :style="{
               backgroundColor: 'var(--tm-bg-card)',
               border: '1px solid var(--tm-bd-card)',
             }"
           >
             <!-- 头像区域 -->
-            <div class="flex justify-center mb-6">
+            <div class="flex justify-center mb-24px">
               <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden"
+                class="w-96px h-96px rounded-full bg-gradient-to-br from-blue-300 to-blue-500 flex items-center justify-center overflow-hidden"
               >
                 <!-- 占位头像，实际使用时可以替换为真实照片 -->
-                <div class="w-16 h-16 rounded-full bg-gray-500"></div>
+                <div class="w-64px h-64px rounded-full bg-blue-600"></div>
               </div>
             </div>
 
             <!-- 姓名 -->
             <h3
-              class="text-xl font-semibold text-center mb-2 transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
+              class="text-20px font-semibold text-center mb-8px transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
               :style="{ color: 'var(--tm-txt-primary)' }"
             >
-              Michael Chen
+              Lisa Tan
             </h3>
 
             <!-- 职位 -->
             <p
-              class="text-sm font-medium text-center mb-4"
+              class="text-14px font-medium text-center mb-16px"
+              :style="{ color: 'var(--tm-accent-primary)' }"
+            >
+              Regional Director, Singapore
+            </p>
+
+            <!-- 描述 -->
+            <p
+              class="text-14px leading-relaxed text-center"
+              :style="{ color: 'var(--tm-txt-secondary)' }"
+            >
+              Leads strategic consulting initiatives across Asia-Pacific, specializing in aerospace
+              supply chain optimization and digital transformation for manufacturing excellence in
+              the region.
+            </p>
+          </div>
+        </div>
+
+        <!-- 成员卡片 2 - 迪拜 -->
+        <div
+          class="group relative animate-fade-in-up"
+          :style="{ animationDelay: '0.2s' }"
+        >
+          <div
+            class="relative p-32px rounded-16px transition-all duration-300 hover:shadow-lg hover:scale-105"
+            :style="{
+              backgroundColor: 'var(--tm-bg-card)',
+              border: '1px solid var(--tm-bd-card)',
+            }"
+          >
+            <!-- 头像区域 -->
+            <div class="flex justify-center mb-24px">
+              <div
+                class="w-96px h-96px rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center overflow-hidden"
+              >
+                <!-- 占位头像 -->
+                <div class="w-64px h-64px rounded-full bg-amber-600"></div>
+              </div>
+            </div>
+
+            <!-- 姓名 -->
+            <h3
+              class="text-20px font-semibold text-center mb-8px transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
+              :style="{ color: 'var(--tm-txt-primary)' }"
+            >
+              Ahmed Al-Rashid
+            </h3>
+
+            <!-- 职位 -->
+            <p
+              class="text-14px font-medium text-center mb-16px"
               :style="{ color: 'var(--tm-accent-primary)' }"
             >
               Senior Partner, Dubai
@@ -78,111 +128,62 @@
 
             <!-- 描述 -->
             <p
-              class="text-sm leading-relaxed text-center"
+              class="text-14px leading-relaxed text-center"
               :style="{ color: 'var(--tm-txt-secondary)' }"
             >
-              Advises aerospace, defense, and advanced manufacturing companies on strategic
-              transformations, operational excellence, and digital innovation initiatives across the
-              Middle East region.
+              Advises aerospace and defense companies across Middle East and Africa on strategic
+              transformations, operational excellence, and market expansion initiatives in emerging
+              technologies.
             </p>
           </div>
         </div>
 
-        <!-- 成员卡片 2 -->
-        <div
-          class="group relative animate-fade-in-up"
-          :style="{ animationDelay: '0.2s' }"
-        >
-          <div
-            class="relative p-8 rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105"
-            :style="{
-              backgroundColor: 'var(--tm-bg-card)',
-              border: '1px solid var(--tm-bd-card)',
-            }"
-          >
-            <!-- 头像区域 -->
-            <div class="flex justify-center mb-6">
-              <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-300 to-blue-400 flex items-center justify-center overflow-hidden"
-              >
-                <!-- 占位头像 -->
-                <div class="w-16 h-16 rounded-full bg-blue-500"></div>
-              </div>
-            </div>
-
-            <!-- 姓名 -->
-            <h3
-              class="text-xl font-semibold text-center mb-2 transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
-              :style="{ color: 'var(--tm-txt-primary)' }"
-            >
-              Sarah Williams
-            </h3>
-
-            <!-- 职位 -->
-            <p
-              class="text-sm font-medium text-center mb-4"
-              :style="{ color: 'var(--tm-accent-primary)' }"
-            >
-              Partner, London
-            </p>
-
-            <!-- 描述 -->
-            <p
-              class="text-sm leading-relaxed text-center"
-              :style="{ color: 'var(--tm-txt-secondary)' }"
-            >
-              Drives strategic and operational performance transformations to help advanced
-              industrial and aerospace companies improve efficiency, growth, and market
-              competitiveness.
-            </p>
-          </div>
-        </div>
-
-        <!-- 成员卡片 3 -->
+        <!-- 成员卡片 3 - 马来西亚 -->
         <div
           class="group relative animate-fade-in-up md:col-span-2 lg:col-span-1 md:mx-auto lg:mx-0"
           :style="{ animationDelay: '0.3s' }"
         >
           <div
-            class="relative p-8 rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+            class="relative p-32px rounded-16px transition-all duration-300 hover:shadow-lg hover:scale-105"
             :style="{
               backgroundColor: 'var(--tm-bg-card)',
               border: '1px solid var(--tm-bd-card)',
             }"
           >
             <!-- 头像区域 -->
-            <div class="flex justify-center mb-6">
+            <div class="flex justify-center mb-24px">
               <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-green-300 to-green-400 flex items-center justify-center overflow-hidden"
+                class="w-96px h-96px rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 flex items-center justify-center overflow-hidden"
               >
                 <!-- 占位头像 -->
-                <div class="w-16 h-16 rounded-full bg-green-500"></div>
+                <div class="w-64px h-64px rounded-full bg-emerald-600"></div>
               </div>
             </div>
 
             <!-- 姓名 -->
             <h3
-              class="text-xl font-semibold text-center mb-2 transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
+              class="text-20px font-semibold text-center mb-8px transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
               :style="{ color: 'var(--tm-txt-primary)' }"
             >
-              David Rodriguez
+              Priya Krishnan
             </h3>
 
             <!-- 职位 -->
             <p
-              class="text-sm font-medium text-center mb-4"
+              class="text-14px font-medium text-center mb-16px"
               :style="{ color: 'var(--tm-accent-primary)' }"
             >
-              Senior Associate, New York
+              Principal Consultant, Kuala Lumpur
             </p>
 
             <!-- 描述 -->
             <p
-              class="text-sm leading-relaxed text-center"
+              class="text-14px leading-relaxed text-center"
               :style="{ color: 'var(--tm-txt-secondary)' }"
             >
-              Specializes in cybersecurity, digital transformation, and technology integration for
-              defense contractors and aerospace manufacturers in North America.
+              Specializes in aerospace manufacturing optimization, Industry 4.0 implementations, and
+              sustainable aviation technologies for Southeast Asian markets and global supply
+              chains.
             </p>
           </div>
         </div>
@@ -195,7 +196,7 @@
       >
         <NuxtLink
           to="/industries/aerospace-defense/our-people"
-          class="group relative inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+          class="group relative inline-flex items-center justify-center px-32px py-16px rounded-8px border-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
           :style="{
             borderColor: 'var(--tm-accent-primary)',
             color: 'var(--tm-accent-primary)',
@@ -204,15 +205,17 @@
         >
           <!-- 背景渐变效果 -->
           <div
-            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+            class="absolute inset-0 rounded-8px opacity-0 group-hover:opacity-10 transition-opacity duration-300"
             :style="{ backgroundColor: 'var(--tm-accent-primary)' }"
           ></div>
 
           <!-- 按钮文字 -->
-          <span class="relative text-base font-medium tracking-wide">More people</span>
+          <span class="relative text-16px font-medium tracking-wide">More people</span>
 
           <!-- 箭头图标 -->
-          <div class="relative ml-3 transition-transform duration-300 group-hover:translate-x-1">
+          <div
+            class="relative ml-12px transition-transform duration-300 group-hover:translate-x-4px"
+          >
             <svg
               width="16"
               height="16"
