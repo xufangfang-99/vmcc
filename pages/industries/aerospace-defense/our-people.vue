@@ -1,73 +1,76 @@
 <template>
   <div class="min-h-screen bg-[var(--tm-bg-primary)]">
     <!-- 页面头部 -->
-    <div class="relative py-20 md:py-32 overflow-hidden">
-      <!-- 背景装饰 -->
+
+    <!-- 页面头部 -->
+    <div
+      class="relative py-20 md:py-32 overflow-hidden min-h-[70vh] md:min-h-[75vh] flex items-center"
+    >
+      <!-- 背景图片层 -->
+      <div class="absolute inset-0">
+        <OptImage
+          src="/images/comm/banner3.jpg"
+          alt="Our People Background"
+          class="w-full h-full object-cover object-center"
+        />
+        <!-- 渐变遮罩层，确保文字可读性 -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"
+        ></div>
+      </div>
+
+      <!-- 背景装饰（保留原有装饰效果，但透明度降低） -->
       <div class="absolute inset-0">
         <div
-          class="absolute inset-0"
-          :style="{
-            background: `linear-gradient(135deg, var(--tm-bg-primary) 0%, var(--tm-bg-secondary) 50%, var(--tm-bg-primary) 100%)`,
-          }"
-        ></div>
-
-        <div
-          class="absolute top-20 right-20 w-40 h-40 rounded-full opacity-10"
+          class="absolute top-20 right-20 w-40 h-40 rounded-full opacity-5"
           :style="{ backgroundColor: 'var(--tm-accent-primary)' }"
         ></div>
         <div
-          class="absolute bottom-32 left-20 w-24 h-24 rounded-full opacity-10"
+          class="absolute bottom-32 left-20 w-24 h-24 rounded-full opacity-5"
           :style="{ backgroundColor: 'var(--tm-accent-secondary)' }"
         ></div>
       </div>
 
-      <div class="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 text-center">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 text-center w-full">
         <!-- 面包屑导航 -->
-        <div class="flex items-center justify-center gap-2 mb-8 animate-fade-in-up">
+        <div
+          class="flex items-center justify-center flex-wrap gap-2 md:gap-3 text-xs sm:text-sm bg-white/10 backdrop-blur-md px-4 py-2.5 md:px-6 md:py-3 rounded-full border border-white/20 w-fit mx-auto mb-8 animate-fade-in-up"
+        >
           <NuxtLink
             to="/"
-            class="text-sm transition-colors duration-300"
-            :style="{ color: 'var(--tm-txt-secondary)' }"
+            class="text-white/80 hover:text-blue-400 transition-colors duration-300 font-medium hover:drop-shadow-md active:scale-95 transform transition-transform"
           >
             Home
           </NuxtLink>
-          <span :style="{ color: 'var(--tm-txt-light)' }">/</span>
+          <span class="text-white/50 font-light">/</span>
           <NuxtLink
             to="/industries"
-            class="text-sm transition-colors duration-300"
-            :style="{ color: 'var(--tm-txt-secondary)' }"
+            class="text-white/80 hover:text-blue-400 transition-colors duration-300 font-medium hover:drop-shadow-md active:scale-95 transform transition-transform"
           >
             Industries
           </NuxtLink>
-          <span :style="{ color: 'var(--tm-txt-light)' }">/</span>
+          <span class="text-white/50 font-light">/</span>
           <NuxtLink
             to="/industries/aerospace-defense"
-            class="text-sm transition-colors duration-300"
-            :style="{ color: 'var(--tm-txt-secondary)' }"
+            class="text-white/80 hover:text-blue-400 transition-colors duration-300 font-medium hover:drop-shadow-md active:scale-95 transform transition-transform"
           >
             Aerospace & Defense
           </NuxtLink>
-          <span :style="{ color: 'var(--tm-txt-light)' }">/</span>
-          <span
-            class="text-sm font-medium"
-            :style="{ color: 'var(--tm-accent-primary)' }"
-          >
-            Our People
-          </span>
+          <span class="text-white/50 font-light">/</span>
+          <span class="text-blue-400 font-semibold drop-shadow-sm text-center">Our People</span>
         </div>
 
         <!-- 标题 -->
         <h1
-          class="text-4xl md:text-6xl font-light mb-6 animate-fade-in-up animation-delay-200"
-          :style="{ color: 'var(--tm-txt-primary)' }"
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 md:mb-8 text-white tracking-tight leading-[0.95] md:leading-[0.9] drop-shadow-2xl animate-fade-in-up animation-delay-200 px-2 md:px-0"
         >
           Our People
         </h1>
 
         <!-- 副标题 -->
         <p
-          class="text-lg md:text-xl max-w-3xl mx-auto animate-fade-in-up animation-delay-400"
-          :style="{ color: 'var(--tm-txt-secondary)' }"
+          class="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 max-w-full md:max-w-3xl mx-auto leading-relaxed drop-shadow-lg animate-fade-in-up animation-delay-400 px-4 md:px-0"
         >
           Meet our aerospace and defense experts who drive innovation and excellence across the
           industry
