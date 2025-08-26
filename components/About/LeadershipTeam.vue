@@ -18,8 +18,8 @@
           <div class="member-image">
             <OptImage
               src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
-              :auto-dark-mode="true"
               alt="Victor Chen"
+              :auto-dark-mode="true"
             />
           </div>
           <div class="member-info">
@@ -37,8 +37,8 @@
           <div class="member-image">
             <OptImage
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
-              :auto-dark-mode="true"
               alt="Sarah Meridian"
+              :auto-dark-mode="true"
             />
           </div>
           <div class="member-info">
@@ -56,8 +56,8 @@
           <div class="member-image">
             <OptImage
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
-              :auto-dark-mode="true"
               alt="Michael Zhang"
+              :auto-dark-mode="true"
             />
           </div>
           <div class="member-info">
@@ -75,8 +75,8 @@
           <div class="member-image">
             <OptImage
               src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
-              :auto-dark-mode="true"
               alt="Emma Rodriguez"
+              :auto-dark-mode="true"
             />
           </div>
           <div class="member-info">

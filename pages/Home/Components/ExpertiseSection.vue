@@ -152,10 +152,9 @@
             <OptImage
               :src="businessMeetingImg"
               alt="Professional Business Meeting"
-              class="hero-bg-image"
+              class="main-image"
               :auto-dark-mode="true"
             />
-
             <!-- 浮动卡片 -->
             <div class="floating-card">
               <div class="card-icon">
@@ -197,6 +196,7 @@
             <div class="image-wrapper">
               <OptImage
                 :src="businessMeetingImg"
+                alt="Professional Business Meeting"
                 class="main-image"
                 :auto-dark-mode="true"
               />

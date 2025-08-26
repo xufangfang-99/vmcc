@@ -142,9 +142,9 @@
           <div class="image-wrapper">
             <OptImage
               src="/images/about/vision-office.jpg"
-              :auto-dark-mode="true"
               alt="Team meeting"
               class="team-image"
+              :auto-dark-mode="true"
             />
             <div class="image-overlay"></div>
             <div class="stats-overlay">

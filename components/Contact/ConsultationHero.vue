@@ -4,9 +4,9 @@
     <div class="hero-background">
       <OptImage
         src="/images/comm/banner1.png"
-        :auto-dark-mode="true"
         alt="背景图片"
         class="hero-bg-image"
+        :auto-dark-mode="true"
       />
       <!-- 遮罩层 -->
       <div class="hero-overlay"></div>

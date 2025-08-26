@@ -4,9 +4,9 @@
     <div class="hero-bg">
       <OptImage
         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
-        :auto-dark-mode="true"
         alt="团队协作"
         class="bg-image"
+        :auto-dark-mode="true"
       />
       <div class="bg-overlay"></div>
       <div class="bg-pattern"></div>

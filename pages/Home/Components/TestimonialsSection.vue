@@ -147,9 +147,9 @@
 
 <script setup lang="ts">
   // 导入客户头像图片
-  import chenShaLaImg from '/images/comm/home/chen-shala.jpg'
-  import mikeImg from '/images/comm/home/mike.jpg'
-  import aimaTangImg from '/images/comm/home/aima-tang.jpg'
+  import chenShaLaImg from '../images/chen-shala.jpg'
+  import mikeImg from '../images/mike.jpg'
+  import aimaTangImg from '../images/aima-tang.jpg'
 </script>
 
 <style scoped>
