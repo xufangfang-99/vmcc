@@ -194,7 +194,7 @@
         :style="{ animationDelay: '0.5s' }"
       >
         <NuxtLink
-          to="/our-people"
+          to="/industries/aerospace-defense/our-people"
           class="group relative inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
           :style="{
             borderColor: 'var(--tm-accent-primary)',
