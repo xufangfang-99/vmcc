@@ -1,5 +1,6 @@
 <template>
   <img
+    :key="`${themedImageUrl}-${theme.isDark}`"
     :src="themedImageUrl"
     v-bind="$attrs"
     @error="handleError"

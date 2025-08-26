@@ -5,6 +5,7 @@
     @click="handleLogoClick"
   >
     <OptImage
+      :key="`logo-${isDark ? 'dark' : 'light'}`"
       :src="logoSrc"
       alt="VMMC"
       class="logo-svg w-30"
@@ -19,13 +20,16 @@
   import { useMenuHandler } from '~/composables/useMenuHandler'
   import { useRoute } from 'nuxt/app'
 
-  const { isDark } = useTheme()
+  const themeStore = useTheme()
+  const isDark = computed(() => themeStore.isDark)
   const { resetToHome } = useMenuHandler()
   const route = useRoute()
 
   // 根据深浅色模式动态选择 logo
   const logoSrc = computed(() => {
-    return isDark.value ? '/images/comm/logo-dark.png' : '/images/comm/logo.png'
+    const src = isDark.value ? '/images/comm/logo-dark.png' : '/images/comm/logo.png'
+    console.log('Logo计算结果:', { isDark: isDark.value, src })
+    return src
   })
 
   const handleImageError = (event: Event) => {
