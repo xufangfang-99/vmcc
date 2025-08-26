@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     'nuxt-svgo',
   ],
-  css: ['uno.css', '~/assets/styles/global.css'],
+  css: ['~/assets/styles/global.css', 'uno.css'],
   build: {
     transpile: ['@element-plus/icons-vue'],
     postcss: {
