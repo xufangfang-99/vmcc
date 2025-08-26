@@ -6,6 +6,8 @@
         v-model:open="isOpen"
         :menu-items="menuItems"
         :bottom-links="bottomLinks"
+        @menu-click="handleMenuClick"
+        @submenu-click="handleSubmenuClick"
       />
     </Responsive>
 
@@ -15,6 +17,8 @@
         v-model:open="isOpen"
         :menu-items="menuItems"
         :bottom-links="bottomLinks"
+        @menu-click="handleMenuClick"
+        @submenu-click="handleSubmenuClick"
       />
     </Responsive>
   </Teleport>
@@ -24,6 +28,7 @@
   import { computed, watch } from 'vue'
   import DesktopFullscreenMenu from './DesktopFullscreenMenu.vue'
   import MobileFullscreenMenu from './MobileFullscreenMenu.vue'
+  import { useMenuHandler } from '~/composables/useMenuHandler'
   import type { MenuItem } from '~/components/NavMenu.types'
 
   interface Props {
@@ -49,6 +54,9 @@
   const emit = defineEmits<{
     'update:open': [value: boolean]
   }>()
+
+  // 引入统一的菜单处理逻辑
+  const { handleMenuClick, handleSubmenuClick } = useMenuHandler()
 
   const isOpen = computed({
     get: () => props.open,

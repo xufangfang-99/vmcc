@@ -248,7 +248,7 @@
                       "
                       class="group relative p-5 rounded-lg bg-white/5 border border-white/10 transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-[var(--tm-accent-primary)] animate-fade-in-up op-0"
                       :style="{ animationDelay: `${itemIndex * 50}ms` }"
-                      @click.prevent="handleNavigation(item, activeMenu)"
+                      @click.prevent="handleNavigation(item, activeMenu, group.title || group.name)"
                     >
                       <span
                         class="text-base font-light leading-relaxed transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
@@ -348,9 +348,6 @@
 
 <script setup lang="ts">
   import { ref, computed, watch } from 'vue'
-  import { navigateTo } from 'nuxt/app'
-  import { useNavigation } from '~/composables/useNavigation'
-  import { useMenuData } from '~/composables/useMenuData'
   import type { MenuItem, UnifiedMenuItem, BottomLink } from '~/components/NavMenu.types'
   import { generatePath } from '~/components/NavMenu.types'
 
@@ -361,11 +358,11 @@
   }
 
   const props = defineProps<Props>()
-  const navigation = useNavigation()
-  const { specialMenuConfigs, industriesThirdLevelItems } = useMenuData()
 
   const emit = defineEmits<{
     'update:open': [value: boolean]
+    'menu-click': [item: MenuItem]
+    'submenu-click': [parentItem: MenuItem, subItem: UnifiedMenuItem]
   }>()
 
   const isOpen = computed({
@@ -420,96 +417,71 @@
 
   const closeMenu = () => {
     isOpen.value = false
-    // 关闭菜单时不清空选中状态，保留用户上次的选择
-    // activeMenu.value = ''
   }
 
-  const handleMenuClick = (item: MenuItem) => {
+  // 处理一级菜单点击
+  const handleMenuClick = async (item: MenuItem) => {
     if (item.hasSubMenu) {
       activeMenu.value = item.name
-      navigation.setSelectedPath({ firstLevel: item.name })
-    } else {
-      const firstLevelConfig = specialMenuConfigs.firstLevel[item.name]
-
-      if (firstLevelConfig) {
-        console.log('Desktop menu - 场景2触发：', item.name)
-        navigation.setSelectedPath({ firstLevel: item.name })
-        navigation.switchToCustom(
-          firstLevelConfig,
-          `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-        )
-      } else {
-        navigation.setSelectedPath({ firstLevel: item.name })
-        navigateTo(generatePath([item.name]))
-      }
-      closeMenu()
-    }
-  }
-
-  // 🔥 修复后的 handleNavigation 函数
-  const handleNavigation = (item: UnifiedMenuItem, parentName: string) => {
-    console.log('Desktop menu navigation:', parentName, '->', item.name)
-
-    // 🔥 新增：特殊处理 Industries 的二级菜单 - 显示固定的三级菜单
-    if (parentName === 'Industries') {
-      console.log('Desktop menu - Industries 二级菜单触发：显示固定三级菜单')
-
-      // 构建基础路径
-      const basePath = `/industries/${item.name.toLowerCase().replace(/\s+/g, '-')}`
-
-      // 生成固定的三级菜单结构
-      const thirdLevelItems = industriesThirdLevelItems.map((thirdItem) => ({
-        name: thirdItem,
-        link: `${basePath}/${thirdItem.toLowerCase().replace(/\s+/g, '-')}`,
-        hasSubMenu: false,
-      }))
-
-      // 更新选中路径
-      navigation.setSelectedPath({
-        firstLevel: parentName,
-        secondLevel: item.name,
-      })
-
-      // 切换到自定义导航显示三级菜单
-      navigation.switchToCustom(thirdLevelItems, basePath)
-      closeMenu()
+      // 只是显示子菜单，不需要导航
       return
     }
 
-    // 原有逻辑保持不变
-    const basePath = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+    // 没有子菜单的项目直接导航
+    console.log('Desktop - 一级菜单导航:', item.name, item.link)
+    try {
+      if (item.link) {
+        await navigateTo(item.link)
+      } else {
+        const path = `/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+        await navigateTo(path)
+      }
+      closeMenu()
+    } catch (error) {
+      console.error('Navigation failed:', error)
+    }
+  }
 
-    const menuKey = `${parentName}-${item.name}`
-    const secondLevelConfig = specialMenuConfigs.secondLevel[menuKey]
+  // 统一的导航处理函数
+  const handleNavigation = async (
+    item: UnifiedMenuItem,
+    parentName: string,
+    groupName?: string
+  ) => {
+    console.log(
+      'Desktop menu navigation:',
+      parentName,
+      '->',
+      item.name,
+      groupName ? `(${groupName})` : ''
+    )
 
-    if (secondLevelConfig) {
-      console.log('Desktop menu - 场景3触发：', menuKey)
-      navigation.setSelectedPath({
-        firstLevel: parentName,
-        secondLevel: item.name,
-      })
-      navigation.switchToCustom(secondLevelConfig, basePath)
-    } else if (item.hasSubMenu && item.subItems) {
-      console.log('Desktop menu - 场景1触发：显示三级菜单')
-      navigation.setSelectedPath({
-        firstLevel: parentName,
-        secondLevel: item.name,
-      })
-      navigation.switchToCustom(
-        item.subItems.map((subItem) => ({
-          name: subItem.name,
-          link: subItem.link || `${basePath}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`,
-        })),
-        basePath
-      )
-    } else {
-      console.log('Desktop menu - 恢复默认导航并显示选中菜单')
-      navigation.switchToDefaultWithPath(parentName, item.name)
-      const path = item.link || generatePath([parentName, item.name])
-      navigateTo(path)
+    // 如果有子菜单，不导航
+    if (item.hasSubMenu) {
+      console.log('Item has submenu, not navigating')
+      return
     }
 
-    closeMenu()
+    // 直接导航，不依赖复杂的状态管理
+    let path: string
+
+    try {
+      if (item.link) {
+        path = item.link
+      } else if (groupName) {
+        // 有分组的路径
+        path = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${groupName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+      } else {
+        // 普通的二级路径
+        path = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+      }
+
+      console.log('Navigating to:', path)
+      await navigateTo(path)
+      closeMenu()
+    } catch (error) {
+      console.error('Navigation failed:', error)
+    }
   }
 </script>
 
