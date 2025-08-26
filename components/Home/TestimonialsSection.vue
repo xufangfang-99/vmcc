@@ -38,8 +38,9 @@
           </p>
 
           <div class="testimonial-author">
-            <img
+            <OptImage
               :src="chenShaLaImg"
+              :auto-dark-mode="true"
               alt="Sarah Chen"
               class="author-avatar"
             />
@@ -78,8 +79,9 @@
           </p>
 
           <div class="testimonial-author">
-            <img
+            <OptImage
               :src="mikeImg"
+              :auto-dark-mode="true"
               alt="Michael Rodriguez"
               class="author-avatar"
             />
@@ -118,8 +120,9 @@
           </p>
 
           <div class="testimonial-author">
-            <img
+            <OptImage
               :src="aimaTangImg"
+              :auto-dark-mode="true"
               alt="Emma Thompson"
               class="author-avatar"
             />
@@ -144,9 +147,9 @@
 
 <script setup lang="ts">
   // 导入客户头像图片
-  import chenShaLaImg from '../images/chen-shala.jpg'
-  import mikeImg from '../images/mike.jpg'
-  import aimaTangImg from '../images/aima-tang.jpg'
+  import chenShaLaImg from '/images/comm/home/chen-shala.jpg'
+  import mikeImg from '/images/comm/home/mike.jpg'
+  import aimaTangImg from '/images/comm/home/aima-tang.jpg'
 </script>
 
 <style scoped>

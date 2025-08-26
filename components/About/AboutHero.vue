@@ -2,8 +2,9 @@
   <section class="about-hero">
     <!-- 背景图片 -->
     <div class="hero-bg">
-      <img
+      <OptImage
         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
+        :auto-dark-mode="true"
         alt="团队协作"
         class="bg-image"
       />

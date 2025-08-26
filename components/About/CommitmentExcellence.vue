@@ -140,8 +140,9 @@
         <!-- 右侧图片 -->
         <div class="image-content">
           <div class="image-wrapper">
-            <img
+            <OptImage
               src="/images/about/vision-office.jpg"
+              :auto-dark-mode="true"
               alt="Team meeting"
               class="team-image"
             />

@@ -1,5 +1,5 @@
 <template>
-  <div class="homepage">
+  <div class="homepage relative">
     <!-- 第一屏: 视频背景英雄区 -->
     <HeroSection />
 
@@ -21,11 +21,11 @@
 </template>
 
 <script setup lang="ts">
-  import HeroSection from './Home/Components/HeroSection.vue'
-  import ServicesSection from './Home/Components/ServicesSection.vue'
-  import ExpertiseSection from './Home/Components/ExpertiseSection.vue'
-  import TestimonialsSection from './Home/Components/TestimonialsSection.vue'
-  import CTASection from './Home/Components/CTASection.vue'
+  import HeroSection from '~/components/Home/HeroSection.vue'
+  import ServicesSection from '~/components/Home/ServicesSection.vue'
+  import ExpertiseSection from '~/components/Home/ExpertiseSection.vue'
+  import TestimonialsSection from '~/components/Home/TestimonialsSection.vue'
+  import CTASection from '~/components/Home/CTASection.vue'
   import FooterSection from '~/components/Home/FooterSection.vue'
 
   // 设置页面使用首页布局
@@ -44,17 +44,3 @@
     ],
   })
 </script>
-
-<style scoped>
-  /* 重置默认样式 */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  /* 隐藏默认的 layout header */
-  .homepage {
-    position: relative;
-  }
-</style>

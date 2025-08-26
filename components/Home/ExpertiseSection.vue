@@ -149,11 +149,13 @@
           class="mobile-hero-section"
         >
           <div class="image-wrapper">
-            <img
+            <OptImage
               :src="businessMeetingImg"
+              :auto-dark-mode="true"
               alt="Professional Business Meeting"
-              class="main-image"
+              class="hero-bg-image"
             />
+
             <!-- 浮动卡片 -->
             <div class="floating-card">
               <div class="card-icon">
@@ -193,9 +195,9 @@
           <!-- PC端左侧大图 -->
           <div class="image-section desktop-only">
             <div class="image-wrapper">
-              <img
+              <OptImage
                 :src="businessMeetingImg"
-                alt="Professional Business Meeting"
+                :auto-dark-mode="true"
                 class="main-image"
               />
               <!-- 浮动卡片 -->
@@ -471,7 +473,7 @@
 <script setup lang="ts">
   import { ref, onMounted, onUnmounted, nextTick } from 'vue'
   // 导入本地图片
-  import businessMeetingImg from '../images/business-meeting.jpg'
+  import businessMeetingImg from '/images/comm/home/business-meeting.jpg'
 
   // refs
   const headerRef = ref<HTMLElement>()
