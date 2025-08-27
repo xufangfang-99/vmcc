@@ -159,33 +159,68 @@ export const useMenuData = () => {
       name: 'Careers',
       hasSubMenu: true,
       subItems: [
-        { name: 'Career Home', hasSubMenu: false },
-        { name: 'Why VMMC', hasSubMenu: false },
+        {
+          name: 'Career Home',
+          hasSubMenu: false,
+          link: '/careers#career-home',
+        },
+        {
+          name: 'Why VMMC',
+          hasSubMenu: false,
+          link: '/careers#why-vmmc',
+        },
         {
           name: 'Open Positions',
-          hasSubMenu: true,
-          subItems: [
-            { name: 'Senior Recruitment Consultants', hasSubMenu: false },
-            { name: 'HR Business Partners', hasSubMenu: false },
-            { name: 'Talent Acquisition Specialists', hasSubMenu: false },
-            { name: 'Client Relationship Managers', hasSubMenu: false },
-            { name: 'Regional Business Directors', hasSubMenu: false },
-          ],
+          hasSubMenu: false,
+          link: '/careers#open-positions',
         },
         {
           name: 'Application Process',
           hasSubMenu: true,
+          link: '/careers#application-process',
           subItems: [
-            { name: 'How to Apply', hasSubMenu: false },
-            { name: 'Interview Process', hasSubMenu: false },
-            { name: 'Assessment & Evaluation', hasSubMenu: false },
-            { name: 'Recruitment FAQs', hasSubMenu: false },
+            {
+              name: 'How to Apply',
+              hasSubMenu: false,
+              link: '/careers#application-process',
+            },
+            {
+              name: 'Interview Process',
+              hasSubMenu: false,
+              link: '/careers#application-process',
+            },
+            {
+              name: 'Assessment & Evaluation',
+              hasSubMenu: false,
+              link: '/careers#application-process',
+            },
+            {
+              name: 'Recruitment FAQs',
+              hasSubMenu: false,
+              link: '/careers#application-process',
+            },
           ],
         },
-        { name: 'Our Global Team', hasSubMenu: false },
-        { name: 'Professional Development', hasSubMenu: false },
-        { name: 'Employee Benefits', hasSubMenu: false },
-        { name: 'Life at VMMC', hasSubMenu: false },
+        {
+          name: 'Our Global Team',
+          hasSubMenu: false,
+          link: '/careers#our-global-team',
+        },
+        {
+          name: 'Professional Development',
+          hasSubMenu: false,
+          link: '/careers#professional-development',
+        },
+        {
+          name: 'Employee Benefits',
+          hasSubMenu: false,
+          link: '/careers#employee-benefits',
+        },
+        {
+          name: 'Life at VMMC',
+          hasSubMenu: false,
+          link: '/careers#life-at-vmmc',
+        },
       ],
     },
     {
