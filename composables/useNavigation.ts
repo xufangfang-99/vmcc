@@ -70,6 +70,56 @@ export const useNavigation = defineStore('navigation', () => {
     selectedPath.value = {}
   }
 
+  // 新增：根据路由路径自动设置选中菜单
+  const updateSelectedPathFromRoute = (routePath: string) => {
+    const pathSegments = routePath.split('/').filter(Boolean)
+
+    if (pathSegments.length === 0) {
+      clearSelectedPath()
+      return
+    }
+
+    const selectedPathData: SelectedMenuPath = {}
+
+    // 路径映射逻辑
+    const pathMappings: Record<string, string> = {
+      about: 'About Us',
+      industries: 'Industries',
+      capabilities: '能力',
+      insights: '洞察',
+      careers: '职业发展',
+      locations: '地点',
+    }
+
+    // 设置一级菜单
+    if (pathSegments[0]) {
+      selectedPathData.firstLevel =
+        pathMappings[pathSegments[0]] ||
+        pathSegments[0]
+          .split('-')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')
+    }
+
+    // 设置二级菜单
+    if (pathSegments[1]) {
+      selectedPathData.secondLevel = pathSegments[1]
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+    }
+
+    // 设置三级菜单
+    if (pathSegments[2]) {
+      selectedPathData.thirdLevel = pathSegments[2]
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+    }
+
+    setSelectedPath(selectedPathData)
+  }
+
   // 当前是否是默认导航
   const isDefaultNav = computed(() => navType.value === 'default')
 
@@ -101,5 +151,6 @@ export const useNavigation = defineStore('navigation', () => {
     switchToCustom,
     setSelectedPath,
     clearSelectedPath,
+    updateSelectedPathFromRoute, // 新增导出
   }
 })

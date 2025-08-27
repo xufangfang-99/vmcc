@@ -77,18 +77,32 @@
     isScrolled.value = window.scrollY > 0
   }
 
+  // 获取导航状态和菜单数据
+  const navigation = useNavigation()
+  const { menuItems } = useMenuData()
+  const { handleMenuClick, handleSubmenuClick, handleIconClick } = useMenuHandler()
+
+  // 监听路由变化并自动更新选中菜单
+  const route = useRoute()
+
+  // 根据当前路由自动设置选中菜单
+  const updateSelectedMenuFromRoute = () => {
+    navigation.updateSelectedPathFromRoute(route.path)
+  }
+
   // 生命周期
   onMounted(() => {
     window.addEventListener('scroll', handleScroll)
+    // 初始化时设置选中菜单
+    updateSelectedMenuFromRoute()
   })
 
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
   })
 
-  const navigation = useNavigation()
-  const { menuItems } = useMenuData()
-  const { handleMenuClick, handleSubmenuClick, handleIconClick } = useMenuHandler()
+  // 监听路由变化
+  watch(() => route.path, updateSelectedMenuFromRoute)
 </script>
 
 <style>

@@ -10,13 +10,12 @@
         <a
           class="group relative flex items-center gap-1 px-2 text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-accent-primary)] no-underline"
           :class="{
-            'text-[var(--tm-accent-primary)]': activeItem?.name === item.name,
+            'text-[var(--tm-accent-primary)]': isMenuActive(item),
             'py-2': hasVerticalLayout,
             'py-4': !hasVerticalLayout,
           }"
           :style="{
-            color:
-              activeItem?.name === item.name ? 'var(--tm-accent-primary)' : 'var(--tm-txt-primary)',
+            color: isMenuActive(item) ? 'var(--tm-accent-primary)' : 'var(--tm-txt-primary)',
           }"
           @mouseenter="() => handleMouseEnter(item)"
           @click="handleNavClick(item)"
@@ -46,7 +45,7 @@
           <!-- Underline animation -->
           <span
             class="absolute bottom-2 left-2 right-2 h-0.5 bg-[var(--tm-accent-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
-            :class="{ '!scale-x-100': activeItem?.name === item.name }"
+            :class="{ '!scale-x-100': isMenuActive(item) }"
           ></span>
         </a>
 
@@ -308,6 +307,7 @@
 <script setup lang="ts">
   import type { MenuItem, UnifiedMenuItem } from './NavMenu.types'
   import { generatePath } from './NavMenu.types'
+  import { useNavigation } from '~/composables/useNavigation'
 
   interface Props {
     menuItems: MenuItem[]
@@ -330,11 +330,30 @@
     'active-change': [item: MenuItem | null]
   }>()
 
+  // 获取导航状态
+  const navigation = useNavigation()
+
   // State
   const activeItem = ref<MenuItem | null>(null)
   const showSubmenu = ref(false)
   let closeTimer: NodeJS.Timeout | null = null
   const menuItemRefs = ref<HTMLElement[]>([])
+
+  // 新增：判断菜单是否激活
+  const isMenuActive = (item: MenuItem) => {
+    // 检查是否是当前悬停激活的菜单
+    if (activeItem.value?.name === item.name) {
+      return true
+    }
+
+    // 检查是否是当前页面路径对应的菜单
+    const selectedPath = navigation.selectedPath
+    if (selectedPath.firstLevel === item.name) {
+      return true
+    }
+
+    return false
+  }
 
   // Get submenu width configuration
   const getSubmenuWidth = (item: MenuItem): string => {

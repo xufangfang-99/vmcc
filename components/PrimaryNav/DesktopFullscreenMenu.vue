@@ -201,7 +201,7 @@
               :to="activeExploreLink.url"
               class="group flex items-center gap-3 px-6 py-3 rounded-full border transition-all duration-300 hover:bg-[var(--tm-accent-primary)] animate-fade-in-up"
               :style="{ borderColor: 'var(--tm-accent-primary)' }"
-              @click="closeMenu"
+              @click="closeMenuAndNavigate"
             >
               <span
                 class="text-sm font-medium tracking-wider uppercase transition-colors duration-300 group-hover:text-white"
@@ -420,6 +420,13 @@
     isOpen.value = false
   }
 
+  // 关闭菜单并切换到默认导航
+  const closeMenuAndNavigate = () => {
+    const navigation = useNavigation()
+    navigation.switchToDefault()
+    closeMenu()
+  }
+
   // 处理一级菜单点击
   const handleMenuClick = async (item: MenuItem) => {
     if (item.hasSubMenu) {
@@ -431,6 +438,15 @@
     // 没有子菜单的项目直接导航
     console.log('Desktop - 一级菜单导航:', item.name, item.link)
     try {
+      const navigation = useNavigation()
+      // 设置导航状态
+      navigation.switchToDefault()
+      navigation.setSelectedPath({
+        firstLevel: item.name,
+        secondLevel: '',
+        thirdLevel: '',
+      })
+
       if (item.link) {
         await navigateTo(item.link)
       } else {
@@ -468,11 +484,12 @@
     // 切换到默认导航模式
     navigation.switchToDefault()
 
-    // 设置选中路径，用于面包屑显示
-    const selectedPath: any = {}
-    if (parentName) selectedPath.firstLevel = parentName
-    if (groupName) selectedPath.secondLevel = groupName
-    else if (item.name) selectedPath.secondLevel = item.name
+    // 正确设置选中路径，用于面包屑显示和菜单高亮
+    const selectedPath: any = {
+      firstLevel: parentName, // 这里是 "About Us"
+      secondLevel: groupName || item.name, // 这里是具体的二级菜单名称
+      thirdLevel: groupName ? item.name : '',
+    }
 
     navigation.setSelectedPath(selectedPath)
 
@@ -481,6 +498,26 @@
     try {
       if (item.link) {
         path = item.link
+
+        // 处理锚点链接
+        if (path.includes('#')) {
+          const [pathname, hash] = path.split('#')
+          const route = useRoute()
+          const currentPath = route.path
+
+          // 检查是否在同一页面
+          if (!pathname || pathname === currentPath) {
+            // 同页面锚点导航
+            nextTick(() => {
+              const element = document.getElementById(hash)
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
+            })
+            closeMenu()
+            return
+          }
+        }
       } else if (groupName) {
         path = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${groupName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
       } else {
