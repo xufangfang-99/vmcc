@@ -255,7 +255,7 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: '关于我们',
+      name: 'About Us',
       hasSubMenu: true,
       subItems: [
         { name: 'About VMMC', hasSubMenu: false, link: '/about#company-intro' },
