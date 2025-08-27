@@ -59,90 +59,9 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: '能力',
-      hasSubMenu: true,
-      subItems: [
-        {
-          name: '人工智能',
-          hasSubMenu: true,
-          subItems: [
-            { name: 'AI战略规划', hasSubMenu: false },
-            { name: '机器学习', hasSubMenu: false },
-            { name: '自然语言处理', hasSubMenu: false },
-            { name: '计算机视觉', hasSubMenu: false },
-            { name: 'AI伦理与治理', hasSubMenu: false },
-          ],
-        },
-        { name: '业务构建', hasSubMenu: false },
-        { name: '地缘政治', hasSubMenu: false },
-        {
-          name: '增长营销与销售',
-          hasSubMenu: true,
-          subItems: [
-            { name: '数字营销', hasSubMenu: false },
-            { name: '销售转型', hasSubMenu: false },
-            { name: '客户体验', hasSubMenu: false },
-            { name: '定价策略', hasSubMenu: false },
-          ],
-        },
-        { name: '实施', hasSubMenu: false },
-        { name: '并购', hasSubMenu: false },
-        {
-          name: '运营',
-          hasSubMenu: true,
-          subItems: [
-            { name: '供应链管理', hasSubMenu: false },
-            { name: '精益生产', hasSubMenu: false },
-            { name: '质量管理', hasSubMenu: false },
-            { name: '数字化运营', hasSubMenu: false },
-          ],
-        },
-        { name: '风险与韧性', hasSubMenu: false },
-        {
-          name: '战略与企业金融',
-          hasSubMenu: true,
-          subItems: [
-            { name: '企业战略', hasSubMenu: false },
-            { name: '业务组合策略', hasSubMenu: false },
-            { name: '企业金融', hasSubMenu: false },
-            { name: '价值创造', hasSubMenu: false },
-          ],
-        },
-        { name: '人员与组织绩效', hasSubMenu: false },
-        {
-          name: '可持续发展',
-          hasSubMenu: true,
-          subItems: [
-            { name: '碳中和战略', hasSubMenu: false },
-            { name: 'ESG管理', hasSubMenu: false },
-            { name: '循环经济', hasSubMenu: false },
-            { name: '绿色金融', hasSubMenu: false },
-          ],
-        },
-        {
-          name: '技术',
-          hasSubMenu: true,
-          subItems: [
-            { name: '云计算', hasSubMenu: false },
-            { name: '网络安全', hasSubMenu: false },
-            { name: '数据架构', hasSubMenu: false },
-            { name: 'IT现代化', hasSubMenu: false },
-            { name: '技术战略', hasSubMenu: false },
-          ],
-        },
-        { name: '转型', hasSubMenu: false },
-      ],
-      featured: {
-        title: '特色内容',
-        items: [
-          {
-            name: '麦肯锡科技与AI',
-            description:
-              '我们帮助客户大规模释放AI的力量，实现技术交付现代化，并建立新业务以推动增长。',
-            link: '/capabilities/tech-ai',
-          },
-        ],
-      },
+      name: 'Our Journey',
+      hasSubMenu: false,
+      link: '/journey',
     },
     {
       name: '洞察',
