@@ -1,5 +1,8 @@
 <template>
-  <section class="py-25 bg-[var(--tm-bg-primary)] relative overflow-hidden">
+  <section
+    id="application-process"
+    class="py-25 bg-[var(--tm-bg-primary)] relative overflow-hidden scroll-mt-80px"
+  >
     <!-- 背景装饰 -->
     <div
       class="absolute top--20 right--30 w-100 h-100 rounded-full opacity-10 pointer-events-none bg-gradient-radial from-[var(--tm-accent-gradient-from)] to-transparent"
@@ -441,7 +444,7 @@
             <div
               class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white"
             >
-              <div class="i-carbon-learning w-8 h-8"></div>
+              <div class="i-carbon-growth w-8 h-8"></div>
             </div>
             <h4 class="text-6 font-semibold text-[var(--tm-txt-primary)] mb-3">Growth Mindset</h4>
             <p class="text-3.5 text-[var(--tm-txt-secondary)]">
@@ -492,67 +495,152 @@
           Frequently Asked Questions
         </h3>
 
-        <div class="max-w-200 mx-auto space-y-6">
-          <div
-            class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)]"
-          >
-            <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
-              How long does the entire recruitment process take?
-            </h4>
-            <p class="text-3.5 text-[var(--tm-txt-secondary)]">
-              The complete process typically takes 3-4 weeks from application submission to final
-              decision. This timeline may vary based on role complexity and candidate availability.
-            </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- FAQ 左列 -->
+          <div class="space-y-6">
+            <div
+              class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] group"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
+                >
+                  <div class="i-carbon-time text-white w-5 h-5"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
+                    How long does the entire recruitment process take?
+                  </h4>
+                  <p class="text-3.5 text-[var(--tm-txt-secondary)]">
+                    The complete process typically takes 3-4 weeks from application submission to
+                    final decision. This timeline may vary based on role complexity and candidate
+                    availability.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] group"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
+                >
+                  <div class="i-carbon-feedback text-white w-5 h-5"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
+                    Do you provide feedback after interviews?
+                  </h4>
+                  <p class="text-3.5 text-[var(--tm-txt-secondary)]">
+                    Yes, we provide constructive feedback to all candidates who complete the
+                    interview process. This helps candidates understand areas of strength and
+                    potential improvement.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] group"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
+                >
+                  <div class="i-carbon-renew text-white w-5 h-5"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
+                    What happens if I'm not selected for a current role?
+                  </h4>
+                  <p class="text-3.5 text-[var(--tm-txt-secondary)]">
+                    We maintain a talent pipeline and may consider you for future opportunities.
+                    Exceptional candidates are often reconsidered when suitable positions become
+                    available.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div
-            class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)]"
-          >
-            <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
-              What should I include in my application?
-            </h4>
-            <p class="text-3.5 text-[var(--tm-txt-secondary)]">
-              Submit an updated resume, tailored cover letter, and relevant portfolio/work samples.
-              Ensure your application clearly demonstrates how your experience aligns with the role
-              requirements.
-            </p>
-          </div>
+          <!-- FAQ 右列 -->
+          <div class="space-y-6">
+            <div
+              class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] group"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
+                >
+                  <div class="i-carbon-document-add text-white w-5 h-5"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
+                    What should I include in my application?
+                  </h4>
+                  <p class="text-3.5 text-[var(--tm-txt-secondary)]">
+                    Submit an updated resume, tailored cover letter, and relevant portfolio/work
+                    samples. Ensure your application clearly demonstrates how your experience aligns
+                    with the role requirements.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <div
-            class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)]"
-          >
-            <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
-              Do you provide feedback after interviews?
-            </h4>
-            <p class="text-3.5 text-[var(--tm-txt-secondary)]">
-              Yes, we provide constructive feedback to all candidates who complete the interview
-              process. This helps candidates understand areas of strength and potential improvement.
-            </p>
-          </div>
+            <div
+              class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] group"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
+                >
+                  <div class="i-carbon-copy text-white w-5 h-5"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
+                    Can I apply for multiple positions simultaneously?
+                  </h4>
+                  <p class="text-3.5 text-[var(--tm-txt-secondary)]">
+                    Yes, you may apply for multiple roles that match your qualifications. However,
+                    please ensure each application is specifically tailored to the respective
+                    position.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <div
-            class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)]"
-          >
-            <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
-              Can I apply for multiple positions simultaneously?
-            </h4>
-            <p class="text-3.5 text-[var(--tm-txt-secondary)]">
-              Yes, you may apply for multiple roles that match your qualifications. However, please
-              ensure each application is specifically tailored to the respective position.
-            </p>
-          </div>
-
-          <div
-            class="faq-item bg-[var(--tm-bg-secondary)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)]"
-          >
-            <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
-              What happens if I'm not selected for a current role?
-            </h4>
-            <p class="text-3.5 text-[var(--tm-txt-secondary)]">
-              We maintain a talent pipeline and may consider you for future opportunities.
-              Exceptional candidates are often reconsidered when suitable positions become
-              available.
-            </p>
+            <!-- 额外的FAQ项目，让右列更充实 -->
+            <div
+              class="faq-item bg-gradient-to-br from-[var(--tm-bg-secondary)] to-[var(--tm-bg-badge)] rounded-6 p-6 border border-[var(--tm-bd-card)] transition-all duration-300 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)] group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-full opacity-5 transform translate-x-8 -translate-y-8"
+              ></div>
+              <div class="flex items-start gap-4 relative z-1">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
+                >
+                  <div class="i-carbon-help text-white w-5 h-5"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-5 font-semibold text-[var(--tm-txt-primary)] mb-3">
+                    Need More Information?
+                  </h4>
+                  <p class="text-3.5 text-[var(--tm-txt-secondary)] mb-4">
+                    Have questions not covered here? Our recruitment team is available to provide
+                    additional guidance and support throughout your application journey.
+                  </p>
+                  <button
+                    class="text-3.5 font-medium text-[var(--tm-accent-primary)] hover:text-[var(--tm-accent-secondary)] transition-colors flex items-center gap-1"
+                  >
+                    <span>Contact HR Team</span>
+                    <div class="i-carbon-arrow-right w-3 h-3"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
