@@ -59,9 +59,29 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: 'Our Journey',
+      name: 'Timeline',
       hasSubMenu: false,
-      link: '/our-journey',
+      link: '/timeline',
+    },
+    {
+      name: 'Staffing',
+      hasSubMenu: true,
+      subItems: [
+        { name: 'Emiratisation', hasSubMenu: false, link: '/staffing#company-intro' },
+        {
+          name: 'Permanent Recruitment',
+          hasSubMenu: false,
+          link: '/staffing#vision-mission',
+        },
+        { name: 'Temporary Recruitment', hasSubMenu: false, link: '/staffing#global-presence' },
+        { name: 'Bulk Hiring', hasSubMenu: false, link: '/staffing#core-expertise' },
+        {
+          name: 'Outsourcing Services',
+          hasSubMenu: false,
+          link: '/staffing#commitment-excellence',
+        },
+        { name: 'Advisory Services', hasSubMenu: false, link: '/staffing#leadership-team' },
+      ],
     },
     {
       name: '洞察',
@@ -127,9 +147,9 @@ export const useMenuData = () => {
       },
     },
     {
-      name: 'Case Studies',
+      name: 'Locations',
       hasSubMenu: false,
-      link: '/case-studies',
+      link: '/locations',
     },
     {
       name: '职业发展',
@@ -175,7 +195,7 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: 'About Us',
+      name: 'About',
       hasSubMenu: true,
       subItems: [
         { name: 'About VMMC', hasSubMenu: false, link: '/about#company-intro' },

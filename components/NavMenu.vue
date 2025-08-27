@@ -360,15 +360,12 @@
     // Set different widths based on menu type
     const widthMap: Record<string, string> = {
       Industries: '1000px',
-      Capabilities: '600px',
-      'Our Insights': '600px',
-      Careers: '400px',
-      'About Us': '600px',
+      Staffing: '600px',
+      About: '600px',
       'About Victor Meridian': '800px',
       能力: '600px',
       洞察: '600px',
       职业发展: '400px',
-      关于我们: '600px',
       default: '320px',
     }
     return widthMap[item.name] || widthMap.default
@@ -378,10 +375,8 @@
   const getGridCols = (item: MenuItem): string => {
     const colsMap: Record<string, string> = {
       Industries: 'grid grid-cols-3 gap-2',
-      Capabilities: 'grid grid-cols-2 gap-2',
-      'Our Insights': 'grid grid-cols-2 gap-2',
-      Careers: 'grid grid-cols-2 gap-2',
-      'About Us': 'grid grid-cols-3 gap-2',
+      Staffing: 'grid grid-cols-2 gap-2',
+      About: 'grid grid-cols-3 gap-2',
       'About Victor Meridian': 'grid grid-cols-3 gap-2',
       default: 'grid grid-cols-2 gap-2',
     }
