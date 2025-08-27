@@ -361,11 +361,8 @@
     const widthMap: Record<string, string> = {
       Industries: '1000px',
       Staffing: '600px',
-      About: '600px',
-      'About Victor Meridian': '800px',
-      能力: '600px',
-      洞察: '600px',
-      职业发展: '400px',
+      About: '800px',
+      Careers: '500px',
       default: '320px',
     }
     return widthMap[item.name] || widthMap.default
@@ -377,7 +374,7 @@
       Industries: 'grid grid-cols-3 gap-2',
       Staffing: 'grid grid-cols-2 gap-2',
       About: 'grid grid-cols-3 gap-2',
-      'About Victor Meridian': 'grid grid-cols-3 gap-2',
+      Careers: 'grid grid-cols-2 gap-2',
       default: 'grid grid-cols-2 gap-2',
     }
     return colsMap[item.name] || colsMap.default
