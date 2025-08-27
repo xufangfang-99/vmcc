@@ -113,8 +113,8 @@
                           class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                           :style="{ color: 'var(--tm-txt-secondary)' }"
                           @click.prevent="handleSubItemClick(item, subItem)"
-                          @mouseenter="(e) => handleDropdownHover(e, true)"
-                          @mouseleave="(e) => handleDropdownHover(e, false)"
+                          @mouseenter="(e: any) => handleDropdownHover(e, true)"
+                          @mouseleave="(e: any) => handleDropdownHover(e, false)"
                         >
                           <span class="relative z-10">{{ subItem.name }}</span>
                           <!-- Left border animation -->
@@ -138,8 +138,8 @@
                       class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                       :style="{ color: 'var(--tm-txt-secondary)' }"
                       @click.prevent="handleSubItemClick(item, subItem)"
-                      @mouseenter="(e) => handleDropdownHover(e, true)"
-                      @mouseleave="(e) => handleDropdownHover(e, false)"
+                      @mouseenter="(e: any) => handleDropdownHover(e, true)"
+                      @mouseleave="(e: any) => handleDropdownHover(e, false)"
                     >
                       <span class="relative z-10">{{ subItem.name }}</span>
                       <!-- Left border animation -->
@@ -220,8 +220,8 @@
                         class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                         :style="{ color: 'var(--tm-txt-secondary)' }"
                         @click.prevent="handleSubItemClick(item, subItem)"
-                        @mouseenter="(e) => handleDropdownHover(e, true)"
-                        @mouseleave="(e) => handleDropdownHover(e, false)"
+                        @mouseenter="(e: any) => handleDropdownHover(e, true)"
+                        @mouseleave="(e: any) => handleDropdownHover(e, false)"
                       >
                         <span class="relative z-10">{{ subItem.name }}</span>
                         <!-- Left border animation -->
@@ -245,8 +245,8 @@
                     class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                     :style="{ color: 'var(--tm-txt-secondary)' }"
                     @click.prevent="handleSubItemClick(item, subItem)"
-                    @mouseenter="(e) => handleDropdownHover(e, true)"
-                    @mouseleave="(e) => handleDropdownHover(e, false)"
+                    @mouseenter="(e: any) => handleDropdownHover(e, true)"
+                    @mouseleave="(e: any) => handleDropdownHover(e, false)"
                   >
                     <span class="relative z-10">{{ subItem.name }}</span>
                     <!-- Left border animation -->
@@ -306,8 +306,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onUnmounted, onMounted, nextTick } from 'vue'
-  import { navigateTo, useRoute } from 'nuxt/app'
   import type { MenuItem, UnifiedMenuItem } from './NavMenu.types'
   import { generatePath } from './NavMenu.types'
 
@@ -379,7 +377,9 @@
   // Calculate submenu position and style
   const getSubmenuStyle = (item: MenuItem) => {
     const width = getSubmenuWidth(item)
-    const index = props.menuItems.findIndex((menuItem) => menuItem.name === item.name)
+    const index = props.menuItems.findIndex(
+      (menuItem: { name: string }) => menuItem.name === item.name
+    )
     const menuItemEl = menuItemRefs.value[index]
 
     if (!menuItemEl) {
