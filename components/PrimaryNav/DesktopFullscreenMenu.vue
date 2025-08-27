@@ -350,6 +350,7 @@
   import { ref, computed, watch } from 'vue'
   import type { MenuItem, UnifiedMenuItem, BottomLink } from '~/components/NavMenu.types'
   import { generatePath } from '~/components/NavMenu.types'
+  import { useNavigation } from '~/composables/useNavigation'
 
   interface Props {
     open: boolean
@@ -456,23 +457,33 @@
       groupName ? `(${groupName})` : ''
     )
 
-    // 如果有子菜单，不导航
     if (item.hasSubMenu) {
       console.log('Item has submenu, not navigating')
       return
     }
 
-    // 直接导航，不依赖复杂的状态管理
-    let path: string
+    // 获取 navigation 实例
+    const navigation = useNavigation()
 
+    // 切换到默认导航模式
+    navigation.switchToDefault()
+
+    // 设置选中路径，用于面包屑显示
+    const selectedPath: any = {}
+    if (parentName) selectedPath.firstLevel = parentName
+    if (groupName) selectedPath.secondLevel = groupName
+    else if (item.name) selectedPath.secondLevel = item.name
+
+    navigation.setSelectedPath(selectedPath)
+
+    // 执行页面导航
+    let path: string
     try {
       if (item.link) {
         path = item.link
       } else if (groupName) {
-        // 有分组的路径
         path = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${groupName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
       } else {
-        // 普通的二级路径
         path = `/${parentName.toLowerCase().replace(/\s+/g, '-')}/${item.name.toLowerCase().replace(/\s+/g, '-')}`
       }
 
