@@ -88,69 +88,6 @@ export const useMenuData = () => {
       ],
     },
     {
-      name: '洞察',
-      hasSubMenu: true,
-      subItems: [
-        {
-          title: '热门话题',
-          name: '热门话题',
-          isGroup: true,
-          hasSubMenu: false,
-          subItems: [
-            { name: '人工智能与生成式AI', hasSubMenu: false },
-            { name: '商业韧性', hasSubMenu: false },
-            { name: '案例研究', hasSubMenu: false },
-            { name: 'CEO卓越领导力', hasSubMenu: false },
-            { name: '地缘政治', hasSubMenu: false },
-            { name: '关税与全球贸易', hasSubMenu: false },
-          ],
-        },
-        {
-          title: '探索',
-          name: '探索',
-          isGroup: true,
-          hasSubMenu: false,
-          subItems: [
-            { name: '作者访谈', hasSubMenu: false },
-            { name: '全球调研', hasSubMenu: false },
-            { name: '麦肯锡解读', hasSubMenu: false },
-            { name: '麦肯锡直播', hasSubMenu: false },
-            { name: '麦肯锡书评', hasSubMenu: false },
-            { name: '麦肯锡人物传记', hasSubMenu: false },
-            { name: '麦肯锡播客', hasSubMenu: false },
-            { name: '麦肯锡主题', hasSubMenu: false },
-            { name: '麦肯锡视频', hasSubMenu: false },
-            { name: '一周图表', hasSubMenu: false },
-          ],
-        },
-      ],
-      featured: {
-        title: '特色内容',
-        items: [
-          {
-            name: '问麦肯锡',
-            description:
-              '基于麦肯锡洞察，获取您关心问题的答案。这个新的AI聊天机器人试点涵盖数字、AI、技术、媒体和电信。',
-            link: '/insights/ask-mckinsey',
-          },
-          {
-            name: '麦肯锡季刊',
-            description: '自1964年以来，我们的旗舰商业出版物一直在定义和影响高级管理议程。',
-            link: '/insights/mckinsey-quarterly',
-          },
-          {
-            name: '麦肯锡全球研究院',
-            description: '我们的使命是帮助多个部门的领导者更深入地了解全球经济。',
-            link: '/insights/mgi',
-          },
-        ],
-      },
-      exploreLink: {
-        text: '探索我们的洞察',
-        url: '/insights',
-      },
-    },
-    {
       name: 'Locations',
       hasSubMenu: false,
       link: '/locations',
