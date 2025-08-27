@@ -83,12 +83,12 @@ export const useNavigation = defineStore('navigation', () => {
 
     // 路径映射逻辑
     const pathMappings: Record<string, string> = {
-      about: 'About Us',
-      industries: 'Industries',
+      about: 'About',
+      timeline: 'Timeline',
       capabilities: '能力',
       insights: '洞察',
       careers: '职业发展',
-      locations: '地点',
+      locations: 'Locations',
     }
 
     // 设置一级菜单
