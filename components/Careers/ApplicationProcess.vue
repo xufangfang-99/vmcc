@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="application-process"
-    class="py-25 bg-[var(--tm-bg-primary)] relative overflow-hidden scroll-mt-80px"
-  >
+  <section class="py-25 bg-[var(--tm-bg-primary)] relative overflow-hidden scroll-mt-80px">
     <!-- 背景装饰 -->
     <div
       class="absolute top--20 right--30 w-100 h-100 rounded-full opacity-10 pointer-events-none bg-gradient-radial from-[var(--tm-accent-gradient-from)] to-transparent"
