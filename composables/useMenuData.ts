@@ -61,7 +61,7 @@ export const useMenuData = () => {
     {
       name: 'Our Journey',
       hasSubMenu: false,
-      link: '/journey',
+      link: '/our-journey',
     },
     {
       name: '洞察',
@@ -129,7 +129,7 @@ export const useMenuData = () => {
     {
       name: 'Case Studies',
       hasSubMenu: false,
-      link: '/locations',
+      link: '/case-studies',
     },
     {
       name: '职业发展',
