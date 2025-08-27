@@ -208,8 +208,9 @@ export const useMenuData = () => {
       },
     },
     {
-      name: '地点',
+      name: 'Case Studies',
       hasSubMenu: false,
+      link: '/locations',
     },
     {
       name: '职业发展',
@@ -292,55 +293,15 @@ export const useMenuData = () => {
     'Contact Us',
   ]
 
-  // 特殊菜单配置
+  // 特殊菜单配置 - 移除地点相关配置
   const specialMenuConfigs: {
     firstLevel: Record<string, any[]>
     secondLevel: Record<string, any[]>
     thirdLevel: Record<string, any[]>
   } = {
-    // 一级菜单的特殊配置
+    // 一级菜单的特殊配置 - 移除地点配置
     firstLevel: {
-      地点: [
-        {
-          name: '亚太地区',
-          hasSubMenu: true,
-          subItems: [
-            { name: '中国大陆', link: '/locations/china' },
-            { name: '香港', link: '/locations/hongkong' },
-            { name: '台湾', link: '/locations/taiwan' },
-            { name: '日本', link: '/locations/japan' },
-            { name: '韩国', link: '/locations/korea' },
-            { name: '新加坡', link: '/locations/singapore' },
-          ],
-        },
-        {
-          name: '北美',
-          hasSubMenu: true,
-          subItems: [
-            { name: '美国', link: '/locations/usa' },
-            { name: '加拿大', link: '/locations/canada' },
-            { name: '墨西哥', link: '/locations/mexico' },
-          ],
-        },
-        {
-          name: '欧洲',
-          hasSubMenu: true,
-          subItems: [
-            { name: '英国', link: '/locations/uk' },
-            { name: '德国', link: '/locations/germany' },
-            { name: '法国', link: '/locations/france' },
-          ],
-        },
-        { name: '其他地区', link: '/locations/others' },
-      ],
-      麦肯锡博客: [
-        { name: '最新文章', link: '/blog/latest' },
-        { name: '行业洞察', link: '/blog/industry' },
-        { name: '技术前沿', link: '/blog/technology' },
-        { name: '管理思维', link: '/blog/management' },
-        { name: '案例分享', link: '/blog/cases' },
-        { name: '作者专栏', link: '/blog/authors' },
-      ],
+      // 移除地点的特殊配置，让它使用默认导航
     },
 
     // 二级菜单的特殊配置
