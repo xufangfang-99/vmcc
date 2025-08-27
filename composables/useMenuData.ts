@@ -176,30 +176,8 @@ export const useMenuData = () => {
         },
         {
           name: 'Application Process',
-          hasSubMenu: true,
+          hasSubMenu: false,
           link: '/careers#application-process',
-          subItems: [
-            {
-              name: 'How to Apply',
-              hasSubMenu: false,
-              link: '/careers#application-process',
-            },
-            {
-              name: 'Interview Process',
-              hasSubMenu: false,
-              link: '/careers#application-process',
-            },
-            {
-              name: 'Assessment & Evaluation',
-              hasSubMenu: false,
-              link: '/careers#application-process',
-            },
-            {
-              name: 'Recruitment FAQs',
-              hasSubMenu: false,
-              link: '/careers#application-process',
-            },
-          ],
         },
         {
           name: 'Our Global Team',
