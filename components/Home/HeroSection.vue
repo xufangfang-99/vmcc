@@ -79,7 +79,7 @@
 
             <!-- 描述文字 -->
             <p
-              class="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
+              class="text-base sm:text-lg text-white lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12 opacity-90 max-w-540px opacity-0 animate-fadeInUp animate-delay-400"
             >
               We deliver premium executive search, strategic HR outsourcing, talent deployment
               <br class="hidden lg:block" />
