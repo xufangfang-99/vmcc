@@ -51,7 +51,16 @@ export const getMenuItemName = (item: UnifiedMenuItem): string => {
   return item.title || item.name
 }
 
+// 统一的路径slug生成函数 - 正确处理 & 符号
+export const generateSlug = (name: string): string => {
+  return name
+    .toLowerCase()
+    .replace(/\s*&\s*/g, '-') // "Oil & Gas" → "oil-gas"
+    .replace(/\s+/g, '-') // 处理其他空格
+    .replace(/[^a-z0-9-]/g, '') // 移除其他特殊字符
+}
+
 // 辅助函数：生成路径
 export const generatePath = (segments: string[]): string => {
-  return '/' + segments.map((s) => s.toLowerCase().replace(/\s+/g, '-')).join('/')
+  return '/' + segments.map(generateSlug).join('/')
 }
