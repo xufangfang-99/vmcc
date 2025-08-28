@@ -64,42 +64,6 @@ export const useMenuData = () => {
       name: 'Services',
       hasSubMenu: true,
       subItems: [
-        {
-          name: 'Recruitment Services',
-          hasSubMenu: false,
-          link: '/services/recruitment-services',
-        },
-        {
-          name: 'Executive Search',
-          hasSubMenu: false,
-          link: '/services/executive-search',
-        },
-        {
-          name: 'HR Consulting',
-          hasSubMenu: false,
-          link: '/services/hr-consulting',
-        },
-        {
-          name: 'Talent Management',
-          hasSubMenu: false,
-          link: '/services/talent-management',
-        },
-        {
-          name: 'Organizational Development',
-          hasSubMenu: false,
-          link: '/services/organizational-development',
-        },
-        {
-          name: 'Training & Development',
-          hasSubMenu: false,
-          link: '/services/training-development',
-        },
-      ],
-    },
-    {
-      name: 'Staffing',
-      hasSubMenu: true,
-      subItems: [
         { name: 'Emiratisation', hasSubMenu: false, link: '/staffing#emiratisation' },
         {
           name: 'Permanent Recruitment',
