@@ -1,337 +1,485 @@
 <template>
-  <div class="industries-overview">
-    <!-- 头部区域 -->
-    <div class="header-section">
-      <div class="container">
-        <h1 class="main-title">Industries We Serve</h1>
-        <p class="main-subtitle">
-          Delivering expert consulting services across diverse industries, with deep domain
-          knowledge and proven methodologies tailored to your sector's unique challenges.
+  <div class="min-h-screen bg-[var(--tm-bg-primary)]">
+    <!-- Header Section with Background Image -->
+    <div class="relative overflow-hidden py-20 md:py-32 min-h-[75vh] flex items-center">
+      <!-- Background Image Layer -->
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
+          alt="Industries Background"
+          class="h-full w-full object-cover object-center"
+        />
+        <!-- Gradient Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"
+        ></div>
+      </div>
+
+      <!-- Background Decorations -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute right-20 top-20 h-40 w-40 rounded-full opacity-5"
+          style="background-color: var(--tm-accent-primary)"
+        ></div>
+        <div
+          class="absolute bottom-32 left-20 h-24 w-24 rounded-full opacity-5"
+          style="background-color: var(--tm-accent-secondary)"
+        ></div>
+      </div>
+
+      <div class="relative z-10 mx-auto w-full max-w-[1400px] px-4 text-center md:px-8">
+        <!-- Breadcrumb Navigation -->
+        <div
+          class="mx-auto mb-8 flex w-fit flex-wrap items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-xs backdrop-blur-md animate-[fade-in-up_0.8s_ease-out_forwards] md:gap-3 md:px-6 md:py-3 sm:text-sm"
+        >
+          <NuxtLink
+            to="/"
+            class="font-medium text-white/80 transition-colors duration-300 hover:text-blue-400 hover:drop-shadow-md"
+          >
+            Home
+          </NuxtLink>
+          <span class="font-light text-white/50">/</span>
+          <span class="font-semibold text-blue-400 drop-shadow-sm">Industries</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1
+          class="mb-6 px-2 text-4xl font-light leading-[0.95] tracking-tight text-white drop-shadow-2xl animate-[fade-in-up_0.8s_ease-out_0.2s_forwards] opacity-0 sm:text-5xl md:mb-8 md:px-0 md:text-6xl md:leading-[0.9] lg:text-7xl xl:text-8xl"
+        >
+          Industries We Serve
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+          class="mx-auto mb-8 max-w-full px-4 text-base leading-relaxed text-white/90 drop-shadow-lg animate-[fade-in-up_0.8s_ease-out_0.4s_forwards] opacity-0 sm:text-lg md:mb-12 md:max-w-4xl md:px-0 md:text-xl lg:text-2xl"
+        >
+          Delivering expert consulting and talent solutions across key GCC industries, with deep
+          domain knowledge and proven methodologies tailored to your sector's unique challenges.
         </p>
-        <div class="stats-row">
-          <div class="stat-item">
-            <span class="stat-number">25+</span>
-            <span class="stat-label">Industries</span>
+
+        <!-- Stats Row -->
+        <div
+          class="flex flex-col items-center justify-center gap-6 animate-[fade-in-up_0.8s_ease-out_0.6s_forwards] opacity-0 sm:flex-row sm:gap-12 lg:gap-16"
+        >
+          <div class="text-center">
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">12+</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Core Industries</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Projects</span>
+          <div class="text-center">
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">500+</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Projects Completed</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Success Rate</span>
+          <div class="text-center">
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">98%</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Client Satisfaction</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 行业网格区域 -->
-    <div class="industries-grid-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Explore Our Industry Expertise</h2>
-          <p>
-            Click on any industry to learn more about our specialized services and success stories.
+    <!-- Industries Grid Section -->
+    <div class="py-20 bg-[var(--tm-bg-secondary)]">
+      <div class="container mx-auto max-w-[1400px] px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-4xl font-light text-gray-900 dark:text-[var(--tm-txt-primary)]">
+            Explore Our Industry Expertise
+          </h2>
+          <p
+            class="mx-auto max-w-[600px] text-lg text-gray-600 dark:text-[var(--tm-txt-secondary)]"
+          >
+            Click on any industry to learn more about our specialized consulting and talent
+            solutions.
           </p>
         </div>
 
-        <div class="industries-grid">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
           <NuxtLink
             v-for="industry in industries"
             :key="industry.slug"
             :to="industry.link"
-            class="industry-card"
+            class="group relative flex flex-col overflow-hidden rounded-3xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] transition-all duration-400 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
           >
-            <div class="card-header">
-              <div class="industry-icon">
-                <span class="icon-text">{{ getIndustryIcon(industry.name) }}</span>
+            <!-- Hover Effect Overlay -->
+            <div
+              class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 dark:via-[var(--tm-bg-white-alpha05)] to-transparent transition-transform duration-600 group-hover:translate-x-full"
+            ></div>
+
+            <div class="flex items-start justify-between p-8 pb-4">
+              <div
+                class="flex h-15 w-15 items-center justify-center rounded-2xl border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:border-[var(--tm-accent-primary)] group-hover:bg-gradient-to-br group-hover:from-[var(--tm-accent-primary)] group-hover:to-[var(--tm-accent-secondary)]"
+              >
+                <span class="transition-transform duration-300 group-hover:scale-110">
+                  {{ getIndustryIcon(industry.name) }}
+                </span>
               </div>
-              <div class="industry-category">{{ industry.category }}</div>
+              <div
+                class="rounded-full border border-gray-200 dark:border-[var(--tm-bd-secondary)] bg-gray-100 dark:bg-[var(--tm-bg-secondary)] px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-[var(--tm-txt-light)]"
+              >
+                {{ industry.category }}
+              </div>
             </div>
-            <div class="card-content">
-              <h3 class="industry-title">{{ industry.name }}</h3>
-              <p class="industry-description">{{ industry.description }}</p>
-              <div class="industry-tags">
+
+            <div class="flex-grow px-8 pb-6">
+              <h3
+                class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)] transition-colors duration-300 group-hover:text-[var(--tm-accent-primary)]"
+              >
+                {{ industry.name }}
+              </h3>
+              <p class="mb-6 leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+                {{ industry.description }}
+              </p>
+              <div class="flex flex-wrap gap-2">
                 <span
                   v-for="tag in industry.tags"
                   :key="tag"
-                  class="tag"
+                  class="rounded-2xl border border-blue-300 dark:border-white/20 bg-blue-500/80 dark:bg-white/20 px-3 py-1.5 text-xs font-medium text-white dark:text-white transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-[var(--tm-accent-primary)] group-hover:bg-[var(--tm-accent-primary)] group-hover:text-white"
                 >
                   {{ tag }}
                 </span>
               </div>
             </div>
-            <div class="card-footer">
-              <span class="learn-more">Learn More →</span>
+
+            <div class="mt-auto px-8 pb-8">
+              <span
+                class="inline-flex items-center gap-2 text-sm font-medium text-[var(--tm-accent-primary)] transition-all duration-300 group-hover:translate-x-1 group-hover:text-[var(--tm-accent-secondary)]"
+              >
+                Learn More →
+              </span>
             </div>
           </NuxtLink>
         </div>
       </div>
     </div>
 
-    <!-- 为什么选择我们 -->
-    <div class="why-choose-section">
-      <div class="container">
-        <div class="section-header centered">
-          <h2>Why Choose Our Industry Expertise</h2>
-          <p>We bring unique value to every sector we serve</p>
-        </div>
-
-        <div class="benefits-grid">
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <div class="icon-circle">📊</div>
-            </div>
-            <h3>Deep Industry Knowledge</h3>
-            <p>
-              Our consultants have extensive experience and specialized knowledge in each industry
-              sector.
-            </p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <div class="icon-circle">🎯</div>
-            </div>
-            <h3>Tailored Solutions</h3>
-            <p>
-              We customize our approach based on your industry's specific challenges and
-              opportunities.
-            </p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <div class="icon-circle">🚀</div>
-            </div>
-            <h3>Proven Results</h3>
-            <p>
-              Track record of successful transformations and measurable improvements across all
-              sectors.
-            </p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <div class="icon-circle">🔄</div>
-            </div>
-            <h3>Continuous Innovation</h3>
-            <p>
-              We stay ahead of industry trends and emerging technologies to keep you competitive.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 联系我们区域 -->
-    <div class="cta-section">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Ready to Transform Your Industry?</h2>
-          <p>
-            Connect with our industry experts to discuss your specific challenges and opportunities.
+    <!-- Why Choose Us Section -->
+    <div class="bg-[var(--tm-bg-primary)] py-20">
+      <div class="container mx-auto max-w-[1400px] px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-4xl font-light text-gray-900 dark:text-[var(--tm-txt-primary)]">
+            Why Choose Our Industry Expertise
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+            We bring unique value to every sector we serve across the GCC region
           </p>
-          <div class="cta-buttons">
-            <NuxtLink
-              to="/contact"
-              class="btn btn-primary"
-            >
-              Schedule Consultation
-            </NuxtLink>
-            <a
-              href="mailto:contact@vmmc.com"
-              class="btn btn-secondary"
-            >
-              Email Us
-            </a>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <div
+            class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="mb-6">
+              <div
+                class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-[var(--tm-accent-primary)] transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-[var(--tm-accent-primary)] hover:to-[var(--tm-accent-secondary)] hover:text-white"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 11H3v10h6V11zM21 11h-6v10h6V11zM15 3H9v6h6V3z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
+              Deep Industry Knowledge
+            </h3>
+            <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+              Our consultants combine 15+ years of global experience with specialized knowledge in
+              each GCC industry sector.
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="mb-6">
+              <div
+                class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-[var(--tm-accent-primary)] transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-[var(--tm-accent-primary)] hover:to-[var(--tm-accent-secondary)] hover:text-white"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="3"
+                  />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2 2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
+              Tailored Solutions
+            </h3>
+            <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+              We customize our consulting and talent approaches based on your industry's specific
+              challenges, regulations, and opportunities.
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="mb-6">
+              <div
+                class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-[var(--tm-accent-primary)] transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-[var(--tm-accent-primary)] hover:to-[var(--tm-accent-secondary)] hover:text-white"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
+              Proven Results
+            </h3>
+            <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+              Track record of successful digital transformations, talent placements, and measurable
+              improvements across all sectors.
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="mb-6">
+              <div
+                class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-[var(--tm-accent-primary)] transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-[var(--tm-accent-primary)] hover:to-[var(--tm-accent-secondary)] hover:text-white"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
+              Digital Innovation
+            </h3>
+            <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+              We stay ahead of industry trends and emerging technologies, helping you lead digital
+              transformation in your sector.
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <!-- 第四屏: 页脚 -->
+
+    <!-- CTA Section -->
+    <div
+      class="relative overflow-hidden bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] py-20 text-white"
+    >
+      <!-- Animated Background -->
+      <div
+        class="absolute -left-1/2 -top-1/2 h-[200%] w-[200%] animate-[rotate_20s_linear_infinite]"
+      >
+        <div
+          class="h-full w-full"
+          style="background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%)"
+        ></div>
+      </div>
+
+      <div class="container relative z-1 mx-auto max-w-[800px] px-8 text-center">
+        <h2 class="mb-4 text-4xl font-light">Ready to Transform Your Industry?</h2>
+        <p class="mb-8 text-xl leading-relaxed opacity-95">
+          Connect with our industry experts to discuss your specific challenges and discover
+          tailored solutions for sustainable growth.
+        </p>
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <NuxtLink
+            to="/contact"
+            class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-[var(--tm-accent-primary)] shadow-[0_4px_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--tm-bg-hover)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
+          >
+            Schedule Consultation
+          </NuxtLink>
+          <a
+            href="mailto:contact@vmmc.com"
+            class="inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-transparent px-8 py-4 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
+          >
+            Email Our Experts
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <FooterSection />
   </div>
 </template>
 
 <script setup>
   import FooterSection from '~/components/Home/FooterSection.vue'
-  // 行业数据
+
+  // Industry data based on new menu structure
   const industries = [
     {
-      name: 'Aerospace & Defense',
-      slug: 'aerospace-defense',
-      link: '/industries/aerospace-defense',
+      name: 'Oil & Gas',
+      slug: 'oil-gas',
+      link: '/industries/oil-gas',
       description:
-        'Strategic solutions for aerospace and defense organizations facing complex regulatory and operational challenges.',
-      category: 'Manufacturing',
-      tags: ['Strategy', 'Compliance', 'Innovation'],
-    },
-    {
-      name: 'Agriculture',
-      slug: 'agriculture',
-      link: '/industries/agriculture',
-      description:
-        'Sustainable farming solutions and agtech innovations to improve productivity and environmental impact.',
-      category: 'Agriculture',
-      tags: ['Sustainability', 'Technology', 'Efficiency'],
-    },
-    {
-      name: 'Automotive & Assembly',
-      slug: 'automotive-assembly',
-      link: '/industries/automotive-assembly',
-      description:
-        'Driving innovation and efficiency in automotive manufacturing and electric vehicle transition.',
-      category: 'Manufacturing',
-      tags: ['EV Strategy', 'Manufacturing', 'Digital'],
-    },
-    {
-      name: 'Chemicals',
-      slug: 'chemicals',
-      link: '/industries/chemicals',
-      description:
-        'Optimize chemical processes, ensure safety compliance, and drive sustainable innovation.',
-      category: 'Manufacturing',
-      tags: ['Process Optimization', 'Safety', 'Sustainability'],
-    },
-    {
-      name: 'Consumer Packaged Goods',
-      slug: 'consumer-packaged-goods',
-      link: '/industries/consumer-packaged-goods',
-      description:
-        'Brand strategy, supply chain optimization, and digital transformation for CPG companies.',
-      category: 'Consumer',
-      tags: ['Brand Strategy', 'Supply Chain', 'Digital'],
-    },
-    {
-      name: 'Education',
-      slug: 'education',
-      link: '/industries/education',
-      description:
-        'Educational innovation, digital learning platforms, and institutional transformation.',
-      category: 'Services',
-      tags: ['Digital Learning', 'Innovation', 'Strategy'],
-    },
-    {
-      name: 'Electric Power & Natural Gas',
-      slug: 'electric-power-natural-gas',
-      link: '/industries/electric-power-natural-gas',
-      description:
-        'Energy transition strategies, grid modernization, and renewable energy integration.',
+        'Digital transformation and talent solutions for energy sector operations, from upstream exploration to downstream refining.',
       category: 'Energy',
-      tags: ['Renewables', 'Grid Modernization', 'Strategy'],
+      tags: ['Digital Transformation', 'Energy Transition', 'Executive Search'],
     },
     {
-      name: 'Energy and Materials',
-      slug: 'energy-materials',
-      link: '/industries/energy-materials',
+      name: 'Banking & Finance',
+      slug: 'banking-finance',
+      link: '/industries/banking-finance',
       description:
-        'Sustainable energy solutions and advanced materials development for the future.',
-      category: 'Energy',
-      tags: ['Sustainability', 'Innovation', 'Materials'],
+        'Fintech innovation, digital banking solutions, and executive talent acquisition for financial institutions.',
+      category: 'Financial Services',
+      tags: ['Digital Banking', 'Fintech', 'Regulatory Compliance'],
     },
     {
-      name: 'Financial Services',
-      slug: 'financial-services',
-      link: '/industries/financial-services',
-      description: 'Digital banking, fintech innovation, and regulatory compliance solutions.',
-      category: 'Financial',
-      tags: ['Fintech', 'Digital Banking', 'Compliance'],
-    },
-    {
-      name: 'Healthcare',
-      slug: 'healthcare',
-      link: '/industries/healthcare',
+      name: 'Healthcare & Life Sciences',
+      slug: 'healthcare-life-sciences',
+      link: '/industries/healthcare-life-sciences',
       description:
-        'Transforming healthcare delivery, patient outcomes, and operational efficiency.',
+        'Healthcare digital transformation, clinical excellence, and specialized talent recruitment for medical organizations.',
       category: 'Healthcare',
-      tags: ['Digital Health', 'Patient Care', 'Operations'],
+      tags: ['Digital Health', 'Clinical Excellence', 'Medical Talent'],
     },
     {
-      name: 'Life Sciences',
-      slug: 'life-sciences',
-      link: '/industries/life-sciences',
-      description: 'Drug development, clinical trials optimization, and regulatory strategy.',
-      category: 'Healthcare',
-      tags: ['R&D', 'Clinical Trials', 'Regulatory'],
-    },
-    {
-      name: 'Technology, Media & Telecommunications',
-      slug: 'technology-media-telecommunications',
-      link: '/industries/technology-media-telecommunications',
-      description: '5G strategy, digital transformation, and emerging technology implementation.',
+      name: 'Technology & Innovation',
+      slug: 'technology-innovation',
+      link: '/industries/technology-innovation',
+      description:
+        'Strategic consulting and technical talent solutions for technology companies and digital transformation initiatives.',
       category: 'Technology',
-      tags: ['5G', 'Digital', 'Innovation'],
+      tags: ['AI Strategy', 'Tech Leadership', 'Innovation'],
     },
     {
-      name: 'Retail',
-      slug: 'retail',
-      link: '/industries/retail',
-      description: 'Omnichannel strategy, customer experience optimization, and retail technology.',
+      name: 'Real Estate & Construction',
+      slug: 'real-estate-construction',
+      link: '/industries/real-estate-construction',
+      description:
+        'PropTech solutions, sustainable development strategies, and construction project management excellence.',
+      category: 'Real Estate',
+      tags: ['PropTech', 'Sustainability', 'Project Management'],
+    },
+    {
+      name: 'Aviation & Logistics',
+      slug: 'aviation-logistics',
+      link: '/industries/aviation-logistics',
+      description:
+        'Supply chain optimization, aviation operations excellence, and specialized logistics talent acquisition.',
+      category: 'Transportation',
+      tags: ['Supply Chain', 'Operations', 'Logistics Tech'],
+    },
+    {
+      name: 'Hospitality & Tourism',
+      slug: 'hospitality-tourism',
+      link: '/industries/hospitality-tourism',
+      description:
+        'Guest experience innovation, tourism technology, and hospitality leadership development for the service industry.',
+      category: 'Services',
+      tags: ['Guest Experience', 'Tourism Tech', 'Service Excellence'],
+    },
+    {
+      name: 'Government & Public Sector',
+      slug: 'government-public-sector',
+      link: '/industries/government-public-sector',
+      description:
+        'Public sector transformation, smart government initiatives, and specialized talent for government agencies.',
+      category: 'Government',
+      tags: ['Smart Government', 'Public Service', 'Digital Gov'],
+    },
+    {
+      name: 'Manufacturing & Industrial',
+      slug: 'manufacturing-industrial',
+      link: '/industries/manufacturing-industrial',
+      description:
+        'Industry 4.0 transformation, lean manufacturing, and technical talent solutions for industrial operations.',
+      category: 'Manufacturing',
+      tags: ['Industry 4.0', 'Lean Manufacturing', 'Automation'],
+    },
+    {
+      name: 'Education & Training',
+      slug: 'education-training',
+      link: '/industries/education-training',
+      description:
+        'Educational technology, institutional transformation, and academic leadership development solutions.',
+      category: 'Education',
+      tags: ['EdTech', 'Digital Learning', 'Academic Leadership'],
+    },
+    {
+      name: 'Retail & Consumer Goods',
+      slug: 'retail-consumer-goods',
+      link: '/industries/retail-consumer-goods',
+      description:
+        'Omnichannel retail strategies, consumer experience optimization, and retail technology implementation.',
       category: 'Consumer',
-      tags: ['Omnichannel', 'CX', 'Technology'],
+      tags: ['Omnichannel', 'Consumer Experience', 'Retail Tech'],
     },
     {
-      name: 'Real Estate',
-      slug: 'real-estate',
-      link: '/industries/real-estate',
-      description: 'Property technology, sustainable development, and investment strategy.',
-      category: 'Services',
-      tags: ['PropTech', 'Sustainability', 'Investment'],
-    },
-    {
-      name: 'Logistics',
-      slug: 'logistics',
-      link: '/industries/logistics',
+      name: 'Media & Telecommunications',
+      slug: 'media-telecommunications',
+      link: '/industries/media-telecommunications',
       description:
-        'Supply chain optimization, warehouse automation, and last-mile delivery solutions.',
-      category: 'Services',
-      tags: ['Supply Chain', 'Automation', 'Optimization'],
-    },
-    {
-      name: 'Travel',
-      slug: 'travel',
-      link: '/industries/travel',
-      description:
-        'Travel industry recovery, digital transformation, and customer experience innovation.',
-      category: 'Services',
-      tags: ['Recovery', 'Digital', 'CX'],
+        '5G strategy implementation, media technology innovation, and telecommunications infrastructure optimization.',
+      category: 'Technology',
+      tags: ['5G Strategy', 'Media Tech', 'Telecom Innovation'],
     },
   ]
 
-  // 生成行业图标
+  // Generate industry icons
   const getIndustryIcon = (name) => {
     const iconMap = {
-      'Aerospace & Defense': '✈️',
-      Agriculture: '🌱',
-      'Automotive & Assembly': '🚗',
-      Chemicals: '⚗️',
-      'Consumer Packaged Goods': '📦',
-      Education: '🎓',
-      'Electric Power & Natural Gas': '⚡',
-      'Energy and Materials': '🔋',
-      'Financial Services': '💰',
-      Healthcare: '🏥',
-      'Life Sciences': '🧬',
-      'Technology, Media & Telecommunications': '📱',
-      Retail: '🛍️',
-      'Real Estate': '🏢',
-      Logistics: '🚛',
-      Travel: '🌍',
+      'Oil & Gas': '🛢️',
+      'Banking & Finance': '🏦',
+      'Healthcare & Life Sciences': '🏥',
+      'Technology & Innovation': '💻',
+      'Real Estate & Construction': '🏗️',
+      'Aviation & Logistics': '✈️',
+      'Hospitality & Tourism': '🏨',
+      'Government & Public Sector': '🏛️',
+      'Manufacturing & Industrial': '🏭',
+      'Education & Training': '🎓',
+      'Retail & Consumer Goods': '🛍️',
+      'Media & Telecommunications': '📱',
     }
-    return iconMap[name] || '🏭'
+    return iconMap[name] || '🏢'
   }
 
-  // SEO设置
+  // SEO settings
   useHead({
-    title: 'Industries - Expert Consulting Services | VMMC',
+    title: 'Industries - Expert Consulting & Talent Solutions | VMMC',
     meta: [
       {
         name: 'description',
         content:
-          'Explore our industry expertise across 25+ sectors including aerospace, automotive, healthcare, technology, and more. Tailored consulting solutions for your industry.',
+          "Explore VMMC's industry expertise across 12 key GCC sectors including oil & gas, banking, healthcare, technology, and more. Tailored consulting and talent solutions for your industry.",
       },
       {
         name: 'keywords',
         content:
-          'industry consulting, sector expertise, business transformation, aerospace consulting, healthcare consulting, automotive consulting, technology consulting',
+          'GCC industry consulting, sector expertise, business transformation, oil gas consulting, banking consulting, healthcare consulting, technology consulting, emiratisation, talent acquisition',
       },
     ],
   })
@@ -341,388 +489,88 @@
   })
 </script>
 
-<style scoped>
-  .industries-overview {
-    min-height: 100vh;
+<style>
+  /* Custom animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-rotate {
+    animation: rotate 20s linear infinite;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Dark mode support */
+  .dark .bg-\[var\(--tm-bg-secondary\)\] {
     background: var(--tm-bg-primary);
   }
 
-  /* 头部区域 */
-  .header-section {
-    background: linear-gradient(135deg, var(--tm-bg-secondary) 0%, var(--tm-bg-primary) 100%);
-    padding: 5rem 0;
-    text-align: center;
+  .dark .bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--tm-bg-primary) 0%, var(--tm-bg-secondary) 100%);
   }
 
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  .dark .bg-\[var\(--tm-bg-card\)\] {
+    background: var(--tm-bg-primary);
   }
 
-  .main-title {
-    font-size: 4rem;
-    font-weight: 300;
-    margin: 0 0 1.5rem 0;
-    color: var(--tm-txt-primary);
-    letter-spacing: -0.02em;
+  .dark .border-\[var\(--tm-bd-card\)\] {
+    border-color: var(--tm-bd-secondary);
   }
 
-  .main-subtitle {
-    font-size: 1.375rem;
-    color: var(--tm-txt-secondary);
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 3rem;
+  .dark .bg-\[var\(--tm-bg-secondary\)\] {
+    background: var(--tm-bg-primary);
+    border-color: var(--tm-bd-primary);
   }
 
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin-top: 3rem;
-  }
-
-  .stat-item {
-    text-align: center;
-  }
-
-  .stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--tm-accent-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
-    font-size: 0.875rem;
-    color: var(--tm-txt-light);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  /* 行业网格区域 */
-  .industries-grid-section {
-    padding: 5rem 0;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .section-header.centered {
-    text-align: center;
-  }
-
-  .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    margin: 0 0 1rem 0;
-    color: var(--tm-txt-primary);
-  }
-
-  .section-header p {
-    font-size: 1.125rem;
-    color: var(--tm-txt-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .industries-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 2rem;
-  }
-
-  .industry-card {
-    background: var(--tm-bg-card);
-    border-radius: 16px;
-    border: 1px solid var(--tm-bd-card);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .industry-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--tm-shadow-hover);
-    border-color: var(--tm-accent-primary);
-  }
-
-  .card-header {
-    padding: 2rem 2rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .industry-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--tm-accent-light);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-  }
-
-  .icon-text {
-    font-size: 1.5rem;
-  }
-
-  .industry-category {
-    background: var(--tm-bg-secondary);
-    color: var(--tm-txt-light);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .card-content {
-    padding: 0 2rem 1.5rem;
-    flex-grow: 1;
-  }
-
-  .industry-title {
-    font-size: 1.375rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: var(--tm-txt-primary);
-  }
-
-  .industry-description {
-    color: var(--tm-txt-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .industry-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag {
-    background: var(--tm-accent-light);
-    color: var(--tm-accent-primary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 16px;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .card-footer {
-    padding: 0 2rem 2rem;
-    margin-top: auto;
-  }
-
-  .learn-more {
-    color: var(--tm-accent-primary);
-    font-weight: 500;
-    font-size: 0.875rem;
-    transition: all 0.2s ease;
-  }
-
-  .industry-card:hover .learn-more {
-    transform: translateX(4px);
-  }
-
-  /* 为什么选择我们区域 */
-  .why-choose-section {
-    background: var(--tm-bg-secondary);
-    padding: 5rem 0;
-  }
-
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .benefit-card {
-    background: var(--tm-bg-card);
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--tm-bd-card);
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .benefit-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--tm-shadow-hover);
-  }
-
-  .benefit-icon {
-    margin-bottom: 1.5rem;
-  }
-
-  .icon-circle {
-    width: 80px;
-    height: 80px;
-    background: var(--tm-accent-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto;
-  }
-
-  .benefit-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: var(--tm-txt-primary);
-  }
-
-  .benefit-card p {
-    color: var(--tm-txt-secondary);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* CTA区域 */
-  .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(
-      135deg,
-      var(--tm-accent-primary) 0%,
-      var(--tm-accent-secondary) 100%
-    );
-    color: white;
-  }
-
-  .cta-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .cta-section h2 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    margin: 0 0 1rem 0;
-  }
-
-  .cta-section p {
-    font-size: 1.25rem;
-    margin: 0 0 2rem 0;
-    opacity: 0.9;
-  }
-
-  .cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .btn {
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .btn-primary {
-    background: white;
-    color: var(--tm-accent-primary);
-  }
-
-  .btn-primary:hover {
-    background: var(--tm-bg-hover);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-  }
-
-  .btn-secondary:hover {
-    background: white;
-    color: var(--tm-accent-primary);
-    transform: translateY(-2px);
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 1024px) {
-    .industries-grid {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    }
-
-    .stats-row {
-      gap: 2rem;
-    }
-  }
-
+  /* Responsive adjustments */
   @media (max-width: 768px) {
-    .main-title {
+    .text-4xl {
       font-size: 2.5rem;
-    }
-
-    .main-subtitle {
-      font-size: 1.125rem;
-    }
-
-    .stats-row {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .industries-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .benefits-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .btn {
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .container {
-      padding: 0 1rem;
-    }
-
-    .header-section,
-    .industries-grid-section,
-    .why-choose-section,
-    .cta-section {
-      padding: 3rem 0;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .card-header {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .industry-category {
-      align-self: flex-start;
     }
   }
 </style>
