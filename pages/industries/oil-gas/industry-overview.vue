@@ -822,10 +822,13 @@
         </div>
       </div>
     </div>
+    <!-- Footer -->
+    <FooterSection />
   </div>
 </template>
 
 <script setup>
+  import FooterSection from '~/components/Home/FooterSection.vue'
   // Component logic can be added here if needed
 </script>
 
