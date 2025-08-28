@@ -4,7 +4,12 @@
     <div class="hero-section">
       <div class="container">
         <div class="breadcrumb">
-          <NuxtLink to="/">Home</NuxtLink>
+          <NuxtLink
+            to="/"
+            @click="handleHomeClick"
+          >
+            Home
+          </NuxtLink>
           <span>/</span>
           <NuxtLink to="/industries">Industries</NuxtLink>
           <span>/</span>
@@ -211,6 +216,15 @@
 </template>
 
 <script setup>
+  import { useMenuHandler } from '~/composables/useMenuHandler'
+
+  // 获取导航控制
+
+  // 获取统一的菜单处理方法
+  const { resetToHome } = useMenuHandler()
+
+  // 处理 Home 点击，使用统一的重置方法
+  const handleHomeClick = resetToHome
   // 服务数据
   const services = [
     {
