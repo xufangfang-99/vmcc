@@ -373,11 +373,11 @@
   const getSubmenuWidth = (item: MenuItem): string => {
     // Set different widths based on menu type
     const widthMap: Record<string, string> = {
-      Industries: '1000px',
-      Services: '600px',
-      Insights: '600px',
+      Industries: '900px',
+      Services: '500px',
+      Insights: '460px',
       Staffing: '600px',
-      About: '800px',
+      About: '460px',
       Careers: '500px',
     }
     return widthMap[item.name] || '320px'
@@ -390,7 +390,7 @@
       Services: 'grid grid-cols-2 gap-2',
       Insights: 'grid grid-cols-2 gap-2',
       Staffing: 'grid grid-cols-2 gap-2',
-      About: 'grid grid-cols-3 gap-2',
+      About: 'grid grid-cols-2 gap-2',
       Careers: 'grid grid-cols-2 gap-2',
     }
     return colsMap[item.name] || 'grid grid-cols-2 gap-2'
