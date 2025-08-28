@@ -1,477 +1,126 @@
 <template>
-  <div class="py-20 bg-[var(--tm-bg-secondary)]">
-    <div class="container mx-auto max-w-[1400px] px-8">
-      <!-- Section Header -->
-      <div class="text-center mb-16">
+  <div class="success-stories py-20 md:py-32 bg-[var(--tm-bg-secondary)] relative overflow-hidden">
+    <!-- 背景装饰 -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute top-0 right-0 w-100 h-100 rounded-full opacity-5 bg-gradient-to-br from-[var(--tm-accent-primary)] to-transparent transform translate-x-20 -translate-y-20"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-3 bg-gradient-to-tr from-[var(--tm-accent-secondary)] to-transparent transform -translate-x-10 translate-y-10"
+      ></div>
+    </div>
+
+    <div class="max-w-1400px mx-auto px-4 md:px-8 relative z-1">
+      <!-- 标题区域 -->
+      <div class="text-center mb-16 md:mb-20">
         <div
-          class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-full px-6 py-3 text-sm font-medium text-orange-700 dark:text-orange-300 mb-6"
+          class="inline-flex items-center gap-3 bg-[var(--tm-bg-badge)] border border-[var(--tm-bd-feature)] rounded-full px-6 py-3 text-sm font-medium text-[var(--tm-txt-primary)] mb-6 backdrop-blur-10px"
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
+          <div
+            class="w-8 h-8 bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-full flex items-center justify-center text-white"
           >
-            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-            <path d="m2 17 10 5 10-5"></path>
-          </svg>
-          Industry Overview
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              ></path>
+            </svg>
+          </div>
+          成功案例展示
         </div>
-        <h2 class="mb-6 text-4xl lg:text-5xl font-light text-[var(--tm-txt-primary)]">
-          GCC Oil & Gas Market Landscape
+
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--tm-txt-primary)] mb-6">
+          Transforming Organizations,
+          <span
+            class="block md:inline text-[var(--tm-accent-primary)] font-semibold bg-gradient-to-r from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] bg-clip-text text-transparent"
+          >
+            Shaping Careers
+          </span>
         </h2>
-        <p class="text-xl text-[var(--tm-txt-secondary)] max-w-4xl mx-auto leading-relaxed">
-          The Gulf Cooperation Council remains a global energy powerhouse, accounting for
-          approximately 40% of the world's proven oil reserves and driving continuous innovation in
-          energy technologies and operations.
+
+        <p
+          class="text-lg md:text-xl text-[var(--tm-txt-secondary)] leading-relaxed max-w-4xl mx-auto"
+        >
+          Over 15 years, VMMC has delivered exceptional talent solutions across the GCC region. Here
+          are some of our most impactful success stories that showcase our commitment to excellence.
         </p>
       </div>
 
-      <!-- Market Overview Stats -->
-      <div class="mb-20">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                ></circle>
-                <path d="M12 6v6l4 2"></path>
-              </svg>
-            </div>
-            <div class="text-3xl font-bold text-[var(--tm-txt-primary)] mb-2">40%</div>
-            <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
-              Global Oil Reserves
-            </div>
-          </div>
-
-          <div class="text-center">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                ></path>
-              </svg>
-            </div>
-            <div class="text-3xl font-bold text-[var(--tm-txt-primary)] mb-2">25%</div>
-            <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
-              Global Gas Reserves
-            </div>
-          </div>
-
-          <div class="text-center">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M3 3v18h18"></path>
-                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
-              </svg>
-            </div>
-            <div class="text-3xl font-bold text-[var(--tm-txt-primary)] mb-2">$2.1T</div>
-            <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
-              Annual Revenue
-            </div>
-          </div>
-
-          <div class="text-center">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                ></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <div class="text-3xl font-bold text-[var(--tm-txt-primary)] mb-2">2M+</div>
-            <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
-              Energy Workers
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Market Dynamics -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-        <!-- Left Content -->
-        <div>
-          <h3 class="text-3xl font-light text-[var(--tm-txt-primary)] mb-6">
-            Current Market Dynamics
-          </h3>
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div
-                class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-2">
-                  Energy Security Focus
-                </h4>
-                <p class="text-[var(--tm-txt-secondary)] leading-relaxed">
-                  GCC nations continue investing heavily in energy infrastructure to maintain global
-                  supply leadership while developing domestic capabilities.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div
-                class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="3"
-                  ></circle>
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-2">
-                  Digital Transformation
-                </h4>
-                <p class="text-[var(--tm-txt-secondary)] leading-relaxed">
-                  Rapid adoption of AI, IoT, and automation technologies requires new technical
-                  skills and digital competencies across all operational levels.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div
-                class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle
-                    cx="9"
-                    cy="7"
-                    r="4"
-                  ></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-2">
-                  Nationalization Programs
-                </h4>
-                <p class="text-[var(--tm-txt-secondary)] leading-relaxed">
-                  Government-mandated emiratisation targets drive demand for skilled local talent
-                  development and strategic workforce planning.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div
-                class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-2">Energy Transition</h4>
-                <p class="text-[var(--tm-txt-secondary)] leading-relaxed">
-                  Growing investment in renewable energy, carbon capture, and hydrogen technologies
-                  creates new opportunities and skill requirements.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Infographic -->
-        <div class="relative">
+      <!-- 统计数据概览 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div class="text-center">
           <div
-            class="bg-white dark:bg-[var(--tm-bg-card)] rounded-3xl p-8 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)]"
+            class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-[var(--tm-shadow-accent)]"
           >
-            <h4 class="text-2xl font-semibold text-[var(--tm-txt-primary)] mb-8 text-center">
-              GCC Energy Employment by Country
-            </h4>
-
-            <!-- Country Employment Data -->
-            <div class="space-y-6">
-              <!-- UAE -->
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
-                    <div class="h-2 bg-green-500"></div>
-                    <div class="h-2 bg-white"></div>
-                    <div class="h-2 bg-red-500"></div>
-                  </div>
-                  <span class="font-medium text-[var(--tm-txt-primary)]">UAE</span>
-                </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-48 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      class="w-[75%] h-full bg-gradient-to-r from-orange-500 to-red-600 rounded-full"
-                    ></div>
-                  </div>
-                  <span class="text-sm font-medium text-[var(--tm-txt-primary)] w-12 text-right">
-                    350K
-                  </span>
-                </div>
-              </div>
-
-              <!-- Saudi Arabia -->
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div
-                    class="w-8 h-6 rounded-sm overflow-hidden border border-gray-300 bg-green-600 flex items-center justify-center"
-                  >
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="white"
-                    >
-                      <text
-                        x="12"
-                        y="16"
-                        text-anchor="middle"
-                        font-size="10"
-                        fill="white"
-                      >
-                        سع
-                      </text>
-                    </svg>
-                  </div>
-                  <span class="font-medium text-[var(--tm-txt-primary)]">Saudi Arabia</span>
-                </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-48 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      class="w-[90%] h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"
-                    ></div>
-                  </div>
-                  <span class="text-sm font-medium text-[var(--tm-txt-primary)] w-12 text-right">
-                    450K
-                  </span>
-                </div>
-              </div>
-
-              <!-- Kuwait -->
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
-                    <div class="h-2 bg-green-500"></div>
-                    <div class="h-2 bg-white"></div>
-                    <div class="h-2 bg-red-500"></div>
-                  </div>
-                  <span class="font-medium text-[var(--tm-txt-primary)]">Kuwait</span>
-                </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-48 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      class="w-[45%] h-full bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full"
-                    ></div>
-                  </div>
-                  <span class="text-sm font-medium text-[var(--tm-txt-primary)] w-12 text-right">
-                    180K
-                  </span>
-                </div>
-              </div>
-
-              <!-- Qatar -->
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-6 rounded-sm bg-maroon-700 border border-gray-300"></div>
-                  <span class="font-medium text-[var(--tm-txt-primary)]">Qatar</span>
-                </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-48 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      class="w-[35%] h-full bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"
-                    ></div>
-                  </div>
-                  <span class="text-sm font-medium text-[var(--tm-txt-primary)] w-12 text-right">
-                    120K
-                  </span>
-                </div>
-              </div>
-
-              <!-- Oman -->
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
-                    <div class="h-2 bg-red-500"></div>
-                    <div class="h-2 bg-white"></div>
-                    <div class="h-2 bg-green-500"></div>
-                  </div>
-                  <span class="font-medium text-[var(--tm-txt-primary)]">Oman</span>
-                </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-48 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      class="w-[30%] h-full bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full"
-                    ></div>
-                  </div>
-                  <span class="text-sm font-medium text-[var(--tm-txt-primary)] w-12 text-right">
-                    95K
-                  </span>
-                </div>
-              </div>
-
-              <!-- Bahrain -->
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
-                    <div class="h-2 bg-red-500"></div>
-                    <div class="h-2 bg-white"></div>
-                    <div class="h-2 bg-red-500"></div>
-                  </div>
-                  <span class="font-medium text-[var(--tm-txt-primary)]">Bahrain</span>
-                </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-48 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      class="w-[20%] h-full bg-gradient-to-r from-red-500 to-pink-600 rounded-full"
-                    ></div>
-                  </div>
-                  <span class="text-sm font-medium text-[var(--tm-txt-primary)] w-12 text-right">
-                    65K
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl border-l-4 border-[var(--tm-accent-primary)]"
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
             >
-              <p class="text-sm text-[var(--tm-txt-secondary)] italic">
-                * Employment figures represent direct energy sector workforce across upstream,
-                midstream, and downstream operations
-              </p>
-            </div>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle
+                cx="9"
+                cy="7"
+                r="4"
+              ></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="text-3xl md:text-4xl font-bold text-[var(--tm-accent-primary)] mb-2">
+            170K+
+          </div>
+          <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
+            Jobs Placed
           </div>
         </div>
 
-        <!-- Right Visual -->
-        <div class="relative">
-          <div class="relative rounded-3xl overflow-hidden shadow-[var(--tm-shadow-hero)]">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80"
-              alt="Oil & Gas Facility in GCC"
-              class="w-full h-96 object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-black/20"
-            ></div>
-
-            <!-- Floating Stats -->
-            <div
-              class="absolute top-6 right-6 bg-white/90 dark:bg-black/80 rounded-2xl p-4 backdrop-blur-sm"
-            >
-              <div class="text-center">
-                <div class="text-2xl font-bold text-[var(--tm-accent-primary)] mb-1">1.3M+</div>
-                <div class="text-xs text-[var(--tm-txt-secondary)] uppercase tracking-wider">
-                  Total GCC Energy Jobs
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="absolute bottom-6 left-6 bg-white/90 dark:bg-black/80 rounded-2xl p-4 backdrop-blur-sm"
-            >
-              <div class="text-center">
-                <div class="text-2xl font-bold text-green-600 mb-1">15%</div>
-                <div class="text-xs text-[var(--tm-txt-secondary)] uppercase tracking-wider">
-                  Annual Growth Rate
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Key Trends -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Trend 1 -->
-        <div
-          class="bg-white dark:bg-[var(--tm-bg-card)] rounded-2xl p-8 border border-[var(--tm-bd-card)] transition-all duration-300 hover:shadow-[var(--tm-shadow-hover)] group"
-        >
+        <div class="text-center">
           <div
-            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center text-white mb-6 transition-transform duration-300 group-hover:scale-110"
+            class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-[var(--tm-shadow-accent)]"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              ></path>
+              <rect
+                x="8"
+                y="2"
+                width="8"
+                height="4"
+                rx="1"
+                ry="1"
+              ></rect>
+              <path d="m9 14 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="text-3xl md:text-4xl font-bold text-[var(--tm-accent-primary)] mb-2">
+            20K+
+          </div>
+          <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
+            Satisfied Clients
+          </div>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg"
           >
             <svg
               width="24"
@@ -486,56 +135,22 @@
                 cy="12"
                 r="10"
               ></circle>
-              <path d="M12 6v6l4 2"></path>
+              <path
+                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              ></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)] mb-4">
-            Mega Projects Pipeline
-          </h3>
-          <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-4">
-            $500+ billion in planned energy infrastructure projects across the GCC creating
-            unprecedented demand for specialized talent.
-          </p>
-          <div class="text-sm text-[var(--tm-accent-primary)] font-medium">
-            Key drivers: NEOM, Qatar National Vision 2030, UAE Energy Strategy 2050
+          <div class="text-3xl md:text-4xl font-bold text-[var(--tm-accent-primary)] mb-2">
+            210K+
+          </div>
+          <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
+            Professionals Trained
           </div>
         </div>
 
-        <!-- Trend 2 -->
-        <div
-          class="bg-white dark:bg-[var(--tm-bg-card)] rounded-2xl p-8 border border-[var(--tm-bd-card)] transition-all duration-300 hover:shadow-[var(--tm-shadow-hover)] group"
-        >
+        <div class="text-center">
           <div
-            class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white mb-6 transition-transform duration-300 group-hover:scale-110"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M12 2v20"></path>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)] mb-4">Skills Premium</h3>
-          <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-4">
-            Specialized roles command 25-40% salary premiums due to talent scarcity, particularly in
-            downstream processing and energy transition.
-          </p>
-          <div class="text-sm text-[var(--tm-accent-primary)] font-medium">
-            Highest demand: Process Engineers, HSE Specialists, Digital Experts
-          </div>
-        </div>
-
-        <!-- Trend 3 -->
-        <div
-          class="bg-white dark:bg-[var(--tm-bg-card)] rounded-2xl p-8 border border-[var(--tm-bd-card)] transition-all duration-300 hover:shadow-[var(--tm-shadow-hover)] group"
-        >
-          <div
-            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center text-white mb-6 transition-transform duration-300 group-hover:scale-110"
+            class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg"
           >
             <svg
               width="24"
@@ -546,342 +161,539 @@
               stroke-width="2"
             >
               <path
-                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
               ></path>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-              <line
-                x1="12"
-                y1="22.08"
-                x2="12"
-                y2="12"
-              ></line>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)] mb-4">
-            Operational Excellence
-          </h3>
-          <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-4">
-            Focus on operational efficiency and cost optimization drives demand for lean operations
-            specialists and process improvement experts.
-          </p>
-          <div class="text-sm text-[var(--tm-accent-primary)] font-medium">
-            Priority areas: Asset integrity, predictive maintenance, supply chain optimization
+          <div class="text-3xl md:text-4xl font-bold text-[var(--tm-accent-primary)] mb-2">
+            50K+
+          </div>
+          <div class="text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wider">
+            Courses Delivered
           </div>
         </div>
       </div>
 
-      <!-- Industry Challenges -->
-      <div
-        class="mt-20 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 rounded-3xl p-12 border border-red-200/50 dark:border-red-800/30"
-      >
-        <div class="text-center mb-12">
-          <h3 class="text-3xl font-light text-[var(--tm-txt-primary)] mb-4">
-            Current Industry Challenges
-          </h3>
-          <p class="text-lg text-[var(--tm-txt-secondary)]">
-            Understanding market complexities to deliver better talent solutions
-          </p>
+      <!-- 成功案例卡片 -->
+      <div class="space-y-16 md:space-y-20">
+        <!-- 案例1: 大型石油公司本土化项目 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <div
+              class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 md:p-10 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)] transition-all duration-500 hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-2"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="m2 17 10 5 10-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">
+                    Oil & Gas Giant
+                  </h3>
+                  <p class="text-sm text-[var(--tm-txt-secondary)]">
+                    Emiratisation Excellence Program
+                  </p>
+                </div>
+              </div>
+
+              <h4 class="text-2xl font-semibold text-[var(--tm-txt-primary)] mb-4">
+                UAE's Largest Emiratisation Success Story
+              </h4>
+
+              <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-6">
+                VMMC partnered with a leading multinational oil & gas company to achieve 45%
+                emiratisation across technical and managerial roles within 18 months, exceeding
+                government mandates by 15%.
+              </p>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">850+</div>
+                  <div class="text-sm text-[var(--tm-txt-secondary)]">UAE Nationals Recruited</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">45%</div>
+                  <div class="text-sm text-[var(--tm-txt-secondary)]">
+                    Emiratisation Rate Achieved
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Executive Search
+                </span>
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Bulk Hiring
+                </span>
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Training Programs
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-[var(--tm-shadow-hero)]">
+              <OptImage
+                src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?w=800&q=80"
+                alt="Oil & Gas Facility"
+                class="w-full h-80 md:h-96 object-cover"
+                :auto-dark-mode="true"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <h5 class="text-lg font-semibold mb-2">Result Highlights</h5>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>✓ 18-month completion</div>
+                  <div>✓ 95% retention rate</div>
+                  <div>✓ Government recognition</div>
+                  <div>✓ Industry benchmark</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Challenge 1 -->
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                <path d="M12 15h.01"></path>
-              </svg>
+        <!-- 案例2: 银行业数字化转型人才 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-[var(--tm-shadow-hero)]">
+              <OptImage
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+                alt="Banking Technology"
+                class="w-full h-80 md:h-96 object-cover"
+                :auto-dark-mode="true"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <h5 class="text-lg font-semibold mb-2">Digital Innovation Team</h5>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>✓ 120 specialists placed</div>
+                  <div>✓ 6-month timeline</div>
+                  <div>✓ Multi-country sourcing</div>
+                  <div>✓ 85% senior roles</div>
+                </div>
+              </div>
             </div>
-            <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-3">Skills Shortage</h4>
-            <p class="text-sm text-[var(--tm-txt-secondary)] leading-relaxed">
-              Critical shortage of experienced professionals in specialized roles, particularly UAE
-              nationals with technical expertise.
-            </p>
           </div>
 
-          <!-- Challenge 2 -->
-          <div class="text-center">
+          <div>
             <div
-              class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4"
+              class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 md:p-10 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)] transition-all duration-500 hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-2"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center text-white"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line
+                      x1="8"
+                      y1="21"
+                      x2="16"
+                      y2="21"
+                    ></line>
+                    <line
+                      x1="12"
+                      y1="17"
+                      x2="12"
+                      y2="21"
+                    ></line>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">Major GCC Bank</h3>
+                  <p class="text-sm text-[var(--tm-txt-secondary)]">
+                    Digital Transformation Initiative
+                  </p>
+                </div>
+              </div>
+
+              <h4 class="text-2xl font-semibold text-[var(--tm-txt-primary)] mb-4">
+                Building the Future of Banking Technology
+              </h4>
+
+              <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-6">
+                Assembled a world-class fintech team including Chief Digital Officer, blockchain
+                specialists, and AI engineers to drive the bank's $200M digital transformation
+                across 5 GCC countries.
+              </p>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">120</div>
+                  <div class="text-sm text-[var(--tm-txt-secondary)]">
+                    Tech Professionals Placed
+                  </div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">$200M</div>
+                  <div class="text-sm text-[var(--tm-txt-secondary)]">Project Value Supported</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Fintech Leadership
+                </span>
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  AI & Blockchain
+                </span>
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Cross-border Team
+                </span>
+              </div>
             </div>
-            <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-3">Regulatory Compliance</h4>
-            <p class="text-sm text-[var(--tm-txt-secondary)] leading-relaxed">
-              Meeting emiratisation quotas while maintaining operational excellence requires
-              strategic workforce planning.
-            </p>
+          </div>
+        </div>
+
+        <!-- 案例3: 医疗集团扩张人才支持 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <div
+              class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 md:p-10 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)] transition-all duration-500 hover:shadow-[var(--tm-shadow-hover)] hover:-translate-y-2"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-[var(--tm-txt-primary)]">
+                    Healthcare Group
+                  </h3>
+                  <p class="text-sm text-[var(--tm-txt-secondary)]">Regional Expansion Project</p>
+                </div>
+              </div>
+
+              <h4 class="text-2xl font-semibold text-[var(--tm-txt-primary)] mb-4">
+                Scaling Healthcare Excellence Across GCC
+              </h4>
+
+              <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-6">
+                Supported a leading healthcare provider's expansion into 3 new GCC markets by
+                recruiting 300+ medical professionals, including specialist doctors, nurses, and
+                healthcare administrators.
+              </p>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">300+</div>
+                  <div class="text-sm text-[var(--tm-txt-secondary)]">Medical Professionals</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">12</div>
+                  <div class="text-sm text-[var(--tm-txt-secondary)]">Months Timeline</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Medical Licensing
+                </span>
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Multi-country Hiring
+                </span>
+                <span
+                  class="px-3 py-1 bg-[var(--tm-bg-badge)] text-[var(--tm-accent-primary)] rounded-full text-xs font-medium"
+                >
+                  Compliance Management
+                </span>
+              </div>
+            </div>
           </div>
 
-          <!-- Challenge 3 -->
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                ></path>
-              </svg>
+          <div class="order-1 lg:order-2 relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-[var(--tm-shadow-hero)]">
+              <OptImage
+                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80"
+                alt="Healthcare Professionals"
+                class="w-full h-80 md:h-96 object-cover"
+                :auto-dark-mode="true"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <h5 class="text-lg font-semibold mb-2">Project Outcomes</h5>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>✓ 3 new markets entered</div>
+                  <div>✓ 100% licensing success</div>
+                  <div>✓ Award-winning project</div>
+                  <div>✓ Ongoing partnership</div>
+                </div>
+              </div>
             </div>
-            <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-3">Technology Transition</h4>
-            <p class="text-sm text-[var(--tm-txt-secondary)] leading-relaxed">
-              Rapid digitalization requires upskilling existing workforce while recruiting new
-              talent with digital competencies.
-            </p>
-          </div>
-
-          <!-- Challenge 4 -->
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="3"
-                ></circle>
-                <path
-                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                ></path>
-              </svg>
-            </div>
-            <h4 class="font-semibold text-[var(--tm-txt-primary)] mb-3">
-              Sustainability Integration
-            </h4>
-            <p class="text-sm text-[var(--tm-txt-secondary)] leading-relaxed">
-              Balancing traditional operations with environmental commitments requires professionals
-              skilled in both domains.
-            </p>
           </div>
         </div>
       </div>
 
-      <!-- VMMC Solutions -->
-      <div
-        class="mt-16 bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-3xl p-12 text-white"
-      >
-        <div class="text-center mb-8">
-          <h3 class="text-3xl font-light mb-4">How VMMC Addresses These Challenges</h3>
-          <p class="text-lg opacity-95">
-            Our proven methodologies and extensive network deliver solutions
-          </p>
+      <!-- 客户证言 -->
+      <div class="mt-20 text-center">
+        <h3 class="text-3xl md:text-4xl font-light text-[var(--tm-txt-primary)] mb-12">
+          What Our Clients Say
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 证言1 -->
+          <div
+            class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)] transition-all duration-300 hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="text-[var(--tm-accent-primary)] text-4xl mb-4">"</div>
+            <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-6">
+              "VMMC's deep understanding of the GCC energy sector and their ability to source UAE
+              nationals with technical expertise was game-changing for our emiratisation targets."
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 bg-[var(--tm-bg-badge)] rounded-full flex items-center justify-center"
+              >
+                <span class="text-[var(--tm-accent-primary)] font-semibold">AH</span>
+              </div>
+              <div>
+                <div class="font-semibold text-[var(--tm-txt-primary)]">Ahmed Hassan</div>
+                <div class="text-sm text-[var(--tm-txt-secondary)]">
+                  HR Director, Major Oil Company
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 证言2 -->
+          <div
+            class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)] transition-all duration-300 hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="text-[var(--tm-accent-primary)] text-4xl mb-4">"</div>
+            <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-6">
+              "The quality of candidates VMMC provided for our digital transformation was
+              exceptional. Their understanding of fintech requirements exceeded our expectations."
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 bg-[var(--tm-bg-badge)] rounded-full flex items-center justify-center"
+              >
+                <span class="text-[var(--tm-accent-primary)] font-semibold">SK</span>
+              </div>
+              <div>
+                <div class="font-semibold text-[var(--tm-txt-primary)]">Sarah Khan</div>
+                <div class="text-sm text-[var(--tm-txt-secondary)]">CTO, Leading GCC Bank</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 证言3 -->
+          <div
+            class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 border border-[var(--tm-bd-card)] shadow-[var(--tm-shadow-card)] transition-all duration-300 hover:shadow-[var(--tm-shadow-hover)] md:col-span-2 lg:col-span-1"
+          >
+            <div class="text-[var(--tm-accent-primary)] text-4xl mb-4">"</div>
+            <p class="text-[var(--tm-txt-secondary)] leading-relaxed mb-6">
+              "VMMC's support during our regional expansion was instrumental. They handled complex
+              multi-country recruitment with remarkable efficiency and compliance."
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 bg-[var(--tm-bg-badge)] rounded-full flex items-center justify-center"
+              >
+                <span class="text-[var(--tm-accent-primary)] font-semibold">DR</span>
+              </div>
+              <div>
+                <div class="font-semibold text-[var(--tm-txt-primary)]">Dr. Rashid</div>
+                <div class="text-sm text-[var(--tm-txt-secondary)]">CEO, Healthcare Group</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="flex items-start gap-4">
+      <!-- CTA区域 -->
+      <div class="mt-20 text-center">
+        <div
+          class="bg-gradient-to-r from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-3xl p-12 md:p-16 text-white relative overflow-hidden"
+        >
+          <!-- 背景装饰 -->
+          <div class="absolute inset-0 opacity-10">
             <div
-              class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                ></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Local Talent Development</h4>
-              <p class="text-sm opacity-90 leading-relaxed">
-                Comprehensive UAE nationals training programs bridging the gap between education and
-                industry requirements.
-              </p>
-            </div>
+              class="absolute top-4 right-4 w-32 h-32 rounded-full bg-white transform rotate-45"
+            ></div>
+            <div
+              class="absolute bottom-4 left-4 w-24 h-24 rounded-full bg-white transform -rotate-12"
+            ></div>
           </div>
 
-          <div class="flex items-start gap-4">
-            <div
-              class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                ></circle>
-                <path
-                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Global Network Access</h4>
-              <p class="text-sm opacity-90 leading-relaxed">
-                Tap into our international database of 1M+ candidates to source specialized
-                expertise quickly and efficiently.
-              </p>
-            </div>
-          </div>
+          <div class="relative z-1">
+            <h3 class="text-3xl md:text-4xl font-light mb-6">
+              Ready to Create Your Success Story?
+            </h3>
+            <p class="text-xl mb-8 max-w-3xl mx-auto opacity-95">
+              Join 20,000+ companies who have achieved their talent goals with VMMC. Let us help you
+              build exceptional teams and drive transformational growth.
+            </p>
 
-          <div class="flex items-start gap-4">
-            <div
-              class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <NuxtLink
+                to="/contact"
+                class="inline-flex items-center gap-3 bg-white text-[var(--tm-accent-primary)] px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-gray-50 hover:-translate-y-1 shadow-lg hover:shadow-xl no-underline"
               >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Compliance Expertise</h4>
-              <p class="text-sm opacity-90 leading-relaxed">
-                Deep understanding of GCC employment regulations and nationalization requirements
-                ensuring full compliance.
-              </p>
-            </div>
-          </div>
+                <span>Start Your Success Story</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </NuxtLink>
 
-          <div class="flex items-start gap-4">
-            <div
-              class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+              <NuxtLink
+                to="/about#case-studies"
+                class="inline-flex items-center gap-3 border-2 border-white/60 bg-transparent text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:border-white hover:bg-white/10 no-underline"
               >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="3"
-                ></circle>
-                <path
-                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Strategic Consultation</h4>
-              <p class="text-sm opacity-90 leading-relaxed">
-                End-to-end workforce planning and talent strategy development aligned with business
-                objectives and growth plans.
-              </p>
+                <span>View More Cases</span>
+              </NuxtLink>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Footer -->
+    <FooterSection />
   </div>
 </template>
 
-<script setup>
-  // Component logic can be added here if needed
+<script setup lang="ts">
+  import FooterSection from '~/components/Home/FooterSection.vue'
+  // 组件逻辑可在此添加
 </script>
 
 <style>
-  /* Custom styles that complement UnoCSS */
-  .bg-maroon-700 {
-    background-color: #7c2d12;
+  /* 只保留无法用 UnoCSS 表达的复杂样式 */
+
+  /* 背景装饰动画 */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
   }
 
-  /* Animation for rotating background */
-  @keyframes rotate {
+  .success-stories .absolute:first-child {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .success-stories .absolute:nth-child(2) {
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  /* 卡片入场动画 */
+  @keyframes slideInUp {
     from {
-      transform: rotate(0deg);
+      opacity: 0;
+      transform: translateY(30px);
     }
     to {
-      transform: rotate(360deg);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  /* Hover effects for country employment bars */
-  .group:hover .w-48 > div {
-    animation: progress-fill 1s ease-out;
+  .success-stories > div > div:nth-child(n + 3) {
+    animation: slideInUp 0.8s ease-out forwards;
   }
 
-  @keyframes progress-fill {
-    from {
-      width: 0;
-    }
-    to {
-      width: var(--progress-width);
-    }
+  /* 深色模式适配 */
+  .dark .bg-\[var\(--tm-bg-primary\)\] {
+    background: var(--tm-bg-card);
   }
 
-  /* Dark mode flag colors */
-  .dark .bg-green-500 {
-    background-color: #10b981;
-  }
-  .dark .bg-red-500 {
-    background-color: #ef4444;
-  }
-  .dark .bg-white {
-    background-color: #f8fafc;
+  .dark .bg-\[var\(--tm-bg-secondary\)\] {
+    background: var(--tm-bg-primary);
   }
 
-  /* Mobile responsive adjustments */
+  .dark .border-\[var\(--tm-bd-card\)\] {
+    border-color: var(--tm-bd-secondary);
+  }
+
+  .dark .bg-\[var\(--tm-bg-badge\)\] {
+    background: var(--tm-bg-whiteAlpha10);
+    border-color: var(--tm-bd-transparent);
+  }
+
+  /* 响应式优化 */
   @media (max-width: 768px) {
-    .w-48 {
-      width: 120px;
-    }
-
-    .text-3xl {
-      font-size: 1.875rem;
-    }
-
-    .gap-16 {
+    .success-stories .grid.grid-cols-1.lg\:grid-cols-2 {
       gap: 2rem;
+    }
+
+    .success-stories .text-4xl.md\:text-5xl.lg\:text-6xl {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    .success-stories .p-8.md\:p-10 {
+      padding: 1.5rem;
     }
   }
 </style>
