@@ -4,7 +4,7 @@
     <!-- 仅在非移动端显示颜色主题和语言切换 -->
     <Responsive :not-mobile="true">
       <ColorThemeSwitch />
-      <LangTheme />
+      <!-- <LangTheme /> -->
     </Responsive>
   </div>
 </template>
@@ -15,7 +15,7 @@
   import { useDevice } from '~/composables/useDevice'
   import DarkModeSwitch from './comp/dark.vue'
   import ColorThemeSwitch from './comp/color.vue'
-  import LangTheme from './comp/lang.vue'
+  // import LangTheme from './comp/lang.vue'
 
   const theme = useTheme()
   const device = useDevice()
