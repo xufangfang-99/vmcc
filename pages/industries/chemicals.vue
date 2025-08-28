@@ -9,6 +9,7 @@
           <NuxtLink
             to="/"
             class="breadcrumb-link"
+            @click="handleHomeClick"
           >
             Home
           </NuxtLink>
@@ -141,6 +142,14 @@
 </template>
 
 <script setup>
+  import { useMenuHandler } from '~/composables/useMenuHandler'
+
+  // 获取统一的菜单处理方法
+  const { resetToHome } = useMenuHandler()
+
+  // 处理 Home 点击，使用统一的重置方法
+  const handleHomeClick = resetToHome
+
   // 页面数据 - 每个静态页面都可以自定义这些内容
   const industryName = 'Aerospace & Defense'
   const industryDescription =

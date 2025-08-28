@@ -3,12 +3,23 @@
     <h1>{{ error?.statusCode ?? 'Unknown Error' }}</h1>
     <p>{{ error?.message ?? 'An unexpected error occurred' }}</p>
     <button @click="handleError">Try again</button>
-    <NuxtLink to="/">Go back home</NuxtLink>
+    <NuxtLink
+      to="/"
+      @click="handleHomeClick"
+    >
+      Go back home
+    </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
   import { useRouter } from 'nuxt/app'
+  import { useMenuHandler } from '~/composables/useMenuHandler'
+  // 获取统一的菜单处理方法
+  const { resetToHome } = useMenuHandler()
+  // 处理 Home 点击，使用统一的重置方法
+  const handleHomeClick = resetToHome
+
   interface ErrorObject {
     statusCode?: number
     message?: string

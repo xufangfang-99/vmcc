@@ -40,6 +40,7 @@
           <NuxtLink
             to="/"
             class="text-white/80 hover:text-blue-400 transition-colors duration-300 font-medium hover:drop-shadow-md active:scale-95 transform transition-transform"
+            @click="handleHomeClick"
           >
             Home
           </NuxtLink>
@@ -217,6 +218,14 @@
 
 <script setup>
   import FooterSection from '~/components/Home/FooterSection.vue'
+
+  import { useMenuHandler } from '~/composables/useMenuHandler'
+  // 获取统一的菜单处理方法
+  const { resetToHome } = useMenuHandler()
+
+  // 处理 Home 点击，使用统一的重置方法
+  const handleHomeClick = resetToHome
+
   // 页面配置
   definePageMeta({
     layout: 'default',

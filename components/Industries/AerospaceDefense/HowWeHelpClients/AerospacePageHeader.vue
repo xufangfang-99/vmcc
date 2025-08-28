@@ -40,6 +40,7 @@
         <NuxtLink
           to="/"
           class="text-white/80 hover:text-blue-400 transition-colors duration-300 font-medium hover:drop-shadow-md active:scale-95 transform transition-transform"
+          @click="handleHomeClick"
         >
           Home
         </NuxtLink>
@@ -62,7 +63,15 @@
 <script setup>
   import { computed, ref, onMounted } from 'vue'
   import { useTheme } from '~/composables/useTheme'
+  import { useMenuHandler } from '~/composables/useMenuHandler'
 
+  // 获取导航控制
+
+  // 获取统一的菜单处理方法
+  const { resetToHome } = useMenuHandler()
+
+  // 处理 Home 点击，使用统一的重置方法
+  const handleHomeClick = resetToHome
   // 定义组件的 props
   const props = defineProps({
     industryName: {

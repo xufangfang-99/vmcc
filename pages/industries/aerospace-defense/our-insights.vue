@@ -11,7 +11,7 @@
           alt="Aerospace Insights Background"
           class="w-full h-full object-cover object-center"
         />
-        <!-- 渐变遮罩层 -->
+        <!-- 渐变蒙罩层 -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         <div
           class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"
@@ -38,6 +38,7 @@
           <NuxtLink
             to="/"
             class="text-white/80 hover:text-blue-400 transition-colors duration-300 font-medium hover:drop-shadow-md active:scale-95 transform transition-transform"
+            @click="handleHomeClick"
           >
             Home
           </NuxtLink>
@@ -366,7 +367,14 @@
 </template>
 
 <script setup>
+  import { useMenuHandler } from '~/composables/useMenuHandler'
   import FooterSection from '~/components/Home/FooterSection.vue'
+
+  // 获取统一的菜单处理方法
+  const { resetToHome } = useMenuHandler()
+
+  // 处理 Home 点击，使用统一的重置方法
+  const handleHomeClick = resetToHome
 
   // 页面配置
   definePageMeta({
