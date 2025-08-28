@@ -435,7 +435,7 @@
       description:
         'Examining the integration of artificial intelligence and unmanned systems in defense operations and their strategic implications.',
       type: 'Technology Brief',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80',
       authors: ['Robert Kim', 'Maria Rodriguez'],
       date: 'Oct 2024',
       readTime: 10,

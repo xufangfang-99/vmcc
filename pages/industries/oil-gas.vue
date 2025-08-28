@@ -231,7 +231,7 @@
           <div class="relative">
             <div class="relative rounded-3xl overflow-hidden shadow-[var(--tm-shadow-hero)]">
               <img
-                src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80"
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
                 alt="Oil & Gas Operations"
                 class="w-full h-96 object-cover"
               />
