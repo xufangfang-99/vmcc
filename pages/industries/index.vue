@@ -63,16 +63,20 @@
           class="flex flex-col items-center justify-center gap-6 animate-[fade-in-up_0.8s_ease-out_0.6s_forwards] opacity-0 sm:flex-row sm:gap-12 lg:gap-16"
         >
           <div class="text-center">
-            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">12+</div>
-            <div class="text-sm uppercase tracking-wider text-white/80">Core Industries</div>
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">1M+</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Candidate Database</div>
           </div>
           <div class="text-center">
-            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">500+</div>
-            <div class="text-sm uppercase tracking-wider text-white/80">Projects Completed</div>
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">170K+</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Jobs Placed</div>
           </div>
           <div class="text-center">
-            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">98%</div>
-            <div class="text-sm uppercase tracking-wider text-white/80">Client Satisfaction</div>
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">20K+</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Satisfied Clients</div>
+          </div>
+          <div class="text-center">
+            <div class="mb-2 text-4xl font-semibold text-blue-400 drop-shadow-lg">15</div>
+            <div class="text-sm uppercase tracking-wider text-white/80">Years Experience</div>
           </div>
         </div>
       </div>
@@ -164,6 +168,16 @@
           </p>
         </div>
 
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-4xl font-light text-gray-900 dark:text-[var(--tm-txt-primary)]">
+            Why Choose VMMC for Your Industry
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+            15 years of proven expertise delivering recruitment and HR consulting solutions across
+            the GCC region
+          </p>
+        </div>
+
         <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
           <div
             class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
@@ -180,16 +194,60 @@
                   stroke="currentColor"
                   stroke-width="2"
                 >
-                  <path d="M9 11H3v10h6V11zM21 11h-6v10h6V11zM15 3H9v6h6V3z" />
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                  ></path>
+                  <rect
+                    x="8"
+                    y="2"
+                    width="8"
+                    height="4"
+                    rx="1"
+                    ry="1"
+                  ></rect>
+                  <path d="m9 14 2 2 4-4"></path>
                 </svg>
               </div>
             </div>
             <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
-              Deep Industry Knowledge
+              Proven Track Record
             </h3>
             <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-              Our consultants combine 15+ years of global experience with specialized knowledge in
-              each GCC industry sector.
+              Over 170K successful job placements and 20K satisfied clients across 15 years of
+              global operations.
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
+          >
+            <div class="mb-6">
+              <div
+                class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-[var(--tm-accent-primary)] transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-[var(--tm-accent-primary)] hover:to-[var(--tm-accent-secondary)] hover:text-white"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle
+                    cx="12"
+                    cy="7"
+                    r="4"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+            <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
+              Emiratisation Excellence
+            </h3>
+            <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
+              Leading specialist in UAE nationalization programs with extensive local talent
+              networks and proven compliance methodologies.
             </p>
           </div>
 
@@ -212,19 +270,19 @@
                     cx="12"
                     cy="12"
                     r="3"
-                  />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2 2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
+                  ></circle>
+                  <path d="M12 1v6m0 6v6"></path>
+                  <path d="m15.5 7.5-3 3-3-3"></path>
+                  <path d="m15.5 16.5-3-3-3 3"></path>
                 </svg>
               </div>
             </div>
             <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
-              Tailored Solutions
+              Vast Talent Network
             </h3>
             <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-              We customize our consulting and talent approaches based on your industry's specific
-              challenges, regulations, and opportunities.
+              Access to 1M+ candidate database spanning all job levels from administrative roles to
+              C-suite executives.
             </p>
           </div>
 
@@ -243,48 +301,17 @@
                   stroke="currentColor"
                   stroke-width="2"
                 >
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                  <path d="m9 12 2 2 4-4"></path>
                 </svg>
               </div>
             </div>
             <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
-              Proven Results
+              GCC Regional Expertise
             </h3>
             <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-              Track record of successful digital transformations, talent placements, and measurable
-              improvements across all sectors.
-            </p>
-          </div>
-
-          <div
-            class="rounded-2xl border border-gray-200 dark:border-[var(--tm-bd-card)] bg-white dark:bg-[var(--tm-bg-card)] p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[var(--tm-accent-primary)] hover:shadow-[var(--tm-shadow-hover)]"
-          >
-            <div class="mb-6">
-              <div
-                class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--tm-accent-primary)]/20 bg-gradient-to-br from-[var(--tm-accent-primary)]/10 to-[var(--tm-accent-secondary)]/10 text-[var(--tm-accent-primary)] transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-[var(--tm-accent-primary)] hover:to-[var(--tm-accent-secondary)] hover:text-white"
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
-              Digital Innovation
-            </h3>
-            <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-              We stay ahead of industry trends and emerging technologies, helping you lead digital
-              transformation in your sector.
+              Deep understanding of UAE, Saudi Arabia, Kuwait, Qatar, Oman, and Bahrain employment
+              markets and cultural requirements.
             </p>
           </div>
         </div>
@@ -306,23 +333,23 @@
       </div>
 
       <div class="container relative z-1 mx-auto max-w-[800px] px-8 text-center">
-        <h2 class="mb-4 text-4xl font-light">Ready to Transform Your Industry?</h2>
+        <h2 class="mb-4 text-4xl font-light">Ready to Find Your Next Top Talent?</h2>
         <p class="mb-8 text-xl leading-relaxed opacity-95">
-          Connect with our industry experts to discuss your specific challenges and discover
-          tailored solutions for sustainable growth.
+          Connect with VMMC's industry specialists to discuss your recruitment needs and discover
+          how our 15 years of expertise can help you build exceptional teams.
         </p>
         <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <NuxtLink
             to="/contact"
             class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-[var(--tm-accent-primary)] shadow-[0_4px_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--tm-bg-hover)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
           >
-            Schedule Consultation
+            Discuss Your Hiring Needs
           </NuxtLink>
           <a
             href="mailto:contact@vmmc.com"
             class="inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-transparent px-8 py-4 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
           >
-            Email Our Experts
+            Email Our Recruiters
           </a>
         </div>
       </div>
@@ -336,115 +363,189 @@
 <script setup>
   import FooterSection from '~/components/Home/FooterSection.vue'
 
-  // Industry data based on new menu structure
+  // Industry data based on VMMC's actual expertise and services
   const industries = [
     {
       name: 'Oil & Gas',
       slug: 'oil-gas',
       link: '/industries/oil-gas',
       description:
-        'Digital transformation and talent solutions for energy sector operations, from upstream exploration to downstream refining.',
+        'Executive search, emiratisation programs, and specialized talent solutions for energy sector operations across upstream, midstream, and downstream activities.',
       category: 'Energy',
-      tags: ['Digital Transformation', 'Energy Transition', 'Executive Search'],
+      tags: ['Executive Search', 'Emiratisation', 'Technical Talent'],
+      services: [
+        'Senior Leadership Recruitment',
+        'Local Talent Development',
+        'Project-Based Hiring',
+      ],
+      keyRoles: [
+        'Petroleum Engineers',
+        'Project Managers',
+        'HSE Specialists',
+        'Operations Directors',
+      ],
     },
     {
       name: 'Banking & Finance',
       slug: 'banking-finance',
       link: '/industries/banking-finance',
       description:
-        'Fintech innovation, digital banking solutions, and executive talent acquisition for financial institutions.',
+        'Comprehensive recruitment and HR consulting for financial institutions, from relationship managers to C-suite executives, ensuring regulatory compliance.',
       category: 'Financial Services',
-      tags: ['Digital Banking', 'Fintech', 'Regulatory Compliance'],
+      tags: ['Executive Search', 'Compliance Talent', 'Fintech Specialists'],
+      services: [
+        'Private Banking Recruitment',
+        'Risk & Compliance Hiring',
+        'Digital Banking Talent',
+      ],
+      keyRoles: [
+        'Relationship Managers',
+        'Risk Officers',
+        'Investment Advisors',
+        'Branch Managers',
+      ],
     },
     {
       name: 'Healthcare & Life Sciences',
       slug: 'healthcare-life-sciences',
       link: '/industries/healthcare-life-sciences',
       description:
-        'Healthcare digital transformation, clinical excellence, and specialized talent recruitment for medical organizations.',
+        'Specialized recruitment for medical professionals, healthcare administration, and life sciences research, with deep understanding of licensing requirements.',
       category: 'Healthcare',
-      tags: ['Digital Health', 'Clinical Excellence', 'Medical Talent'],
+      tags: ['Medical Recruitment', 'Licensed Professionals', 'Healthcare Leadership'],
+      services: [
+        'Doctor & Nurse Recruitment',
+        'Healthcare Administration',
+        'Medical Technology Talent',
+      ],
+      keyRoles: [
+        'Consultant Physicians',
+        'Registered Nurses',
+        'Hospital Administrators',
+        'Medical Directors',
+      ],
     },
     {
-      name: 'Technology & Innovation',
-      slug: 'technology-innovation',
-      link: '/industries/technology-innovation',
+      name: 'Information Technology',
+      slug: 'information-technology',
+      link: '/industries/information-technology',
       description:
-        'Strategic consulting and technical talent solutions for technology companies and digital transformation initiatives.',
+        'End-to-end IT talent solutions from software developers to Chief Technology Officers, supporting digital transformation initiatives across the GCC.',
       category: 'Technology',
-      tags: ['AI Strategy', 'Tech Leadership', 'Innovation'],
+      tags: ['Tech Leadership', 'Software Development', 'Digital Transformation'],
+      services: [
+        'Software Engineering Recruitment',
+        'IT Leadership Search',
+        'Digital Skills Training',
+      ],
+      keyRoles: ['Software Engineers', 'Solution Architects', 'IT Directors', 'Data Scientists'],
     },
     {
-      name: 'Real Estate & Construction',
-      slug: 'real-estate-construction',
-      link: '/industries/real-estate-construction',
+      name: 'Construction & Engineering',
+      slug: 'construction-engineering',
+      link: '/industries/construction-engineering',
       description:
-        'PropTech solutions, sustainable development strategies, and construction project management excellence.',
-      category: 'Real Estate',
-      tags: ['PropTech', 'Sustainability', 'Project Management'],
-    },
-    {
-      name: 'Aviation & Logistics',
-      slug: 'aviation-logistics',
-      link: '/industries/aviation-logistics',
-      description:
-        'Supply chain optimization, aviation operations excellence, and specialized logistics talent acquisition.',
-      category: 'Transportation',
-      tags: ['Supply Chain', 'Operations', 'Logistics Tech'],
-    },
-    {
-      name: 'Hospitality & Tourism',
-      slug: 'hospitality-tourism',
-      link: '/industries/hospitality-tourism',
-      description:
-        'Guest experience innovation, tourism technology, and hospitality leadership development for the service industry.',
-      category: 'Services',
-      tags: ['Guest Experience', 'Tourism Tech', 'Service Excellence'],
-    },
-    {
-      name: 'Government & Public Sector',
-      slug: 'government-public-sector',
-      link: '/industries/government-public-sector',
-      description:
-        'Public sector transformation, smart government initiatives, and specialized talent for government agencies.',
-      category: 'Government',
-      tags: ['Smart Government', 'Public Service', 'Digital Gov'],
+        'Comprehensive talent solutions for construction projects, infrastructure development, and engineering consultancies throughout the GCC region.',
+      category: 'Engineering',
+      tags: ['Project Management', 'Technical Expertise', 'Infrastructure'],
+      services: [
+        'Civil Engineering Recruitment',
+        'Project Management Talent',
+        'Construction Leadership',
+      ],
+      keyRoles: ['Civil Engineers', 'Project Managers', 'Construction Managers', 'Site Engineers'],
     },
     {
       name: 'Manufacturing & Industrial',
       slug: 'manufacturing-industrial',
       link: '/industries/manufacturing-industrial',
       description:
-        'Industry 4.0 transformation, lean manufacturing, and technical talent solutions for industrial operations.',
+        'Industrial recruitment expertise covering production management, quality control, and operations leadership for manufacturing excellence.',
       category: 'Manufacturing',
-      tags: ['Industry 4.0', 'Lean Manufacturing', 'Automation'],
+      tags: ['Operations Excellence', 'Quality Management', 'Production Leadership'],
+      services: ['Operations Management', 'Quality Control Specialists', 'Industrial Engineering'],
+      keyRoles: [
+        'Operations Managers',
+        'Quality Engineers',
+        'Production Supervisors',
+        'Plant Managers',
+      ],
+    },
+    {
+      name: 'Hospitality & Travel',
+      slug: 'hospitality-travel',
+      link: '/industries/hospitality-travel',
+      description:
+        'Hospitality recruitment and training solutions for hotels, resorts, restaurants, and travel companies, focusing on service excellence and guest experience.',
+      category: 'Hospitality',
+      tags: ['Service Excellence', 'Guest Experience', 'Tourism Professionals'],
+      services: ['Hotel Management Recruitment', 'F&B Specialists', 'Travel Industry Talent'],
+      keyRoles: ['General Managers', 'F&B Managers', 'Front Office Managers', 'Travel Consultants'],
+    },
+    {
+      name: 'Retail & Consumer Products',
+      slug: 'retail-consumer-products',
+      link: '/industries/retail-consumer-products',
+      description:
+        'Retail talent acquisition and training programs for store operations, merchandising, e-commerce, and retail management across the GCC.',
+      category: 'Retail',
+      tags: ['Store Operations', 'E-commerce', 'Brand Management'],
+      services: ['Retail Management Search', 'Sales Team Building', 'Visual Merchandising'],
+      keyRoles: [
+        'Store Managers',
+        'Sales Associates',
+        'Category Managers',
+        'E-commerce Specialists',
+      ],
     },
     {
       name: 'Education & Training',
       slug: 'education-training',
       link: '/industries/education-training',
       description:
-        'Educational technology, institutional transformation, and academic leadership development solutions.',
+        'Educational institution staffing and academic leadership recruitment, supporting schools, universities, and training organizations.',
       category: 'Education',
-      tags: ['EdTech', 'Digital Learning', 'Academic Leadership'],
+      tags: ['Academic Leadership', 'Educational Excellence', 'Training Specialists'],
+      services: ['Academic Recruitment', 'Administrative Staff', 'Educational Leadership'],
+      keyRoles: [
+        'Teachers & Professors',
+        'Academic Directors',
+        'Training Managers',
+        'Student Affairs',
+      ],
     },
     {
-      name: 'Retail & Consumer Goods',
-      slug: 'retail-consumer-goods',
-      link: '/industries/retail-consumer-goods',
+      name: 'Legal & Professional Services',
+      slug: 'legal-professional-services',
+      link: '/industries/legal-professional-services',
       description:
-        'Omnichannel retail strategies, consumer experience optimization, and retail technology implementation.',
-      category: 'Consumer',
-      tags: ['Omnichannel', 'Consumer Experience', 'Retail Tech'],
+        'Legal talent acquisition and professional services recruitment, including law firms, consulting firms, and corporate legal departments.',
+      category: 'Professional Services',
+      tags: ['Legal Expertise', 'Corporate Counsel', 'Advisory Services'],
+      services: ['Legal Recruitment', 'Corporate Legal Teams', 'Compliance Specialists'],
+      keyRoles: ['Lawyers & Advocates', 'Legal Advisors', 'Compliance Officers', 'Paralegals'],
     },
     {
-      name: 'Media & Telecommunications',
-      slug: 'media-telecommunications',
-      link: '/industries/media-telecommunications',
+      name: 'Insurance & Risk Management',
+      slug: 'insurance-risk-management',
+      link: '/industries/insurance-risk-management',
       description:
-        '5G strategy implementation, media technology innovation, and telecommunications infrastructure optimization.',
-      category: 'Technology',
-      tags: ['5G Strategy', 'Media Tech', 'Telecom Innovation'],
+        'Insurance industry recruitment and risk management talent solutions, covering underwriting, claims, actuarial, and sales roles.',
+      category: 'Financial Services',
+      tags: ['Underwriting', 'Claims Management', 'Risk Assessment'],
+      services: ['Insurance Sales Teams', 'Underwriting Specialists', 'Claims Professionals'],
+      keyRoles: ['Underwriters', 'Claims Adjusters', 'Insurance Agents', 'Risk Managers'],
+    },
+    {
+      name: 'Shipping & Logistics',
+      slug: 'shipping-logistics',
+      link: '/industries/shipping-logistics',
+      description:
+        'Supply chain and logistics talent solutions for ports, shipping companies, freight forwarders, and logistics service providers in the GCC.',
+      category: 'Logistics',
+      tags: ['Supply Chain', 'Maritime Operations', 'Freight Management'],
+      services: ['Maritime Professionals', 'Logistics Coordinators', 'Supply Chain Management'],
+      keyRoles: ['Ship Captains', 'Logistics Managers', 'Port Operations', 'Freight Coordinators'],
     },
   ]
 

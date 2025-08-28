@@ -14,41 +14,49 @@ export const useMenuData = () => {
           link: '/industries/healthcare-life-sciences',
         },
         {
-          name: 'Technology & Innovation',
+          name: 'Information Technology',
           hasSubMenu: false,
-          link: '/industries/technology-innovation',
+          link: '/industries/information-technology',
         },
         {
-          name: 'Real Estate & Construction',
+          name: 'Construction & Engineering',
           hasSubMenu: false,
-          link: '/industries/real-estate-construction',
-        },
-        { name: 'Aviation & Logistics', hasSubMenu: false, link: '/industries/aviation-logistics' },
-        {
-          name: 'Hospitality & Tourism',
-          hasSubMenu: false,
-          link: '/industries/hospitality-tourism',
-        },
-        {
-          name: 'Government & Public Sector',
-          hasSubMenu: false,
-          link: '/industries/government-public-sector',
+          link: '/industries/construction-engineering',
         },
         {
           name: 'Manufacturing & Industrial',
           hasSubMenu: false,
           link: '/industries/manufacturing-industrial',
         },
-        { name: 'Education & Training', hasSubMenu: false, link: '/industries/education-training' },
         {
-          name: 'Retail & Consumer Goods',
+          name: 'Hospitality & Travel',
           hasSubMenu: false,
-          link: '/industries/retail-consumer-goods',
+          link: '/industries/hospitality-travel',
         },
         {
-          name: 'Media & Telecommunications',
+          name: 'Retail & Consumer Products',
           hasSubMenu: false,
-          link: '/industries/media-telecommunications',
+          link: '/industries/retail-consumer-products',
+        },
+        {
+          name: 'Education & Training',
+          hasSubMenu: false,
+          link: '/industries/education-training',
+        },
+        {
+          name: 'Legal & Professional Services',
+          hasSubMenu: false,
+          link: '/industries/legal-professional-services',
+        },
+        {
+          name: 'Insurance & Risk Management',
+          hasSubMenu: false,
+          link: '/industries/insurance-risk-management',
+        },
+        {
+          name: 'Shipping & Logistics',
+          hasSubMenu: false,
+          link: '/industries/shipping-logistics',
         },
       ],
     },
@@ -57,23 +65,35 @@ export const useMenuData = () => {
       hasSubMenu: true,
       subItems: [
         {
-          name: 'Management Consulting',
+          name: 'Recruitment Services',
           hasSubMenu: false,
-          link: '/services/management-consulting',
+          link: '/services/recruitment-services',
         },
         {
-          name: 'Digital Transformation',
+          name: 'Executive Search',
           hasSubMenu: false,
-          link: '/services/digital-transformation',
+          link: '/services/executive-search',
+        },
+        {
+          name: 'HR Consulting',
+          hasSubMenu: false,
+          link: '/services/hr-consulting',
+        },
+        {
+          name: 'Talent Management',
+          hasSubMenu: false,
+          link: '/services/talent-management',
         },
         {
           name: 'Organizational Development',
           hasSubMenu: false,
           link: '/services/organizational-development',
         },
-        { name: 'Executive Search', hasSubMenu: false, link: '/services/executive-search' },
-        { name: 'Talent Acquisition', hasSubMenu: false, link: '/services/talent-acquisition' },
-        { name: 'HR Consulting', hasSubMenu: false, link: '/services/hr-consulting' },
+        {
+          name: 'Training & Development',
+          hasSubMenu: false,
+          link: '/services/training-development',
+        },
       ],
     },
     {
@@ -107,9 +127,9 @@ export const useMenuData = () => {
         { name: 'Industry Reports', hasSubMenu: false, link: '/insights/industry-reports' },
         { name: 'Talent Market Intelligence', hasSubMenu: false, link: '/insights/talent-market' },
         {
-          name: 'Digital Transformation Trends',
+          name: 'Recruitment Trends',
           hasSubMenu: false,
-          link: '/insights/digital-trends',
+          link: '/insights/recruitment-trends',
         },
         { name: 'Success Stories', hasSubMenu: false, link: '/insights/success-stories' },
         { name: 'Best Practices', hasSubMenu: false, link: '/insights/best-practices' },
@@ -189,11 +209,11 @@ export const useMenuData = () => {
   // Industries三级菜单项 - 每个行业页面的通用子导航
   const industriesThirdLevelItems = [
     'Industry Overview',
-    'How We Help Clients',
-    'Our Insights',
-    'Our People',
+    'Our Services',
+    'Key Roles We Fill',
     'Success Stories',
-    'Contact Us',
+    'Market Intelligence',
+    'Contact Specialists',
   ]
 
   // Services页面的三级菜单项
@@ -216,29 +236,42 @@ export const useMenuData = () => {
 
     // 二级菜单的特殊配置
     secondLevel: {
-      // Management Consulting 子服务
-      'Services-Management Consulting': [
-        { name: 'Strategic Planning', link: '/services/management-consulting/strategic-planning' },
+      // Recruitment Services 子服务
+      'Services-Recruitment Services': [
+        { name: 'Executive Search', link: '/services/recruitment-services/executive-search' },
+        { name: 'Middle Management', link: '/services/recruitment-services/middle-management' },
+        { name: 'Specialist Roles', link: '/services/recruitment-services/specialist-roles' },
         {
-          name: 'Operational Excellence',
-          link: '/services/management-consulting/operational-excellence',
-        },
-        { name: 'Change Management', link: '/services/management-consulting/change-management' },
-        {
-          name: 'Performance Improvement',
-          link: '/services/management-consulting/performance-improvement',
+          name: 'Graduate Recruitment',
+          link: '/services/recruitment-services/graduate-recruitment',
         },
       ],
 
-      // Digital Transformation 子服务
-      'Services-Digital Transformation': [
-        { name: 'Digital Strategy', link: '/services/digital-transformation/digital-strategy' },
+      // HR Consulting 子服务
+      'Services-HR Consulting': [
+        { name: 'HR Strategy & Planning', link: '/services/hr-consulting/hr-strategy-planning' },
+        { name: 'Compensation & Benefits', link: '/services/hr-consulting/compensation-benefits' },
+        { name: 'Performance Management', link: '/services/hr-consulting/performance-management' },
+        { name: 'Policy Development', link: '/services/hr-consulting/policy-development' },
+      ],
+
+      // Executive Search 子服务
+      'Services-Executive Search': [
+        { name: 'C-Suite Search', link: '/services/executive-search/c-suite-search' },
+        { name: 'Board Search', link: '/services/executive-search/board-search' },
+        { name: 'Functional Leadership', link: '/services/executive-search/functional-leadership' },
+        { name: 'Succession Planning', link: '/services/executive-search/succession-planning' },
+      ],
+
+      // Talent Management 子服务
+      'Services-Talent Management': [
+        { name: 'Talent Assessment', link: '/services/talent-management/talent-assessment' },
+        { name: 'Career Development', link: '/services/talent-management/career-development' },
         {
-          name: 'Technology Implementation',
-          link: '/services/digital-transformation/technology-implementation',
+          name: 'Leadership Development',
+          link: '/services/talent-management/leadership-development',
         },
-        { name: 'Process Automation', link: '/services/digital-transformation/process-automation' },
-        { name: 'Digital Culture', link: '/services/digital-transformation/digital-culture' },
+        { name: 'Skills Gap Analysis', link: '/services/talent-management/skills-gap-analysis' },
       ],
 
       // Organizational Development 子服务
@@ -252,8 +285,8 @@ export const useMenuData = () => {
           link: '/services/organizational-development/culture-transformation',
         },
         {
-          name: 'Leadership Development',
-          link: '/services/organizational-development/leadership-development',
+          name: 'Change Management',
+          link: '/services/organizational-development/change-management',
         },
         {
           name: 'Team Effectiveness',
@@ -261,28 +294,12 @@ export const useMenuData = () => {
         },
       ],
 
-      // HR Consulting 子服务
-      'Services-HR Consulting': [
-        { name: 'HR Strategy & Planning', link: '/services/hr-consulting/hr-strategy-planning' },
-        { name: 'Compensation & Benefits', link: '/services/hr-consulting/compensation-benefits' },
-        { name: 'Performance Management', link: '/services/hr-consulting/performance-management' },
-        { name: 'Learning & Development', link: '/services/hr-consulting/learning-development' },
-      ],
-
-      // Executive Search 子服务
-      'Services-Executive Search': [
-        { name: 'C-Suite Search', link: '/services/executive-search/c-suite-search' },
-        { name: 'Board Search', link: '/services/executive-search/board-search' },
-        { name: 'Functional Leadership', link: '/services/executive-search/functional-leadership' },
-        { name: 'Succession Planning', link: '/services/executive-search/succession-planning' },
-      ],
-
-      // Talent Acquisition 子服务
-      'Services-Talent Acquisition': [
-        { name: 'Talent Strategy', link: '/services/talent-acquisition/talent-strategy' },
-        { name: 'Recruitment Process Outsourcing', link: '/services/talent-acquisition/rpo' },
-        { name: 'Employer Branding', link: '/services/talent-acquisition/employer-branding' },
-        { name: 'Talent Analytics', link: '/services/talent-acquisition/talent-analytics' },
+      // Training & Development 子服务
+      'Services-Training & Development': [
+        { name: 'Leadership Training', link: '/services/training-development/leadership-training' },
+        { name: 'Skills Development', link: '/services/training-development/skills-development' },
+        { name: 'Compliance Training', link: '/services/training-development/compliance-training' },
+        { name: 'Custom Programs', link: '/services/training-development/custom-programs' },
       ],
     },
 
