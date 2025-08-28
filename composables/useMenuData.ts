@@ -64,24 +64,24 @@ export const useMenuData = () => {
       name: 'Services',
       hasSubMenu: true,
       subItems: [
-        { name: 'Emiratisation', hasSubMenu: false, link: '/staffing#emiratisation' },
+        { name: 'Emiratisation', hasSubMenu: false, link: '/services#emiratisation' },
         {
           name: 'Permanent Recruitment',
           hasSubMenu: false,
-          link: '/staffing#permanent-recruitment',
+          link: '/services#permanent-recruitment',
         },
         {
           name: 'Temporary Recruitment',
           hasSubMenu: false,
-          link: '/staffing#temporary-recruitment',
+          link: '/services#temporary-recruitment',
         },
-        { name: 'Bulk Hiring', hasSubMenu: false, link: '/staffing#bulk-hiring' },
+        { name: 'Bulk Hiring', hasSubMenu: false, link: '/services#bulk-hiring' },
         {
           name: 'Outsourcing Services',
           hasSubMenu: false,
-          link: '/staffing#outsourcing-services',
+          link: '/services#outsourcing-services',
         },
-        { name: 'Advisory Services', hasSubMenu: false, link: '/staffing#advisory-services' },
+        { name: 'Advisory Services', hasSubMenu: false, link: '/services#advisory-services' },
       ],
     },
     {
