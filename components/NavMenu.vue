@@ -107,7 +107,11 @@
                           :key="`${group.title || group.name}-${subItem.name}-${index}`"
                           :href="
                             subItem.link ||
-                            generatePath([item.name, group.title || group.name, subItem.name])
+                            generatePathFromSegments([
+                              item.name,
+                              group.title || group.name,
+                              subItem.name,
+                            ])
                           "
                           class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                           :style="{ color: 'var(--tm-txt-secondary)' }"
@@ -133,7 +137,7 @@
                     <a
                       v-for="(subItem, index) in item.subItems"
                       :key="`${subItem.name}-${index}`"
-                      :href="subItem.link || generatePath([item.name, subItem.name])"
+                      :href="subItem.link || generatePathFromSegments([item.name, subItem.name])"
                       class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                       :style="{ color: 'var(--tm-txt-secondary)' }"
                       @click.prevent="handleSubItemClick(item, subItem)"
@@ -214,7 +218,11 @@
                         :key="`${group.title || group.name}-${subItem.name}-${index}`"
                         :href="
                           subItem.link ||
-                          generatePath([item.name, group.title || group.name, subItem.name])
+                          generatePathFromSegments([
+                            item.name,
+                            group.title || group.name,
+                            subItem.name,
+                          ])
                         "
                         class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                         :style="{ color: 'var(--tm-txt-secondary)' }"
@@ -240,7 +248,7 @@
                   <a
                     v-for="(subItem, index) in item.subItems"
                     :key="`${subItem.name}-${index}`"
-                    :href="subItem.link || generatePath([item.name, subItem.name])"
+                    :href="subItem.link || generatePathFromSegments([item.name, subItem.name])"
                     class="group/item relative block px-3 py-2 text-sm rounded transition-all duration-200 cursor-pointer overflow-hidden no-underline"
                     :style="{ color: 'var(--tm-txt-secondary)' }"
                     @click.prevent="handleSubItemClick(item, subItem)"
@@ -306,8 +314,8 @@
 
 <script setup lang="ts">
   import type { MenuItem, UnifiedMenuItem } from './NavMenu.types'
-  import { generatePath } from './NavMenu.types'
   import { useNavigation } from '~/composables/useNavigation'
+  import { useMenuHandler } from '~/composables/useMenuHandler'
 
   interface Props {
     menuItems: MenuItem[]
@@ -330,8 +338,9 @@
     'active-change': [item: MenuItem | null]
   }>()
 
-  // 获取导航状态
+  // 获取导航状态和统一的路径处理
   const navigation = useNavigation()
+  const { generateSlug } = useMenuHandler()
 
   // State
   const activeItem = ref<MenuItem | null>(null)
@@ -339,7 +348,12 @@
   let closeTimer: NodeJS.Timeout | null = null
   const menuItemRefs = ref<HTMLElement[]>([])
 
-  // 新增：判断菜单是否激活
+  // 使用统一的路径生成函数
+  const generatePathFromSegments = (segments: string[]): string => {
+    return '/' + segments.map(generateSlug).join('/')
+  }
+
+  // 判断菜单是否激活 - 复用原有逻辑
   const isMenuActive = (item: MenuItem) => {
     // 检查是否是当前悬停激活的菜单
     if (activeItem.value?.name === item.name) {
@@ -364,9 +378,8 @@
       Staffing: '600px',
       About: '800px',
       Careers: '500px',
-      default: '320px',
     }
-    return widthMap[item.name] || widthMap.default
+    return widthMap[item.name] || '320px'
   }
 
   // Get grid columns configuration
@@ -377,9 +390,8 @@
       Staffing: 'grid grid-cols-2 gap-2',
       About: 'grid grid-cols-3 gap-2',
       Careers: 'grid grid-cols-2 gap-2',
-      default: 'grid grid-cols-2 gap-2',
     }
-    return colsMap[item.name] || colsMap.default
+    return colsMap[item.name] || 'grid grid-cols-2 gap-2'
   }
 
   // Check if menu has groups
@@ -453,7 +465,7 @@
 
     // Navigate if subitem doesn't have submenu
     if (!subItem.hasSubMenu) {
-      const path = subItem.link || generatePath([parentItem.name, subItem.name])
+      const path = subItem.link || generatePathFromSegments([parentItem.name, subItem.name])
 
       // Check if it's an anchor link
       if (path.includes('#')) {

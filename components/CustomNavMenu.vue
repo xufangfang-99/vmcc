@@ -11,12 +11,18 @@
           v-if="!item.hasSubMenu"
           :to="item.link || generatePath(item.name)"
           class="group relative flex items-center text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-accent-primary)] py-4 px-2 no-underline"
-          :style="{ color: 'var(--tm-txt-primary)' }"
+          :class="{
+            'text-[var(--tm-accent-primary)]': isCurrentPage(item),
+          }"
+          :style="{
+            color: isCurrentPage(item) ? 'var(--tm-accent-primary)' : 'var(--tm-txt-primary)',
+          }"
         >
           {{ item.name }}
           <!-- Underline animation -->
           <span
             class="absolute bottom-3 left-2 right-2 h-0.5 bg-[var(--tm-accent-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+            :class="{ '!scale-x-100': isCurrentPage(item) }"
           ></span>
         </NuxtLink>
 
@@ -29,9 +35,13 @@
         >
           <a
             class="group relative flex items-center gap-1 text-base font-normal cursor-pointer transition-colors hover:text-[var(--tm-accent-primary)] py-4 px-2 no-underline"
+            :class="{
+              'text-[var(--tm-accent-primary)]':
+                isCurrentPage(item) || activeItem?.name === item.name,
+            }"
             :style="{
               color:
-                activeItem?.name === item.name
+                isCurrentPage(item) || activeItem?.name === item.name
                   ? 'var(--tm-accent-primary)'
                   : 'var(--tm-txt-primary)',
             }"
@@ -60,6 +70,7 @@
             <!-- Underline animation -->
             <span
               class="absolute bottom-3 left-2 right-2 h-0.5 bg-[var(--tm-accent-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              :class="{ '!scale-x-100': isCurrentPage(item) || activeItem?.name === item.name }"
             ></span>
           </a>
 
@@ -86,11 +97,20 @@
                 :key="`${item.name}-${subItem.name}-${subIndex}`"
                 :to="subItem.link || generatePath(subItem.name, item.name)"
                 class="dropdown-item group relative block px-3 py-2 text-sm rounded transition-all duration-200 overflow-hidden no-underline"
-                :class="dropdownItemClass"
+                :class="[
+                  dropdownItemClass,
+                  {
+                    'text-[var(--tm-accent-primary)] bg-[var(--tm-bg-hover)]': isCurrentSubPage(
+                      subItem,
+                      item
+                    ),
+                  },
+                ]"
               >
                 <!-- Left border animation -->
                 <span
-                  class="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-0 bg-[var(--tm-accent-primary)] group-hover:h-[70%] transition-all duration-300"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-0 bg-[var(--tm-accent-primary)] transition-all duration-300"
+                  :class="{ 'h-[70%]': isCurrentSubPage(subItem, item) }"
                 ></span>
                 {{ subItem.name }}
               </NuxtLink>
@@ -105,6 +125,7 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { useNavigation } from '~/composables/useNavigation'
+  import { useMenuHandler } from '~/composables/useMenuHandler'
 
   interface NavMenuItem {
     name: string
@@ -114,11 +135,32 @@
   }
 
   const navigation = useNavigation()
+  const { generateSlug } = useMenuHandler()
+  const route = useRoute()
   const menuItems = computed(() => navigation.customMenuItems)
   const basePath = computed(() => navigation.basePath)
 
   const activeItem = ref<NavMenuItem | null>(null)
   const showDropdown = ref(false)
+
+  // 检查当前页面是否匹配菜单项
+  const isCurrentPage = (item: NavMenuItem) => {
+    // 检查 selectedPath 状态
+    const selectedPath = navigation.selectedPath
+    if (selectedPath.firstLevel === item.name) return true
+
+    // 检查路由匹配
+    const currentPath = route.path
+    const itemPath = item.link || generatePath(item.name)
+    return currentPath === itemPath || currentPath.startsWith(itemPath + '/')
+  }
+
+  // 检查子菜单项是否为当前页面
+  const isCurrentSubPage = (subItem: NavMenuItem, parentItem: NavMenuItem) => {
+    const currentPath = route.path
+    const subItemPath = subItem.link || generatePath(subItem.name, parentItem.name)
+    return currentPath === subItemPath || currentPath.startsWith(subItemPath + '/')
+  }
 
   // Dynamic class for dropdown items
   const dropdownItemClass = computed(() => {
@@ -129,21 +171,12 @@
     }
   })
 
-  // Generate URL path from menu item name
+  // Generate URL path using unified slug generation
   const generatePath = (name: string, parentName?: string) => {
-    // 正确处理 & 符号和空格
-    const slug = name
-      .toLowerCase()
-      .replace(/\s*&\s*/g, '-') // "Aerospace & Defense" → "aerospace-defense"
-      .replace(/\s+/g, '-') // 处理其他空格
-      .replace(/[^a-z0-9-]/g, '') // 移除其他特殊字符
+    const slug = generateSlug(name)
 
     if (parentName) {
-      const parentSlug = parentName
-        .toLowerCase()
-        .replace(/\s*&\s*/g, '-')
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9-]/g, '')
+      const parentSlug = generateSlug(parentName)
       return basePath.value ? `${basePath.value}/${parentSlug}/${slug}` : `/${parentSlug}/${slug}`
     }
     return basePath.value ? `${basePath.value}/${slug}` : `/${slug}`
