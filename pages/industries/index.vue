@@ -146,10 +146,13 @@
         </div>
       </div>
     </div>
+    <!-- 第四屏: 页脚 -->
+    <FooterSection />
   </div>
 </template>
 
 <script setup>
+  import FooterSection from '~/components/Home/FooterSection.vue'
   // 行业数据
   const industries = [
     {
