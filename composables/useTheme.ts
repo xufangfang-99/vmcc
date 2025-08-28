@@ -10,7 +10,7 @@ const DARK_MODE_COOKIE_NAME = 'theme:isDark'
 export const useTheme = defineStore(
   'theme',
   () => {
-    const currentTheme = ref<ThemeType>('blackGold')
+    const currentTheme = ref<ThemeType>('blueWhite')
     const isDark = ref(false)
     const isInitialized = ref(false)
 

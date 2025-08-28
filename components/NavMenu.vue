@@ -360,6 +360,7 @@
     // Set different widths based on menu type
     const widthMap: Record<string, string> = {
       Industries: '1000px',
+      Services: '600px',
       Staffing: '600px',
       About: '800px',
       Careers: '500px',
@@ -372,6 +373,7 @@
   const getGridCols = (item: MenuItem): string => {
     const colsMap: Record<string, string> = {
       Industries: 'grid grid-cols-3 gap-2',
+      Services: 'grid grid-cols-2 gap-2',
       Staffing: 'grid grid-cols-2 gap-2',
       About: 'grid grid-cols-3 gap-2',
       Careers: 'grid grid-cols-2 gap-2',

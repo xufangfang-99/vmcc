@@ -182,6 +182,11 @@ export const useMenuData = () => {
       ],
     },
     {
+      name: 'Timeline',
+      hasSubMenu: false,
+      link: '/timeline',
+    },
+    {
       name: 'About',
       hasSubMenu: true,
       subItems: [
