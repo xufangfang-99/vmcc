@@ -1,23 +1,3 @@
-// 特色洞察数据 - 聚焦HR和人才管理 const featuredInsights = [ { title: 'Security Clearance Talent
-Pipeline: Building Tomorrow\'s Defense Workforce', description: 'Strategic approaches to
-identifying, developing, and retaining professionals with security clearances for critical defense
-programs.', type: 'Talent Strategy', image:
-'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80', authors: ['VMMC Defense
-Practice', 'Security Clearance Team'], date: 'Dec 2024', readTime: 8, }, { title: 'Aerospace
-Engineering Talent Shortage: Recruitment Solutions That Work', description: 'How leading aerospace
-companies are overcoming engineering talent shortages through innovative recruitment strategies and
-employer branding.', type: 'Market Analysis', image:
-'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80', authors: ['Technical
-Recruiting Team'], date: 'Nov 2024', readTime: 12, }, { title: 'Executive Leadership in Space
-Economy: What It Takes to Lead', description: 'Competency frameworks and leadership profiles for
-executives driving growth in the rapidly evolving commercial space sector.', type: 'Executive
-Search', image: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80', authors:
-['Executive Search Practice'], date: 'Oct 2024', readTime: 6, }, { title: 'Compliance-First HR:
-Managing Workforce in Regulated Defense Environments', description: 'HR compliance strategies for
-defense contractors navigating ITAR, EAR, and security requirements in talent management.', type:
-'Compliance & HR', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-authors: ['HR Consulting Team'], date: 'Oct 2024', readTime: 10, }, { title: 'Succession Planning
-for Mission-Critical Aerospace Programs', description: 'Knowledge
 <template>
   <div class="min-h-screen bg-[var(--tm-bg-primary)]">
     <!-- 页面头部 -->
