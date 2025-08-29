@@ -236,8 +236,28 @@
     );
     backdrop-filter: blur(12px) saturate(1.2);
     -webkit-backdrop-filter: blur(12px) saturate(1.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* 移除硬边框，改用柔和渐变 */
+    border-bottom: none;
     box-shadow: 0 1px 20px rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  /* 柔和的底部渐变分割线 - 浅色模式 */
+  .hero-header-light::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.1) 20%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.1) 80%,
+      transparent 100%
+    );
   }
 
   /* 深色主题头部背景 - 保持原有效果 */
@@ -251,7 +271,27 @@
     );
     backdrop-filter: blur(12px) saturate(1.2);
     -webkit-backdrop-filter: blur(12px) saturate(1.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* 移除硬边框，改用柔和渐变 */
+    border-bottom: none;
+    position: relative;
+  }
+
+  /* 柔和的底部渐变分割线 - 深色模式 */
+  .hero-header-dark::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      transparent 100%
+    );
   }
 
   /* 滚动后的头部样式 */
@@ -262,14 +302,34 @@
 
   .hero-header-light.scrolled {
     background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero-header-light.scrolled::after {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 20%,
+      rgba(0, 0, 0, 0.12) 50%,
+      rgba(0, 0, 0, 0.08) 80%,
+      transparent 100%
+    );
   }
 
   .hero-header-dark.scrolled {
     background: rgba(0, 0, 0, 0.92);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-header-dark.scrolled::after {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0.15) 80%,
+      transparent 100%
+    );
   }
 
   /* 浅色主题下的文字颜色 - 优化对比度 */

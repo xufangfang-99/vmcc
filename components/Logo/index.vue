@@ -28,7 +28,6 @@
   // 根据深浅色模式动态选择 logo
   const logoSrc = computed(() => {
     const src = isDark.value ? '/images/comm/logo-dark.png' : '/images/comm/logo.png'
-    console.log('Logo计算结果:', { isDark: isDark.value, src })
     return src
   })
 
