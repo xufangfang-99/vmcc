@@ -1,262 +1,232 @@
 <template>
-  <section class="relative min-h-screen flex items-center overflow-hidden">
-    <!-- 背景图片 -->
-    <div class="absolute inset-0 z-0">
-      <OptImage
-        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80"
-        alt="数据分析和市场洞察"
-        class="w-full h-full object-cover"
-        :auto-dark-mode="true"
-      />
-      <!-- 遮罩层 -->
-      <div class="absolute inset-0 bg-black/60"></div>
-      <!-- 装饰图案 -->
-      <div class="absolute inset-0 bg-gradient-radial-pattern opacity-60"></div>
-    </div>
-
-    <div class="relative z-1 max-w-1200px mx-auto px-20px w-full">
-      <div class="text-center text-white">
-        <!-- Logo区域 -->
-        <div class="inline-flex mb-30px">
-          <div
-            class="company-badge w-60px h-60px bg-[var(--tm-bg-badge)] border-2 border-[var(--tm-bd-white-alpha30)] rounded-16px flex items-center justify-center backdrop-blur-10px text-[var(--tm-accent-primary)] transition-all duration-300 ease hover:scale-110 hover:rotate-5 hover:bg-[var(--tm-accent-primary)] hover:text-white hover:border-[var(--tm-accent-primary)]"
+  <section class="py-16 md:py-20 lg:py-24 bg-[var(--tm-bg-primary)]">
+    <div class="container max-w-7xl">
+      <!-- Header -->
+      <header class="text-center mb-16 md:mb-20">
+        <div class="mb-6 md:mb-8">
+          <span
+            class="inline-block bg-[var(--tm-bg-feature)] px-6 py-2 rounded-full border border-[var(--tm-bd-light)] text-sm text-[var(--tm-accent-primary)] font-medium tracking-wide"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+            LIVE INTELLIGENCE
+          </span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--tm-txt-primary)] mb-6">
+          Talent Market
+          <br />
+          <span class="text-[var(--tm-accent-primary)] font-normal">Intelligence</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-[var(--tm-txt-secondary)] max-w-3xl mx-auto mb-12">
+          Real-time workforce insights across 8 global markets. Strategic intelligence for executive
+          decision-making.
+        </p>
+
+        <!-- Key Metrics -->
+        <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+          <div
+            v-for="metric in keyMetrics"
+            :key="metric.label"
+            class="text-center"
+          >
+            <div class="text-3xl md:text-4xl font-light text-[var(--tm-accent-primary)] mb-1">
+              {{ metric.value }}
+            </div>
+            <div class="text-sm text-[var(--tm-txt-light)] uppercase tracking-wide">
+              {{ metric.label }}
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+        <!-- Intelligence Domains -->
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-light text-[var(--tm-txt-primary)] mb-8">
+            Intelligence Domains
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              v-for="domain in domains"
+              :key="domain.title"
+              class="group p-6 md:p-8 bg-[var(--tm-bg-card)] rounded-2xl border border-[var(--tm-bd-light)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <path d="M3 3v18h18"></path>
-              <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
-            </svg>
+              <div class="flex items-center space-x-4 mb-4">
+                <div
+                  class="w-12 h-12 bg-[var(--tm-bg-accentLight)] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-6 h-6 text-[var(--tm-accent-primary)]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      :d="domain.iconPath"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-medium text-[var(--tm-txt-primary)]">
+                  {{ domain.title }}
+                </h3>
+              </div>
+
+              <p class="text-sm md:text-base text-[var(--tm-txt-secondary)] leading-relaxed">
+                {{ domain.description }}
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- 标题区域 -->
-        <div class="mb-40px">
-          <h1
-            class="text-4xl md:text-6xl font-light tracking-tight mb-10px text-white flex items-center justify-center gap-0.3em flex-col md:flex-row"
-          >
-            <span class="font-light">Market</span>
-            <span
-              class="highlight-logo inline-flex items-center animate-glow font-semibold bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] bg-clip-text text-transparent"
-            >
-              Insights
-            </span>
-          </h1>
-          <p class="text-lg text-[var(--tm-txt-white-alpha85)] mb-30px tracking-wider">
-            Five Strategic Intelligence Areas for Data-Driven Recruitment
-          </p>
+        <!-- Live Dashboard -->
+        <aside class="space-y-6">
+          <h2 class="text-xl md:text-2xl font-light text-[var(--tm-txt-primary)]">
+            Live Dashboard
+          </h2>
 
-          <p class="text-xl leading-relaxed text-white max-w-800px mx-auto opacity-90">
-            Explore comprehensive talent intelligence across our five specialized domains. From
-            industry-specific reports to recruitment trends, success stories, and proven best
-            practices.
-          </p>
+          <!-- High Demand -->
+          <div class="bg-[var(--tm-bg-card)] rounded-2xl border border-[var(--tm-bd-light)] p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-medium text-[var(--tm-txt-primary)]">High Demand</h3>
+              <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+            </div>
+
+            <div class="space-y-3">
+              <div
+                v-for="role in demandRoles"
+                :key="role.name"
+                class="flex justify-between items-center"
+              >
+                <span class="text-sm text-[var(--tm-txt-secondary)]">{{ role.name }}</span>
+                <div class="flex items-center space-x-2">
+                  <div
+                    class="h-1 rounded-full"
+                    :class="role.barClass"
+                    :style="{ width: role.width }"
+                  ></div>
+                  <span
+                    class="text-xs font-medium"
+                    :class="role.textClass"
+                  >
+                    {{ role.level }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Salary Trends -->
+          <div class="bg-[var(--tm-bg-card)] rounded-2xl border border-[var(--tm-bd-light)] p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-medium text-[var(--tm-txt-primary)]">Salary Growth</h3>
+              <svg
+                class="w-4 h-4 text-green-500"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+              </svg>
+            </div>
+
+            <div class="space-y-3">
+              <div
+                v-for="trend in salaryTrends"
+                :key="trend.sector"
+                class="flex justify-between"
+              >
+                <div>
+                  <div class="text-sm font-medium text-[var(--tm-txt-primary)]">
+                    {{ trend.sector }}
+                  </div>
+                  <div class="text-xs text-[var(--tm-txt-light)]">{{ trend.location }}</div>
+                </div>
+                <div class="text-green-600 font-bold">{{ trend.growth }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Alert -->
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+            <div class="flex items-start space-x-3">
+              <div class="w-2 h-2 bg-amber-500 rounded-full mt-2 animate-pulse"></div>
+              <div>
+                <h3 class="font-medium text-amber-900 mb-2">Market Alert</h3>
+                <p class="text-sm text-amber-800 leading-relaxed">
+                  Critical cybersecurity talent shortage across GCC markets. Compensation packages
+                  increasing 20%+ to attract candidates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Global Network -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-light text-[var(--tm-txt-primary)] text-center mb-12">
+          Global Network
+        </h2>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Singapore HQ -->
+          <div
+            class="p-6 bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-2xl text-white text-center relative overflow-hidden hover:scale-105 transition-transform duration-300"
+          >
+            <div
+              class="absolute top-4 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse"
+            ></div>
+            <h3 class="text-lg font-medium mb-1">Singapore</h3>
+            <div class="text-xs opacity-80 mb-3">Asia-Pacific HQ</div>
+            <div class="text-xs opacity-90">Executive • FinTech • Innovation</div>
+          </div>
+
+          <!-- Other Locations -->
+          <div
+            v-for="location in otherLocations"
+            :key="location.name"
+            class="p-6 bg-[var(--tm-bg-card)] rounded-2xl border border-[var(--tm-bd-light)] text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <h3 class="text-lg font-medium mb-1 text-[var(--tm-txt-primary)]">
+              {{ location.name }}
+            </h3>
+            <div class="text-xs text-[var(--tm-txt-light)] mb-3">{{ location.region }}</div>
+            <div class="text-xs text-[var(--tm-txt-secondary)]">{{ location.specialties }}</div>
+          </div>
         </div>
+      </div>
 
-        <!-- CTA按钮 -->
-        <div class="cta-buttons flex gap-20px justify-center mb-60px">
-          <NuxtLink
-            to="#industry-reports"
-            class="btn-primary px-32px py-12px rounded-30px text-base font-medium border-none cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-gradient-to-br from-[var(--tm-accent-hero-from)] to-[var(--tm-accent-hero-to)] text-white shadow-[var(--tm-shadow-accent)] hover:translate-y--2px hover:shadow-[var(--tm-shadow-hover)] no-underline"
-          >
-            <span>Explore Intelligence</span>
-            <svg
-              class="btn-icon w-20px h-20px transition-transform duration-300 ease"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </NuxtLink>
-          <NuxtLink
-            to="/contact"
-            class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white no-underline"
-          >
-            <span>Consult Our Experts</span>
-          </NuxtLink>
-        </div>
-
-        <!-- 五大洞察领域导航 -->
+      <!-- CTA -->
+      <div class="text-center">
         <div
-          class="insights-nav grid grid-cols-1 md:grid-cols-5 gap-6 p-40px bg-[var(--tm-bg-white-alpha05)] rounded-20px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] relative overflow-hidden"
+          class="max-w-3xl mx-auto p-8 md:p-12 bg-[var(--tm-bg-feature)] rounded-3xl border border-[var(--tm-bd-secondary)]"
         >
-          <!-- 背景闪光效果 -->
-          <div class="shimmer-bg"></div>
+          <h3 class="text-2xl md:text-3xl font-light text-[var(--tm-txt-primary)] mb-4">
+            Access Intelligence Reports
+          </h3>
+          <p class="text-lg text-[var(--tm-txt-secondary)] mb-8 leading-relaxed">
+            Get comprehensive market intelligence with strategic recommendations tailored to your
+            industry and region.
+          </p>
 
-          <!-- Industry Reports -->
-          <NuxtLink
-            to="#industry-reports"
-            class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-4 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors duration-300"
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <NuxtLink
+              to="/contact"
+              class="inline-flex items-center justify-center px-8 py-3 bg-[var(--tm-accent-primary)] hover:bg-[var(--tm-accent-secondary)] text-white rounded-full transition-all duration-300 no-underline font-medium hover:scale-105"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14,2 14,8 20,8"></polyline>
-                <line
-                  x1="16"
-                  y1="13"
-                  x2="8"
-                  y2="13"
-                ></line>
-                <line
-                  x1="16"
-                  y1="17"
-                  x2="8"
-                  y2="17"
-                ></line>
-              </svg>
-            </div>
-            <h3
-              class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
+              Request Report
+            </NuxtLink>
+            <NuxtLink
+              to="/insights/market-intelligence"
+              class="inline-flex items-center justify-center px-8 py-3 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 no-underline hover:bg-[var(--tm-bg-hover)] font-medium hover:scale-105"
             >
-              Industry Reports
-            </h3>
-            <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Comprehensive market analysis across 12 key sectors
-            </p>
-          </NuxtLink>
-
-          <!-- Talent Market Intelligence -->
-          <NuxtLink
-            to="#talent-market-intelligence"
-            class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-4 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors duration-300"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle
-                  cx="11"
-                  cy="11"
-                  r="8"
-                ></circle>
-                <path d="M21 21l-4.35-4.35"></path>
-              </svg>
-            </div>
-            <h3
-              class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
-            >
-              Market Intelligence
-            </h3>
-            <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Real-time talent data and salary benchmarking
-            </p>
-          </NuxtLink>
-
-          <!-- Recruitment Trends -->
-          <NuxtLink
-            to="#recruitment-trends"
-            class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-4 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors duration-300"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
-              </svg>
-            </div>
-            <h3
-              class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
-            >
-              Recruitment Trends
-            </h3>
-            <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Future workforce patterns and technology impact
-            </p>
-          </NuxtLink>
-
-          <!-- Success Stories -->
-          <NuxtLink
-            to="#success-stories"
-            class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-4 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors duration-300"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
-            >
-              Success Stories
-            </h3>
-            <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Real client transformations and case studies
-            </p>
-          </NuxtLink>
-
-          <!-- Best Practices -->
-          <NuxtLink
-            to="#best-practices"
-            class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-4 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors duration-300"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4m-4-3h14m-5 3h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4"
-                ></path>
-                <path d="M8 21v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </div>
-            <h3
-              class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
-            >
-              Best Practices
-            </h3>
-            <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Proven methodologies and expert frameworks
-            </p>
-          </NuxtLink>
+              Schedule Call
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -264,101 +234,112 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  // 关键指标
+  const keyMetrics = [
+    { value: '8', label: 'Markets' },
+    { value: '1M+', label: 'Profiles' },
+    { value: '50K+', label: 'Data Points' },
+    { value: 'Q1', label: 'Updates' },
+  ]
+
+  // 智能领域
+  const domains = [
+    {
+      title: 'Executive Mapping',
+      description: 'C-suite availability and compensation benchmarks across global markets.',
+      iconPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+    },
+    {
+      title: 'Global Mobility',
+      description: 'International talent movement patterns and immigration policy impacts.',
+      iconPath:
+        'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064',
+    },
+    {
+      title: 'Compensation',
+      description: 'Real-time salary data with currency-adjusted multi-market comparisons.',
+      iconPath:
+        'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    },
+    {
+      title: 'Skills Analysis',
+      description: 'Critical skills gap analysis and emerging competency requirements.',
+      iconPath: 'M13 10V3L4 14h7v7l9-11h-7z',
+    },
+  ]
+
+  // 其他地区
+  const otherLocations = [
+    { name: 'Dubai', region: 'Middle East Hub', specialties: 'Oil & Gas • Construction' },
+    { name: 'Malaysia', region: 'Southeast Asia', specialties: 'Manufacturing • Healthcare' },
+    { name: 'China', region: '4 Major Cities', specialties: 'Technology • Manufacturing' },
+  ]
+
+  // 需求角色
+  const demandRoles = [
+    {
+      name: 'Data Scientists',
+      level: 'Critical',
+      width: '32px',
+      barClass: 'bg-red-500',
+      textClass: 'text-red-600',
+    },
+    {
+      name: 'Cloud Engineers',
+      level: 'High',
+      width: '24px',
+      barClass: 'bg-orange-500',
+      textClass: 'text-orange-600',
+    },
+    {
+      name: 'ESG Managers',
+      level: 'Rising',
+      width: '16px',
+      barClass: 'bg-yellow-500',
+      textClass: 'text-yellow-600',
+    },
+  ]
+
+  // 薪资趋势
+  const salaryTrends = [
+    { sector: 'Technology', location: 'SG • Dubai', growth: '+12%' },
+    { sector: 'Healthcare', location: 'Global', growth: '+8%' },
+    { sector: 'Finance', location: 'APAC', growth: '+6%' },
+  ]
 </script>
 
-<style>
-  /* 只保留无法用 UnoCSS 表达的复杂样式 */
-
-  /* 背景渐变图案 */
-  .bg-gradient-radial-pattern {
-    background-image:
-      radial-gradient(circle at 20% 50%, var(--tm-bg-accent-gradient-from) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, var(--tm-bg-accent-gradient-to) 0%, transparent 40%);
-  }
-
-  /* Logo 发光动画 */
-  @keyframes glow {
-    from {
-      filter: drop-shadow(0 0 10px var(--tm-accent-gradient-from));
+<style scoped>
+  /* 深色模式适配 */
+  @media (prefers-color-scheme: dark) {
+    .bg-amber-50 {
+      background-color: rgba(245, 158, 11, 0.1);
     }
-    to {
-      filter: drop-shadow(0 0 20px var(--tm-accent-gradient-to));
+    .border-amber-200 {
+      border-color: rgba(245, 158, 11, 0.3);
     }
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  /* 按钮悬停效果 */
-  .btn-primary:hover .btn-icon {
-    transform: translateX(4px);
-  }
-
-  /* 导航区域闪光动画 */
-  .shimmer-bg::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      transparent 30%,
-      var(--tm-bg-white-alpha10) 50%,
-      transparent 70%
-    );
-    animation: shimmer 3s infinite;
-  }
-
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    .text-amber-900 {
+      color: rgb(251, 191, 36);
     }
-    100% {
-      transform: translateX(100%) translateY(100%) rotate(45deg);
+    .text-amber-800 {
+      color: rgb(252, 211, 77);
+    }
+    .bg-amber-500 {
+      background-color: rgb(245, 158, 11);
     }
   }
 
-  /* 移动端适配 */
-  @media (max-width: 768px) {
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 40px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-    }
-
-    .insights-nav {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .insight-item:last-child {
-      grid-column: 1 / -1;
-      max-width: 200px;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .insights-nav {
+  /* 移动端优化 */
+  @media (max-width: 640px) {
+    .grid.lg\\:grid-cols-3 {
       grid-template-columns: 1fr;
     }
 
-    .insight-item:last-child {
-      grid-column: 1;
-      max-width: none;
+    .lg\\:col-span-2 {
+      grid-column: span 1;
+    }
+
+    .grid.lg\\:grid-cols-4 {
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>

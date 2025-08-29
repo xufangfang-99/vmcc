@@ -88,15 +88,18 @@ export const useMenuData = () => {
       name: 'Insights',
       hasSubMenu: true,
       subItems: [
-        { name: 'Industry Reports', hasSubMenu: false, link: '/insights/industry-reports' },
-        { name: 'Talent Market Intelligence', hasSubMenu: false, link: '/insights/talent-market' },
+        { name: 'Industry Reports', hasSubMenu: false, link: '/insights#industry-reports' },
+        {
+          name: 'Talent Market Intelligence',
+          hasSubMenu: false,
+          link: '/insights#talent-market-intelligence',
+        },
         {
           name: 'Recruitment Trends',
           hasSubMenu: false,
-          link: '/insights/recruitment-trends',
+          link: '/insights#recruitment-trends',
         },
-        { name: 'Success Stories', hasSubMenu: false, link: '/insights/success-stories' },
-        { name: 'Best Practices', hasSubMenu: false, link: '/insights/best-practices' },
+        { name: 'Success Stories', hasSubMenu: false, link: '/insights#success-stories' },
       ],
     },
     {

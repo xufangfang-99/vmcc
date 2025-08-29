@@ -40,14 +40,6 @@
       <SuccessStories />
     </section>
 
-    <!-- 6. Best Practices -->
-    <section
-      id="best-practices"
-      class="scroll-mt-80px"
-    >
-      <BestPractices />
-    </section>
-
     <FooterSection />
   </div>
 </template>
@@ -61,7 +53,6 @@
   import TalentMarketIntelligence from '~/components/Insights/TalentMarketIntelligence.vue'
   import RecruitmentTrends from '~/components/Insights/RecruitmentTrends.vue'
   import SuccessStories from '~/components/Insights/SuccessStories.vue'
-  import BestPractices from '~/components/Insights/BestPractices.vue'
   import FooterSection from '~/components/Home/FooterSection.vue'
 
   // 设置页面使用默认布局

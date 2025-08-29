@@ -1,340 +1,115 @@
 <template>
-  <section class="relative py-20 bg-tm-bg-secondary overflow-hidden">
-    <!-- 背景装饰 -->
-    <div class="absolute inset-0">
+  <section class="py-16 md:py-20 lg:py-24 bg-[var(--tm-bg-secondary)] relative overflow-hidden">
+    <!-- 简化背景装饰 -->
+    <div class="absolute inset-0 opacity-5">
       <div
-        class="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-l from-tm-accent-primary/5 to-transparent rounded-full"
+        class="absolute top-1/4 right-0 w-80 h-80 bg-[var(--tm-accent-primary)] rounded-full blur-3xl"
       ></div>
       <div
-        class="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-tm-accent-secondary/4 to-transparent rounded-full"
-      ></div>
-      <!-- 几何装饰 -->
-      <div
-        class="absolute top-1/3 left-1/3 w-2 h-2 bg-tm-accent-primary/30 rounded-full animate-pulse"
-      ></div>
-      <div
-        class="absolute top-2/3 right-1/4 w-3 h-3 bg-tm-accent-secondary/20 transform rotate-45"
+        class="absolute bottom-1/4 left-0 w-96 h-96 bg-[var(--tm-accent-secondary)] rounded-full blur-3xl"
       ></div>
     </div>
 
-    <div class="relative z-10 max-w-300 mx-auto px-5">
-      <!-- 标题区域 -->
-      <div class="text-center mb-16">
-        <div
-          class="inline-flex items-center px-4 py-2 bg-tm-bg-primary/80 backdrop-blur-sm border border-tm-bd-light rounded-full mb-6"
-        >
-          <div class="w-2 h-2 bg-tm-accent-primary rounded-full mr-3 animate-pulse"></div>
-          <span class="text-sm font-medium text-tm-accent-primary">
+    <div class="container max-w-7xl relative z-10">
+      <!-- Header -->
+      <header class="text-center mb-16 md:mb-20">
+        <div class="mb-6 md:mb-8">
+          <span
+            class="inline-flex items-center px-6 py-2 bg-[var(--tm-bg-primary)] border border-[var(--tm-bd-light)] rounded-full text-sm text-[var(--tm-accent-primary)] font-medium tracking-wide"
+          >
+            <div
+              class="w-2 h-2 bg-[var(--tm-accent-primary)] rounded-full mr-3 animate-pulse"
+            ></div>
             COMPREHENSIVE INDUSTRY INTELLIGENCE
           </span>
         </div>
 
-        <h2 class="text-4xl md:text-5xl font-light text-tm-txt-primary mb-6 leading-tight">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--tm-txt-primary)] mb-6">
           12 Industries,
-          <span
-            class="bg-gradient-to-r from-tm-accent-primary to-tm-accent-secondary bg-clip-text text-transparent font-medium"
-          >
-            Global Insights
-          </span>
-        </h2>
+          <span class="text-[var(--tm-accent-primary)] font-normal">Global Insights</span>
+        </h1>
 
-        <p class="text-lg text-tm-txt-secondary max-w-160 mx-auto mb-8">
+        <p class="text-lg md:text-xl text-[var(--tm-txt-secondary)] max-w-4xl mx-auto mb-12">
           Deep-dive analysis across key sectors driving the global economy. From emerging markets in
           Asia-Pacific to established industries in the Middle East.
         </p>
 
         <!-- 核心统计 -->
-        <div class="grid grid-cols-4 gap-8 max-w-120 mx-auto">
-          <div class="text-center">
-            <div class="text-2xl font-bold text-tm-accent-primary mb-1">150+</div>
-            <div class="text-xs text-tm-txt-secondary uppercase tracking-wide">Reports</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-tm-accent-primary mb-1">8+</div>
-            <div class="text-xs text-tm-txt-secondary uppercase tracking-wide">Markets</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-tm-accent-primary mb-1">99%</div>
-            <div class="text-xs text-tm-txt-secondary uppercase tracking-wide">Accuracy</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-tm-accent-primary mb-1">Q4</div>
-            <div class="text-xs text-tm-txt-secondary uppercase tracking-wide">Updates</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 行业网格 - 2行6列布局 -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-        <!-- 第一行 -->
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-amber-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
           <div
-            class="w-12 h-12 bg-amber-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-500/20 transition-colors"
+            v-for="stat in coreStats"
+            :key="stat.label"
+            class="text-center"
           >
-            <div class="w-6 h-6 bg-amber-600 rounded-full"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Oil & Gas</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Energy transition & workforce evolution
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded-full">25+ Reports</span>
+            <div class="text-2xl md:text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">
+              {{ stat.value }}
+            </div>
+            <div class="text-xs md:text-sm text-[var(--tm-txt-secondary)] uppercase tracking-wide">
+              {{ stat.label }}
+            </div>
           </div>
         </div>
+      </header>
 
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-blue-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
+      <!-- 行业网格 -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-16 md:mb-20">
+        <article
+          v-for="industry in industries"
+          :key="industry.name"
+          class="group bg-[var(--tm-bg-primary)] rounded-2xl p-6 border border-[var(--tm-bd-light)] text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+          :class="industry.hoverClass"
         >
+          <!-- 图标区域 -->
           <div
-            class="w-12 h-12 bg-blue-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/20 transition-colors"
+            class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center transition-all duration-300"
+            :class="industry.iconBg + ' group-hover:' + industry.iconHover"
           >
-            <div class="w-6 h-6 bg-blue-600 rounded-1 transform rotate-45"></div>
+            <div :class="industry.iconShape + ' ' + industry.iconColor"></div>
           </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Banking & Finance</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Digital transformation & fintech integration
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">30+ Reports</span>
-          </div>
-        </div>
 
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-emerald-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-emerald-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-500/20 transition-colors"
-          >
-            <div class="w-4 h-4 bg-emerald-600 transform rotate-45"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Healthcare</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Medical tech & pharmaceutical growth
+          <!-- 内容 -->
+          <h3 class="font-semibold text-[var(--tm-txt-primary)] text-sm md:text-base mb-2">
+            {{ industry.name }}
+          </h3>
+          <p class="text-xs md:text-sm text-[var(--tm-txt-secondary)] leading-relaxed mb-4">
+            {{ industry.description }}
           </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full">18+ Reports</span>
-          </div>
-        </div>
 
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-tm-accent-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-tm-accent-primary/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-tm-accent-primary/20 transition-colors"
+          <!-- 报告数量标签 -->
+          <span
+            :class="industry.badgeClass"
+            class="text-xs px-2 py-1 rounded-full"
           >
-            <div class="w-6 h-6 bg-tm-accent-primary rounded-1"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Technology</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            AI/ML & cloud infrastructure expansion
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full">35+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-slate-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-slate-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-slate-500/20 transition-colors"
-          >
-            <div class="w-5 h-3 bg-slate-600 clip-path-triangle"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Construction</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Infrastructure & sustainable building
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-slate-100 text-slate-800 px-2 py-1 rounded-full">22+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-red-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-red-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/20 transition-colors"
-          >
-            <div class="w-6 h-6 bg-red-600 rounded-full border-2 border-red-400"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Manufacturing</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Industry 4.0 & automation integration
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full">20+ Reports</span>
-          </div>
-        </div>
-
-        <!-- 第二行 -->
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-pink-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-pink-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500/20 transition-colors"
-          >
-            <div class="w-4 h-4 bg-pink-600 rounded-full"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Hospitality</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Tourism recovery & experience economy
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded-full">12+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-green-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-green-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/20 transition-colors"
-          >
-            <div class="w-4 h-4 bg-green-600 rounded-1"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Retail</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            E-commerce evolution & consumer behavior
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">16+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-indigo-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-indigo-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-500/20 transition-colors"
-          >
-            <div class="w-4 h-4 bg-indigo-600 transform rotate-45"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Education</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Digital learning & skills development
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full">14+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-cyan-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-cyan-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-500/20 transition-colors"
-          >
-            <div class="w-5 h-5 bg-cyan-600 rounded-1 transform rotate-12"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Legal Services</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Regulatory compliance & digital law
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded-full">8+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-violet-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-violet-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-violet-500/20 transition-colors"
-          >
-            <div class="w-6 h-6 bg-violet-600 rounded-full border-2 border-violet-400"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Insurance</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Risk management & insurtech innovation
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-violet-100 text-violet-800 px-2 py-1 rounded-full">10+ Reports</span>
-          </div>
-        </div>
-
-        <div
-          class="group bg-tm-bg-primary rounded-4 p-6 border border-tm-bd-light hover:border-teal-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-center"
-        >
-          <div
-            class="w-12 h-12 bg-teal-500/10 rounded-3 flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-500/20 transition-colors"
-          >
-            <div class="w-4 h-6 bg-teal-600 rounded-1 transform -rotate-12"></div>
-          </div>
-          <h3 class="font-semibold text-tm-txt-primary text-sm mb-2">Logistics</h3>
-          <p class="text-xs text-tm-txt-secondary leading-relaxed">
-            Supply chain optimization & logistics tech
-          </p>
-          <div class="mt-4 text-xs">
-            <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded-full">12+ Reports</span>
-          </div>
-        </div>
+            {{ industry.reports }}+ Reports
+          </span>
+        </article>
       </div>
 
       <!-- 报告特色和CTA -->
-      <div class="bg-tm-bg-primary rounded-6 p-10 border border-tm-bd-light">
+      <div
+        class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 md:p-10 lg:p-12 border border-[var(--tm-bd-light)]"
+      >
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
           <!-- 特色列表 -->
           <div class="lg:col-span-2">
-            <h3 class="text-2xl font-semibold text-tm-txt-primary mb-6">
+            <h3 class="text-2xl md:text-3xl font-semibold text-[var(--tm-txt-primary)] mb-8">
               What Makes Our Reports Different
             </h3>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex items-start space-x-4">
+              <div
+                v-for="feature in reportFeatures"
+                :key="feature.title"
+                class="flex items-start space-x-4"
+              >
                 <div
-                  class="w-6 h-6 bg-tm-accent-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                  class="w-6 h-6 bg-[var(--tm-accent-primary)]/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
                 >
-                  <div class="w-2 h-2 bg-tm-accent-primary rounded-full"></div>
+                  <div class="w-2 h-2 bg-[var(--tm-accent-primary)] rounded-full"></div>
                 </div>
                 <div>
-                  <h4 class="font-medium text-tm-txt-primary mb-2">Global Perspective</h4>
-                  <p class="text-sm text-tm-txt-secondary">
-                    Cross-border talent insights from 8+ regional offices
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-4">
-                <div
-                  class="w-6 h-6 bg-tm-accent-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <div class="w-2 h-2 bg-tm-accent-primary rounded-full"></div>
-                </div>
-                <div>
-                  <h4 class="font-medium text-tm-txt-primary mb-2">Real-Time Data</h4>
-                  <p class="text-sm text-tm-txt-secondary">
-                    Live market intelligence updated quarterly
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-4">
-                <div
-                  class="w-6 h-6 bg-tm-accent-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <div class="w-2 h-2 bg-tm-accent-primary rounded-full"></div>
-                </div>
-                <div>
-                  <h4 class="font-medium text-tm-txt-primary mb-2">Actionable Insights</h4>
-                  <p class="text-sm text-tm-txt-secondary">
-                    Strategic recommendations from industry experts
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-4">
-                <div
-                  class="w-6 h-6 bg-tm-accent-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <div class="w-2 h-2 bg-tm-accent-primary rounded-full"></div>
-                </div>
-                <div>
-                  <h4 class="font-medium text-tm-txt-primary mb-2">Custom Analysis</h4>
-                  <p class="text-sm text-tm-txt-secondary">
-                    Tailored reports for specific market needs
-                  </p>
+                  <h4 class="font-medium text-[var(--tm-txt-primary)] mb-2">{{ feature.title }}</h4>
+                  <p class="text-sm text-[var(--tm-txt-secondary)]">{{ feature.description }}</p>
                 </div>
               </div>
             </div>
@@ -343,9 +118,9 @@
           <!-- CTA区域 -->
           <div class="text-center lg:text-left">
             <div
-              class="bg-gradient-to-br from-tm-accent-primary to-tm-accent-secondary rounded-4 p-8 text-white"
+              class="bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-2xl p-8 text-white"
             >
-              <h4 class="text-lg font-semibold mb-4">Access Full Reports</h4>
+              <h4 class="text-lg md:text-xl font-semibold mb-4">Access Full Reports</h4>
               <p class="text-sm opacity-90 mb-6">
                 Get complete industry analysis with detailed insights and recommendations
               </p>
@@ -353,13 +128,13 @@
               <div class="space-y-3">
                 <NuxtLink
                   to="/contact"
-                  class="block w-full bg-white/20 hover:bg-white/30 border border-white/30 text-white font-medium py-3 px-6 rounded-3 transition-all duration-300 no-underline"
+                  class="block w-full bg-white/20 hover:bg-white/30 border border-white/30 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 no-underline hover:scale-105"
                 >
                   Contact Our Experts
                 </NuxtLink>
                 <NuxtLink
                   to="/insights/industry-reports"
-                  class="block w-full bg-transparent hover:bg-white/10 border border-white/50 text-white font-medium py-3 px-6 rounded-3 transition-all duration-300 no-underline"
+                  class="block w-full bg-transparent hover:bg-white/10 border border-white/50 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 no-underline hover:scale-105"
                 >
                   Browse All Reports
                 </NuxtLink>
@@ -373,48 +148,194 @@
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  // 核心统计数据
+  const coreStats = [
+    { value: '150+', label: 'Reports' },
+    { value: '8+', label: 'Markets' },
+    { value: '99%', label: 'Accuracy' },
+    { value: 'Q4', label: 'Updates' },
+  ]
+
+  // 行业数据
+  const industries = [
+    {
+      name: 'Oil & Gas',
+      description: 'Energy transition & workforce evolution',
+      reports: '25',
+      iconBg: 'bg-amber-500/10',
+      iconHover: 'bg-amber-500/20',
+      iconShape: 'w-6 h-6 rounded-full',
+      iconColor: 'bg-amber-600',
+      hoverClass: 'hover:border-amber-500',
+      badgeClass: 'bg-amber-100 text-amber-800',
+    },
+    {
+      name: 'Banking & Finance',
+      description: 'Digital transformation & fintech integration',
+      reports: '30',
+      iconBg: 'bg-blue-500/10',
+      iconHover: 'bg-blue-500/20',
+      iconShape: 'w-6 h-6 transform rotate-45',
+      iconColor: 'bg-blue-600',
+      hoverClass: 'hover:border-blue-500',
+      badgeClass: 'bg-blue-100 text-blue-800',
+    },
+    {
+      name: 'Healthcare',
+      description: 'Medical tech & pharmaceutical growth',
+      reports: '18',
+      iconBg: 'bg-emerald-500/10',
+      iconHover: 'bg-emerald-500/20',
+      iconShape: 'w-4 h-4 transform rotate-45',
+      iconColor: 'bg-emerald-600',
+      hoverClass: 'hover:border-emerald-500',
+      badgeClass: 'bg-emerald-100 text-emerald-800',
+    },
+    {
+      name: 'Technology',
+      description: 'AI/ML & cloud infrastructure expansion',
+      reports: '35',
+      iconBg: 'bg-[var(--tm-accent-primary)]/10',
+      iconHover: 'bg-[var(--tm-accent-primary)]/20',
+      iconShape: 'w-6 h-6',
+      iconColor: 'bg-[var(--tm-accent-primary)]',
+      hoverClass: 'hover:border-[var(--tm-accent-primary)]',
+      badgeClass: 'bg-purple-100 text-purple-800',
+    },
+    {
+      name: 'Construction',
+      description: 'Infrastructure & sustainable building',
+      reports: '22',
+      iconBg: 'bg-slate-500/10',
+      iconHover: 'bg-slate-500/20',
+      iconShape: 'w-5 h-3',
+      iconColor: 'bg-slate-600',
+      hoverClass: 'hover:border-slate-500',
+      badgeClass: 'bg-slate-100 text-slate-800',
+    },
+    {
+      name: 'Manufacturing',
+      description: 'Industry 4.0 & automation integration',
+      reports: '20',
+      iconBg: 'bg-red-500/10',
+      iconHover: 'bg-red-500/20',
+      iconShape: 'w-6 h-6 rounded-full border-2',
+      iconColor: 'bg-red-600 border-red-400',
+      hoverClass: 'hover:border-red-500',
+      badgeClass: 'bg-red-100 text-red-800',
+    },
+    {
+      name: 'Hospitality',
+      description: 'Tourism recovery & experience economy',
+      reports: '12',
+      iconBg: 'bg-pink-500/10',
+      iconHover: 'bg-pink-500/20',
+      iconShape: 'w-4 h-4 rounded-full',
+      iconColor: 'bg-pink-600',
+      hoverClass: 'hover:border-pink-500',
+      badgeClass: 'bg-pink-100 text-pink-800',
+    },
+    {
+      name: 'Retail',
+      description: 'E-commerce evolution & consumer behavior',
+      reports: '16',
+      iconBg: 'bg-green-500/10',
+      iconHover: 'bg-green-500/20',
+      iconShape: 'w-4 h-4',
+      iconColor: 'bg-green-600',
+      hoverClass: 'hover:border-green-500',
+      badgeClass: 'bg-green-100 text-green-800',
+    },
+    {
+      name: 'Education',
+      description: 'Digital learning & skills development',
+      reports: '14',
+      iconBg: 'bg-indigo-500/10',
+      iconHover: 'bg-indigo-500/20',
+      iconShape: 'w-4 h-4 transform rotate-45',
+      iconColor: 'bg-indigo-600',
+      hoverClass: 'hover:border-indigo-500',
+      badgeClass: 'bg-indigo-100 text-indigo-800',
+    },
+    {
+      name: 'Legal Services',
+      description: 'Regulatory compliance & digital law',
+      reports: '8',
+      iconBg: 'bg-cyan-500/10',
+      iconHover: 'bg-cyan-500/20',
+      iconShape: 'w-5 h-5 transform rotate-12',
+      iconColor: 'bg-cyan-600',
+      hoverClass: 'hover:border-cyan-500',
+      badgeClass: 'bg-cyan-100 text-cyan-800',
+    },
+    {
+      name: 'Insurance',
+      description: 'Risk management & insurtech innovation',
+      reports: '10',
+      iconBg: 'bg-violet-500/10',
+      iconHover: 'bg-violet-500/20',
+      iconShape: 'w-6 h-6 rounded-full border-2',
+      iconColor: 'bg-violet-600 border-violet-400',
+      hoverClass: 'hover:border-violet-500',
+      badgeClass: 'bg-violet-100 text-violet-800',
+    },
+    {
+      name: 'Logistics',
+      description: 'Supply chain optimization & logistics tech',
+      reports: '12',
+      iconBg: 'bg-teal-500/10',
+      iconHover: 'bg-teal-500/20',
+      iconShape: 'w-4 h-6 transform -rotate-12',
+      iconColor: 'bg-teal-600',
+      hoverClass: 'hover:border-teal-500',
+      badgeClass: 'bg-teal-100 text-teal-800',
+    },
+  ]
+
+  // 报告特色
+  const reportFeatures = [
+    {
+      title: 'Global Perspective',
+      description: 'Cross-border talent insights from 8+ regional offices',
+    },
+    {
+      title: 'Real-Time Data',
+      description: 'Live market intelligence updated quarterly',
+    },
+    {
+      title: 'Actionable Insights',
+      description: 'Strategic recommendations from industry experts',
+    },
+    {
+      title: 'Custom Analysis',
+      description: 'Tailored reports for specific market needs',
+    },
+  ]
 </script>
 
 <style scoped>
-  /* CSS变量支持 */
-  .bg-tm-bg-primary {
-    background: var(--tm-bg-primary);
+  /* 移动端优化 */
+  @media (max-width: 640px) {
+    .grid.lg\\:grid-cols-6 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid.lg\\:grid-cols-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .lg\\:col-span-2 {
+      grid-column: span 1;
+    }
   }
-  .bg-tm-bg-secondary {
-    background: var(--tm-bg-secondary);
-  }
-  .border-tm-bd-light {
-    border-color: var(--tm-bd-light);
-  }
-  .text-tm-txt-primary {
-    color: var(--tm-txt-primary);
-  }
-  .text-tm-txt-secondary {
-    color: var(--tm-txt-secondary);
-  }
-  .text-tm-accent-primary {
-    color: var(--tm-accent-primary);
-  }
-  .from-tm-accent-primary {
-    --un-gradient-from: var(--tm-accent-primary);
-  }
-  .to-tm-accent-secondary {
-    --un-gradient-to: var(--tm-accent-secondary);
-  }
-  .from-tm-accent-primary\/5 {
-    --un-gradient-from: color-mix(in srgb, var(--tm-accent-primary) 5%, transparent);
-  }
-  .from-tm-accent-secondary\/4 {
-    --un-gradient-from: color-mix(in srgb, var(--tm-accent-secondary) 4%, transparent);
-  }
-  .bg-tm-accent-primary\/20 {
-    background: color-mix(in srgb, var(--tm-accent-primary) 20%, transparent);
-  }
-  .bg-tm-accent-primary\/10 {
-    background: color-mix(in srgb, var(--tm-accent-primary) 10%, transparent);
-  }
-  .bg-tm-accent-primary {
-    background: var(--tm-accent-primary);
+
+  @media (max-width: 768px) {
+    .grid.md\\:grid-cols-3 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid.md\\:grid-cols-4 {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>
