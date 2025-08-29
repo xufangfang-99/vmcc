@@ -284,10 +284,25 @@
     isSubmitting.value = true
 
     try {
-      console.log('表单数据:', formData.value)
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      alert('Thank you for your inquiry! We will contact you within 24 hours.')
-      resetForm()
+      const response = await fetch(
+        'https://script.google.com/macros/s/AKfycbwOO_9GMN6meEswgGhLuKguVqXPwY3tbaVlhEGiB3cEZFkRSxV0-B6xcAtdFmRpnSV73w/exec',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: JSON.stringify(formData.value),
+        }
+      )
+
+      const result = await response.json()
+
+      if (result.success) {
+        alert('Thank you for your inquiry! We will contact you within 24 hours.')
+        resetForm()
+      } else {
+        throw new Error(result.error || 'Unknown error')
+      }
     } catch (error) {
       console.error('提交表单出错:', error)
       alert('Submission failed. Please try again or contact us directly.')
