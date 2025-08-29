@@ -2,7 +2,7 @@
   <Transition name="menu-slide">
     <div
       v-if="isOpen"
-      class="fixed inset-0 z-9999 bg-[var(--tm-bg-primary)]"
+      class="fixed inset-0 z-9999 bg-[var(--tm-bg-primary)] flex flex-col"
     >
       <!-- Header -->
       <div class="flex items-center justify-between p-4 border-b border-[var(--tm-bd-light)]">
@@ -25,7 +25,7 @@
             class="text-sm"
             :style="{ color: 'var(--tm-txt-secondary)' }"
           >
-            返回
+            Back
           </span>
         </button>
 
@@ -262,13 +262,15 @@
     }, 300)
   }
 
-  // 监听菜单打开状态，自动选择第一个有子菜单的项目
+  // 监听菜单打开状态
   watch(
     () => props.open,
     (newValue) => {
-      if (newValue && navigationStack.value.length === 0) {
-        const firstWithSubmenu = props.menuItems.find((item) => hasSubMenu(item))
-        // 移动端通常不需要自动打开第一个子菜单，保持在主菜单即可
+      if (!newValue) {
+        // 延迟重置导航堆栈，避免动画期间的闪烁
+        setTimeout(() => {
+          navigationStack.value = []
+        }, 300)
       }
     }
   )
