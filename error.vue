@@ -13,24 +13,28 @@
           <NuxtLink
             to="/"
             class="nav-link"
+            @click="resetMenuAndNavigate('/')"
           >
             首页
           </NuxtLink>
           <NuxtLink
             to="/services"
             class="nav-link"
+            @click="resetMenuAndNavigate('/services')"
           >
             服务
           </NuxtLink>
           <NuxtLink
             to="/about"
             class="nav-link"
+            @click="resetMenuAndNavigate('/about')"
           >
             关于我们
           </NuxtLink>
           <NuxtLink
             to="/contact"
             class="nav-link"
+            @click="resetMenuAndNavigate('/contact')"
           >
             联系我们
           </NuxtLink>
@@ -66,6 +70,7 @@
           <NuxtLink
             to="/contact"
             class="btn-secondary"
+            @click="resetMenuAndNavigate('/contact')"
           >
             联系我们
           </NuxtLink>
@@ -78,6 +83,7 @@
             <NuxtLink
               to="/"
               class="page-card"
+              @click="resetMenuAndNavigate('/')"
             >
               <div class="page-icon">🏠</div>
               <div class="page-title">首页</div>
@@ -86,6 +92,7 @@
             <NuxtLink
               to="/services"
               class="page-card"
+              @click="resetMenuAndNavigate('/services')"
             >
               <div class="page-icon">💼</div>
               <div class="page-title">服务项目</div>
@@ -94,6 +101,7 @@
             <NuxtLink
               to="/about"
               class="page-card"
+              @click="resetMenuAndNavigate('/about')"
             >
               <div class="page-icon">👥</div>
               <div class="page-title">关于我们</div>
@@ -102,6 +110,7 @@
             <NuxtLink
               to="/contact"
               class="page-card"
+              @click="resetMenuAndNavigate('/contact')"
             >
               <div class="page-icon">📞</div>
               <div class="page-title">联系我们</div>
@@ -123,7 +132,7 @@
           <button @click="handleError">Try again</button>
           <NuxtLink
             to="/"
-            @click="handleHomeClick"
+            @click="resetMenuAndNavigate('/')"
           >
             Go back home
           </NuxtLink>
@@ -199,6 +208,44 @@
       clearInterval(countdownTimer)
     }
     forceNavigateToHome()
+  }
+
+  // 统一的菜单重置和导航函数
+  const resetMenuAndNavigate = async (path: string) => {
+    console.log(`重置菜单并导航到: ${path}`)
+
+    try {
+      // 尝试使用 resetToHome 方法重置菜单状态
+      resetToHome()
+      console.log('菜单状态重置成功')
+    } catch (error1) {
+      console.log('resetToHome 失败，使用备用方案', error1)
+      try {
+        // 备用方案：直接调用 navigation store 方法
+        const navigation = useNavigation()
+        navigation.clearSelectedPath()
+        navigation.switchToDefault()
+        console.log('使用 store 直接重置菜单状态')
+      } catch (error2) {
+        console.log('store 重置也失败', error2)
+      }
+    }
+
+    // 清理倒计时
+    if (countdownTimer) {
+      clearInterval(countdownTimer)
+      countdownTimer = null
+    }
+
+    // 导航到目标路径
+    try {
+      await navigateTo(path)
+    } catch (error) {
+      console.log('navigateTo 失败，使用其他方法', error)
+      if (process.client) {
+        window.location.href = path
+      }
+    }
   }
 
   // 404 自动跳转逻辑
