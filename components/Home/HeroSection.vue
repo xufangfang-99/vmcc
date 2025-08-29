@@ -22,7 +22,8 @@
     <div class="relative w-full h-screen flex flex-col">
       <!-- 自定义头部导航 -->
       <header
-        class="hero-header absolute top-0 left-0 right-0 z-1000 py-4 sm:py-6 transition-all duration-300 bg-gradient-to-b from-black/70 via-black/30 to-transparent"
+        class="hero-header absolute top-0 left-0 right-0 z-1000 py-4 sm:py-6 transition-all duration-300"
+        :class="headerBackgroundClass"
       >
         <div class="max-w-1400px mx-auto px-5 sm:px-8">
           <div class="flex items-center justify-between">
@@ -161,21 +162,28 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue'
+  import { ref, computed, onMounted, onUnmounted } from 'vue'
   import { useNavigation } from '~/composables/useNavigation'
   import { useMenuData } from '~/composables/useMenuData'
   import { useMenuHandler } from '~/composables/useMenuHandler'
   import { useScrollTo } from '~/composables/useScrollTo'
+  import { useTheme } from '~/composables/useTheme'
 
   const navigation = useNavigation()
   const { menuItems } = useMenuData()
   const { handleMenuClick, handleSubmenuClick, handleIconClick } = useMenuHandler()
   const { scrollToElement } = useScrollTo()
+  const themeStore = useTheme()
 
   // 视频 URL - 使用本地视频
   const videoUrl = ref('/video/main.mp4')
 
   const bgVideo = ref<HTMLVideoElement>()
+
+  // 根据主题计算头部背景样式
+  const headerBackgroundClass = computed(() => {
+    return themeStore.isDark ? 'hero-header-dark' : 'hero-header-light'
+  })
 
   // 视频加载完成处理
   const handleVideoLoaded = () => {
@@ -217,52 +225,153 @@
 </script>
 
 <style scoped>
-  /* 只保留必要的自定义样式和动画 */
+  /* 浅色主题头部背景 - 优化版本 */
+  .hero-header-light {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.85) 40%,
+      rgba(255, 255, 255, 0.65) 60%,
+      rgba(255, 255, 255, 0.15) 80%,
+      transparent 100%
+    );
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 20px rgba(255, 255, 255, 0.1);
+  }
+
+  /* 深色主题头部背景 - 保持原有效果 */
+  .hero-header-dark {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.45) 40%,
+      rgba(0, 0, 0, 0.15) 80%,
+      transparent 100%
+    );
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
   /* 滚动后的头部样式 */
   .hero-header.scrolled {
-    @apply fixed bg-black/90 backdrop-blur-lg py-3 sm:py-4;
+    @apply fixed py-3 sm:py-4;
+    transition: all 0.3s ease;
   }
 
-  /* 覆盖默认组件样式 */
-  :deep(.logo) {
-    @apply text-white !important;
+  .hero-header-light.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   }
 
-  :deep(.menu-icon span) {
-    @apply bg-white !important;
+  .hero-header-dark.scrolled {
+    background: rgba(0, 0, 0, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
-  :deep(.primary-nav) {
-    @apply bg-transparent;
+  /* 浅色主题下的文字颜色 - 优化对比度 */
+  .hero-header-light :deep(.logo),
+  .hero-header-light :deep(.nav-link) {
+    color: #1a1a1a !important;
+    opacity: 0.95;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
   }
 
-  :deep(.nav-link) {
-    @apply text-white !important opacity-90 hover:opacity-100 !important;
+  .hero-header-light :deep(.menu-icon span) {
+    background-color: #1a1a1a !important;
+    opacity: 0.9;
   }
 
-  :deep(.chevron-icon) {
-    @apply text-white !important;
+  .hero-header-light :deep(.nav-link:hover) {
+    color: #000 !important;
+    opacity: 1;
   }
 
-  :deep(.submenu-wrapper) {
-    @apply mt-5;
+  /* 深色主题下的文字颜色（优化） */
+  .hero-header-dark :deep(.logo),
+  .hero-header-dark :deep(.nav-link) {
+    color: #ffffff !important;
+    opacity: 0.95;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
 
-  :deep(.theme-selector) {
-    filter: brightness(2);
+  .hero-header-dark :deep(.menu-icon span) {
+    background-color: #ffffff !important;
+    opacity: 0.9;
   }
 
-  :deep(.el-button) {
-    @apply bg-white/10 !important border-white/30 !important text-white !important;
+  .hero-header-dark :deep(.nav-link:hover) {
+    color: #ffffff !important;
+    opacity: 1;
   }
 
-  :deep(.el-button:hover) {
-    @apply bg-white/20 !important border-white/50 !important;
+  /* 主题选择器优化 */
+  .hero-header-light :deep(.theme-selector) {
+    filter: brightness(0.4) contrast(1.2);
+    opacity: 0.8;
   }
 
-  :deep(.el-dropdown-link) {
-    @apply text-white !important;
+  .hero-header-light :deep(.theme-selector:hover) {
+    filter: brightness(0.3) contrast(1.3);
+    opacity: 1;
+  }
+
+  .hero-header-dark :deep(.theme-selector) {
+    filter: brightness(1.8) contrast(1.1);
+    opacity: 0.9;
+  }
+
+  .hero-header-dark :deep(.theme-selector:hover) {
+    filter: brightness(2) contrast(1.2);
+    opacity: 1;
+  }
+
+  /* 下拉菜单优化 - 浅色主题 */
+  .hero-header-light :deep(.submenu-wrapper),
+  .hero-header-light :deep([class*='dropdown']) {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(15px) saturate(1.3) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(1.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .hero-header-light :deep(.dropdown-item),
+  .hero-header-light :deep([class*='nav-item']) {
+    color: #1a1a1a !important;
+    background: transparent !important;
+  }
+
+  .hero-header-light :deep(.dropdown-item:hover),
+  .hero-header-light :deep([class*='nav-item']:hover) {
+    background: rgba(255, 255, 255, 0.6) !important;
+    color: #000 !important;
+  }
+
+  /* 下拉菜单优化 - 深色主题 */
+  .hero-header-dark :deep(.submenu-wrapper),
+  .hero-header-dark :deep([class*='dropdown']) {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(15px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(1.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .hero-header-dark :deep(.dropdown-item),
+  .hero-header-dark :deep([class*='nav-item']) {
+    color: #ffffff !important;
+    background: transparent !important;
+  }
+
+  .hero-header-dark :deep(.dropdown-item:hover),
+  .hero-header-dark :deep([class*='nav-item']:hover) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
   }
 
   /* 动画定义 */
