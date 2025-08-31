@@ -218,7 +218,10 @@
                     </div>
 
                     <!-- Title -->
-                    <h3 :class="[titleClass, 'text-white-alpha-70']">
+                    <h3
+                      :class="titleClass"
+                      :style="{ color: 'rgba(255, 255, 255, 0.7)' }"
+                    >
                       {{ service.title }}
                     </h3>
                   </div>
@@ -256,16 +259,16 @@
                   </ul>
 
                   <!-- Link -->
-                  <NuxtLink
-                    :to="service.link"
+                  <button
                     :class="linkClass"
                     :style="{ color: 'var(--tm-txt-accent)' }"
+                    @click="openConsultationModal"
                   >
                     Learn More
                     <div
                       class="i-heroicons-arrow-right w-4 h-4 md:w-5 md:h-5 ml-2 transform group-hover/link:translate-x-2 transition-transform"
                     ></div>
-                  </NuxtLink>
+                  </button>
                 </div>
               </div>
             </div>
@@ -362,18 +365,18 @@
                   </p>
 
                   <!-- Link -->
-                  <NuxtLink
-                    :to="service.link"
+                  <button
                     class="inline-flex items-center font-semibold text-sm transition-colors group/link hover:text-[var(--tm-txt-accentDark)]"
                     :style="{
                       color: 'var(--tm-accent-gradient-to)',
                     }"
+                    @click="openConsultationModal"
                   >
                     Explore Service
                     <div
                       class="i-heroicons-arrow-right w-4 h-4 ml-2 transform group-hover/link:translate-x-2 transition-transform"
                     ></div>
-                  </NuxtLink>
+                  </button>
                 </div>
               </div>
             </div>
@@ -421,15 +424,15 @@
                     <p class="mb-6 text-lg leading-relaxed text-[var(--tm-txt-whiteAlpha90)]">
                       {{ services[5].description }}
                     </p>
-                    <NuxtLink
-                      :to="services[5].link"
+                    <button
                       class="inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all group/btn bg-white text-[var(--tm-accent-primary)] hover:bg-[var(--tm-bg-hover)] hover:-translate-y-0.5 hover:shadow-[var(--tm-shadow-hover)]"
+                      @click="openConsultationModal"
                     >
                       Start Consultation
                       <div
                         class="i-heroicons-arrow-right w-5 h-5 ml-2 transform group-hover/btn:translate-x-2 transition-transform"
                       ></div>
-                    </NuxtLink>
+                    </button>
                   </div>
 
                   <!-- Right features -->
@@ -476,6 +479,12 @@
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 -->
+    <ExpertConsultationModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
@@ -484,6 +493,9 @@
   import { useDevice } from '~/composables/useDevice'
 
   const device = useDevice()
+
+  // 专家咨询弹出框显示状态
+  const isConsultationModalVisible = ref(false)
 
   // 计算属性 - 根据设备类型返回不同的类
   const serviceHeaderClass = computed(() => {
@@ -529,6 +541,16 @@
       ? 'inline-flex items-center font-semibold text-sm transition-colors group/link hover:text-[var(--tm-txt-accentDark)]'
       : 'inline-flex items-center font-semibold text-base transition-colors group/link hover:text-[var(--tm-txt-accentDark)]'
   })
+
+  // 打开专家咨询弹出框
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  // 关闭专家咨询弹出框
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 
   const services = ref([
     {
