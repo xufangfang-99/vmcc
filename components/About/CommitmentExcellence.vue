@@ -156,12 +156,83 @@
           </div>
         </div>
       </div>
+
+      <!-- CTA区域 -->
+      <div class="cta-section">
+        <div class="cta-content">
+          <h3 class="cta-title">Experience Excellence with VMMC</h3>
+          <p class="cta-description">
+            Join hundreds of satisfied clients who trust us with their most important talent and
+            consulting needs. Let's discuss how our proven track record can benefit your
+            organization.
+          </p>
+          <div class="cta-buttons">
+            <button
+              class="btn-primary"
+              @click="openConsultationModal"
+            >
+              Start Partnership
+              <svg
+                class="btn-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button
+              class="btn-secondary"
+              @click="openExpertModal"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>
 
 <style scoped>
@@ -417,6 +488,108 @@
     margin-top: 4px;
   }
 
+  /* CTA区域 */
+  .cta-section {
+    margin-top: 80px;
+    padding: 50px;
+    background: var(--tm-bg-primary);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid var(--tm-bd-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--tm-bg-accentGradient-from) 0%,
+      transparent 50%,
+      var(--tm-bg-accentGradient-to) 100%
+    );
+    opacity: 0.05;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--tm-txt-primary);
+    margin-bottom: 16px;
+  }
+
+  .cta-description {
+    font-size: 1.125rem;
+    color: var(--tm-txt-secondary);
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      var(--tm-accent-gradient-from),
+      var(--tm-accent-gradient-to)
+    );
+    color: white;
+    border: none;
+    box-shadow: var(--tm-shadow-accent);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--tm-shadow-hover);
+  }
+
+  .btn-primary:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--tm-accent-primary);
+    border: 2px solid var(--tm-bd-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--tm-bg-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-icon {
+    transition: transform 0.3s ease;
+  }
+
   /* 深色模式 */
   .dark .commitment-section {
     background: var(--tm-bg-primary);
@@ -436,6 +609,11 @@
     border-color: var(--tm-bd-secondary);
   }
 
+  .dark .cta-section {
+    background: var(--tm-bg-secondary);
+    border-color: var(--tm-bd-secondary);
+  }
+
   /* 响应式设计 */
   @media (max-width: 1024px) {
     .content-grid {
@@ -450,6 +628,10 @@
     .image-wrapper {
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    .cta-section {
+      padding: 40px 30px;
     }
   }
 
@@ -508,6 +690,31 @@
 
     .stat-value {
       font-size: 1.5rem;
+    }
+
+    .cta-section {
+      margin-top: 50px;
+      padding: 30px 20px;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+    }
+
+    .cta-description {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
     }
   }
 
