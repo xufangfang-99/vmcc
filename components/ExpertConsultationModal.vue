@@ -257,17 +257,20 @@
     isSubmitting.value = true
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain',
-        },
-        body: JSON.stringify({
-          ...formData.value,
-          formType: 'expert-consultation', // 标识这是专家咨询表单
-          timestamp: new Date().toISOString(),
-        }),
-      })
+      const response = await fetch(
+        'https://script.google.com/macros/s/AKfycbwOO_9GMN6meEswgGhLuKguVqXPwY3tbaVlhEGiB3cEZFkRSxV0-B6xcAtdFmRpnSV73w/exec',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: JSON.stringify({
+            ...formData.value,
+            formType: 'expert-consultation', // 标识这是专家咨询表单
+            timestamp: new Date().toISOString(),
+          }),
+        }
+      )
 
       const result = await response.json()
 
