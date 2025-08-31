@@ -218,10 +218,7 @@
                     </div>
 
                     <!-- Title -->
-                    <h3
-                      :class="titleClass"
-                      :style="{ color: 'var(--tm-txt-primary)' }"
-                    >
+                    <h3 :class="[titleClass, 'text-white-alpha-70']">
                       {{ service.title }}
                     </h3>
                   </div>
