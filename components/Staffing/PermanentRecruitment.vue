@@ -163,7 +163,11 @@
 
           <!-- 成功率徽章 -->
           <div
-            class="absolute -bottom-6 -left-6 bg-white rounded-6 p-6 shadow-2xl border border-gray-100"
+            class="absolute -bottom-6 -left-6 rounded-6 p-6 shadow-2xl border"
+            :style="{
+              backgroundColor: 'var(--tm-bg-accent-light)',
+              border: '1px solid var(--tm-bd-card)',
+            }"
           >
             <div class="text-center">
               <div class="text-3xl font-bold text-[var(--tm-accent-primary)] mb-1">92%</div>

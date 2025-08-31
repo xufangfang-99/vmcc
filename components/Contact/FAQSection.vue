@@ -115,8 +115,6 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import ExpertConsultationModal from '~/components/Contact/ExpertConsultationModal.vue'
-  // 当前展开的FAQ索引
   const activeIndex = ref<number | null>(null)
 
   // 专家咨询弹出框显示状态
