@@ -9,7 +9,7 @@
         </p>
       </div>
 
-      <!-- FAQ 列表 -->
+      <!-- FAQ列表 -->
       <div class="mb-80px">
         <div
           v-for="(item, index) in faqItems"
@@ -70,6 +70,7 @@
           <div class="flex justify-center gap-5 flex-wrap">
             <button
               class="px-32px py-16px rounded-50px text-1.05rem font-600 cursor-pointer transition-all duration-300 border-none inline-flex items-center gap-2 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              @click="openConsultationModal"
             >
               <span>Consult an Expert</span>
               <svg
@@ -82,8 +83,9 @@
                 <path d="M5 12h14m-7-7l7 7-7 7" />
               </svg>
             </button>
-            <button
-              class="px-32px py-16px rounded-50px text-1.05rem font-600 cursor-pointer transition-all duration-300 inline-flex items-center gap-2 bg-tm-bg-secondary dark:bg-tm-bg-primary text-tm-pri-0 border-2 border-tm-bd-light dark:border-tm-bd-secondary hover:bg-tm-bg-active dark:hover:bg-tm-bg-active hover:border-tm-pri-0 hover:-translate-y-0.5"
+            <a
+              href="tel:+971558296351"
+              class="px-32px py-16px rounded-50px text-1.05rem font-600 cursor-pointer transition-all duration-300 inline-flex items-center gap-2 bg-tm-bg-secondary dark:bg-tm-bg-primary text-tm-pri-0 border-2 border-tm-bd-light dark:border-tm-bd-secondary hover:bg-tm-bg-active dark:hover:bg-tm-bg-active hover:border-tm-pri-0 hover:-translate-y-0.5 no-underline"
             >
               <span>Schedule a Call</span>
               <svg
@@ -97,11 +99,17 @@
                   d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 -->
+    <ExpertConsultationModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
@@ -110,6 +118,9 @@
 
   // 当前展开的FAQ索引
   const activeIndex = ref<number | null>(null)
+
+  // 专家咨询弹出框显示状态
+  const isConsultationModalVisible = ref(false)
 
   // FAQ数据
   const faqItems = ref([
@@ -158,6 +169,16 @@
   // 切换FAQ展开/收起
   const toggleFAQ = (index: number) => {
     activeIndex.value = activeIndex.value === index ? null : index
+  }
+
+  // 打开专家咨询弹出框
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  // 关闭专家咨询弹出框
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
   }
 </script>
 
