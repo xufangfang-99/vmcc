@@ -28,8 +28,11 @@
 
       <!-- 标题区域 -->
       <div class="modal-header">
-        <h3 class="modal-title">专家咨询预约</h3>
-        <p class="modal-subtitle">填写基本信息，我们的专业顾问将在24小时内与您联系</p>
+        <h3 class="modal-title">Expert Consultation</h3>
+        <p class="modal-subtitle">
+          Fill out your basic information and our professional consultant will contact you within 24
+          hours
+        </p>
       </div>
 
       <!-- 表单区域 -->

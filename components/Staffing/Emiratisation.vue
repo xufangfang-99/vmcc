@@ -370,9 +370,9 @@
             compliance and business success.
           </p>
           <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <NuxtLink
-              to="/contact"
+            <button
               class="inline-flex items-center justify-center px-8 py-3 bg-white text-[var(--tm-accent-primary)] rounded-full font-semibold hover:bg-gray-50 transition-colors duration-300"
+              @click="openExpertModal"
             >
               <span>Get Started Today</span>
               <svg
@@ -384,22 +384,58 @@
               >
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
-            </NuxtLink>
-            <NuxtLink
-              to="/contact"
+            </button>
+            <button
               class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors duration-300"
+              @click="openConsultationModal"
             >
               <span>Schedule Consultation</span>
-            </NuxtLink>
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+  import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
+  import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 简化版专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整版咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>
 
 <style>
