@@ -99,42 +99,50 @@
             <ul class="list-none p-0 m-0">
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/services/executive-search"
+                  to="/services#emiratisation"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  Executive Search
+                  Emiratisation
                 </NuxtLink>
               </li>
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/services/hr-outsourcing"
+                  to="/services#permanent-recruitment"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  HR Outsourcing
+                  Permanent Recruitment
                 </NuxtLink>
               </li>
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/services/talent-deployment"
+                  to="/services#temporary-recruitment"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  Talent Deployment
+                  Temporary Recruitment
                 </NuxtLink>
               </li>
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/services/organizational-consulting"
+                  to="/services#bulk-hiring"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  Organizational Consulting
+                  Bulk Hiring
+                </NuxtLink>
+              </li>
+              <li class="mb-4 sm:mb-2">
+                <NuxtLink
+                  to="/services#outsourcing-services"
+                  class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
+                >
+                  Outsourcing Services
                 </NuxtLink>
               </li>
               <li class="mb-4 sm:mb-1.5">
                 <NuxtLink
-                  to="/services/cross-border-support"
+                  to="/services#advisory-services"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-12px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  Cross-Border Support
+                  Advisory Services
                 </NuxtLink>
               </li>
             </ul>
@@ -150,23 +158,23 @@
             <ul class="list-none p-0 m-0">
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/about"
+                  to="/about#company-intro"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  About Us
+                  About VMMC
                 </NuxtLink>
               </li>
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/contact"
+                  to="/locations"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  Contact
+                  Locations
                 </NuxtLink>
               </li>
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/careers"
+                  to="/careers#why-vmmc"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
                   Careers
@@ -174,18 +182,26 @@
               </li>
               <li class="mb-4 sm:mb-2">
                 <NuxtLink
-                  to="/insights"
+                  to="/insights#industry-reports"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
                   Insights
                 </NuxtLink>
               </li>
+              <li class="mb-4 sm:mb-2">
+                <NuxtLink
+                  to="/timeline"
+                  class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-13px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
+                >
+                  Timeline
+                </NuxtLink>
+              </li>
               <li class="mb-4 sm:mb-1.5">
                 <NuxtLink
-                  to="/privacy"
+                  to="/contact"
                   class="text-[var(--tm-txt-secondary)] sm:text-[var(--tm-txt-light)] text-15px sm:text-12px py-0.5 transition-all duration-300 relative hover:text-[var(--tm-pri-0)] after:content-[''] after:absolute after:bottom--2px after:left-0 after:w-0 after:h-px after:bg-[var(--tm-pri-0)] after:transition-[width] after:duration-300 hover:after:w-full"
                 >
-                  Privacy Policy
+                  Contact
                 </NuxtLink>
               </li>
             </ul>

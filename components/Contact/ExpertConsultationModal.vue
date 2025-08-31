@@ -1,3 +1,20 @@
+const handleSubmit = async () => { isSubmitting.value = true try { const submitData = {
+...formData.value, formType: 'expert-consultation', timestamp: new Date().toISOString() }
+console.log('提交数据:', submitData) const response = await fetch(
+'https://script.google.com/macros/s/AKfycbwOO_9GMN6meEswgGhLuKguVqXPwY3tbaVlhEGiB3cEZFkRSxV0-B6xcAtdFmRpnSV73w/exec',
+{ method: 'POST', headers: { 'Content-Type': 'text/plain', }, body: JSON.stringify(submitData), } )
+console.log('响应状态:', response.status) console.log('响应头:', response.headers) //
+检查响应是否成功 if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`) }
+const result = await response.json() console.log('响应结果:', result) if (result.success) {
+alert('Thank you for your inquiry! Our expert will contact you within 24 hours.') closeModal() }
+else { throw new Error(result.error || 'Submission was not successful') } } catch (error) {
+console.error('提交表单详细错误:', error) console.error('错误类型:', error.constructor.name)
+console.error('错误消息:', error.message) // 更详细的错误提示 let errorMessage = 'Submission failed.
+' if (error.message.includes('HTTP error')) { errorMessage += 'Server connection issue. ' } else if
+(error.message.includes('JSON')) { errorMessage += 'Data format issue. ' } else if
+(error.message.includes('Network')) { errorMessage += 'Network connection issue. ' } errorMessage +=
+'Please try again or contact us directly at +971 55 829 6351.' alert(errorMessage) } finally {
+isSubmitting.value = false } }
 <template>
   <!-- 模态框背景遮罩 -->
   <div

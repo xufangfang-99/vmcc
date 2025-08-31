@@ -19,14 +19,24 @@
 
         <!-- 行动按钮 -->
         <div class="cta-buttons">
-          <button class="btn-primary">Start Your Journey</button>
-          <button class="btn-secondary">Book a Consultation</button>
+          <button
+            class="btn-primary"
+            @click="openExpertModal"
+          >
+            Start Your Journey
+          </button>
+          <button
+            class="btn-secondary"
+            @click="openConsultationModal"
+          >
+            Book a Consultation
+          </button>
         </div>
 
         <!-- 联系信息 -->
         <div class="contact-info">
           <a
-            href="tel:+15551234567"
+            href="tel:+971558296351"
             class="contact-item"
           >
             <svg
@@ -44,7 +54,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span>+1 (555) 123-4567</span>
+            <span>+971 55 829 6351</span>
           </a>
 
           <a
@@ -111,11 +121,45 @@
       <div class="shape shape-2"></div>
       <div class="shape shape-3"></div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>
 
 <style scoped>
