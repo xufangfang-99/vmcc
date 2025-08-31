@@ -294,6 +294,7 @@
     service: '',
     timeline: '',
     budget: '',
+    teamSize: '',
     details: '',
     // 移除了 contactMethod 字段
   })
@@ -340,6 +341,7 @@
       service: '',
       timeline: '',
       budget: '',
+      teamSize: '',
       details: '',
       // 移除了 contactMethod 重置
     }
