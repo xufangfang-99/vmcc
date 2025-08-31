@@ -109,8 +109,8 @@
               <div class="i-carbon-location w-12 h-12"></div>
             </div>
             <div class="relative z-1">
-              <h4 class="text-5 font-semibold mb-2">Asia-Pacific</h4>
-              <p class="text-3.5 mb-3 opacity-90">Headquarters</p>
+              <h4 class="text-5 font-semibold mb-2 text-white">Asia-Pacific</h4>
+              <p class="text-3.5 mb-3 opacity-90 text-white">Headquarters</p>
               <div class="text-3 space-y-1">
                 <div>Singapore (HQ)</div>
                 <div>Malaysia</div>
@@ -126,8 +126,8 @@
               <div class="i-carbon-location w-12 h-12"></div>
             </div>
             <div class="relative z-1">
-              <h4 class="text-5 font-semibold mb-2">Middle East</h4>
-              <p class="text-3.5 mb-3 opacity-90">Regional Hub</p>
+              <h4 class="text-5 font-semibold mb-2 text-white">Middle East</h4>
+              <p class="text-3.5 mb-3 opacity-90 text-white">Regional Hub</p>
               <div class="text-3 space-y-1">
                 <div>Dubai, UAE</div>
                 <div>GCC Coverage</div>
@@ -143,8 +143,8 @@
               <div class="i-carbon-location w-12 h-12"></div>
             </div>
             <div class="relative z-1">
-              <h4 class="text-5 font-semibold mb-2">Greater China</h4>
-              <p class="text-3.5 mb-3 opacity-90">4 Major Cities</p>
+              <h4 class="text-5 font-semibold mb-2 text-white">Greater China</h4>
+              <p class="text-3.5 mb-3 opacity-90 text-white">4 Major Cities</p>
               <div class="text-3 space-y-1">
                 <div>Beijing • Shanghai</div>
                 <div>Shenzhen • Chengdu</div>
@@ -160,8 +160,8 @@
               <div class="i-carbon-growth w-12 h-12"></div>
             </div>
             <div class="relative z-1">
-              <h4 class="text-5 font-semibold mb-2">Expanding</h4>
-              <p class="text-3.5 mb-3 opacity-90">New Markets</p>
+              <h4 class="text-5 font-semibold mb-2 text-white">Expanding</h4>
+              <p class="text-3.5 mb-3 opacity-90 text-white">New Markets</p>
               <div class="text-3 space-y-1">
                 <div>50+ Countries</div>
                 <div>Project Coverage</div>
@@ -379,8 +379,8 @@
       >
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="relative z-1">
-          <h3 class="text-8 font-semibold mb-4">Ready to Shape the Future of Talent?</h3>
-          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto">
+          <h3 class="text-8 font-semibold mb-4 text-white">Ready to Shape the Future of Talent?</h3>
+          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto text-white">
             Join our diverse community of professionals who are passionate about connecting
             exceptional talent with transformative opportunities. Your unique perspective and
             expertise can help us drive even greater impact.

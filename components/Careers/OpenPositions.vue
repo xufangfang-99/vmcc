@@ -568,8 +568,8 @@
       >
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="relative z-1">
-          <h3 class="text-8 font-semibold mb-4">Ready to Start Your Journey?</h3>
-          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto">
+          <h3 class="text-8 font-semibold mb-4 text-white">Ready to Start Your Journey?</h3>
+          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto text-white">
             Don't see the perfect role? We're always looking for exceptional talent. Send us your
             resume and let us know how you'd like to contribute to VMMC's mission.
           </p>

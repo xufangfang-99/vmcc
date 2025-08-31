@@ -545,8 +545,8 @@
       >
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="relative z-1">
-          <h3 class="text-8 font-semibold mb-4">Experience the VMMC Advantage</h3>
-          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto">
+          <h3 class="text-8 font-semibold mb-4 text-white">Experience the VMMC Advantage</h3>
+          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto text-white">
             Join a company that truly values its people. Our comprehensive benefits package is just
             the beginning of what makes VMMC an exceptional place to build your career.
           </p>

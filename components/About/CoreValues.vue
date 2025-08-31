@@ -99,7 +99,7 @@
         <div class="cta-pattern"></div>
         <div class="cta-content">
           <h3 class="cta-title">Join Our Global Network</h3>
-          <p class="cta-description">
+          <p class="cta-description text-white">
             Whether you're seeking exceptional talent or looking to advance your career, we invite
             you to become part of our global community of excellence.
           </p>
@@ -334,8 +334,6 @@
 
   .cta-description {
     font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--tm-txt-whiteAlpha90);
     max-width: 600px;
     margin: 0 auto 40px;
   }

@@ -470,9 +470,7 @@
           class="max-w-4xl mx-auto p-12 bg-[var(--tm-bg-primary)] rounded-3xl border border-[var(--tm-bd-light)] shadow-2xl relative overflow-hidden group"
         >
           <!-- 动态背景 -->
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-[var(--tm-accent-primary)]/5 via-transparent to-[var(--tm-accent-secondary)]/5 group-hover:from-[var(--tm-accent-primary)]/10 group-hover:to-[var(--tm-accent-secondary)]/10 transition-all duration-500"
-          ></div>
+          <div class="absolute bg-[var(--tm-pri-1)]"></div>
 
           <div class="relative z-10">
             <h3 class="text-3xl md:text-4xl font-light text-[var(--tm-txt-primary)] mb-6">

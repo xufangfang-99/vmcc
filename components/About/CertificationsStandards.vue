@@ -326,7 +326,7 @@
   .cta-description {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: var(--tm-txt-whiteAlpha90);
+    color: var(--tm-txt-white-alpha70);
     max-width: 700px;
     margin: 0 auto 40px;
   }

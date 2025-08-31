@@ -180,7 +180,7 @@
             <div
               class="absolute top-4 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse"
             ></div>
-            <h3 class="text-lg font-medium mb-1">Singapore</h3>
+            <h3 class="text-lg font-medium mb-1 text-white">Singapore</h3>
             <div class="text-xs opacity-80 mb-3">Asia-Pacific HQ</div>
             <div class="text-xs opacity-90">Executive • FinTech • Innovation</div>
           </div>

@@ -450,7 +450,7 @@
                     />
                   </svg>
                 </div>
-                <h3 class="text-2xl lg:text-3xl font-bold">Strategic Consulting</h3>
+                <h3 class="text-2xl lg:text-3xl font-bold text-white">Strategic Consulting</h3>
               </div>
 
               <p class="mb-6 text-lg leading-relaxed text-[var(--tm-txt-whiteAlpha90)]">
@@ -486,7 +486,7 @@
                   <span class="font-bold text-sm">1</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold mb-1">Talent Planning</h4>
+                  <h4 class="font-semibold mb-1 text-white">Talent Planning</h4>
                   <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
                     Tailored workforce strategies for your growth
                   </p>
@@ -500,7 +500,7 @@
                   <span class="font-bold text-sm">2</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold mb-1">Succession Planning</h4>
+                  <h4 class="font-semibold mb-1 text-white">Succession Planning</h4>
                   <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
                     Ensure leadership continuity and stability
                   </p>
@@ -514,7 +514,7 @@
                   <span class="font-bold text-sm">3</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold mb-1">Capability Building</h4>
+                  <h4 class="font-semibold mb-1 text-white">Capability Building</h4>
                   <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
                     Develop core competencies for the future
                   </p>
@@ -528,7 +528,7 @@
                   <span class="font-bold text-sm">4</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold mb-1">Digital Transformation</h4>
+                  <h4 class="font-semibold mb-1 text-white">Digital Transformation</h4>
                   <p class="text-sm text-[var(--tm-txt-whiteAlpha70)]">
                     Leverage technology for HR innovation
                   </p>

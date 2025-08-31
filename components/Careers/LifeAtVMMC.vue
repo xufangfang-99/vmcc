@@ -494,8 +494,8 @@
       >
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="relative z-1">
-          <h3 class="text-8 font-semibold mb-4">Your Journey Starts Here</h3>
-          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto">
+          <h3 class="text-8 font-semibold mb-4 text-white">Your Journey Starts Here</h3>
+          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto text-white">
             Ready to be part of a team that's reshaping the future of talent solutions? Explore our
             open positions and take the first step towards an extraordinary career at VMMC.
           </p>

@@ -604,8 +604,10 @@
         class="bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] rounded-8 p-8 md:p-12 text-white"
       >
         <div class="text-center mb-8">
-          <h3 class="text-2xl md:text-3xl font-semibold mb-4">Outsourcing Excellence Metrics</h3>
-          <p class="text-lg opacity-90 max-w-150 mx-auto">
+          <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-white">
+            Outsourcing Excellence Metrics
+          </h3>
+          <p class="text-lg opacity-90 max-w-150 mx-auto text-white">
             Measurable results that demonstrate our commitment to delivering exceptional outsourcing
             value.
           </p>

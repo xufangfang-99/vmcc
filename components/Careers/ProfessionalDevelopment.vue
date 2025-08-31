@@ -543,8 +543,8 @@
       >
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="relative z-1">
-          <h3 class="text-8 font-semibold mb-4">Accelerate Your Career Growth</h3>
-          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto">
+          <h3 class="text-8 font-semibold mb-4 text-white">Accelerate Your Career Growth</h3>
+          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto text-white">
             Join VMMC and unlock your potential with world-class training programs, mentorship
             opportunities, and global career advancement paths. Your professional development
             journey starts here.

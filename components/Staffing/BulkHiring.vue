@@ -382,8 +382,10 @@
         class="bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] rounded-8 p-8 md:p-12 text-white mb-20"
       >
         <div class="text-center mb-8">
-          <h3 class="text-2xl md:text-3xl font-semibold mb-4">Bulk Hiring Track Record</h3>
-          <p class="text-lg opacity-90 max-w-150 mx-auto">
+          <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-white">
+            Bulk Hiring Track Record
+          </h3>
+          <p class="text-lg opacity-90 max-w-150 mx-auto text-white">
             Proven success in delivering large-scale recruitment solutions across various industries
             and project types.
           </p>

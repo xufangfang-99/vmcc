@@ -118,10 +118,10 @@
           <!-- CTA区域 -->
           <div class="text-center lg:text-left">
             <div
-              class="bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-2xl p-8 text-white"
+              class="bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-2xl p-8"
             >
-              <h4 class="text-lg md:text-xl font-semibold mb-4">Access Full Reports</h4>
-              <p class="text-sm opacity-90 mb-6">
+              <h4 class="text-lg md:text-xl font-semibold mb-4 text-white">Access Full Reports</h4>
+              <p class="text-sm opacity-90 mb-6 text-white">
                 Get complete industry analysis with detailed insights and recommendations
               </p>
 

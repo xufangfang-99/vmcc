@@ -52,9 +52,11 @@
           </div>
 
           <div class="flex-1 relative z-1">
-            <h3 class="text-6 font-semibold mb-1 flex items-center gap-2">
+            <h3 class="text-6 font-semibold mb-1 flex items-center gap-2 text-white">
               Singapore
-              <span class="text-3 bg-[var(--tm-bg-whiteAlpha30)] px-2 py-0.5 rounded-1 font-medium">
+              <span
+                class="text-3 bg-[var(--tm-bg-whiteAlpha30)] px-2 py-0.5 rounded-1 font-medium text-white"
+              >
                 HQ
               </span>
             </h3>

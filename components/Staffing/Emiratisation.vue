@@ -362,10 +362,10 @@
         <div
           class="bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] rounded-6 p-8 md:p-12 text-white"
         >
-          <h3 class="text-2xl md:text-3xl font-semibold mb-4">
+          <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-white">
             Ready to Accelerate Your Emiratisation Journey?
           </h3>
-          <p class="text-lg opacity-90 mb-8 max-w-150 mx-auto">
+          <p class="text-lg opacity-90 mb-8 max-w-150 mx-auto text-white">
             Let our experts help you build a comprehensive emiratisation strategy that drives
             compliance and business success.
           </p>

@@ -16,9 +16,19 @@
   --tm-txt-primary: var(--theme-text-primary, #2c3e50);
   --tm-txt-secondary: var(--theme-text-secondary, #5e6d82);
   --tm-txt-light: var(--theme-text-light, #8492a6);
+  --tm-txt-lighter: var(--theme-text-lighter, #40a9ff);
   --tm-txt-label: var(--theme-text-label, #1f2d3d);
   --tm-txt-placeholder: var(--theme-text-placeholder, #c0ccda);
   --tm-txt-disabled: var(--theme-text-disabled, #c0c4cc);
+
+  /* 扩展文字颜色 */
+  --tm-txt-white: var(--theme-text-white, #ffffff);
+  --tm-txt-white-alpha90: var(--theme-text-whiteAlpha90, rgba(255, 255, 255, 0.9));
+  --tm-txt-white-alpha85: var(--theme-text-whiteAlpha85, rgba(255, 255, 255, 0.85));
+  --tm-txt-white-alpha80: var(--theme-text-whiteAlpha80, rgba(255, 255, 255, 0.8));
+  --tm-txt-white-alpha70: var(--theme-text-whiteAlpha70, rgba(255, 255, 255, 0.7));
+  --tm-txt-accent: var(--theme-text-accent, #1890ff);
+  --tm-txt-accent-dark: var(--theme-text-accentDark, #096dd9);
 
   /* 背景颜色系统 */
   --tm-bg-primary: var(--theme-background-primary, #ffffff);
@@ -27,24 +37,77 @@
   --tm-bg-active: var(--theme-background-active, #e6f7ff);
   --tm-bg-disabled: var(--theme-background-disabled, #f5f7fa);
   --tm-bg-mask: var(--theme-background-mask, rgba(0, 0, 0, 0.5));
+
+  /* 扩展背景颜色 */
+  --tm-bg-card: var(--theme-background-card, #fafbfc);
+  --tm-bg-hover: var(--theme-background-hover, #f0f7ff);
+  --tm-bg-accent: var(--theme-background-accent, #1890ff);
+  --tm-bg-accent-light: var(--theme-background-accentLight, #e6f7ff);
+  --tm-bg-white-alpha10: var(--theme-background-whiteAlpha10, rgba(255, 255, 255, 0.1));
+  --tm-bg-white-alpha20: var(--theme-background-whiteAlpha20, rgba(255, 255, 255, 0.2));
+  --tm-bg-white-alpha30: var(--theme-background-whiteAlpha30, rgba(255, 255, 255, 0.3));
+  --tm-bg-white-alpha05: var(--theme-background-whiteAlpha05, rgba(255, 255, 255, 0.05));
+  --tm-bg-overlay: var(
+    --theme-background-overlay,
+    linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%)
+  );
+  --tm-bg-overlay-dark: var(--theme-background-overlayDark, rgba(0, 0, 0, 0.5));
+  --tm-bg-badge: var(--theme-background-badge, rgba(255, 255, 255, 0.1));
+  --tm-bg-feature: var(--theme-background-feature, #f0f9ff);
+
+  /* 边框颜色系统 */
+  --tm-bd-primary: var(--theme-border-primary, #1890ff);
+  --tm-bd-secondary: var(--theme-border-secondary, #e6f7ff);
+  --tm-bd-light: var(--theme-border-light, #f0f7ff);
+  --tm-bd-focus: var(--theme-border-focus, #40a9ff);
+  --tm-bd-disabled: var(--theme-border-disabled, #e6e6e6);
+  --tm-bd-card: var(--theme-border-card, #e8e8e8);
+  --tm-bd-transparent: var(--theme-border-transparent, rgba(255, 255, 255, 0.3));
+  --tm-bd-white-alpha30: var(--theme-border-whiteAlpha30, rgba(255, 255, 255, 0.3));
+  --tm-bd-white-alpha10: var(--theme-border-whiteAlpha10, rgba(255, 255, 255, 0.1));
+  --tm-bd-accent-alpha15: var(--theme-border-accentAlpha15, rgba(24, 144, 255, 0.15));
+
+  /* 阴影系统 */
+  --tm-shadow-default: var(--theme-shadow-default, 0 4px 20px rgba(0, 0, 0, 0.08));
+  --tm-shadow-hover: var(--theme-shadow-hover, 0 8px 30px rgba(0, 0, 0, 0.12));
+  --tm-shadow-accent: var(--theme-shadow-accent, 0 4px 20px rgba(24, 144, 255, 0.3));
+  --tm-shadow-card: var(--theme-shadow-card, 0 2px 8px rgba(0, 0, 0, 0.08));
+  --tm-shadow-accent-light: var(--theme-shadow-accentLight, 0 5px 20px rgba(24, 144, 255, 0.1));
+  --tm-shadow-white-alpha10: var(--theme-shadow-whiteAlpha10, 0 10px 30px rgba(255, 255, 255, 0.1));
+  --tm-shadow-large: var(--theme-shadow-large, 0 20px 60px rgba(0, 0, 0, 0.1));
+
+  /* 装饰色系统 */
+  --tm-accent-primary: var(--theme-accent-primary, #1890ff);
+  --tm-accent-secondary: var(--theme-accent-secondary, #40a9ff);
+  --tm-accent-tertiary: var(--theme-accent-tertiary, #69c0ff);
 }
 
-/* 暗色主题变量 */
+/* 深色主题变量 */
 :root[class~='dark'] {
-  /* 暗色主题主色 */
+  /* 深色主题主色 */
   --tm-pri-0: var(--theme-dark-primary-0, #40a9ff);
   --tm-pri-1: var(--theme-dark-primary-1, #1890ff);
   --tm-pri-2: var(--theme-dark-primary-2, #096dd9);
 
-  /* 暗色主题文本色 */
+  /* 深色主题文本色 */
   --tm-txt-primary: var(--theme-dark-text-primary, #ffffff);
   --tm-txt-secondary: var(--theme-dark-text-secondary, #e6f7ff);
   --tm-txt-light: var(--theme-dark-text-light, #bae7ff);
+  --tm-txt-lighter: var(--theme-dark-text-lighter, #69c0ff);
   --tm-txt-label: var(--theme-dark-text-label, #ffffff);
   --tm-txt-placeholder: var(--theme-dark-text-placeholder, #8cc8ff);
   --tm-txt-disabled: var(--theme-dark-text-disabled, #597ef7);
 
-  /* 暗色主题背景色 */
+  /* 深色主题扩展文字颜色 */
+  --tm-txt-white: var(--theme-dark-text-white, #ffffff);
+  --tm-txt-white-alpha90: var(--theme-dark-text-whiteAlpha90, rgba(255, 255, 255, 0.9));
+  --tm-txt-white-alpha85: var(--theme-dark-text-whiteAlpha85, rgba(255, 255, 255, 0.85));
+  --tm-txt-white-alpha80: var(--theme-dark-text-whiteAlpha80, rgba(255, 255, 255, 0.8));
+  --tm-txt-white-alpha70: var(--theme-dark-text-whiteAlpha70, rgba(255, 255, 255, 0.7));
+  --tm-txt-accent: var(--theme-dark-text-accent, #40a9ff);
+  --tm-txt-accent-dark: var(--theme-dark-text-accentDark, #1890ff);
+
+  /* 深色主题背景色 */
   --tm-bg-primary: var(--theme-dark-background-primary, #001529);
   --tm-bg-secondary: var(--theme-dark-background-secondary, #002140);
   --tm-bg-tertiary: var(--theme-dark-background-tertiary, #00172e);
@@ -52,12 +115,57 @@
   --tm-bg-disabled: var(--theme-dark-background-disabled, #001f3d);
   --tm-bg-mask: var(--theme-dark-background-mask, rgba(0, 0, 0, 0.65));
 
-  /* 暗色主题边框色 */
+  /* 深色主题扩展背景色 */
+  --tm-bg-card: var(--theme-dark-background-card, #001f3d);
+  --tm-bg-hover: var(--theme-dark-background-hover, #002766);
+  --tm-bg-accent: var(--theme-dark-background-accent, #1890ff);
+  --tm-bg-accent-light: var(--theme-dark-background-accentLight, #002766);
+  --tm-bg-white-alpha10: var(--theme-dark-background-whiteAlpha10, rgba(255, 255, 255, 0.1));
+  --tm-bg-white-alpha20: var(--theme-dark-background-whiteAlpha20, rgba(255, 255, 255, 0.2));
+  --tm-bg-white-alpha30: var(--theme-dark-background-whiteAlpha30, rgba(255, 255, 255, 0.3));
+  --tm-bg-white-alpha05: var(--theme-dark-background-whiteAlpha05, rgba(255, 255, 255, 0.05));
+  --tm-bg-black-alpha30: var(--theme-dark-background-blackAlpha30, rgba(0, 0, 0, 0.3));
+  --tm-bg-overlay: var(
+    --theme-dark-background-overlay,
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.75) 50%,
+      rgba(0, 0, 0, 0.85) 100%
+    )
+  );
+  --tm-bg-overlay-dark: var(--theme-dark-background-overlayDark, rgba(0, 0, 0, 0.75));
+  --tm-bg-badge: var(--theme-dark-background-badge, rgba(255, 255, 255, 0.05));
+  --tm-bg-feature: var(--theme-dark-background-feature, #001a33);
+
+  /* 深色主题边框色 */
   --tm-bd-primary: var(--theme-dark-border-primary, #40a9ff);
   --tm-bd-secondary: var(--theme-dark-border-secondary, #002140);
   --tm-bd-light: var(--theme-dark-border-light, #003a8c);
   --tm-bd-focus: var(--theme-dark-border-focus, #1890ff);
   --tm-bd-disabled: var(--theme-dark-border-disabled, #001529);
+  --tm-bd-card: var(--theme-dark-border-card, #003a8c);
+  --tm-bd-transparent: var(--theme-dark-border-transparent, rgba(255, 255, 255, 0.1));
+  --tm-bd-white-alpha10: var(--theme-dark-border-whiteAlpha10, rgba(255, 255, 255, 0.1));
+  --tm-bd-white-alpha05: var(--theme-dark-border-whiteAlpha05, rgba(255, 255, 255, 0.05));
+  --tm-bd-accent-alpha20: var(--theme-dark-border-accentAlpha20, rgba(64, 169, 255, 0.2));
+
+  /* 深色主题阴影系统 */
+  --tm-shadow-default: var(--theme-dark-shadow-default, 0 4px 20px rgba(0, 0, 0, 0.2));
+  --tm-shadow-hover: var(--theme-dark-shadow-hover, 0 8px 30px rgba(0, 0, 0, 0.3));
+  --tm-shadow-accent: var(--theme-dark-shadow-accent, 0 4px 20px rgba(64, 169, 255, 0.4));
+  --tm-shadow-card: var(--theme-dark-shadow-card, 0 2px 8px rgba(0, 0, 0, 0.2));
+  --tm-shadow-accent-light: var(
+    --theme-dark-shadow-accentLight,
+    0 5px 20px rgba(64, 169, 255, 0.2)
+  );
+  --tm-shadow-black-alpha50: var(--theme-dark-shadow-blackAlpha50, 0 10px 30px rgba(0, 0, 0, 0.5));
+  --tm-shadow-large: var(--theme-dark-shadow-large, 0 20px 60px rgba(0, 0, 0, 0.3));
+
+  /* 深色主题装饰色 */
+  --tm-accent-primary: var(--theme-dark-accent-primary, #40a9ff);
+  --tm-accent-secondary: var(--theme-dark-accent-secondary, #69c0ff);
+  --tm-accent-tertiary: var(--theme-dark-accent-tertiary, #91d5ff);
 }
 
 *,
@@ -90,6 +198,7 @@ html {
 :target {
   scroll-margin-top: 80px;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -193,9 +302,10 @@ textarea:disabled {
   background-color: var(--tm-pri-0);
   color: #ffffff;
 }
+
 /* 占位符样式 */
 ::placeholder {
-  color: var(--tm-txt-placeholder); /* 使用主题占位符文本色 */
+  color: var(--tm-txt-placeholder);
   opacity: 1;
 }
 

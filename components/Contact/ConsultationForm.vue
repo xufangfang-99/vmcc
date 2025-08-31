@@ -211,7 +211,25 @@
               </select>
             </div>
             <div class="form-group">
-              <!-- 占位保持布局对齐 -->
+              <label
+                for="budget"
+                class="form-label"
+              >
+                Team Size Needed
+              </label>
+              <select
+                id="teamSize"
+                v-model="formData.teamSize"
+                class="form-select"
+              >
+                <option value="">Select team size</option>
+                <option value="<50k">1-5 people</option>
+                <option value="50-100k">6-15 people</option>
+                <option value="100-200k">16-50 people</option>
+                <option value="200-500k">51-100 people</option>
+                <option value="200-500k">over 100 people</option>
+                <option value=">500k">Consulting only</option>
+              </select>
             </div>
           </div>
 

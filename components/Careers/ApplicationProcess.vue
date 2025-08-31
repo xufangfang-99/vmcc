@@ -648,8 +648,8 @@
       >
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="relative z-1">
-          <h3 class="text-8 font-semibold mb-4">Ready to Begin Your Application?</h3>
-          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto">
+          <h3 class="text-8 font-semibold mb-4 text-white">Ready to Begin Your Application?</h3>
+          <p class="text-4.5 mb-8 opacity-90 max-w-180 mx-auto text-white">
             Join VMMC's mission to transform talent solutions across Asia-Pacific and Middle East.
             Start your application today and take the first step toward an impactful career.
           </p>
