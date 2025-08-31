@@ -109,9 +109,9 @@
             solutions for your success.
           </p>
           <div class="cta-buttons">
-            <NuxtLink
-              to="/contact"
+            <button
               class="btn-primary"
+              @click="showConsultationModal = true"
             >
               <span>Schedule Consultation</span>
               <svg
@@ -125,7 +125,7 @@
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </NuxtLink>
+            </button>
             <NuxtLink
               to="/services"
               class="btn-secondary"
@@ -136,11 +136,19 @@
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询模态框 -->
+    <ExpertConsultationModal
+      :is-visible="showConsultationModal"
+      @close="showConsultationModal = false"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+
+  const showConsultationModal = ref(false)
 </script>
 
 <style scoped>
@@ -350,6 +358,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    border: none;
+    cursor: pointer;
   }
 
   .btn-primary {

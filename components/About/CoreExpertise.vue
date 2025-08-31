@@ -63,8 +63,9 @@
             development.
           </p>
 
-          <div
-            class="flex items-center gap-2 text-[var(--tm-accent-primary)] font-medium cursor-pointer group/link"
+          <NuxtLink
+            to="/services"
+            class="flex items-center gap-2 text-[var(--tm-accent-primary)] font-medium cursor-pointer group/link no-underline"
           >
             <span>Explore Services</span>
             <svg
@@ -80,7 +81,7 @@
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </div>
+          </NuxtLink>
         </div>
 
         <!-- 全球业务支持卡片 -->
@@ -117,8 +118,9 @@
             cross-border compliance, cultural integration, and localization strategies.
           </p>
 
-          <div
-            class="flex items-center gap-2 text-[var(--tm-accent-primary)] font-medium cursor-pointer group/link"
+          <a
+            href="#global-presence"
+            class="flex items-center gap-2 text-[var(--tm-accent-primary)] font-medium cursor-pointer group/link no-underline"
           >
             <span>Learn More</span>
             <svg
@@ -134,7 +136,7 @@
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -460,6 +462,7 @@
 
               <button
                 class="inline-flex items-center px-6 py-3 bg-white text-[var(--tm-accent-primary)] rounded-full font-semibold hover:bg-[var(--tm-bg-hover)] transition-all group/btn"
+                @click="showConsultationModal = true"
               >
                 Start Consultation
                 <svg
@@ -541,8 +544,9 @@
 
       <!-- 综合解决方案 CTA -->
       <div class="mt-16 text-center">
-        <div
-          class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-full cursor-pointer hover:shadow-[var(--tm-shadow-accent)] hover:scale-105 transition-all duration-300"
+        <NuxtLink
+          to="/services"
+          class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-full cursor-pointer hover:shadow-[var(--tm-shadow-accent)] hover:scale-105 transition-all duration-300 no-underline"
           :style="{
             background: `linear-gradient(to right, var(--tm-accent-gradient-from), var(--tm-accent-gradient-to))`,
           }"
@@ -571,17 +575,24 @@
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </div>
+        </NuxtLink>
       </div>
     </div>
+
+    <!-- 专家咨询模态框 -->
+    <ExpertConsultationModal
+      :is-visible="showConsultationModal"
+      @close="showConsultationModal = false"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import { useDevice } from '~/composables/useDevice'
 
   const device = useDevice()
+  const showConsultationModal = ref(false)
 
   // 根据设备类型动态调整样式
   const serviceCardClass = computed(() => {
