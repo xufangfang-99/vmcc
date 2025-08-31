@@ -214,26 +214,49 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink
-              to="/contact"
-              class="inline-flex items-center justify-center px-8 py-3 bg-[var(--tm-accent-primary)] hover:bg-[var(--tm-accent-secondary)] text-white rounded-full transition-all duration-300 no-underline font-medium hover:scale-105"
+            <button
+              class="inline-flex items-center justify-center px-8 py-3 bg-[var(--tm-accent-primary)] hover:bg-[var(--tm-accent-secondary)] text-white rounded-full transition-all duration-300 font-medium hover:scale-105"
+              @click="openConsultationModal"
             >
               Request Report
-            </NuxtLink>
-            <NuxtLink
-              to="/insights/market-intelligence"
+            </button>
+            <a
+              :href="`tel:${contactPhone}`"
               class="inline-flex items-center justify-center px-8 py-3 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 no-underline hover:bg-[var(--tm-bg-hover)] font-medium hover:scale-105"
             >
               Schedule Call
-            </NuxtLink>
+            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isConsultationModalVisible = ref(false)
+
+  // 联系电话
+  const contactPhone = '+971558296351'
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
+
   // 关键指标
   const keyMetrics = [
     { value: '8', label: 'Markets' },

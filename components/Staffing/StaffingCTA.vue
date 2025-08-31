@@ -371,9 +371,9 @@
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center mb-8">
-              <NuxtLink
-                to="/contact"
+              <button
                 class="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] text-white rounded-full text-lg font-semibold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                @click="openConsultationModal"
               >
                 <span>Start Your Recruitment Journey</span>
                 <svg
@@ -385,13 +385,13 @@
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </NuxtLink>
-              <NuxtLink
-                to="/contact"
+              </button>
+              <button
                 class="inline-flex items-center justify-center px-10 py-4 border-2 border-[var(--tm-accent-primary)] text-[var(--tm-accent-primary)] rounded-full text-lg font-semibold hover:bg-[var(--tm-bg-accentLight)] transition-colors duration-300"
+                @click="openExpertModal"
               >
                 <span>Schedule Free Consultation</span>
-              </NuxtLink>
+              </button>
             </div>
 
             <!-- 联系方式快捷入口 -->
@@ -412,8 +412,18 @@
                 </svg>
                 <div>
                   <div class="text-sm font-medium">Call Us</div>
-                  <div class="text-xs">+65 6386 8322 (SG)</div>
-                  <div class="text-xs">+971 55 829 6351 (AE)</div>
+                  <a
+                    :href="`tel:${contactPhones.singapore}`"
+                    class="text-xs text-[var(--tm-accent-primary)] hover:underline no-underline block"
+                  >
+                    +65 6386 8322 (SG)
+                  </a>
+                  <a
+                    :href="`tel:${contactPhones.dubai}`"
+                    class="text-xs text-[var(--tm-accent-primary)] hover:underline no-underline block"
+                  >
+                    +971 55 829 6351 (AE)
+                  </a>
                 </div>
               </div>
 
@@ -431,7 +441,14 @@
                 </svg>
                 <div>
                   <div class="text-sm font-medium">Visit Website</div>
-                  <div class="text-xs">www.vmmcae.com</div>
+                  <a
+                    href="https://www.vmmcae.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs text-[var(--tm-accent-primary)] hover:underline no-underline"
+                  >
+                    www.vmmcae.com
+                  </a>
                 </div>
               </div>
 
@@ -452,7 +469,34 @@
                 </svg>
                 <div>
                   <div class="text-sm font-medium">Global Offices</div>
-                  <div class="text-xs">Singapore • Dubai • Malaysia</div>
+                  <div class="text-xs space-x-1">
+                    <a
+                      :href="officeLocations.singapore.mapUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[var(--tm-accent-primary)] hover:underline no-underline"
+                    >
+                      Singapore
+                    </a>
+                    <span>•</span>
+                    <a
+                      :href="officeLocations.dubai.mapUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[var(--tm-accent-primary)] hover:underline no-underline"
+                    >
+                      Dubai
+                    </a>
+                    <span>•</span>
+                    <a
+                      :href="officeLocations.malaysia.mapUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[var(--tm-accent-primary)] hover:underline no-underline"
+                    >
+                      Malaysia
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -460,11 +504,65 @@
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 联系电话
+  const contactPhones = {
+    singapore: '+6563868322',
+    dubai: '+971558296351',
+  }
+
+  // 办公室位置和地图链接
+  const officeLocations = {
+    singapore: {
+      mapUrl: 'https://maps.google.com/?q=The+Guoco+Tower,+Office1801,+Singapore',
+    },
+    dubai: {
+      mapUrl: 'https://maps.google.com/?q=Aspin+Commercial+Tower,+Office2818,+DIFC,+Dubai,+UAE',
+    },
+    malaysia: {
+      mapUrl:
+        'https://maps.google.com/?q=Aspire+Tower,+07-05,+KL+Eco+City,+59200+Kuala+Lumpur,+Malaysia',
+    },
+  }
+
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>
 
 <style>

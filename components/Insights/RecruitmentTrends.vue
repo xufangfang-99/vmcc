@@ -483,9 +483,9 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
-              <NuxtLink
-                to="/contact"
-                class="group/btn relative inline-flex items-center justify-center px-10 py-5 bg-[var(--tm-accent-primary)] text-white rounded-full overflow-hidden transition-all duration-300 no-underline font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+              <button
+                class="group/btn relative inline-flex items-center justify-center px-10 py-5 bg-[var(--tm-accent-primary)] text-white rounded-full overflow-hidden transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+                @click="openConsultationModal"
               >
                 <div
                   class="absolute inset-0 bg-gradient-to-r from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"
@@ -498,11 +498,11 @@
                 >
                   <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                 </svg>
-              </NuxtLink>
+              </button>
 
-              <NuxtLink
-                to="/insights/recruitment-trends"
-                class="inline-flex items-center justify-center px-10 py-5 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 no-underline hover:bg-[var(--tm-bg-accentLight)] hover:shadow-xl font-semibold text-lg hover:scale-105 hover:-translate-y-1"
+              <button
+                class="inline-flex items-center justify-center px-10 py-5 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 hover:bg-[var(--tm-bg-accentLight)] hover:shadow-xl font-semibold text-lg hover:scale-105 hover:-translate-y-1"
+                @click="openExpertModal"
               >
                 <span class="mr-3">Explore Trends</span>
                 <svg
@@ -512,16 +512,52 @@
                 >
                   <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                 </svg>
-              </NuxtLink>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
+
   // Hero统计数据
   const heroStats = [
     { value: '42%', label: 'Companies Restructuring' },

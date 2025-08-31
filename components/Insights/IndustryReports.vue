@@ -126,28 +126,64 @@
               </p>
 
               <div class="space-y-3">
-                <NuxtLink
-                  to="/contact"
-                  class="block w-full bg-white/20 hover:bg-white/30 border border-white/30 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 no-underline hover:scale-105"
+                <button
+                  class="block w-full bg-white/20 hover:bg-white/30 border border-white/30 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 hover:scale-105"
+                  @click="openExpertModal"
                 >
                   Contact Our Experts
-                </NuxtLink>
-                <NuxtLink
-                  to="/insights/industry-reports"
-                  class="block w-full bg-transparent hover:bg-white/10 border border-white/50 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 no-underline hover:scale-105"
+                </button>
+                <button
+                  class="block w-full bg-transparent hover:bg-white/10 border border-white/50 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 hover:scale-105"
+                  @click="openConsultationModal"
                 >
                   Browse All Reports
-                </NuxtLink>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
+
   // 核心统计数据
   const coreStats = [
     { value: '150+', label: 'Reports' },
@@ -195,11 +231,11 @@
       name: 'Technology',
       description: 'AI/ML & cloud infrastructure expansion',
       reports: '35',
-      iconBg: 'bg-[var(--tm-accent-primary)]/10',
-      iconHover: 'bg-[var(--tm-accent-primary)]/20',
-      iconShape: 'w-6 h-6',
-      iconColor: 'bg-[var(--tm-accent-primary)]',
-      hoverClass: 'hover:border-[var(--tm-accent-primary)]',
+      iconBg: 'bg-blue-600/10', // 直接使用蓝色 10% 透明度
+      iconHover: 'bg-blue-600/20', // 悬停时 20% 透明度
+      iconShape: 'w-6 h-6 rounded-lg',
+      iconColor: 'bg-white/70', // 70% 透明度的白色
+      hoverClass: 'hover:border-blue-600',
       badgeClass: 'bg-purple-100 text-purple-800',
     },
     {

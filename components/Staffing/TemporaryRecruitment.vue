@@ -54,7 +54,11 @@
 
           <!-- 灵活性徽章 -->
           <div
-            class="absolute -top-6 -right-6 bg-white rounded-6 p-6 shadow-2xl border border-gray-100"
+            class="absolute -top-6 -right-6 rounded-6 p-6 shadow-2xl"
+            :style="{
+              backgroundColor: 'var(--tm-bg-accent-light)',
+              border: '1px solid var(--tm-bd-card)',
+            }"
           >
             <div class="text-center">
               <div class="text-2xl font-bold text-[var(--tm-accent-primary)] mb-1">24/7</div>

@@ -75,12 +75,12 @@
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </NuxtLink>
-          <NuxtLink
-            to="/contact"
-            class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white no-underline"
+          <button
+            class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white"
+            @click="openConsultationModal"
           >
             <span>Consult Our Experts</span>
-          </NuxtLink>
+          </button>
         </div>
 
         <!-- 五大洞察领域导航 -->
@@ -260,11 +260,29 @@
         </div>
       </div>
     </div>
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isConsultationModalVisible = ref(false)
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>
 
 <style>
