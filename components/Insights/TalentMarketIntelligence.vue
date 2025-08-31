@@ -220,16 +220,22 @@
             >
               Request Report
             </button>
-            <a
-              :href="`tel:${contactPhone}`"
-              class="inline-flex items-center justify-center px-8 py-3 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 no-underline hover:bg-[var(--tm-bg-hover)] font-medium hover:scale-105"
+            <button
+              class="inline-flex items-center justify-center px-8 py-3 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 hover:bg-[var(--tm-bg-hover)] font-medium hover:scale-105"
+              @click="openExpertModal"
             >
               Schedule Call
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
 
     <!-- 完整咨询表单弹出框 -->
     <ConsultationFormModal
@@ -243,10 +249,17 @@
   import { ref } from 'vue'
 
   // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
   const isConsultationModalVisible = ref(false)
 
-  // 联系电话
-  const contactPhone = '+971558296351'
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
 
   // 完整咨询表单弹出框控制
   const openConsultationModal = () => {

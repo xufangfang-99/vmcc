@@ -303,36 +303,98 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
-              <NuxtLink
-                to="/contact"
-                class="group/btn inline-flex items-center justify-center px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 bg-[var(--tm-accent-primary)] hover:bg-[var(--tm-accent-secondary)] text-white rounded-full transition-all duration-300 no-underline font-medium text-sm md:text-base lg:text-lg shadow-[var(--tm-shadow-accent)] hover:shadow-[var(--tm-shadow-hover)] hover:scale-105 active:scale-95"
+              <button
+                class="group/btn inline-flex items-center justify-center px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 bg-[var(--tm-accent-primary)] hover:bg-[var(--tm-accent-secondary)] text-white rounded-full transition-all duration-300 font-medium text-sm md:text-base lg:text-lg shadow-[var(--tm-shadow-accent)] hover:shadow-[var(--tm-shadow-hover)] hover:scale-105 active:scale-95"
+                @click="openConsultationModal"
               >
                 <span class="mr-2">Start Your Journey</span>
                 <div
                   class="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  i-carbon-arrow-right
-                ></div>
-              </NuxtLink>
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    class="w-full h-full"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </button>
 
-              <NuxtLink
-                to="/insights/case-studies"
-                class="group/btn inline-flex items-center justify-center px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 no-underline hover:bg-[var(--tm-bg-hover)] hover:border-[var(--tm-accent-primary)] font-medium text-sm md:text-base lg:text-lg hover:scale-105 active:scale-95"
+              <button
+                class="group/btn inline-flex items-center justify-center px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 hover:bg-[var(--tm-bg-hover)] hover:border-[var(--tm-accent-primary)] font-medium text-sm md:text-base lg:text-lg hover:scale-105 active:scale-95"
+                @click="openExpertModal"
               >
                 <span class="mr-2">View Case Studies</span>
                 <div
                   class="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  i-carbon-arrow-right
-                ></div>
-              </NuxtLink>
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    class="w-full h-full"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </button>
             </div>
           </div>
         </div>
       </section>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
+
   // 成功指标数据
   const successMetrics = [
     { value: '98%', label: 'Client Retention Rate' },
