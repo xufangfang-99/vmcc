@@ -229,10 +229,11 @@
   .hero-header-light {
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.85) 40%,
-      rgba(255, 255, 255, 0.65) 60%,
-      rgba(255, 255, 255, 0.15) 80%,
-      transparent 100%
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0.85) 60%,
+      rgba(255, 255, 255, 0.55) 80%,
+      rgba(255, 255, 255, 0.15) 100%
     );
     backdrop-filter: blur(12px) saturate(1.2);
     -webkit-backdrop-filter: blur(12px) saturate(1.2);
@@ -256,7 +257,7 @@
       rgba(0, 0, 0, 0.1) 20%,
       rgba(0, 0, 0, 0.2) 50%,
       rgba(0, 0, 0, 0.1) 80%,
-      transparent 100%
+      rgba(0, 0, 0, 0.1) 100%
     );
   }
 

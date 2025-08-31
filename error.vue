@@ -149,9 +149,6 @@
   // 获取统一的菜单处理方法
   const { resetToHome } = useMenuHandler()
 
-  // 处理 Home 点击，使用统一的重置方法
-  const handleHomeClick = resetToHome
-
   interface ErrorObject {
     statusCode?: number
     message?: string
