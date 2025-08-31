@@ -59,8 +59,9 @@
 
         <!-- CTA按钮 -->
         <div class="cta-buttons flex gap-20px justify-center mb-60px">
-          <button
-            class="btn-primary px-32px py-12px rounded-30px text-base font-medium border-none cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-gradient-to-br from-[var(--tm-accent-hero-from)] to-[var(--tm-accent-hero-to)] text-white shadow-[var(--tm-shadow-accent)] hover:translate-y--2px hover:shadow-[var(--tm-shadow-hover)]"
+          <NuxtLink
+            to="/services"
+            class="btn-primary px-32px py-12px rounded-30px text-base font-medium border-none cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-gradient-to-br from-[var(--tm-accent-hero-from)] to-[var(--tm-accent-hero-to)] text-white shadow-[var(--tm-shadow-accent)] hover:translate-y--2px hover:shadow-[var(--tm-shadow-hover)] no-underline"
           >
             <span>Our Services</span>
             <svg
@@ -72,12 +73,13 @@
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </button>
-          <button
-            class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white"
+          </NuxtLink>
+          <NuxtLink
+            to="/contact"
+            class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white no-underline"
           >
             <span>Contact Us</span>
-          </button>
+          </NuxtLink>
         </div>
 
         <!-- 统计数据 -->

@@ -72,9 +72,10 @@
         <div
           class="cta-buttons flex gap-5 justify-center mb-15 flex-col md:flex-row max-w-75 md:max-w-none mx-auto"
         >
-          <NuxtLink
-            to="/contact"
-            class="btn-primary px-8 py-3 rounded-7.5 text-base font-medium border-none cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-br from-[var(--tm-accent-hero-from)] to-[var(--tm-accent-hero-to)] text-white shadow-lg hover:-translate-y-0.5 hover:shadow-xl"
+          <a
+            href="#emiratisation"
+            class="btn-primary px-8 py-3 rounded-7.5 text-base font-medium border-none cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-br from-[var(--tm-accent-hero-from)] to-[var(--tm-accent-hero-to)] text-white shadow-lg hover:-translate-y-0.5 hover:shadow-xl no-underline"
+            @click="scrollToSection('emiratisation')"
           >
             <span>Discover Our Services</span>
             <svg
@@ -86,13 +87,13 @@
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </NuxtLink>
-          <NuxtLink
-            to="/contact"
+          </a>
+          <button
             class="btn-secondary px-8 py-3 rounded-7.5 text-base font-medium cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 bg-transparent text-white border-2 border-white/30 hover:bg-white/10 hover:border-white"
+            @click="openExpertModal"
           >
             <span>Schedule Consultation</span>
-          </NuxtLink>
+          </button>
         </div>
 
         <!-- 服务统计数据 -->
@@ -222,11 +223,40 @@
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // 组件逻辑
+  import { ref } from 'vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+
+  // 专家咨询弹出框控制 (简化版)
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 平滑滚动到指定section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
 </script>
 
 <style>
