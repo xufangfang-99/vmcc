@@ -367,7 +367,7 @@
             <div class="mb-6">
               <div class="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+                  src="/images/comm/avatar/petroleumengineer.jpeg"
                   alt="Petroleum Engineer"
                   class="w-full h-full object-cover"
                 />
