@@ -59,7 +59,7 @@
       </div>
 
       <!-- Featured Case Studies -->
-      <section class="mb-16 md:mb-20 lg:mb-24">
+      <div class="mb-16 md:mb-20 lg:mb-24">
         <h2
           class="text-2xl md:text-3xl lg:text-4xl font-light text-[var(--tm-txt-primary)] text-center mb-12 md:mb-16 lg:mb-20"
         >
@@ -161,10 +161,10 @@
             </aside>
           </article>
         </div>
-      </section>
+      </div>
 
       <!-- Client Testimonials -->
-      <section class="mb-16 md:mb-20 lg:mb-24">
+      <div class="mb-16 md:mb-20 lg:mb-24">
         <h2
           class="text-2xl md:text-3xl lg:text-4xl font-light text-[var(--tm-txt-primary)] text-center mb-12 md:mb-16 lg:mb-20"
         >
@@ -216,10 +216,10 @@
             </div>
           </blockquote>
         </div>
-      </section>
+      </div>
 
       <!-- Industry Success Stats -->
-      <section class="mb-16 md:mb-20 lg:mb-24">
+      <div class="mb-16 md:mb-20 lg:mb-24">
         <h2
           class="text-2xl md:text-3xl lg:text-4xl font-light text-[var(--tm-txt-primary)] text-center mb-12 md:mb-16 lg:mb-20"
         >
@@ -276,10 +276,10 @@
             <div class="text-xs md:text-sm text-[var(--tm-txt-light)]">Placements</div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- CTA Section -->
-      <section class="text-center">
+      <div class="text-center">
         <div
           class="max-w-4xl mx-auto p-8 md:p-12 lg:p-16 bg-[var(--tm-bg-feature)] rounded-2xl lg:rounded-3xl border border-[var(--tm-bd-secondary)] relative overflow-hidden group"
         >
@@ -353,7 +353,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
 
     <!-- 专家咨询弹出框 (简化版) -->

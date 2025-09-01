@@ -281,7 +281,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           <!-- 行业卡片 -->
           <div
-            class="bg-[var(--tm-bg-primary)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
+            class="bg-[var(--tm-bg-badge)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
           >
             <div
               class="w-12 h-12 mx-auto mb-4 bg-[var(--tm-bg-accentLight)] rounded-3 flex items-center justify-center group-hover:bg-[var(--tm-accent-primary)] transition-colors duration-300"
@@ -302,7 +302,7 @@
           </div>
 
           <div
-            class="bg-[var(--tm-bg-primary)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
+            class="bg-[var(--tm-bg-badge)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
           >
             <div
               class="w-12 h-12 mx-auto mb-4 bg-[var(--tm-bg-accentLight)] rounded-3 flex items-center justify-center group-hover:bg-[var(--tm-accent-primary)] transition-colors duration-300"
@@ -323,7 +323,7 @@
           </div>
 
           <div
-            class="bg-[var(--tm-bg-primary)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
+            class="bg-[var(--tm-bg-badge)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
           >
             <div
               class="w-12 h-12 mx-auto mb-4 bg-[var(--tm-bg-accentLight)] rounded-3 flex items-center justify-center group-hover:bg-[var(--tm-accent-primary)] transition-colors duration-300"
@@ -344,7 +344,7 @@
           </div>
 
           <div
-            class="bg-[var(--tm-bg-primary)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
+            class="bg-[var(--tm-bg-badge)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
           >
             <div
               class="w-12 h-12 mx-auto mb-4 bg-[var(--tm-bg-accentLight)] rounded-3 flex items-center justify-center group-hover:bg-[var(--tm-accent-primary)] transition-colors duration-300"
@@ -363,7 +363,7 @@
           </div>
 
           <div
-            class="bg-[var(--tm-bg-primary)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
+            class="bg-[var(--tm-bg-badge)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
           >
             <div
               class="w-12 h-12 mx-auto mb-4 bg-[var(--tm-bg-accentLight)] rounded-3 flex items-center justify-center group-hover:bg-[var(--tm-accent-primary)] transition-colors duration-300"
@@ -382,7 +382,7 @@
           </div>
 
           <div
-            class="bg-[var(--tm-bg-primary)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
+            class="bg-[var(--tm-bg-badge)] p-6 rounded-4 text-center border border-[var(--tm-bd-light)] hover:border-[var(--tm-accent-primary)] hover:shadow-lg transition-all duration-300 group"
           >
             <div
               class="w-12 h-12 mx-auto mb-4 bg-[var(--tm-bg-accentLight)] rounded-3 flex items-center justify-center group-hover:bg-[var(--tm-accent-primary)] transition-colors duration-300"
