@@ -88,7 +88,7 @@
         >
           <div class="text-center relative z-1">
             <h3
-              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text inline-block"
             >
               8
               <span class="text-2xl opacity-80">+</span>
@@ -102,7 +102,7 @@
           ></div>
           <div class="text-center relative z-1">
             <h3
-              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+              class="text-2.5rem font-bold mb-8px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text inline-block"
             >
               10
               <span class="text-2xl opacity-80">+</span>
@@ -116,7 +116,7 @@
           ></div>
           <div class="text-center relative z-1">
             <h3
-              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+              class="text-2.5rem font-bold mb-8px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text inline-block"
             >
               1000
               <span class="text-2xl opacity-80">+</span>
@@ -130,7 +130,7 @@
           ></div>
           <div class="text-center relative z-1">
             <h3
-              class="text-2.5rem font-bold mb-8px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent inline-block"
+              class="text-2.5rem font-bold mb-8px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text inline-block"
             >
               50
               <span class="text-2xl opacity-80">+</span>

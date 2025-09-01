@@ -76,7 +76,7 @@
               class="achievement-item text-center p-20px bg-[var(--tm-bg-white-alpha05)] rounded-15px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] hover:bg-[var(--tm-bg-white-alpha10)] transition-all duration-300"
             >
               <h3
-                class="text-2xl md:text-3xl font-bold mb-5px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent"
+                class="text-2xl md:text-3xl font-bold mb-5px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text"
               >
                 +1M
               </h3>
@@ -92,7 +92,7 @@
               class="achievement-item text-center p-20px bg-[var(--tm-bg-white-alpha05)] rounded-15px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] hover:bg-[var(--tm-bg-white-alpha10)] transition-all duration-300"
             >
               <h3
-                class="text-2xl md:text-3xl font-bold mb-5px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent"
+                class="text-2xl md:text-3xl font-bold mb-5px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text"
               >
                 +210K
               </h3>
@@ -108,7 +108,7 @@
               class="achievement-item text-center p-20px bg-[var(--tm-bg-white-alpha05)] rounded-15px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] hover:bg-[var(--tm-bg-white-alpha10)] transition-all duration-300"
             >
               <h3
-                class="text-2xl md:text-3xl font-bold mb-5px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent"
+                class="text-2xl md:text-3xl font-bold mb-5px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text"
               >
                 +170K
               </h3>
@@ -124,7 +124,7 @@
               class="achievement-item text-center p-20px bg-[var(--tm-bg-white-alpha05)] rounded-15px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] hover:bg-[var(--tm-bg-white-alpha10)] transition-all duration-300"
             >
               <h3
-                class="text-2xl md:text-3xl font-bold mb-5px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent"
+                class="text-2xl md:text-3xl font-bold mb-5px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text"
               >
                 +50K
               </h3>
@@ -140,7 +140,7 @@
               class="achievement-item text-center p-20px bg-[var(--tm-bg-white-alpha05)] rounded-15px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] hover:bg-[var(--tm-bg-white-alpha10)] transition-all duration-300 lg:col-start-2"
             >
               <h3
-                class="text-2xl md:text-3xl font-bold mb-5px bg-gradient-to-br from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text text-transparent"
+                class="text-2xl md:text-3xl font-bold mb-5px from-[var(--tm-accent-secondary)] to-[var(--tm-accent-tertiary)] bg-clip-text"
               >
                 +20K
               </h3>
