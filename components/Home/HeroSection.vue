@@ -114,7 +114,7 @@
             >
               <div class="stat-item">
                 <div
-                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
+                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none from-white to-blue-400 bg-clip-text mb-1 sm:mb-2"
                 >
                   500+
                 </div>
@@ -124,7 +124,7 @@
               </div>
               <div class="stat-item">
                 <div
-                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
+                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none from-white to-blue-400 bg-clip-text mb-1 sm:mb-2"
                 >
                   98%
                 </div>
@@ -134,7 +134,7 @@
               </div>
               <div class="stat-item">
                 <div
-                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none bg-gradient-to-br from-white to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2"
+                  class="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-none from-white to-blue-400 bg-clip-text mb-1 sm:mb-2"
                 >
                   15+
                 </div>
@@ -232,7 +232,7 @@
       rgba(255, 255, 255, 0.85) 0%,
       rgba(255, 255, 255, 0.95) 50%,
       rgba(255, 255, 255, 0.85) 60%,
-      rgba(255, 255, 255, 0.55) 80%,
+      rgba(255, 255, 255, 0.5) 80%,
       rgba(255, 255, 255, 0.15) 100%
     );
     backdrop-filter: blur(12px) saturate(1.2);
