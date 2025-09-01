@@ -46,7 +46,7 @@
         <div class="relative">
           <div class="relative rounded-6 overflow-hidden shadow-xl">
             <OptImage
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80"
+              src="/images/comm/satffing/banner001.jpeg"
               alt="Contract staffing solutions"
               class="w-full h-120 lg:h-150 object-cover"
             />
