@@ -34,12 +34,12 @@
   })
 
   useHead({
-    title: '精英人才解决方案 - 为企业提供优质猎头服务',
+    title: 'Global Talent Solutions - Expert Executive Search & Strategic Recruitment | VMMC',
     meta: [
       {
         name: 'description',
         content:
-          '我们为具有前瞻性思维的企业提供优质的猎头服务、战略人力资源外包、人才派遣解决方案、组织咨询以及全面的跨境业务支持。',
+          'VMMC delivers world-class executive search, strategic workforce planning, talent acquisition, and comprehensive HR solutions for enterprises across GCC, Asia-Pacific, and global markets.',
       },
     ],
   })
