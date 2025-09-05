@@ -72,28 +72,8 @@
         </div>
       </div>
 
-      <!-- Bottom Links (only on main level) -->
-      <div
-        v-if="currentLevel === 0 && bottomLinks.length > 0"
-        class="p-4 border-t border-[var(--tm-bd-light)]"
-      >
-        <div class="grid grid-cols-2 gap-3">
-          <NuxtLink
-            v-for="link in bottomLinks"
-            :key="link.name"
-            :to="link.path"
-            class="p-3 rounded-lg text-center transition-all duration-200 border border-[var(--tm-bd-card)] hover:bg-[var(--tm-bg-hover)]"
-            @click="closeMenu"
-          >
-            <span
-              class="text-sm"
-              :style="{ color: 'var(--tm-txt-secondary)' }"
-            >
-              {{ link.name }}
-            </span>
-          </NuxtLink>
-        </div>
-      </div>
+      <!-- 移除了底部链接区域 -->
+      <!-- 原来的 Bottom Links 区域已被完全移除 -->
     </div>
   </Transition>
 </template>
@@ -108,7 +88,7 @@
   interface Props {
     open: boolean
     menuItems: MenuItem[]
-    bottomLinks: BottomLink[]
+    bottomLinks: BottomLink[] // 保留 prop 以避免破坏性更改，但不再使用
   }
 
   const props = defineProps<Props>()
@@ -119,7 +99,7 @@
   const { generateSlug } = useMenuHandler()
   const route = useRoute()
 
-  // 简化状态管理 - 使用单一数组存储导航堆栈
+  // 简化状态管理 - 使用单个数组存储导航堆栈
   const navigationStack = ref<Array<{ items: UnifiedMenuItem[]; title: string }>>([])
 
   const isOpen = computed({
