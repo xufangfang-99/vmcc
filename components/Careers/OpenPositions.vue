@@ -50,12 +50,12 @@
                 <button
                   v-for="type in roleTypes"
                   :key="type"
-                  :class="[
-                    'px-3 py-1.5 rounded-full text-3.5 font-medium transition-all duration-300',
-                    selectedRoleType === type
-                      ? 'bg-[var(--tm-accent-primary)] text-white'
-                      : 'bg-[var(--tm-bg-badge)] text-[var(--tm-txt-secondary)] hover:bg-[var(--tm-accent-primary)] hover:text-white',
-                  ]"
+                  :style="{
+                    backgroundColor:
+                      selectedRoleType === type ? 'var(--tm-accent-primary)' : 'var(--tm-bg-badge)',
+                    color: selectedRoleType === type ? 'white' : 'var(--tm-txt-secondary)',
+                  }"
+                  class="px-3 py-1.5 rounded-full text-3.5 font-medium transition-all duration-300 hover:opacity-80"
                   @click="selectedRoleType = type"
                 >
                   {{ type }}
@@ -72,12 +72,14 @@
                 <button
                   v-for="location in locations"
                   :key="location"
-                  :class="[
-                    'px-3 py-1.5 rounded-full text-3.5 font-medium transition-all duration-300',
-                    selectedLocation === location
-                      ? 'bg-[var(--tm-accent-secondary)] text-white'
-                      : 'bg-[var(--tm-bg-badge)] text-[var(--tm-txt-secondary)] hover:bg-[var(--tm-accent-secondary)] hover:text-white',
-                  ]"
+                  :style="{
+                    backgroundColor:
+                      selectedLocation === location
+                        ? 'var(--tm-accent-secondary)'
+                        : 'var(--tm-bg-badge)',
+                    color: selectedLocation === location ? 'white' : 'var(--tm-txt-secondary)',
+                  }"
+                  class="px-3 py-1.5 rounded-full text-3.5 font-medium transition-all duration-300 hover:opacity-80"
                   @click="selectedLocation = location"
                 >
                   {{ location }}
@@ -94,12 +96,14 @@
                 <button
                   v-for="level in experienceLevels"
                   :key="level"
-                  :class="[
-                    'px-3 py-1.5 rounded-full text-3.5 font-medium transition-all duration-300',
-                    selectedExperience === level
-                      ? 'bg-[var(--tm-accent-tertiary)] text-white'
-                      : 'bg-[var(--tm-bg-badge)] text-[var(--tm-txt-secondary)] hover:bg-[var(--tm-accent-tertiary)] hover:text-white',
-                  ]"
+                  :style="{
+                    backgroundColor:
+                      selectedExperience === level
+                        ? 'var(--tm-accent-tertiary)'
+                        : 'var(--tm-bg-badge)',
+                    color: selectedExperience === level ? 'white' : 'var(--tm-txt-secondary)',
+                  }"
+                  class="px-3 py-1.5 rounded-full text-3.5 font-medium transition-all duration-300 hover:opacity-80"
                   @click="selectedExperience = level"
                 >
                   {{ level }}
