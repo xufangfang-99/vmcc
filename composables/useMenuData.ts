@@ -3,61 +3,20 @@ import type { MenuItem } from '~/components/NavMenu.types'
 export const useMenuData = () => {
   const menuItems: MenuItem[] = [
     {
-      name: 'Industries',
+      name: 'About',
       hasSubMenu: true,
       subItems: [
-        { name: 'Oil & Gas', hasSubMenu: false, link: '/industries/oil-gas' },
-        { name: 'Banking & Finance', hasSubMenu: false, link: '/industries/banking-finance' },
+        { name: 'About VMMC', hasSubMenu: false, link: '/about#company-intro' },
         {
-          name: 'Healthcare & Life Sciences',
+          name: 'Our Mission & Vision',
           hasSubMenu: false,
-          link: '/industries/healthcare-life-sciences',
+          link: '/about#vision-mission',
         },
-        {
-          name: 'Information Technology',
-          hasSubMenu: false,
-          link: '/industries/information-technology',
-        },
-        {
-          name: 'Construction & Engineering',
-          hasSubMenu: false,
-          link: '/industries/construction-engineering',
-        },
-        {
-          name: 'Manufacturing & Industrial',
-          hasSubMenu: false,
-          link: '/industries/manufacturing-industrial',
-        },
-        {
-          name: 'Hospitality & Travel',
-          hasSubMenu: false,
-          link: '/industries/hospitality-travel',
-        },
-        {
-          name: 'Retail & Consumer Products',
-          hasSubMenu: false,
-          link: '/industries/retail-consumer-products',
-        },
-        {
-          name: 'Education & Training',
-          hasSubMenu: false,
-          link: '/industries/education-training',
-        },
-        {
-          name: 'Legal & Professional Services',
-          hasSubMenu: false,
-          link: '/industries/legal-professional-services',
-        },
-        {
-          name: 'Insurance & Risk Management',
-          hasSubMenu: false,
-          link: '/industries/insurance-risk-management',
-        },
-        {
-          name: 'Shipping & Logistics',
-          hasSubMenu: false,
-          link: '/industries/shipping-logistics',
-        },
+        { name: 'Global Presence', hasSubMenu: false, link: '/about#global-presence' },
+        { name: 'Our Expertise', hasSubMenu: false, link: '/about#core-expertise' },
+        { name: 'Leadership Team', hasSubMenu: false, link: '/about#leadership-team' },
+        { name: 'Our Values', hasSubMenu: false, link: '/about#core-values' },
+        { name: 'Certifications & Awards', hasSubMenu: false, link: '/about#certifications' },
       ],
     },
     {
@@ -154,20 +113,61 @@ export const useMenuData = () => {
       link: '/timeline',
     },
     {
-      name: 'About',
+      name: 'Industries',
       hasSubMenu: true,
       subItems: [
-        { name: 'About VMMC', hasSubMenu: false, link: '/about#company-intro' },
+        { name: 'Oil & Gas', hasSubMenu: false, link: '/industries/oil-gas' },
+        { name: 'Banking & Finance', hasSubMenu: false, link: '/industries/banking-finance' },
         {
-          name: 'Our Mission & Vision',
+          name: 'Healthcare & Life Sciences',
           hasSubMenu: false,
-          link: '/about#vision-mission',
+          link: '/industries/healthcare-life-sciences',
         },
-        { name: 'Global Presence', hasSubMenu: false, link: '/about#global-presence' },
-        { name: 'Our Expertise', hasSubMenu: false, link: '/about#core-expertise' },
-        { name: 'Leadership Team', hasSubMenu: false, link: '/about#leadership-team' },
-        { name: 'Our Values', hasSubMenu: false, link: '/about#core-values' },
-        { name: 'Certifications & Awards', hasSubMenu: false, link: '/about#certifications' },
+        {
+          name: 'Information Technology',
+          hasSubMenu: false,
+          link: '/industries/information-technology',
+        },
+        {
+          name: 'Construction & Engineering',
+          hasSubMenu: false,
+          link: '/industries/construction-engineering',
+        },
+        {
+          name: 'Manufacturing & Industrial',
+          hasSubMenu: false,
+          link: '/industries/manufacturing-industrial',
+        },
+        {
+          name: 'Hospitality & Travel',
+          hasSubMenu: false,
+          link: '/industries/hospitality-travel',
+        },
+        {
+          name: 'Retail & Consumer Products',
+          hasSubMenu: false,
+          link: '/industries/retail-consumer-products',
+        },
+        {
+          name: 'Education & Training',
+          hasSubMenu: false,
+          link: '/industries/education-training',
+        },
+        {
+          name: 'Legal & Professional Services',
+          hasSubMenu: false,
+          link: '/industries/legal-professional-services',
+        },
+        {
+          name: 'Insurance & Risk Management',
+          hasSubMenu: false,
+          link: '/industries/insurance-risk-management',
+        },
+        {
+          name: 'Shipping & Logistics',
+          hasSubMenu: false,
+          link: '/industries/shipping-logistics',
+        },
       ],
     },
     {
