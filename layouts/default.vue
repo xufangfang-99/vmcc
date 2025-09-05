@@ -8,7 +8,7 @@
       ]"
     >
       <div
-        class="max-w-1400px h-full mx-auto px-12px sm:px-16px lg:px-20px flex justify-between items-center"
+        class="max-w-1400px h-56px mx-auto px-12px sm:px-16px lg:px-20px flex justify-between items-center"
       >
         <div class="flex items-center gap-2 sm:gap-3 lg:gap-4 flex-1">
           <MenuIcon
