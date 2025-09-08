@@ -220,22 +220,10 @@
         </div>
         <div class="flex gap-8 sm:gap-3">
           <NuxtLink
-            to="/terms"
-            class="text-14px sm:text-11px text-[var(--tm-txt-secondary)] hover:text-[var(--tm-pri-0)] transition-colors"
-          >
-            Terms
-          </NuxtLink>
-          <NuxtLink
             to="/privacy"
             class="text-14px sm:text-11px text-[var(--tm-txt-secondary)] hover:text-[var(--tm-pri-0)] transition-colors"
           >
             Privacy
-          </NuxtLink>
-          <NuxtLink
-            to="/cookies"
-            class="text-14px sm:text-11px text-[var(--tm-txt-secondary)] hover:text-[var(--tm-pri-0)] transition-colors"
-          >
-            Cookies
           </NuxtLink>
         </div>
       </div>
