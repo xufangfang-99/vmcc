@@ -51,9 +51,9 @@
             </div>
 
             <!-- 右侧操作 -->
-            <div class="flex items-center gap-4">
+            <!-- <div class="flex items-center gap-4">
               <ThemeSelector />
-            </div>
+            </div> -->
           </div>
         </div>
       </header>

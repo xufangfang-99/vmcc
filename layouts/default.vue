@@ -40,9 +40,9 @@
           </Responsive>
         </div>
 
-        <div class="flex items-center">
+        <!-- <div class="flex items-center">
           <ThemeSelector />
-        </div>
+        </div> -->
       </div>
     </header>
 
