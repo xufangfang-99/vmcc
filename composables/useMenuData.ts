@@ -114,7 +114,8 @@ export const useMenuData = () => {
     },
     {
       name: 'Industries',
-      hasSubMenu: true,
+      hasSubMenu: false,
+      link: '/industries',
       subItems: [
         { name: 'Oil & Gas', hasSubMenu: false, link: '/industries/oil-gas' },
         { name: 'Banking & Finance', hasSubMenu: false, link: '/industries/banking-finance' },
