@@ -458,7 +458,7 @@
             </svg>
           </div>
           <div class="flex-1">
-            <h3 class="text-4.4 font-semibold text-[var(--tm-txt-primary)] mb-1">Social Media</h3>
+            <h3 class="text-4.4 font-semibold text-[var(--tm-txt-primary)] mb-1">LinkedIn</h3>
             <a
               href="https://www.linkedin.com/company/vmmc-uae"
               class="text-3.8 text-[var(--tm-accent-primary)] no-underline transition-colors duration-300 hover:text-[var(--tm-accent-secondary)] hover:underline break-all"
@@ -466,6 +466,82 @@
               rel="noopener noreferrer"
             >
               https://www.linkedin.com/company/vmmc-uae
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bg-[var(--tm-bg-primary)] rounded-3 p-6 flex items-center gap-4 border border-[var(--tm-bd-light)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--tm-shadow-card)] hover:border-[var(--tm-accent-primary)]"
+        >
+          <div
+            class="w-12 h-12 bg-[var(--tm-bg-accentLight)] rounded-2.5 flex items-center justify-center text-[var(--tm-accent-primary)] flex-shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M10 1.8c2.67 0 2.99.01 4.04.06 1.78.08 2.74.38 3.38 1.02.64.64.94 1.6 1.02 3.38.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.08 1.78-.38 2.74-1.02 3.38-.64.64-1.6.94-3.38 1.02-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-1.78-.08-2.74-.38-3.38-1.02-.64-.64-.94-1.6-1.02-3.38C1.51 12.99 1.5 12.67 1.5 10s.01-2.99.06-4.04c.08-1.78.38-2.74 1.02-3.38.64-.64 1.6-.94 3.38-1.02C7.01 1.51 7.33 1.5 10 1.5zm0-1.5C7.28 0 6.94.01 5.88.06 4.67.13 3.82.34 3.1.64c-.73.31-1.35.72-1.97 1.34C.51 2.6.1 3.22-.21 3.95c-.3.72-.51 1.57-.58 2.78C-.84 7.99-.85 8.33-.85 11.05s.01 3.06.06 4.12c.07 1.21.28 2.06.58 2.78.31.73.72 1.35 1.34 1.97.62.62 1.24 1.03 1.97 1.34.72.3 1.57.51 2.78.58 1.06.05 1.4.06 4.12.06s3.06-.01 4.12-.06c1.21-.07 2.06-.28 2.78-.58.73-.31 1.35-.72 1.97-1.34.62-.62 1.03-1.24 1.34-1.97.3-.72.51-1.57.58-2.78.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.07-1.21-.28-2.06-.58-2.78-.31-.73-.72-1.35-1.34-1.97C16.4 1.36 15.78.95 15.05.64c-.72-.3-1.57-.51-2.78-.58C11.21.01 10.87 0 10 0z"
+                fill="currentColor"
+              />
+              <path
+                d="M10 4.86A5.14 5.14 0 1 0 15.14 10 5.14 5.14 0 0 0 10 4.86zm0 8.48A3.34 3.34 0 1 1 13.34 10 3.34 3.34 0 0 1 10 13.34z"
+                fill="currentColor"
+              />
+              <circle
+                cx="15.34"
+                cy="4.66"
+                r="1.2"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-4.4 font-semibold text-[var(--tm-txt-primary)] mb-1">Instagram</h3>
+            <a
+              href="https://www.instagram.com/vmmc.global"
+              class="text-3.8 text-[var(--tm-accent-primary)] no-underline transition-colors duration-300 hover:text-[var(--tm-accent-secondary)] hover:underline break-all"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.instagram.com/vmmc.global
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bg-[var(--tm-bg-primary)] rounded-3 p-6 flex items-center gap-4 border border-[var(--tm-bd-light)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--tm-shadow-card)] hover:border-[var(--tm-accent-primary)]"
+        >
+          <div
+            class="w-12 h-12 bg-[var(--tm-bg-accentLight)] rounded-2.5 flex items-center justify-center text-[var(--tm-accent-primary)] flex-shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M20 10C20 4.48 15.52 0 10 0C4.48 0 0 4.48 0 10C0 14.84 3.44 18.87 8 19.8V13H6V10H8V7.5C8 5.57 9.57 4 11.5 4H14V7H12C11.45 7 11 7.45 11 8V10H14V13H11V19.95C16.05 19.45 20 15.19 20 10Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-4.4 font-semibold text-[var(--tm-txt-primary)] mb-1">Facebook</h3>
+            <a
+              href="https://www.facebook.com/profile.php?id=61579975078423"
+              class="text-3.8 text-[var(--tm-accent-primary)] no-underline transition-colors duration-300 hover:text-[var(--tm-accent-secondary)] hover:underline break-all"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.facebook.com/profile.php?id=61579975078423
             </a>
           </div>
         </div>
