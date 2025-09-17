@@ -29,7 +29,9 @@
           <!-- 社交媒体链接 -->
           <div class="flex gap-4">
             <NuxtLink
-              to="#"
+              to="https://www.linkedin.com/company/vmmc-uae"
+              target="_blank"
+              rel="noopener noreferrer"
               class="w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-[var(--tm-bg-secondary)] flex items-center justify-center text-[var(--tm-txt-secondary)] transition-all duration-300 border border-[var(--tm-bd-light)] hover:bg-[var(--tm-pri-0)] hover:text-white hover:translate-y--2px hover:border-[var(--tm-pri-0)] dark:bg-white/5 dark:border-white/10"
               aria-label="LinkedIn"
             >
@@ -48,9 +50,11 @@
               </svg>
             </NuxtLink>
             <NuxtLink
-              to="#"
+              to="https://www.instagram.com/vmmc.global"
+              target="_blank"
+              rel="noopener noreferrer"
               class="w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-[var(--tm-bg-secondary)] flex items-center justify-center text-[var(--tm-txt-secondary)] transition-all duration-300 border border-[var(--tm-bd-light)] hover:bg-[var(--tm-pri-0)] hover:text-white hover:translate-y--2px hover:border-[var(--tm-pri-0)] dark:bg-white/5 dark:border-white/10"
-              aria-label="Twitter"
+              aria-label="Instagram"
             >
               <svg
                 width="20"
@@ -61,13 +65,25 @@
                 class="sm:w-4 sm:h-4"
               >
                 <path
-                  d="M19 4.5C18.3 4.8 17.55 5 16.75 5.1C17.55 4.6 18.15 3.85 18.45 2.95C17.7 3.4 16.85 3.75 15.95 3.9C15.25 3.15 14.25 2.65 13.15 2.65C11 2.65 9.25 4.4 9.25 6.55C9.25 6.85 9.3 7.15 9.35 7.4C6.15 7.25 3.3 5.7 1.4 3.4C1.05 3.95 0.85 4.6 0.85 5.35C0.85 6.7 1.55 7.85 2.6 8.55C1.95 8.5 1.35 8.35 0.8 8.05V8.1C0.8 10 2.15 11.55 3.95 11.9C3.6 12 3.25 12.05 2.9 12.05C2.65 12.05 2.4 12.05 2.15 12C2.65 13.55 4.1 14.65 5.85 14.7C4.5 15.75 2.8 16.35 0.95 16.35C0.65 16.35 0.35 16.35 0 16.3C1.75 17.4 3.85 18 6.1 18C13.15 18 17.05 12.1 17.05 7C17.05 6.85 17.05 6.65 17.05 6.5C17.8 5.95 18.45 5.25 19 4.5Z"
+                  d="M10 1.8c2.67 0 2.99.01 4.04.06 1.78.08 2.74.38 3.38 1.02.64.64.94 1.6 1.02 3.38.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.08 1.78-.38 2.74-1.02 3.38-.64.64-1.6.94-3.38 1.02-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-1.78-.08-2.74-.38-3.38-1.02-.64-.64-.94-1.6-1.02-3.38C1.51 12.99 1.5 12.67 1.5 10s.01-2.99.06-4.04c.08-1.78.38-2.74 1.02-3.38.64-.64 1.6-.94 3.38-1.02C7.01 1.51 7.33 1.5 10 1.5zm0-1.5C7.28 0 6.94.01 5.88.06 4.67.13 3.82.34 3.1.64c-.73.31-1.35.72-1.97 1.34C.51 2.6.1 3.22-.21 3.95c-.3.72-.51 1.57-.58 2.78C-.84 7.99-.85 8.33-.85 11.05s.01 3.06.06 4.12c.07 1.21.28 2.06.58 2.78.31.73.72 1.35 1.34 1.97.62.62 1.24 1.03 1.97 1.34.72.3 1.57.51 2.78.58 1.06.05 1.4.06 4.12.06s3.06-.01 4.12-.06c1.21-.07 2.06-.28 2.78-.58.73-.31 1.35-.72 1.97-1.34.62-.62 1.03-1.24 1.34-1.97.3-.72.51-1.57.58-2.78.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.07-1.21-.28-2.06-.58-2.78-.31-.73-.72-1.35-1.34-1.97C16.4 1.36 15.78.95 15.05.64c-.72-.3-1.57-.51-2.78-.58C11.21.01 10.87 0 10 0z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M10 4.86A5.14 5.14 0 1 0 15.14 10 5.14 5.14 0 0 0 10 4.86zm0 8.48A3.34 3.34 0 1 1 13.34 10 3.34 3.34 0 0 1 10 13.34z"
+                  fill="currentColor"
+                />
+                <circle
+                  cx="15.34"
+                  cy="4.66"
+                  r="1.2"
                   fill="currentColor"
                 />
               </svg>
             </NuxtLink>
             <NuxtLink
-              to="#"
+              to="https://www.facebook.com/profile.php?id=61579975078423"
+              target="_blank"
+              rel="noopener noreferrer"
               class="w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-[var(--tm-bg-secondary)] flex items-center justify-center text-[var(--tm-txt-secondary)] transition-all duration-300 border border-[var(--tm-bd-light)] hover:bg-[var(--tm-pri-0)] hover:text-white hover:translate-y--2px hover:border-[var(--tm-pri-0)] dark:bg-white/5 dark:border-white/10"
               aria-label="Facebook"
             >
