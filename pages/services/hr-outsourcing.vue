@@ -11,7 +11,16 @@
 </template>
 
 <script setup lang="ts">
-  // 页面逻辑
+  useHead({
+    title: 'HR Outsourcing Services - Victor Meridian Management Consultancies',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Victor Meridian Management Consultancies HR outsourcing services. Comprehensive human resources management solutions from payroll to compliance support.',
+      },
+    ],
+  })
 </script>
 
 <style scoped>

@@ -11,7 +11,16 @@
 </template>
 
 <script setup lang="ts">
-  // 页面逻辑
+  useHead({
+    title: 'Strategic Consulting - Victor Meridian Management Consultancies',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Victor Meridian Management Consultancies strategic consulting services. Data-driven talent strategies for forward-thinking organizations worldwide.',
+      },
+    ],
+  })
 </script>
 
 <style scoped>

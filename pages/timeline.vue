@@ -27,12 +27,17 @@
   })
 
   useHead({
-    title: 'Our Journey - VMMC',
+    title: 'Our Journey - Victor Meridian Management Consultancies',
     meta: [
       {
         name: 'description',
         content:
-          "Discover VMMC's journey from a single office in Singapore to becoming a leading comprehensive human resources service provider across Asia-Pacific and Middle East.",
+          "Discover Victor Meridian Management Consultancies' journey from Singapore to becoming a leading provider of elite talent solutions across Asia-Pacific and Middle East.",
+      },
+      {
+        name: 'keywords',
+        content:
+          'VMMC journey, Victor Meridian Management Consultancies history, company timeline, global expansion',
       },
     ],
   })

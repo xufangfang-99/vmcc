@@ -15,12 +15,17 @@
   })
 
   useHead({
-    title: 'Global Locations - VMMC',
+    title: 'Global Locations - Victor Meridian Management Consultancies',
     meta: [
       {
         name: 'description',
         content:
-          'Discover our global presence across key business hubs in Asia-Pacific and Middle East, enabling seamless cross-border operations and local market expertise.',
+          'Victor Meridian Management Consultancies global presence across key business hubs in Asia-Pacific and Middle East, enabling seamless cross-border talent solutions.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'VMMC locations, Victor Meridian Management Consultancies offices, global presence, Dubai office, Singapore office',
       },
     ],
   })

@@ -61,17 +61,17 @@
   })
 
   useHead({
-    title: 'Market Insights & Intelligence - VMMC Global',
+    title: 'Market Insights & Intelligence - Victor Meridian Management Consultancies',
     meta: [
       {
         name: 'description',
         content:
-          'Access comprehensive market insights, industry reports, and talent intelligence across global markets. Expert analysis and data-driven recommendations for your recruitment strategy.',
+          'Victor Meridian Management Consultancies market insights. Access comprehensive industry reports and talent intelligence to enhance your recruitment strategy.',
       },
       {
         name: 'keywords',
         content:
-          'market insights, talent intelligence, industry reports, recruitment trends, success stories, best practices, global recruitment',
+          'VMMC insights, Victor Meridian Management Consultancies, market insights, talent intelligence, industry reports, recruitment trends',
       },
     ],
   })

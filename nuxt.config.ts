@@ -63,7 +63,73 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         class: 'transition-colors',
+        lang: 'en', // 添加语言标识
       },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        // 默认的meta description
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Victor Meridian Management Consultancies. Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+        },
+        { name: 'format-detection', content: 'telephone=no' },
+        // Open Graph默认设置
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: 'Victor Meridian Management Consultancies',
+        },
+        { hid: 'og:url', property: 'og:url', content: 'https://www.vmmcae.com' },
+        // Twitter Card
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@VMMC' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://www.vmmcae.com' },
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Victor Meridian Management Consultancies',
+            alternateName: 'VMMC',
+            description:
+              'Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+            url: 'https://www.vmmcae.com',
+            logo: 'https://www.vmmcae.com/logo.png',
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+971-4-376-4600',
+              contactType: 'Customer Service',
+              availableLanguage: ['English', 'Arabic'],
+            },
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'ICD Brookfield Place, Level 7',
+              addressLocality: 'Dubai',
+              addressRegion: 'Dubai',
+              addressCountry: 'AE',
+            },
+            foundingDate: '2010',
+            numberOfEmployees: '50-100',
+            areaServed: ['AE', 'SA', 'QA', 'KW', 'OM', 'BH', 'SG', 'MY'],
+            serviceType: [
+              'Executive Search',
+              'Talent Acquisition',
+              'HR Consulting',
+              'Workforce Planning',
+            ],
+            sameAs: ['https://www.linkedin.com/company/vmmc'],
+          }),
+        },
+      ],
     },
   },
   image: {

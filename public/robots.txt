@@ -1,1 +1,24 @@
+# 创建 public/robots.txt
+User-agent: *
+Allow: /
 
+# 重要页面
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /careers
+Allow: /insights
+Allow: /locations
+Allow: /timeline
+
+# 服务子页面
+Allow: /services/executive-search
+Allow: /services/hr-outsourcing
+Allow: /services/strategic-consulting
+Allow: /services/organizational
+
+# 网站地图
+Sitemap: https://www.vmmcae.com/sitemap.xml
+
+# 一般性指令
+Crawl-delay: 1

@@ -34,12 +34,30 @@
   })
 
   useHead({
-    title: 'Global Talent Solutions - Expert Executive Search & Strategic Recruitment | VMMC',
+    title: 'Victor Meridian Management Consultancies - Elite Talent Solutions',
     meta: [
       {
         name: 'description',
         content:
-          'VMMC delivers world-class executive search, strategic workforce planning, talent acquisition, and comprehensive HR solutions for enterprises across GCC, Asia-Pacific, and global markets.',
+          'Victor Meridian Management Consultancies. Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'Victor Meridian Management Consultancies, elite talent solutions, executive search, professional recruitment, global talent acquisition',
+      },
+      {
+        property: 'og:title',
+        content: 'Victor Meridian Management Consultancies - Elite Talent Solutions',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
       },
     ],
   })

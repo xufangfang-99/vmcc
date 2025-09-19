@@ -73,12 +73,26 @@
   })
 
   useHead({
-    title: 'Recruitment Services - VMMC',
+    title: 'Services - Victor Meridian Management Consultancies Elite Solutions',
     meta: [
       {
         name: 'description',
         content:
-          'Comprehensive recruitment and staffing solutions including Emiratisation, permanent recruitment, temporary staffing, bulk hiring, outsourcing and advisory services across UAE and GCC region.',
+          'Victor Meridian Management Consultancies. Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'VMMC services, Victor Meridian Management Consultancies, recruitment services, executive search, talent acquisition, HR outsourcing',
+      },
+      {
+        property: 'og:title',
+        content: 'Services - Victor Meridian Management Consultancies',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Comprehensive talent solutions including executive search, HR outsourcing, immigration services, and strategic consulting.',
       },
     ],
   })

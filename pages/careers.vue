@@ -73,16 +73,29 @@
   })
 
   useHead({
-    title: 'Careers - Join Our Global Team | VMMC',
+    title: 'Careers - Join Victor Meridian Management Consultancies',
     meta: [
       {
         name: 'description',
         content:
-          'Discover exciting career opportunities at VMMC. Join our global team of HR professionals and make a meaningful impact in talent solutions across Asia-Pacific and Middle East.',
+          'Join Victor Meridian Management Consultancies. We provide elite talent solutions for forward-thinking organizations and connect exceptional professionals with industry-leading companies worldwide.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'VMMC careers, Victor Meridian Management Consultancies jobs, talent solutions careers, executive search careers',
+      },
+      {
+        property: 'og:title',
+        content: 'Careers - Victor Meridian Management Consultancies',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Join our global team of HR professionals and make a meaningful impact in talent solutions across Asia-Pacific and Middle East.',
       },
     ],
   })
-
   // 使用通用的滚动处理
   const { handleRouteHash } = useScrollTo()
 

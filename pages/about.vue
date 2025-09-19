@@ -72,6 +72,35 @@
 
   // 自动处理路由中的 hash
   handleRouteHash()
+
+  definePageMeta({
+    layout: 'default',
+  })
+
+  useHead({
+    title: 'About Victor Meridian Management Consultancies - Elite Talent Solutions',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Victor Meridian Management Consultancies. Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'Victor Meridian Management Consultancies, about VMMC, elite talent solutions, executive search, global recruitment',
+      },
+      {
+        property: 'og:title',
+        content: 'About Victor Meridian Management Consultancies',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+      },
+    ],
+  })
 </script>
 
 <style>

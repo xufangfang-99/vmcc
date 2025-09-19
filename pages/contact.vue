@@ -28,12 +28,26 @@
   })
 
   useHead({
-    title: 'Book a Consultation - Elite Talent Solutions',
+    title: 'Contact Victor Meridian Management Consultancies - Schedule Free Consultation',
     meta: [
       {
         name: 'description',
         content:
-          'Schedule a free consultation with our experts to discuss your talent needs and explore tailored solutions.',
+          'Victor Meridian Management Consultancies. Providing elite talent solutions for forward-thinking organizations. Contact us to connect exceptional professionals with industry-leading companies worldwide.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'contact VMMC, Victor Meridian Management Consultancies, talent solutions consultation, executive search consultation',
+      },
+      {
+        property: 'og:title',
+        content: 'Contact Victor Meridian Management Consultancies',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Contact Victor Meridian Management Consultancies for elite talent solutions. Schedule a free consultation to discuss your recruitment needs.',
       },
     ],
   })

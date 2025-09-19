@@ -11,7 +11,16 @@
 </template>
 
 <script setup lang="ts">
-  // 页面逻辑
+  useHead({
+    title: 'Organizational Performance - Victor Meridian Management Consultancies',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Victor Meridian Management Consultancies organizational performance services. Scientific diagnosis and change management for high-performance teams.',
+      },
+    ],
+  })
 </script>
 
 <style scoped>
