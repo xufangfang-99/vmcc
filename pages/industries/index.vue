@@ -48,15 +48,16 @@
         <h1
           class="mb-6 px-2 text-4xl font-light leading-[0.95] tracking-tight text-white drop-shadow-2xl animate-[fade-in-up_0.8s_ease-out_0.2s_forwards] opacity-0 sm:text-5xl md:mb-8 md:px-0 md:text-6xl md:leading-[0.9] lg:text-7xl xl:text-8xl"
         >
-          Industries We Serve
+          Industries We Transform
         </h1>
 
         <!-- Subtitle -->
         <p
           class="mx-auto mb-8 max-w-full px-4 text-base leading-relaxed text-white/90 drop-shadow-lg animate-[fade-in-up_0.8s_ease-out_0.4s_forwards] opacity-0 sm:text-lg md:mb-12 md:max-w-4xl md:px-0 md:text-xl lg:text-2xl"
         >
-          Delivering expert consulting and talent solutions across key GCC industries, with deep
-          domain knowledge and proven methodologies tailored to your sector's unique challenges.
+          Delivering cutting-edge consulting and talent solutions across transformative GCC industries,
+          with deep expertise in digital transformation, sustainability, and emerging technologies
+          shaping the future of business.
         </p>
 
         <!-- Stats Row -->
@@ -94,7 +95,7 @@
             class="mx-auto max-w-[600px] text-lg text-gray-600 dark:text-[var(--tm-txt-secondary)]"
           >
             Click on any industry to learn more about our specialized consulting and talent
-            solutions.
+            solutions for the future economy.
           </p>
         </div>
 
@@ -162,20 +163,10 @@
       <div class="container mx-auto max-w-[1400px] px-8">
         <div class="mb-12 text-center">
           <h2 class="mb-4 text-4xl font-light text-gray-900 dark:text-[var(--tm-txt-primary)]">
-            Why Choose Our Industry Expertise
+            Why Choose VMMC for Your Industry Transformation
           </h2>
           <p class="text-lg text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-            We bring unique value to every sector we serve across the GCC region
-          </p>
-        </div>
-
-        <div class="mb-12 text-center">
-          <h2 class="mb-4 text-4xl font-light text-gray-900 dark:text-[var(--tm-txt-primary)]">
-            Why Choose VMMC for Your Industry
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-            15 years of proven expertise delivering recruitment and HR consulting solutions across
-            the GCC region
+            15 years of proven expertise delivering recruitment and HR consulting solutions for the digital future
           </p>
         </div>
 
@@ -211,11 +202,10 @@
               </div>
             </div>
             <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
-              Proven Track Record
+              Future-Ready Expertise
             </h3>
             <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-              Over 170K successful job placements and 20K satisfied clients across 15 years of
-              global operations.
+              Leading recruitment in emerging technologies including AI, blockchain, and digital transformation across all industry sectors.
             </p>
           </div>
 
@@ -279,11 +269,10 @@
               </div>
             </div>
             <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-[var(--tm-txt-primary)]">
-              Vast Talent Network
+              Sustainability Focus
             </h3>
             <p class="leading-relaxed text-gray-600 dark:text-[var(--tm-txt-secondary)]">
-              Access to 1M+ candidate database spanning all job levels from administrative roles to
-              C-suite executives.
+              Specialized talent solutions for ESG compliance, green technologies, and sustainable business practices across the GCC region.
             </p>
           </div>
 
@@ -334,23 +323,23 @@
       </div>
 
       <div class="container relative z-1 mx-auto max-w-[800px] px-8 text-center">
-        <h2 class="mb-4 text-4xl font-light">Ready to Find Your Next Top Talent?</h2>
+        <h2 class="mb-4 text-4xl font-light">Ready to Transform Your Industry?</h2>
         <p class="mb-8 text-xl leading-relaxed opacity-95">
-          Connect with VMMC's industry specialists to discuss your recruitment needs and discover
-          how our 15 years of expertise can help you build exceptional teams.
+          Connect with VMMC's industry transformation specialists to discuss your recruitment needs and discover
+          how our 15 years of expertise can help you build future-ready teams.
         </p>
         <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <NuxtLink
             to="/contact"
             class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-[var(--tm-accent-primary)] shadow-[0_4px_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--tm-bg-hover)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
           >
-            Discuss Your Hiring Needs
+            Start Your Transformation
           </NuxtLink>
-          <a
+
             href="mailto:contact@vmmc.com"
             class="inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-transparent px-8 py-4 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
           >
-            Email Our Recruiters
+            Email Our Specialists
           </a>
         </div>
       </div>
@@ -363,235 +352,198 @@
 
 <script setup>
   import FooterSection from '~/components/Home/FooterSection.vue'
-
   import { useMenuHandler } from '~/composables/useMenuHandler'
 
-  // 获取导航控制
-
-  // 获取统一的菜单处理方法
+  // Get unified menu handling methods
   const { resetToHome } = useMenuHandler()
 
-  // 处理 Home 点击，使用统一的重置方法
+  // Handle Home click using unified reset method
   const handleHomeClick = resetToHome
 
-  // Industry data based on VMMC's actual expertise and services
+  // Industry data based on current market trends and digital transformation
   const industries = [
     {
       name: 'Oil & Gas',
       slug: 'oil-gas',
       link: '/industries/oil-gas',
-      description:
-        'Executive search, emiratisation programs, and specialized talent solutions for energy sector operations across upstream, midstream, and downstream activities.',
+      description: 'Executive search and talent solutions for upstream, midstream, and downstream operations. Specializing in digital transformation, energy transition, and sustainability initiatives in the energy sector.',
       category: 'Energy',
-      tags: ['Executive Search', 'Emiratisation', 'Technical Talent'],
-      services: [
-        'Senior Leadership Recruitment',
-        'Local Talent Development',
-        'Project-Based Hiring',
-      ],
-      keyRoles: [
-        'Petroleum Engineers',
-        'Project Managers',
-        'HSE Specialists',
-        'Operations Directors',
-      ],
+      tags: ['Digital Transformation', 'Energy Transition', 'Sustainability', 'Executive Search'],
+      keyTrends: ['Energy transition impact', 'Digital oilfield technologies', 'Carbon capture & storage', 'Renewable energy integration']
     },
     {
       name: 'Banking & Finance',
       slug: 'banking-finance',
       link: '/industries/banking-finance',
-      description:
-        'Comprehensive recruitment and HR consulting for financial institutions, from relationship managers to C-suite executives, ensuring regulatory compliance.',
+      description: 'Comprehensive financial services recruitment including wealth management, digital banking, fintech, and regulatory compliance. Supporting UAE banking digitalization and ESG finance initiatives.',
       category: 'Financial Services',
-      tags: ['Executive Search', 'Compliance Talent', 'Fintech Specialists'],
-      services: [
-        'Private Banking Recruitment',
-        'Risk & Compliance Hiring',
-        'Digital Banking Talent',
-      ],
-      keyRoles: [
-        'Relationship Managers',
-        'Risk Officers',
-        'Investment Advisors',
-        'Branch Managers',
-      ],
+      tags: ['Wealth Management', 'Digital Banking', 'Fintech', 'ESG Finance'],
+      keyTrends: ['Digital transformation', 'AI-driven services', 'Sustainable finance', 'Regulatory compliance']
     },
     {
-      name: 'Healthcare & Life Sciences',
-      slug: 'healthcare-life-sciences',
-      link: '/industries/healthcare-life-sciences',
-      description:
-        'Specialized recruitment for medical professionals, healthcare administration, and life sciences research, with deep understanding of licensing requirements.',
+      name: 'Healthcare & Medical Tourism',
+      slug: 'healthcare-medical-tourism',
+      link: '/industries/healthcare-medical-tourism',
+      description: 'Medical professionals recruitment and healthcare leadership search. Expertise in medical tourism, biotechnology, pharmaceuticals, and digital health innovations.',
       category: 'Healthcare',
-      tags: ['Medical Recruitment', 'Licensed Professionals', 'Healthcare Leadership'],
-      services: [
-        'Doctor & Nurse Recruitment',
-        'Healthcare Administration',
-        'Medical Technology Talent',
-      ],
-      keyRoles: [
-        'Consultant Physicians',
-        'Registered Nurses',
-        'Hospital Administrators',
-        'Medical Directors',
-      ],
+      tags: ['Medical Tourism', 'Digital Health', 'Biotechnology', 'Healthcare Leadership'],
+      keyTrends: ['Medical tourism growth', 'AI in healthcare', 'Personalized medicine', 'Telemedicine expansion']
     },
     {
-      name: 'Information Technology',
-      slug: 'information-technology',
-      link: '/industries/information-technology',
-      description:
-        'End-to-end IT talent solutions from software developers to Chief Technology Officers, supporting digital transformation initiatives across the GCC.',
+      name: 'Technology & AI',
+      slug: 'technology-ai',
+      link: '/industries/technology-ai',
+      description: 'Technology talent solutions covering AI/ML, cloud infrastructure, cybersecurity, and digital transformation. Supporting smart city initiatives and Industry 4.0 implementations.',
       category: 'Technology',
-      tags: ['Tech Leadership', 'Software Development', 'Digital Transformation'],
-      services: [
-        'Software Engineering Recruitment',
-        'IT Leadership Search',
-        'Digital Skills Training',
-      ],
-      keyRoles: ['Software Engineers', 'Solution Architects', 'IT Directors', 'Data Scientists'],
+      tags: ['Artificial Intelligence', 'Cloud Computing', 'Cybersecurity', 'Digital Transformation'],
+      keyTrends: ['AI automation', 'Edge computing', 'Cloud optimization', 'Cybersecurity defense']
     },
     {
-      name: 'Construction & Engineering',
-      slug: 'construction-engineering',
-      link: '/industries/construction-engineering',
-      description:
-        'Comprehensive talent solutions for construction projects, infrastructure development, and engineering consultancies throughout the GCC region.',
-      category: 'Engineering',
-      tags: ['Project Management', 'Technical Expertise', 'Infrastructure'],
-      services: [
-        'Civil Engineering Recruitment',
-        'Project Management Talent',
-        'Construction Leadership',
-      ],
-      keyRoles: ['Civil Engineers', 'Project Managers', 'Construction Managers', 'Site Engineers'],
+      name: 'Construction & Smart Cities',
+      slug: 'construction-smart-cities',
+      link: '/industries/construction-smart-cities',
+      description: 'Construction and infrastructure talent for mega-projects, sustainable building, and smart city developments. Expertise in green construction and modular building technologies.',
+      category: 'Construction',
+      tags: ['Smart Cities', 'Sustainable Building', 'Infrastructure', 'Green Construction'],
+      keyTrends: ['Smart city projects', 'Sustainable materials', 'Modular construction', 'Digital twin technology']
     },
     {
-      name: 'Manufacturing & Industrial',
-      slug: 'manufacturing-industrial',
-      link: '/industries/manufacturing-industrial',
-      description:
-        'Industrial recruitment expertise covering production management, quality control, and operations leadership for manufacturing excellence.',
+      name: 'Manufacturing & Industry 4.0',
+      slug: 'manufacturing-industry40',
+      link: '/industries/manufacturing-industry40',
+      description: 'Advanced manufacturing recruitment focusing on automation, robotics, supply chain digitalization, and smart factory implementations across the GCC region.',
       category: 'Manufacturing',
-      tags: ['Operations Excellence', 'Quality Management', 'Production Leadership'],
-      services: ['Operations Management', 'Quality Control Specialists', 'Industrial Engineering'],
-      keyRoles: [
-        'Operations Managers',
-        'Quality Engineers',
-        'Production Supervisors',
-        'Plant Managers',
-      ],
+      tags: ['Industry 4.0', 'Automation', 'Smart Factories', 'Supply Chain'],
+      keyTrends: ['Industrial automation', 'Predictive maintenance', 'Supply chain digitization', 'Human-robot collaboration']
     },
     {
-      name: 'Hospitality & Travel',
-      slug: 'hospitality-travel',
-      link: '/industries/hospitality-travel',
-      description:
-        'Hospitality recruitment and training solutions for hotels, resorts, restaurants, and travel companies, focusing on service excellence and guest experience.',
+      name: 'Hospitality & Tourism',
+      slug: 'hospitality-tourism',
+      link: '/industries/hospitality-tourism',
+      description: 'Tourism and hospitality talent solutions supporting experience economy growth, personalized travel services, and sustainable tourism initiatives in the GCC.',
       category: 'Hospitality',
-      tags: ['Service Excellence', 'Guest Experience', 'Tourism Professionals'],
-      services: ['Hotel Management Recruitment', 'F&B Specialists', 'Travel Industry Talent'],
-      keyRoles: ['General Managers', 'F&B Managers', 'Front Office Managers', 'Travel Consultants'],
+      tags: ['Experience Economy', 'Sustainable Tourism', 'Digital Services', 'Personalized Travel'],
+      keyTrends: ['Experience-driven tourism', 'Digital platforms', 'Sustainable practices', 'Personalized services']
     },
     {
-      name: 'Retail & Consumer Products',
-      slug: 'retail-consumer-products',
-      link: '/industries/retail-consumer-products',
-      description:
-        'Retail talent acquisition and training programs for store operations, merchandising, e-commerce, and retail management across the GCC.',
+      name: 'Retail & E-commerce',
+      slug: 'retail-ecommerce',
+      link: '/industries/retail-ecommerce',
+      description: 'Retail transformation and e-commerce talent including social commerce, omnichannel strategies, and sustainable retail practices for the digital economy.',
       category: 'Retail',
-      tags: ['Store Operations', 'E-commerce', 'Brand Management'],
-      services: ['Retail Management Search', 'Sales Team Building', 'Visual Merchandising'],
-      keyRoles: [
-        'Store Managers',
-        'Sales Associates',
-        'Category Managers',
-        'E-commerce Specialists',
-      ],
+      tags: ['E-commerce', 'Social Commerce', 'Omnichannel', 'Sustainable Retail'],
+      keyTrends: ['Social commerce growth', 'Personalized shopping', 'Cross-border e-commerce', 'Green consumerism']
     },
     {
-      name: 'Education & Training',
-      slug: 'education-training',
-      link: '/industries/education-training',
-      description:
-        'Educational institution staffing and academic leadership recruitment, supporting schools, universities, and training organizations.',
+      name: 'Education & EdTech',
+      slug: 'education-edtech',
+      link: '/industries/education-edtech',
+      description: 'Educational technology and lifelong learning talent solutions. Supporting digital transformation in education, skills training, and cross-border learning initiatives.',
       category: 'Education',
-      tags: ['Academic Leadership', 'Educational Excellence', 'Training Specialists'],
-      services: ['Academic Recruitment', 'Administrative Staff', 'Educational Leadership'],
-      keyRoles: [
-        'Teachers & Professors',
-        'Academic Directors',
-        'Training Managers',
-        'Student Affairs',
-      ],
+      tags: ['Educational Technology', 'Lifelong Learning', 'Digital Learning', 'Skills Training'],
+      keyTrends: ['Online learning expansion', 'AI in education', 'Skills-oriented training', 'Global education cooperation']
     },
     {
-      name: 'Legal & Professional Services',
-      slug: 'legal-professional-services',
-      link: '/industries/legal-professional-services',
-      description:
-        'Legal talent acquisition and professional services recruitment, including law firms, consulting firms, and corporate legal departments.',
-      category: 'Professional Services',
-      tags: ['Legal Expertise', 'Corporate Counsel', 'Advisory Services'],
-      services: ['Legal Recruitment', 'Corporate Legal Teams', 'Compliance Specialists'],
-      keyRoles: ['Lawyers & Advocates', 'Legal Advisors', 'Compliance Officers', 'Paralegals'],
+      name: 'Legal & Compliance',
+      slug: 'legal-compliance',
+      link: '/industries/legal-compliance',
+      description: 'Legal services and compliance expertise including data privacy, ESG compliance, RegTech, and cross-border regulatory frameworks for the digital economy.',
+      category: 'Legal Services',
+      tags: ['Data Privacy', 'ESG Compliance', 'RegTech', 'Digital Law'],
+      keyTrends: ['Data privacy regulations', 'ESG compliance', 'Regulatory technology', 'Cross-border legal frameworks']
     },
     {
       name: 'Insurance & Risk Management',
-      slug: 'insurance-risk-management',
-      link: '/industries/insurance-risk-management',
-      description:
-        'Insurance industry recruitment and risk management talent solutions, covering underwriting, claims, actuarial, and sales roles.',
-      category: 'Financial Services',
-      tags: ['Underwriting', 'Claims Management', 'Risk Assessment'],
-      services: ['Insurance Sales Teams', 'Underwriting Specialists', 'Claims Professionals'],
-      keyRoles: ['Underwriters', 'Claims Adjusters', 'Insurance Agents', 'Risk Managers'],
+      slug: 'insurance-risk',
+      link: '/industries/insurance-risk',
+      description: 'Insurance industry transformation including InsurTech, cyber insurance, climate risk management, and blockchain-enabled smart contracts.',
+      category: 'Insurance',
+      tags: ['InsurTech', 'Cyber Insurance', 'Climate Risk', 'Blockchain'],
+      keyTrends: ['Digital insurance platforms', 'Cyber risk growth', 'Climate change adaptation', 'Smart contracts']
     },
     {
-      name: 'Shipping & Logistics',
-      slug: 'shipping-logistics',
-      link: '/industries/shipping-logistics',
-      description:
-        'Supply chain and logistics talent solutions for ports, shipping companies, freight forwarders, and logistics service providers in the GCC.',
+      name: 'Logistics & Supply Chain',
+      slug: 'logistics-supply-chain',
+      link: '/industries/logistics-supply-chain',
+      description: 'Supply chain digitalization and logistics automation talent. Expertise in smart logistics, green supply chains, and automated warehousing solutions.',
       category: 'Logistics',
-      tags: ['Supply Chain', 'Maritime Operations', 'Freight Management'],
-      services: ['Maritime Professionals', 'Logistics Coordinators', 'Supply Chain Management'],
-      keyRoles: ['Ship Captains', 'Logistics Managers', 'Port Operations', 'Freight Coordinators'],
-    },
+      tags: ['Supply Chain Digitalization', 'Smart Logistics', 'Green Supply Chain', 'Automation'],
+      keyTrends: ['Supply chain transparency', 'Automated warehousing', 'Green logistics', 'Real-time collaboration']
+    }
   ]
 
   // Generate industry icons
   const getIndustryIcon = (name) => {
     const iconMap = {
-      'Oil & Gas': '🛢️',
+      'Oil & Gas': '⚡',
       'Banking & Finance': '🏦',
-      'Healthcare & Life Sciences': '🏥',
-      'Technology & Innovation': '💻',
-      'Real Estate & Construction': '🏗️',
-      'Aviation & Logistics': '✈️',
-      'Hospitality & Tourism': '🏨',
-      'Government & Public Sector': '🏛️',
-      'Manufacturing & Industrial': '🏭',
-      'Education & Training': '🎓',
-      'Retail & Consumer Goods': '🛍️',
-      'Media & Telecommunications': '📱',
+      'Healthcare & Medical Tourism': '🏥',
+      'Technology & AI': '🤖',
+      'Construction & Smart Cities': '🏗️',
+      'Manufacturing & Industry 4.0': '🏭',
+      'Hospitality & Tourism': '🌟',
+      'Retail & E-commerce': '🛒',
+      'Education & EdTech': '📚',
+      'Legal & Compliance': '⚖️',
+      'Insurance & Risk Management': '🛡️',
+      'Logistics & Supply Chain': '🚛',
     }
     return iconMap[name] || '🏢'
   }
 
-  // SEO settings
+  // Enhanced SEO settings
   useHead({
-    title: 'Industries - Expert Consulting & Talent Solutions | VMMC',
+    title: 'Future-Ready Industries - Digital Transformation & AI Talent Solutions | VMMC',
     meta: [
       {
         name: 'description',
-        content:
-          "Explore VMMC's industry expertise across 12 key GCC sectors including oil & gas, banking, healthcare, technology, and more. Tailored consulting and talent solutions for your industry.",
+        content: "Leading GCC industry transformation through AI, digital technologies, and sustainable practices. Expert talent solutions for Oil & Gas, Banking, Healthcare, Technology, Smart Cities, Manufacturing, and emerging sectors across UAE, Saudi Arabia, and Gulf region.",
       },
       {
         name: 'keywords',
-        content:
-          'GCC industry consulting, sector expertise, business transformation, oil gas consulting, banking consulting, healthcare consulting, technology consulting, emiratisation, talent acquisition',
+        content: 'GCC digital transformation, AI talent solutions, Industry 4.0 recruitment, sustainable business consulting, smart cities talent, fintech recruiting, energy transition careers, digital health professionals, UAE emiratisation, Saudi Vision 2030 talent',
+      },
+      {
+        property: 'og:title',
+        content: 'Future-Ready Industries - Digital Transformation & AI Talent Solutions | VMMC',
+      },
+      {
+        property: 'og:description',
+        content: 'Transform your industry with cutting-edge talent solutions. 15 years of expertise in AI, digital transformation, sustainability, and emerging technologies across GCC markets.',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Future-Ready Industries - Digital Transformation Talent | VMMC',
+      },
+      {
+        name: 'twitter:description',
+        content: 'Leading GCC industry transformation through AI, digital technologies, and sustainable talent solutions. Expert recruitment for the future economy.',
+      },
+      {
+        name: 'robots',
+        content: 'index, follow',
+      },
+      {
+        name: 'author',
+        content: 'VMMC - Vision Management & Marketing Consultancy',
+      },
+      {
+        name: 'geo.region',
+        content: 'AE-DU',
+      },
+      {
+        name: 'geo.placename',
+        content: 'Dubai, United Arab Emirates',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://vmmc.com/industries',
       },
     ],
   })
