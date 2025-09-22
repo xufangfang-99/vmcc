@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-# 重要页面
+# 重要页面 - 基于实际存在的页面
 Allow: /about
 Allow: /services
 Allow: /contact
@@ -11,6 +11,8 @@ Allow: /insights
 Allow: /locations
 Allow: /timeline
 Allow: /privacy
+
+# 如果industries页面确实存在，保留这行
 Allow: /industries
 
 # 服务子页面
@@ -19,7 +21,7 @@ Allow: /services/hr-outsourcing
 Allow: /services/strategic-consulting
 Allow: /services/organizational
 
-# 禁止访问不存在的页面
+# 禁止访问不存在的页面 - 重要！
 Disallow: /dubai.html
 Disallow: /offices.html
 
