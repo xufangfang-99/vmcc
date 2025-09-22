@@ -1,22 +1,22 @@
 <template>
   <section class="relative min-h-screen flex items-center overflow-hidden">
-    <!-- 背景图片 -->
+    <!-- Background image -->
     <div class="absolute inset-0 z-0">
       <OptImage
         src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80"
-        alt="数据分析和市场洞察"
+        alt="Industry Intelligence and Market Analysis"
         class="w-full h-full object-cover"
         :auto-dark-mode="true"
       />
-      <!-- 遮罩层 -->
+      <!-- Overlay -->
       <div class="absolute inset-0 bg-black/80"></div>
-      <!-- 装饰图案 -->
+      <!-- Decorative pattern -->
       <div class="absolute inset-0 bg-gradient-radial-pattern opacity-60"></div>
     </div>
 
     <div class="relative z-1 max-w-1200px mx-auto px-20px w-full">
       <div class="text-center text-white">
-        <!-- Logo区域 -->
+        <!-- Logo area -->
         <div class="inline-flex mb-30px">
           <div
             class="company-badge w-60px h-60px bg-[var(--tm-bg-badge)] border-2 border-[var(--tm-bd-white-alpha30)] rounded-16px flex items-center justify-center backdrop-blur-10px text-[var(--tm-accent-primary)] transition-all duration-300 ease hover:scale-110 hover:rotate-5 hover:bg-[var(--tm-accent-primary)] hover:text-white hover:border-[var(--tm-accent-primary)]"
@@ -35,30 +35,30 @@
           </div>
         </div>
 
-        <!-- 标题区域 -->
+        <!-- Title area -->
         <div class="mb-40px">
           <h1
             class="text-4xl md:text-6xl font-light tracking-tight mb-10px text-white flex items-center justify-center gap-0.3em flex-col md:flex-row"
           >
-            <span class="font-light">Market</span>
+            <span class="font-light">Industry</span>
             <span
               class="highlight-logo inline-flex items-center animate-glow font-semibold bg-gradient-to-r from-[var(--tm-accent-gradient-from)] to-[var(--tm-accent-gradient-to)] bg-clip-text text-transparent"
             >
-              Insights
+              Intelligence
             </span>
           </h1>
           <p class="text-lg text-[var(--tm-txt-white-alpha85)] mb-30px tracking-wider">
-            Five Strategic Intelligence Areas for Data-Driven Recruitment
+            Strategic Insights Across 12 Major Economic Sectors
           </p>
 
           <p class="text-xl leading-relaxed text-white max-w-800px mx-auto opacity-90">
-            Explore comprehensive talent intelligence across our five specialized domains. From
-            industry-specific reports to recruitment trends, success stories, and proven best
-            practices.
+            From AI transformation to ESG evolution, explore comprehensive intelligence across
+            technology, energy, healthcare, financial services, and emerging industries shaping the
+            global economy.
           </p>
         </div>
 
-        <!-- CTA按钮 -->
+        <!-- CTA buttons -->
         <div class="cta-buttons flex gap-20px justify-center mb-60px">
           <NuxtLink
             to="#industry-reports"
@@ -79,15 +79,15 @@
             class="btn-secondary px-32px py-12px rounded-30px text-base font-medium cursor-pointer transition-all duration-300 ease flex items-center justify-center gap-8px bg-transparent text-white border-2 border-[var(--tm-bd-white-alpha30)] hover:bg-[var(--tm-bg-white-alpha10)] hover:border-white"
             @click="openConsultationModal"
           >
-            <span>Consult Our Experts</span>
+            <span>Expert Briefing</span>
           </button>
         </div>
 
-        <!-- 五大洞察领域导航 -->
+        <!-- Intelligence domains navigation -->
         <div
-          class="insights-nav relative grid grid-cols-2 lg:grid-cols-5 gap-6 p-40px bg-[var(--tm-bg-white-alpha05)] rounded-20px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] overflow-hidden"
+          class="insights-nav relative grid grid-cols-2 lg:grid-cols-4 gap-6 p-40px bg-[var(--tm-bg-white-alpha05)] rounded-20px backdrop-blur-10px border border-[var(--tm-bd-white-alpha10)] shadow-[var(--tm-shadow-white-alpha10)] overflow-hidden"
         >
-          <!-- 背景闪光效果 - 绝对定位，不占用网格空间 -->
+          <!-- Background shimmer effect -->
           <div class="absolute inset-0 shimmer-bg"></div>
 
           <!-- Industry Reports -->
@@ -128,11 +128,11 @@
               Industry Reports
             </h3>
             <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Comprehensive market analysis across 12 key sectors
+              Deep-dive analysis across 12 transforming sectors
             </p>
           </NuxtLink>
 
-          <!-- Talent Market Intelligence -->
+          <!-- Market Intelligence -->
           <NuxtLink
             to="#talent-market-intelligence"
             class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
@@ -162,11 +162,11 @@
               Market Intelligence
             </h3>
             <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Real-time talent data and salary benchmarking
+              Real-time workforce and transformation data
             </p>
           </NuxtLink>
 
-          <!-- Recruitment Trends -->
+          <!-- Transformation Trends -->
           <NuxtLink
             to="#recruitment-trends"
             class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
@@ -188,10 +188,10 @@
             <h3
               class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
             >
-              Recruitment Trends
+              Transformation Trends
             </h3>
             <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Future workforce patterns and technology impact
+              AI, ESG, and digital evolution patterns
             </p>
           </NuxtLink>
 
@@ -222,46 +222,14 @@
               Success Stories
             </h3>
             <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Real client transformations and case studies
-            </p>
-          </NuxtLink>
-
-          <!-- Best Practices -->
-          <NuxtLink
-            to="#best-practices"
-            class="insight-item group text-center relative z-1 no-underline transition-all duration-300 hover:-translate-y-2"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-4 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors duration-300"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4m-4-3h14m-5 3h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4"
-                ></path>
-                <path d="M8 21v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </div>
-            <h3
-              class="text-lg font-semibold mb-2 text-white group-hover:text-[var(--tm-accent-secondary)] transition-colors"
-            >
-              Best Practices
-            </h3>
-            <p class="text-sm text-white/80 group-hover:text-white/90 transition-colors">
-              Proven methodologies and expert frameworks
+              Real transformation cases and achievements
             </p>
           </NuxtLink>
         </div>
       </div>
     </div>
 
-    <!-- 完整咨询表单弹出框 -->
+    <!-- Full consultation form modal -->
     <ConsultationFormModal
       :is-visible="isConsultationModalVisible"
       @close="closeConsultationModal"
@@ -272,10 +240,10 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  // 弹出框状态管理
+  // Modal state management
   const isConsultationModalVisible = ref(false)
 
-  // 完整咨询表单弹出框控制
+  // Full consultation form modal control
   const openConsultationModal = () => {
     isConsultationModalVisible.value = true
   }
@@ -286,14 +254,14 @@
 </script>
 
 <style>
-  /* 背景渐变图案 */
+  /* Background radial gradient pattern */
   .bg-gradient-radial-pattern {
     background-image:
       radial-gradient(circle at 20% 50%, var(--tm-bg-accent-gradient-from) 0%, transparent 40%),
       radial-gradient(circle at 80% 80%, var(--tm-bg-accent-gradient-to) 0%, transparent 40%);
   }
 
-  /* Logo 发光动画 */
+  /* Logo glow animation */
   @keyframes glow {
     from {
       filter: drop-shadow(0 0 10px var(--tm-accent-gradient-from));
@@ -307,12 +275,12 @@
     animation: glow 2s ease-in-out infinite alternate;
   }
 
-  /* 按钮悬停效果 */
+  /* Button hover effects */
   .btn-primary:hover .btn-icon {
     transform: translateX(4px);
   }
 
-  /* 导航区域闪光动画 */
+  /* Navigation area shimmer animation */
   .shimmer-bg::before {
     content: '';
     position: absolute;
@@ -338,19 +306,12 @@
     }
   }
 
-  /* 移动端适配 */
+  /* Mobile adaptation */
   @media (max-width: 1023px) {
     .insights-nav {
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       padding: 24px;
-    }
-
-    /* 让第五个元素居中跨两列 */
-    .insight-item:nth-child(5) {
-      grid-column: 1 / -1;
-      max-width: 200px;
-      margin: 0 auto;
     }
   }
 
@@ -375,12 +336,6 @@
       grid-template-columns: 1fr;
       gap: 12px;
       padding: 20px;
-    }
-
-    .insight-item:nth-child(5) {
-      grid-column: 1;
-      max-width: none;
-      margin: 0;
     }
 
     .insight-item {

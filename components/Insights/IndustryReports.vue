@@ -1,6 +1,6 @@
 <template>
   <section class="py-16 md:py-20 lg:py-24 bg-[var(--tm-bg-secondary)] relative overflow-hidden">
-    <!-- 简化背景装饰 -->
+    <!-- Background decoration -->
     <div class="absolute inset-0 opacity-5">
       <div
         class="absolute top-1/4 right-0 w-80 h-80 bg-[var(--tm-accent-primary)] rounded-full blur-3xl"
@@ -30,11 +30,11 @@
         </h1>
 
         <p class="text-lg md:text-xl text-[var(--tm-txt-secondary)] max-w-4xl mx-auto mb-12">
-          Deep-dive analysis across key sectors driving the global economy. From emerging markets in
-          Asia-Pacific to established industries in the Middle East.
+          Deep-dive analysis across key sectors driving the global economy. Strategic intelligence
+          from market trends to workforce transformation across major industries.
         </p>
 
-        <!-- 核心统计 -->
+        <!-- Core statistics -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
           <div
             v-for="stat in coreStats"
@@ -51,7 +51,7 @@
         </div>
       </header>
 
-      <!-- 行业网格 -->
+      <!-- Industry Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-16 md:mb-20">
         <article
           v-for="industry in industries"
@@ -59,7 +59,7 @@
           class="group bg-[var(--tm-bg-primary)] rounded-2xl p-6 border border-[var(--tm-bd-light)] text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
           :class="industry.hoverClass"
         >
-          <!-- 图标区域 -->
+          <!-- Icon area -->
           <div
             class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center transition-all duration-300"
             :class="industry.iconBg + ' group-hover:' + industry.iconHover"
@@ -67,7 +67,7 @@
             <div :class="industry.iconShape + ' ' + industry.iconColor"></div>
           </div>
 
-          <!-- 内容 -->
+          <!-- Content -->
           <h3 class="font-semibold text-[var(--tm-txt-primary)] text-sm md:text-base mb-2">
             {{ industry.name }}
           </h3>
@@ -75,7 +75,7 @@
             {{ industry.description }}
           </p>
 
-          <!-- 报告数量标签 -->
+          <!-- Report count badge -->
           <span
             :class="industry.badgeClass"
             class="text-xs px-2 py-1 rounded-full"
@@ -85,12 +85,12 @@
         </article>
       </div>
 
-      <!-- 报告特色和CTA -->
+      <!-- Report features and CTA -->
       <div
         class="bg-[var(--tm-bg-primary)] rounded-3xl p-8 md:p-10 lg:p-12 border border-[var(--tm-bd-light)]"
       >
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
-          <!-- 特色列表 -->
+          <!-- Features list -->
           <div class="lg:col-span-2">
             <h3 class="text-2xl md:text-3xl font-semibold text-[var(--tm-txt-primary)] mb-8">
               What Makes Our Reports Different
@@ -115,14 +115,14 @@
             </div>
           </div>
 
-          <!-- CTA区域 -->
+          <!-- CTA area -->
           <div class="text-center lg:text-left">
             <div
               class="bg-gradient-to-br from-[var(--tm-accent-primary)] to-[var(--tm-accent-secondary)] rounded-2xl p-8"
             >
               <h4 class="text-lg md:text-xl font-semibold mb-4 text-white">Access Full Reports</h4>
               <p class="text-sm opacity-90 mb-6 text-white">
-                Get complete industry analysis with detailed insights and recommendations
+                Get complete industry analysis with detailed insights and strategic recommendations
               </p>
 
               <div class="space-y-3">
@@ -145,13 +145,13 @@
       </div>
     </div>
 
-    <!-- 专家咨询弹出框 (简化版) -->
+    <!-- Expert consultation modal -->
     <ExpertConsultationModal
       :is-visible="isExpertModalVisible"
       @close="closeExpertModal"
     />
 
-    <!-- 完整咨询表单弹出框 -->
+    <!-- Full consultation form modal -->
     <ConsultationFormModal
       :is-visible="isConsultationModalVisible"
       @close="closeConsultationModal"
@@ -162,11 +162,11 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  // 弹出框状态管理
+  // Modal state management
   const isExpertModalVisible = ref(false)
   const isConsultationModalVisible = ref(false)
 
-  // 专家咨询弹出框控制 (简化版)
+  // Expert consultation modal control
   const openExpertModal = () => {
     isExpertModalVisible.value = true
   }
@@ -175,7 +175,7 @@
     isExpertModalVisible.value = false
   }
 
-  // 完整咨询表单弹出框控制
+  // Full consultation form modal control
   const openConsultationModal = () => {
     isConsultationModalVisible.value = true
   }
@@ -184,19 +184,19 @@
     isConsultationModalVisible.value = false
   }
 
-  // 核心统计数据
+  // Core statistics data
   const coreStats = [
     { value: '150+', label: 'Reports' },
+    { value: '12', label: 'Industries' },
     { value: '8+', label: 'Markets' },
-    { value: '99%', label: 'Accuracy' },
     { value: 'Q4', label: 'Updates' },
   ]
 
-  // 行业数据
+  // Industry data based on the documents
   const industries = [
     {
       name: 'Oil & Gas',
-      description: 'Energy transition & workforce evolution',
+      description: 'Energy transition & digital transformation trends',
       reports: '25',
       iconBg: 'bg-amber-500/10',
       iconHover: 'bg-amber-500/20',
@@ -207,7 +207,7 @@
     },
     {
       name: 'Banking & Finance',
-      description: 'Digital transformation & fintech integration',
+      description: 'Digital transformation & wealth management',
       reports: '30',
       iconBg: 'bg-blue-500/10',
       iconHover: 'bg-blue-500/20',
@@ -218,7 +218,7 @@
     },
     {
       name: 'Healthcare',
-      description: 'Medical tech & pharmaceutical growth',
+      description: 'Medical tourism & biotechnology advancement',
       reports: '18',
       iconBg: 'bg-emerald-500/10',
       iconHover: 'bg-emerald-500/20',
@@ -229,18 +229,18 @@
     },
     {
       name: 'Technology',
-      description: 'AI/ML & cloud infrastructure expansion',
+      description: 'AI/ML, cloud infrastructure & cybersecurity',
       reports: '35',
-      iconBg: 'bg-blue-600/10', // 直接使用蓝色 10% 透明度
-      iconHover: 'bg-blue-600/20', // 悬停时 20% 透明度
+      iconBg: 'bg-purple-500/10',
+      iconHover: 'bg-purple-500/20',
       iconShape: 'w-6 h-6 rounded-lg',
-      iconColor: 'bg-white/70', // 70% 透明度的白色
-      hoverClass: 'hover:border-blue-600',
+      iconColor: 'bg-purple-600',
+      hoverClass: 'hover:border-purple-500',
       badgeClass: 'bg-purple-100 text-purple-800',
     },
     {
       name: 'Construction',
-      description: 'Infrastructure & sustainable building',
+      description: 'Smart cities & sustainable building materials',
       reports: '22',
       iconBg: 'bg-slate-500/10',
       iconHover: 'bg-slate-500/20',
@@ -251,7 +251,7 @@
     },
     {
       name: 'Manufacturing',
-      description: 'Industry 4.0 & automation integration',
+      description: 'Industry 4.0 & supply chain digitalization',
       reports: '20',
       iconBg: 'bg-red-500/10',
       iconHover: 'bg-red-500/20',
@@ -273,7 +273,7 @@
     },
     {
       name: 'Retail',
-      description: 'E-commerce evolution & consumer behavior',
+      description: 'E-commerce evolution & social commerce',
       reports: '16',
       iconBg: 'bg-green-500/10',
       iconHover: 'bg-green-500/20',
@@ -295,7 +295,7 @@
     },
     {
       name: 'Legal Services',
-      description: 'Regulatory compliance & digital law',
+      description: 'Global compliance & digital law evolution',
       reports: '8',
       iconBg: 'bg-cyan-500/10',
       iconHover: 'bg-cyan-500/20',
@@ -306,7 +306,7 @@
     },
     {
       name: 'Insurance',
-      description: 'Risk management & insurtech innovation',
+      description: 'Insurtech & digital risk management',
       reports: '10',
       iconBg: 'bg-violet-500/10',
       iconHover: 'bg-violet-500/20',
@@ -317,7 +317,7 @@
     },
     {
       name: 'Logistics',
-      description: 'Supply chain optimization & logistics tech',
+      description: 'Supply chain optimization & green logistics',
       reports: '12',
       iconBg: 'bg-teal-500/10',
       iconHover: 'bg-teal-500/20',
@@ -328,29 +328,29 @@
     },
   ]
 
-  // 报告特色
+  // Report features
   const reportFeatures = [
     {
-      title: 'Global Perspective',
-      description: 'Cross-border talent insights from 8+ regional offices',
+      title: 'Cross-Industry Analysis',
+      description: 'Comprehensive insights across 12 major economic sectors',
     },
     {
-      title: 'Real-Time Data',
-      description: 'Live market intelligence updated quarterly',
+      title: 'Market Intelligence',
+      description: 'Real-time data from global markets and regional expertise',
     },
     {
-      title: 'Actionable Insights',
-      description: 'Strategic recommendations from industry experts',
+      title: 'Strategic Recommendations',
+      description: 'Actionable insights from industry transformation trends',
     },
     {
-      title: 'Custom Analysis',
-      description: 'Tailored reports for specific market needs',
+      title: 'Future Outlook',
+      description: 'Forward-looking analysis on workforce and technology evolution',
     },
   ]
 </script>
 
 <style scoped>
-  /* 移动端优化 */
+  /* Mobile optimization */
   @media (max-width: 640px) {
     .grid.lg\\:grid-cols-6 {
       grid-template-columns: 1fr 1fr;

@@ -18,8 +18,8 @@
         </h1>
 
         <p class="text-lg md:text-xl text-[var(--tm-txt-secondary)] max-w-3xl mx-auto mb-12">
-          Real-time workforce insights across 8 global markets. Strategic intelligence for executive
-          decision-making.
+          Strategic workforce insights across global markets. Real-time intelligence for executive
+          decision-making and competitive talent acquisition.
         </p>
 
         <!-- Key Metrics -->
@@ -85,57 +85,57 @@
 
         <!-- Live Dashboard -->
         <aside class="space-y-6">
-          <h2 class="text-xl md:text-2xl font-light text-[var(--tm-txt-primary)]">
-            Live Dashboard
-          </h2>
+          <h2 class="text-xl md:text-2xl font-light text-[var(--tm-txt-primary)]">Market Pulse</h2>
 
-          <!-- High Demand -->
+          <!-- High Demand Sectors -->
           <div class="bg-[var(--tm-bg-card)] rounded-2xl border border-[var(--tm-bd-light)] p-6">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="font-medium text-[var(--tm-txt-primary)]">High Demand</h3>
-              <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <h3 class="font-medium text-[var(--tm-txt-primary)]">High Growth Sectors</h3>
+              <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             </div>
 
             <div class="space-y-3">
               <div
-                v-for="role in demandRoles"
-                :key="role.name"
+                v-for="sector in demandSectors"
+                :key="sector.name"
                 class="flex justify-between items-center"
               >
-                <span class="text-sm text-[var(--tm-txt-secondary)]">{{ role.name }}</span>
+                <span class="text-sm text-[var(--tm-txt-secondary)]">{{ sector.name }}</span>
                 <div class="flex items-center space-x-2">
                   <div
                     class="h-1 rounded-full"
-                    :class="role.barClass"
-                    :style="{ width: role.width }"
+                    :class="sector.barClass"
+                    :style="{ width: sector.width }"
                   ></div>
                   <span
                     class="text-xs font-medium"
-                    :class="role.textClass"
+                    :class="sector.textClass"
                   >
-                    {{ role.level }}
+                    {{ sector.level }}
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Salary Trends -->
+          <!-- Technology Trends -->
           <div class="bg-[var(--tm-bg-card)] rounded-2xl border border-[var(--tm-bd-light)] p-6">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="font-medium text-[var(--tm-txt-primary)]">Salary Growth</h3>
+              <h3 class="font-medium text-[var(--tm-txt-primary)]">Tech Transformation</h3>
               <svg
-                class="w-4 h-4 text-green-500"
+                class="w-4 h-4 text-blue-500"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
               </svg>
             </div>
 
             <div class="space-y-3">
               <div
-                v-for="trend in salaryTrends"
+                v-for="trend in techTrends"
                 :key="trend.sector"
                 class="flex justify-between"
               >
@@ -143,9 +143,9 @@
                   <div class="text-sm font-medium text-[var(--tm-txt-primary)]">
                     {{ trend.sector }}
                   </div>
-                  <div class="text-xs text-[var(--tm-txt-light)]">{{ trend.location }}</div>
+                  <div class="text-xs text-[var(--tm-txt-light)]">{{ trend.impact }}</div>
                 </div>
-                <div class="text-green-600 font-bold">{{ trend.growth }}</div>
+                <div class="text-blue-600 font-bold">{{ trend.adoption }}</div>
               </div>
             </div>
           </div>
@@ -157,8 +157,8 @@
               <div>
                 <h3 class="font-medium text-amber-900 mb-2">Market Alert</h3>
                 <p class="text-sm text-amber-800 leading-relaxed">
-                  Critical cybersecurity talent shortage across GCC markets. Compensation packages
-                  increasing 20%+ to attract candidates.
+                  AI and automation integration driving 42% of companies to restructure roles. New
+                  skill requirements emerging in human-AI collaboration across all sectors.
                 </p>
               </div>
             </div>
@@ -169,7 +169,7 @@
       <!-- Global Network -->
       <div class="mb-20">
         <h2 class="text-2xl font-light text-[var(--tm-txt-primary)] text-center mb-12">
-          Global Network
+          Global Intelligence Network
         </h2>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -182,7 +182,7 @@
             ></div>
             <h3 class="text-lg font-medium mb-1 text-white">Singapore</h3>
             <div class="text-xs opacity-80 mb-3">Asia-Pacific HQ</div>
-            <div class="text-xs opacity-90">Executive • FinTech • Innovation</div>
+            <div class="text-xs opacity-90">FinTech • AI/ML • Digital</div>
           </div>
 
           <!-- Other Locations -->
@@ -206,11 +206,11 @@
           class="max-w-3xl mx-auto p-8 md:p-12 bg-[var(--tm-bg-feature)] rounded-3xl border border-[var(--tm-bd-secondary)]"
         >
           <h3 class="text-2xl md:text-3xl font-light text-[var(--tm-txt-primary)] mb-4">
-            Access Intelligence Reports
+            Access Market Intelligence
           </h3>
           <p class="text-lg text-[var(--tm-txt-secondary)] mb-8 leading-relaxed">
             Get comprehensive market intelligence with strategic recommendations tailored to your
-            industry and region.
+            industry transformation and talent acquisition needs.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -218,26 +218,26 @@
               class="inline-flex items-center justify-center px-8 py-3 bg-[var(--tm-accent-primary)] hover:bg-[var(--tm-accent-secondary)] text-white rounded-full transition-all duration-300 font-medium hover:scale-105"
               @click="openConsultationModal"
             >
-              Request Report
+              Request Intelligence Report
             </button>
             <button
               class="inline-flex items-center justify-center px-8 py-3 border-2 border-[var(--tm-bd-primary)] text-[var(--tm-accent-primary)] rounded-full transition-all duration-300 hover:bg-[var(--tm-bg-hover)] font-medium hover:scale-105"
               @click="openExpertModal"
             >
-              Schedule Call
+              Schedule Briefing
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 专家咨询弹出框 (简化版) -->
+    <!-- Expert consultation modal -->
     <ExpertConsultationModal
       :is-visible="isExpertModalVisible"
       @close="closeExpertModal"
     />
 
-    <!-- 完整咨询表单弹出框 -->
+    <!-- Full consultation form modal -->
     <ConsultationFormModal
       :is-visible="isConsultationModalVisible"
       @close="closeConsultationModal"
@@ -248,11 +248,11 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  // 弹出框状态管理
+  // Modal state management
   const isExpertModalVisible = ref(false)
   const isConsultationModalVisible = ref(false)
 
-  // 专家咨询弹出框控制 (简化版)
+  // Expert consultation modal control
   const openExpertModal = () => {
     isExpertModalVisible.value = true
   }
@@ -261,7 +261,7 @@
     isExpertModalVisible.value = false
   }
 
-  // 完整咨询表单弹出框控制
+  // Full consultation form modal control
   const openConsultationModal = () => {
     isConsultationModalVisible.value = true
   }
@@ -270,82 +270,85 @@
     isConsultationModalVisible.value = false
   }
 
-  // 关键指标
+  // Key metrics
   const keyMetrics = [
-    { value: '8', label: 'Markets' },
-    { value: '1M+', label: 'Profiles' },
-    { value: '50K+', label: 'Data Points' },
-    { value: 'Q1', label: 'Updates' },
+    { value: '12', label: 'Industries' },
+    { value: '8+', label: 'Markets' },
+    { value: '150K+', label: 'Profiles' },
+    { value: 'Real-time', label: 'Updates' },
   ]
 
-  // 智能领域
+  // Intelligence domains based on industry reports
   const domains = [
     {
-      title: 'Executive Mapping',
-      description: 'C-suite availability and compensation benchmarks across global markets.',
-      iconPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+      title: 'Digital Transformation',
+      description:
+        'Track AI/ML adoption, cloud migration, and automation impact across industries.',
+      iconPath: 'M9 3V1H7v2H1v4h2v14a2 2 0 002 2h14a2 2 0 002-2V7h2V3h-6V1h-2v2H9z',
     },
     {
-      title: 'Global Mobility',
-      description: 'International talent movement patterns and immigration policy impacts.',
+      title: 'Energy Transition',
+      description:
+        'Monitor workforce evolution in oil & gas, renewables, and sustainable technologies.',
+      iconPath: 'M13 10V3L4 14h7v7l9-11h-7z',
+    },
+    {
+      title: 'Healthcare Innovation',
+      description: 'Analyze medical tourism, biotechnology, and digital health talent markets.',
       iconPath:
-        'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064',
+        'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
     },
     {
-      title: 'Compensation',
-      description: 'Real-time salary data with currency-adjusted multi-market comparisons.',
+      title: 'RegTech & Compliance',
+      description:
+        'Global compliance evolution, data privacy laws, and regulatory technology trends.',
       iconPath:
         'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
     },
-    {
-      title: 'Skills Analysis',
-      description: 'Critical skills gap analysis and emerging competency requirements.',
-      iconPath: 'M13 10V3L4 14h7v7l9-11h-7z',
-    },
   ]
 
-  // 其他地区
+  // Other locations
   const otherLocations = [
-    { name: 'Dubai', region: 'Middle East Hub', specialties: 'Oil & Gas • Construction' },
+    { name: 'Dubai', region: 'Middle East Hub', specialties: 'Energy • ESG • Construction' },
     { name: 'Malaysia', region: 'Southeast Asia', specialties: 'Manufacturing • Healthcare' },
-    { name: 'China', region: '4 Major Cities', specialties: 'Technology • Manufacturing' },
+    { name: 'China', region: 'Greater China', specialties: 'Technology • Manufacturing' },
   ]
 
-  // 需求角色
-  const demandRoles = [
+  // High demand sectors based on reports
+  const demandSectors = [
     {
-      name: 'Data Scientists',
+      name: 'AI/ML Engineers',
       level: 'Critical',
       width: '32px',
       barClass: 'bg-red-500',
       textClass: 'text-red-600',
     },
     {
-      name: 'Cloud Engineers',
+      name: 'ESG Specialists',
       level: 'High',
-      width: '24px',
-      barClass: 'bg-orange-500',
-      textClass: 'text-orange-600',
+      width: '28px',
+      barClass: 'bg-green-500',
+      textClass: 'text-green-600',
     },
     {
-      name: 'ESG Managers',
+      name: 'Cybersecurity',
       level: 'Rising',
-      width: '16px',
-      barClass: 'bg-yellow-500',
-      textClass: 'text-yellow-600',
+      width: '24px',
+      barClass: 'bg-blue-500',
+      textClass: 'text-blue-600',
     },
   ]
 
-  // 薪资趋势
-  const salaryTrends = [
-    { sector: 'Technology', location: 'SG • Dubai', growth: '+12%' },
-    { sector: 'Healthcare', location: 'Global', growth: '+8%' },
-    { sector: 'Finance', location: 'APAC', growth: '+6%' },
+  // Technology trends
+  const techTrends = [
+    { sector: 'Banking', impact: 'Digital transformation', adoption: '90%+' },
+    { sector: 'Healthcare', impact: 'Medical tourism tech', adoption: '85%+' },
+    { sector: 'Energy', impact: 'Green transition', adoption: '78%+' },
   ]
 </script>
 
 <style scoped>
-  /* 深色模式适配 */
+  /* Dark mode adaptation */
   @media (prefers-color-scheme: dark) {
     .bg-amber-50 {
       background-color: rgba(245, 158, 11, 0.1);
@@ -364,7 +367,7 @@
     }
   }
 
-  /* 移动端优化 */
+  /* Mobile optimization */
   @media (max-width: 640px) {
     .grid.lg\\:grid-cols-3 {
       grid-template-columns: 1fr;
