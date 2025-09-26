@@ -31,7 +31,7 @@
           <div class="relative z-1">
             <div class="flex items-center gap-4 mb-6">
               <div
-                class="w-16 h-16 bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-2xl flex items-center justify-center text-white"
+                class="w-16 h-16 bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-2xl flex items-center justify-center text-tm-txt-white"
               >
                 <svg
                   width="28"
@@ -117,7 +117,7 @@
           <div class="relative z-1">
             <div class="flex items-center gap-4 mb-6">
               <div
-                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white"
+                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center text-tm-txt-white"
               >
                 <svg
                   width="28"
@@ -556,9 +556,9 @@
 
           <!-- CTA Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <NuxtLink
-              to="/contact"
-              class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-white text-base font-600 rounded-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300 no-underline min-w-60 justify-center"
+            <button
+              class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-white text-base font-600 rounded-full border border-tm-bd-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-w-60 justify-center"
+              @click="openConsultationModal"
             >
               <span>Start Your Search</span>
               <svg
@@ -570,19 +570,56 @@
               >
                 <path d="M5 12h14m-7-7l7 7-7 7" />
               </svg>
-            </NuxtLink>
+            </button>
             <button
-              class="inline-flex items-center justify-center px-8 py-4 bg-tm-bg-primary dark:bg-tm-bg-secondary text-tm-txt-primary text-base font-600 rounded-full border-2 border-tm-bd-card hover:bg-tm-bg-hover hover:border-tm-pri-0 hover:-translate-y-1 transition-all duration-300 min-w-60"
+              class="inline-flex items-center justify-center px-8 py-4 bg-tm-bg-primary dark:bg-tm-bg-secondary text-tm-txt-primary text-base font-600 rounded-full border-1 border-tm-bd-card hover:bg-tm-bg-hover hover:border-tm-pri-0 hover:-translate-y-1 transition-all duration-300 min-w-60"
+              @click="openExpertModal"
             >
-              Download Service Brochure
+              Get Service Brochure
             </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // Component logic can be added here if needed
+  import { ref } from 'vue'
+  import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
+  import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 简化版专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整版咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>

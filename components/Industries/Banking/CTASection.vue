@@ -133,9 +133,9 @@
 
       <!-- Primary CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <NuxtLink
-          to="/contact"
-          class="group inline-flex items-center gap-3 px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-600 rounded-full hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 no-underline min-w-80 justify-center"
+        <button
+          class="group inline-flex items-center gap-3 px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-600 rounded-full hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 min-w-80 justify-center"
+          @click="openConsultationModal"
         >
           <span>Schedule Free Consultation</span>
           <svg
@@ -147,7 +147,7 @@
           >
             <path d="M5 12h14m-7-7l7 7-7 7" />
           </svg>
-        </NuxtLink>
+        </button>
 
         <a
           href="tel:+971558296351"
@@ -244,6 +244,7 @@
 
           <button
             class="group flex flex-col items-center p-6 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300"
+            @click="openExpertModal"
           >
             <div
               class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
@@ -266,7 +267,7 @@
                 />
               </svg>
             </div>
-            <span class="text-sm font-500 text-white">Download Resources</span>
+            <span class="text-sm font-500 text-white">Quick Consultation</span>
           </button>
 
           <NuxtLink
@@ -351,11 +352,10 @@
               stroke-width="2"
             >
               <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
               />
-              <polyline points="22,6 12,13 2,6" />
             </svg>
-            <span>banking@vmmcae.com</span>
+            <span>WhatsApp: +971 55 829 6351</span>
           </div>
           <div class="flex items-center gap-2">
             <svg
@@ -373,15 +373,53 @@
                 r="3"
               />
             </svg>
-            <span>Dubai | Abu Dhabi | Riyadh | Doha</span>
+            <span>Dubai | Singapore | Malaysia | Beijing</span>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+  import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
+  import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 简化版专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整版咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
+
   // Scroll to reports section
   const scrollToReports = () => {
     const reportsElement =

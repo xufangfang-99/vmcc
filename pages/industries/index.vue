@@ -332,29 +332,44 @@
           and discover how our 15 years of expertise can help you build future-ready teams.
         </p>
         <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <NuxtLink
-            to="/contact"
+          <button
             class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-[var(--tm-accent-primary)] shadow-[0_4px_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--tm-bg-hover)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
+            @click="openConsultationModal"
           >
             Start Your Transformation
-          </NuxtLink>
-          <NuxtLink
-            href="mailto:contact@vmmc.com"
-            class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-[var(--tm-accent-primary)] shadow-[0_4px_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--tm-bg-hover)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
+          </button>
+          <button
+            class="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 px-8 py-4 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 hover:border-white/50"
+            @click="openExpertModal"
           >
-            Email Our Specialists
-          </NuxtLink>
+            Speak with Specialists
+          </button>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
     <FooterSection />
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </div>
 </template>
 
 <script setup>
+  import { ref } from 'vue'
   import FooterSection from '~/components/Home/FooterSection.vue'
+  import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
+  import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
   import { useMenuHandler } from '~/composables/useMenuHandler'
 
   // Get unified menu handling methods
@@ -362,6 +377,28 @@
 
   // Handle Home click using unified reset method
   const handleHomeClick = resetToHome
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 简化版专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整版咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 
   // Industry data based on current market trends and digital transformation
   const industries = [

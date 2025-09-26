@@ -129,9 +129,9 @@
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-          <NuxtLink
-            to="/contact"
-            class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-white text-base font-600 rounded-full hover:-translate-y-0.5 hover:shadow-lg hover:shadow-tm-pri-0/30 transition-all duration-300 no-underline min-w-60 justify-center"
+          <button
+            class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r bg-white/10 from-tm-pri-0 to-tm-pri-1 text-white text-base font-600 rounded-full border-2 border-white/20 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-tm-pri-0/30 transition-all duration-300 min-w-60 justify-center"
+            @click="openConsultationModal"
           >
             <span>Consult Our Experts</span>
             <svg
@@ -143,7 +143,7 @@
             >
               <path d="M5 12h14m-7-7l7 7-7 7" />
             </svg>
-          </NuxtLink>
+          </button>
           <button
             class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white text-base font-600 rounded-full border-2 border-white/30 hover:bg-white/20 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-300 min-w-60 justify-center backdrop-blur-sm"
             @click="scrollToReports"
@@ -153,10 +153,48 @@
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+  import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
+  import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 简化版专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整版咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
+
   // Scroll to reports section
   const scrollToReports = () => {
     const reportsElement = document.querySelector('.reports-section')

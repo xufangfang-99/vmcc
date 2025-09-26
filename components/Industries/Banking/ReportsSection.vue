@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-tm-bg-primary dark:bg-tm-bg-secondary">
+  <section class="py-20 bg-tm-bg-primary dark:bg-tm-bg-secondary reports-section">
     <div class="max-w-1400px mx-auto px-5">
       <!-- Section Header -->
       <div class="text-center mb-15">
@@ -32,14 +32,14 @@
             <div class="flex justify-between items-start mb-5">
               <div class="flex flex-col gap-2">
                 <span
-                  class="px-3 py-1 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
+                  class="px-3 py-1 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
                 >
                   UAE Market
                 </span>
                 <span class="text-sm text-tm-txt-light font-500">2024 Edition</span>
               </div>
               <div
-                class="w-15 h-15 bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-2xl flex items-center justify-center text-white flex-shrink-0"
+                class="w-15 h-15 bg-gradient-to-br from-tm-pri-0 to-tm-pri-1 rounded-2xl flex items-center justify-center text-tm-txt-white flex-shrink-0"
               >
                 <svg
                   width="32"
@@ -124,7 +124,7 @@
             <div class="flex gap-3 mt-auto">
               <NuxtLink
                 to="/industries/banking-finance/uae-wealth-management"
-                class="flex-1 group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 rounded-full border border-tm-bd-card text-tm-txt-primary text-sm font-600 rounded-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300 no-underline"
+                class="flex-1 group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-white text-sm font-600 rounded-full border border-tm-bd-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300 no-underline"
               >
                 <span>Read Full Report</span>
                 <svg
@@ -139,8 +139,9 @@
               </NuxtLink>
               <button
                 class="flex-1 px-6 py-3 bg-tm-bg-primary dark:bg-tm-bg-secondary text-tm-txt-primary text-sm font-600 rounded-full border border-tm-bd-card hover:bg-tm-bg-hover hover:border-tm-pri-0 hover:-translate-y-1 transition-all duration-300"
+                @click="openExpertModal"
               >
-                Download Summary
+                Get Report Summary
               </button>
             </div>
           </div>
@@ -153,7 +154,7 @@
           <div class="flex justify-between items-start mb-5">
             <div class="flex flex-col gap-2">
               <span
-                class="px-3 py-1 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
+                class="px-3 py-1 bg-gradient-to-r from-purple-500 to-purple-600 text-tm-txt-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
               >
                 Digital Innovation
               </span>
@@ -239,7 +240,7 @@
           <div class="flex justify-between items-start mb-5">
             <div class="flex flex-col gap-2">
               <span
-                class="px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
+                class="px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-tm-txt-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
               >
                 Global Market
               </span>
@@ -316,7 +317,7 @@
           <div class="flex justify-between items-start mb-5">
             <div class="flex flex-col gap-2">
               <span
-                class="px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
+                class="px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-600 text-tm-txt-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
               >
                 Wealth Focus
               </span>
@@ -382,7 +383,7 @@
           <div class="flex justify-between items-start mb-5">
             <div class="flex flex-col gap-2">
               <span
-                class="px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
+                class="px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-tm-txt-white text-xs font-600 uppercase tracking-wider rounded-full w-fit"
               >
                 Investment Banking
               </span>
@@ -469,7 +470,7 @@
               <span class="text-sm text-tm-txt-primary font-500">250+ pages analysis</span>
             </div>
             <div class="flex flex-col items-center gap-2">
-              <span class="text-2xl">🔄</span>
+              <span class="text-2xl">📄</span>
               <span class="text-sm text-tm-txt-primary font-500">Quarterly updates</span>
             </div>
             <div class="flex flex-col items-center gap-2">
@@ -484,7 +485,8 @@
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-primary text-base font-600 rounded-full border-1 border-tm-bd-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-w-60 justify-center"
+              class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-white text-base font-600 rounded-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-w-60 justify-center"
+              @click="openConsultationModal"
             >
               <svg
                 class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
@@ -502,21 +504,63 @@
                   y2="3"
                 />
               </svg>
-              Download Complete Package
+              Get Complete Package
             </button>
-            <NuxtLink
-              to="/contact"
-              class="inline-flex items-center justify-center px-8 py-4 bg-tm-bg-primary dark:bg-tm-bg-secondary text-tm-txt-primary text-base font-600 rounded-full border-2 border-tm-bd-card hover:bg-tm-bg-hover hover:border-tm-pri-0 hover:-translate-y-1 transition-all duration-300 no-underline min-w-60"
+            <button
+              class="inline-flex items-center justify-center px-8 py-4 bg-tm-bg-primary dark:bg-tm-bg-secondary text-tm-txt-primary text-base font-600 rounded-full border-2 border-tm-bd-card hover:bg-tm-bg-hover hover:border-tm-pri-0 hover:-translate-y-1 transition-all duration-300 min-w-60"
+              @click="openExpertModal"
             >
               Request Custom Analysis
-            </NuxtLink>
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 专家咨询弹出框 (简化版) -->
+    <ExpertConsultationModal
+      :is-visible="isExpertModalVisible"
+      @close="closeExpertModal"
+    />
+
+    <!-- 完整咨询表单弹出框 -->
+    <ConsultationFormModal
+      :is-visible="isConsultationModalVisible"
+      @close="closeConsultationModal"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-  // Component logic can be added here if needed
+  import { ref } from 'vue'
+  import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
+  import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
+
+  // 弹出框状态管理
+  const isExpertModalVisible = ref(false)
+  const isConsultationModalVisible = ref(false)
+
+  // 简化版专家咨询弹出框控制
+  const openExpertModal = () => {
+    isExpertModalVisible.value = true
+  }
+
+  const closeExpertModal = () => {
+    isExpertModalVisible.value = false
+  }
+
+  // 完整版咨询表单弹出框控制
+  const openConsultationModal = () => {
+    isConsultationModalVisible.value = true
+  }
+
+  const closeConsultationModal = () => {
+    isConsultationModalVisible.value = false
+  }
 </script>
+
+<style scoped>
+  .animate-duration-20s {
+    animation-duration: 20s;
+  }
+</style>
