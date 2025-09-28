@@ -485,25 +485,9 @@
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-white text-base font-600 rounded-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-w-60 justify-center"
+              class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-tm-pri-0 to-tm-pri-1 text-tm-txt-white text-base font-600 rounded-full border-2 border-tm-bd-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-w-60 justify-center"
               @click="openConsultationModal"
             >
-              <svg
-                class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line
-                  x1="12"
-                  y1="15"
-                  x2="12"
-                  y2="3"
-                />
-              </svg>
               Get Complete Package
             </button>
             <button
