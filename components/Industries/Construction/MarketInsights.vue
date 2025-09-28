@@ -9,7 +9,7 @@
       ></div>
     </div>
 
-    <div class="max-w-450 mx-auto px-6 relative z-1">
+    <div class="max-w-350 mx-auto px-6 relative z-1">
       <!-- Section Header -->
       <div class="text-center mb-20">
         <div

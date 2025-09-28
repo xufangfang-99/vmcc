@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="max-w-400 mx-auto px-6 relative z-1">
+    <div class="max-w-350 mx-auto px-6 relative z-1">
       <!-- Main CTA Content -->
       <div class="text-center mb-20">
         <div

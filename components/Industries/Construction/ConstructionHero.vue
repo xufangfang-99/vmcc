@@ -29,7 +29,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="relative z-10 w-full max-w-400 mx-auto px-6 text-center">
+    <div class="relative z-10 w-full max-w-350 mx-auto px-6 text-center">
       <!-- Breadcrumb Navigation -->
       <div
         class="mb-8 flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-6 py-3 w-fit mx-auto animate-fade-in-up"
