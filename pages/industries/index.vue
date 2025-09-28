@@ -597,7 +597,7 @@
     link: [
       {
         rel: 'canonical',
-        href: 'https://vmmc.com/industries',
+        href: 'https://www.vmmcae.com/industries',
       },
     ],
   })
