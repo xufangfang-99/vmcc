@@ -177,11 +177,6 @@
   const isExpertModalVisible = ref(false)
   const isConsultationModalVisible = ref(false)
 
-  // 简化版专家咨询弹出框控制
-  const openExpertModal = () => {
-    isExpertModalVisible.value = true
-  }
-
   const closeExpertModal = () => {
     isExpertModalVisible.value = false
   }
