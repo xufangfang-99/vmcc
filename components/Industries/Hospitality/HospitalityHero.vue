@@ -1,3 +1,4 @@
+<!-- components/Industries/Hospitality/HospitalityHero.vue -->
 <template>
   <section class="relative overflow-hidden min-h-100vh flex items-center bg-[var(--tm-bg-primary)]">
     <!-- Background Image -->
@@ -16,17 +17,40 @@
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div
-        class="absolute top-1/4 left-1/4 w-100 h-100 bg-[var(--tm-accent-primary)] rounded-full opacity-5 blur-3xl animate-pulse"
+        class="absolute top-1/4 left-1/4 w-100 h-100 bg-[var(--tm-accent-primary)] rounded-full opacity-5 blur-3xl animate-float"
       ></div>
       <div
-        class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[var(--tm-accent-secondary)] rounded-full opacity-5 blur-3xl animate-pulse"
+        class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[var(--tm-accent-secondary)] rounded-full opacity-5 blur-3xl animate-float"
         style="animation-delay: 1s"
       ></div>
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 w-full max-w-350 mx-auto px-6">
-      <!-- Badge -->
+    <div class="relative z-10 w-full max-w-350 mx-auto px-4">
+      <!-- Breadcrumb Navigation -->
+      <div
+        class="flex items-center justify-center gap-2 mb-8 px-5 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-fit mx-auto"
+      >
+        <NuxtLink
+          to="/"
+          class="text-white/80 hover:text-[var(--tm-accent-primary)] text-sm font-medium transition-colors duration-300"
+        >
+          Home
+        </NuxtLink>
+        <span class="text-white/50 text-sm">/</span>
+        <NuxtLink
+          to="/industries"
+          class="text-white/80 hover:text-[var(--tm-accent-primary)] text-sm font-medium transition-colors duration-300"
+        >
+          Industries
+        </NuxtLink>
+        <span class="text-white/50 text-sm">/</span>
+        <span class="text-[var(--tm-accent-primary)] text-sm font-semibold">
+          Hospitality & Tourism
+        </span>
+      </div>
+
+      <!-- Industry Badge -->
       <div class="flex justify-center mb-8">
         <div
           class="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-6 py-3"
@@ -39,7 +63,7 @@
       </div>
 
       <!-- Main Title -->
-      <h1 class="text-6xl md:text-8xl font-light text-white mb-8 text-center leading-tight">
+      <h1 class="text-6xl md:text-7xl font-light text-white mb-8 text-center leading-tight">
         Hospitality &
         <br />
         <span class="text-[var(--tm-accent-primary)] font-semibold">Tourism Excellence</span>
@@ -142,6 +166,20 @@
 </script>
 
 <style scoped>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
   @keyframes pulse {
     0%,
     100% {
