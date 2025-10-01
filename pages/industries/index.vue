@@ -454,8 +454,8 @@
     },
     {
       name: 'Manufacturing & Industry 4.0',
-      slug: 'manufacturing-industry40',
-      link: '/industries/manufacturing-industry40',
+      slug: 'manufacturing',
+      link: '/industries/manufacturing',
       description:
         'Advanced manufacturing recruitment focusing on automation, robotics, supply chain digitalization, and smart factory implementations across the GCC region.',
       category: 'Manufacturing',
