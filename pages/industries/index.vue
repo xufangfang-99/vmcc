@@ -463,8 +463,8 @@
     },
     {
       name: 'Hospitality & Tourism',
-      slug: 'hospitality-tourism',
-      link: '/industries/hospitality-tourism',
+      slug: 'hospitality',
+      link: '/industries/hospitality',
       description:
         'Tourism and hospitality talent solutions supporting experience economy growth, personalized travel services, and sustainable tourism initiatives in the GCC.',
       category: 'Hospitality',
