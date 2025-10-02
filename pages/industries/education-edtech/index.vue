@@ -1,8 +1,8 @@
-<!-- pages/industries/retail-ecommerce/index.vue -->
+<!-- pages/industries/education-edtech/index.vue -->
 <template>
-  <div class="retail-page bg-[var(--tm-bg-primary)]">
+  <div class="education-page bg-[var(--tm-bg-primary)]">
     <!-- Hero Section -->
-    <RetailHero />
+    <EducationHero />
 
     <!-- Industry Overview -->
     <IndustryOverview />
@@ -36,12 +36,12 @@
 
 <script setup lang="ts">
   import { ref, provide } from 'vue'
-  import RetailHero from '~/components/Industries/Retail/RetailHero.vue'
-  import IndustryOverview from '~/components/Industries/Retail/IndustryOverview.vue'
-  import ReportsSection from '~/components/Industries/Retail/ReportsSection.vue'
-  import MarketInsights from '~/components/Industries/Retail/MarketInsights.vue'
-  import ServicesSection from '~/components/Industries/Retail/ServicesSection.vue'
-  import CTASection from '~/components/Industries/Retail/CTASection.vue'
+  import EducationHero from '~/components/Industries/Education/EducationHero.vue'
+  import IndustryOverview from '~/components/Industries/Education/IndustryOverview.vue'
+  import ReportsSection from '~/components/Industries/Education/ReportsSection.vue'
+  import MarketInsights from '~/components/Industries/Education/MarketInsights.vue'
+  import ServicesSection from '~/components/Industries/Education/ServicesSection.vue'
+  import CTASection from '~/components/Industries/Education/CTASection.vue'
   import FooterSection from '~/components/Home/FooterSection.vue'
   import ExpertConsultationModal from '~/components/ExpertConsultationModal.vue'
   import ConsultationFormModal from '~/components/ConsultationFormModal.vue'
@@ -79,21 +79,21 @@
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'VMMC Retail & E-commerce Recruitment',
+    name: 'VMMC Education & EdTech Recruitment',
     description:
-      'Expert recruitment and talent solutions for retail and e-commerce digital transformation',
-    url: 'https://www.vmmcae.com/industries/retail-ecommerce',
+      'Expert recruitment and talent solutions for education and educational technology digital transformation',
+    url: 'https://www.vmmcae.com/industries/education-edtech',
     areaServed: {
       '@type': 'Country',
       name: 'United Arab Emirates',
     },
     serviceType: [
-      'Retail Recruitment',
-      'E-commerce Talent Acquisition',
-      'Digital Commerce Consulting',
-      'Omnichannel Strategy',
-      'Social Commerce Experts',
-      'Supply Chain Optimization',
+      'Education Recruitment',
+      'EdTech Talent Acquisition',
+      'Online Learning Experts',
+      'Corporate Training Specialists',
+      'Educational Technology Innovation',
+      'Vocational Training Leadership',
     ],
     address: {
       '@type': 'PostalAddress',
@@ -104,26 +104,26 @@
 
   // SEO Configuration
   useHead({
-    title: 'Retail & E-commerce Talent Solutions | Digital Commerce Recruitment | VMMC',
+    title: 'Education & EdTech Talent Solutions | Digital Learning Recruitment | VMMC',
     meta: [
       {
         name: 'description',
         content:
-          'Leading retail and e-commerce recruitment solutions for omnichannel integration, social commerce, personalized shopping, cross-border expansion, and sustainable retail. Expert talent acquisition for digital transformation in retail.',
+          'Leading education and EdTech recruitment solutions for online learning, vocational training, corporate learning ecosystems, cross-border education, and educational technology innovation. Expert talent acquisition for digital transformation in education.',
       },
       {
         name: 'keywords',
         content:
-          'retail recruitment, e-commerce talent, omnichannel retail, social commerce, digital marketing specialists, supply chain optimization, cross-border e-commerce, sustainable retail, consumer insights, retail technology',
+          'education recruitment, EdTech talent, online learning, vocational training, corporate learning, LMS experts, AI education, digital learning, MOOCs, lifelong learning, educational technology, VR/AR education',
       },
       {
         property: 'og:title',
-        content: 'Retail & E-commerce Talent Solutions | Digital Commerce Expertise | VMMC',
+        content: 'Education & EdTech Talent Solutions | Digital Learning Expertise | VMMC',
       },
       {
         property: 'og:description',
         content:
-          'Transform your retail business with expert talent in e-commerce, social commerce, personalization, and sustainable retail practices. Comprehensive recruitment for the digital commerce era.',
+          'Transform your education business with expert talent in online learning, EdTech innovation, corporate training, and digital education. Comprehensive recruitment for the future of learning.',
       },
       {
         property: 'og:type',
@@ -131,7 +131,7 @@
       },
       {
         property: 'og:url',
-        content: 'https://www.vmmcae.com/industries/retail-ecommerce',
+        content: 'https://www.vmmcae.com/industries/education-edtech',
       },
       {
         name: 'twitter:card',
@@ -139,12 +139,12 @@
       },
       {
         name: 'twitter:title',
-        content: 'Retail & E-commerce Talent Solutions | VMMC',
+        content: 'Education & EdTech Talent Solutions | VMMC',
       },
       {
         name: 'twitter:description',
         content:
-          'Expert recruitment for retail digital transformation, social commerce, omnichannel integration, and sustainable retail practices.',
+          'Expert recruitment for education digital transformation, online learning platforms, corporate training, and EdTech innovation.',
       },
       {
         name: 'robots',
@@ -170,7 +170,7 @@
     link: [
       {
         rel: 'canonical',
-        href: 'https://www.vmmcae.com/industries/retail-ecommerce',
+        href: 'https://www.vmmcae.com/industries/education-edtech',
       },
     ],
     script: [
@@ -183,7 +183,7 @@
 </script>
 
 <style scoped>
-  .retail-page {
+  .education-page {
     min-height: 100vh;
   }
 </style>
