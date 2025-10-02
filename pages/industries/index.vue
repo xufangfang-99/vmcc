@@ -495,8 +495,8 @@
     },
     {
       name: 'Legal & Compliance',
-      slug: 'legal-compliance',
-      link: '/industries/legal-compliance',
+      slug: 'legal-services',
+      link: '/industries/legal-services',
       description:
         'Legal services and compliance expertise including data privacy, ESG compliance, RegTech, and cross-border regulatory frameworks for the digital economy.',
       category: 'Legal Services',
