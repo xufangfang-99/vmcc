@@ -513,8 +513,8 @@
     },
     {
       name: 'Logistics & Supply Chain',
-      slug: 'logistics-supply-chain',
-      link: '/industries/logistics-supply-chain',
+      slug: 'logistics',
+      link: '/industries/logistics',
       description:
         'Supply chain digitalization and logistics automation talent. Expertise in smart logistics, green supply chains, and automated warehousing solutions.',
       category: 'Logistics',
