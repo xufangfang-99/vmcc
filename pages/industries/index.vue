@@ -504,8 +504,8 @@
     },
     {
       name: 'Insurance & Risk Management',
-      slug: 'insurance-risk',
-      link: '/industries/insurance-risk',
+      slug: 'insurance',
+      link: '/industries/insurance',
       description:
         'Insurance industry transformation including InsurTech, cyber insurance, climate risk management, and blockchain-enabled smart contracts.',
       category: 'Insurance',

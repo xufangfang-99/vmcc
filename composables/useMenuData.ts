@@ -122,47 +122,47 @@ export const useMenuData = () => {
         {
           name: 'Healthcare & Life Sciences',
           hasSubMenu: false,
-          link: '/industries/healthcare-life-sciences',
+          link: '/industries/healthcare-medical-tourism',
         },
         {
           name: 'Information Technology',
           hasSubMenu: false,
-          link: '/industries/information-technology',
+          link: '/industries/technology-ai',
         },
         {
           name: 'Construction & Engineering',
           hasSubMenu: false,
-          link: '/industries/construction-engineering',
+          link: '/industries/construction-smart-cities',
         },
         {
           name: 'Manufacturing & Industrial',
           hasSubMenu: false,
-          link: '/industries/manufacturing-industrial',
+          link: '/industries/manufacturing',
         },
         {
           name: 'Hospitality & Travel',
           hasSubMenu: false,
-          link: '/industries/hospitality-travel',
+          link: '/industries/hospitality',
         },
         {
           name: 'Retail & Consumer Products',
           hasSubMenu: false,
-          link: '/industries/retail-consumer-products',
+          link: '/industries/retail-ecommerce',
         },
         {
           name: 'Education & Training',
           hasSubMenu: false,
-          link: '/industries/education-training',
+          link: '/industries/education-edtech',
         },
         {
           name: 'Legal & Professional Services',
           hasSubMenu: false,
-          link: '/industries/legal-professional-services',
+          link: '/industries/legal-services',
         },
         {
           name: 'Insurance & Risk Management',
           hasSubMenu: false,
-          link: '/industries/insurance-risk-management',
+          link: '/industries/insurance',
         },
         {
           name: 'Shipping & Logistics',
