@@ -206,7 +206,7 @@
               </p>
               <p class="text-0.9rem mb-2 opacity-90">
                 <span class="mr-2">✉️</span>
-                singapore@vmmcglobal.com
+                info@vmmcglobal.com
               </p>
               <p class="text-0.9rem mb-2 opacity-90">
                 <span class="mr-2">🕐</span>
@@ -257,7 +257,7 @@
                 Gate Village 3, Level 15, Dubai, UAE
               </p>
               <p class="text-0.9rem mb-2 text-tm-txt-secondary">+971 4 123 4567</p>
-              <p class="text-0.9rem mb-2 text-tm-txt-secondary">dubai@vmmcglobal.com</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">info@vmmcglobal.com</p>
               <p class="text-0.9rem mb-2 text-tm-txt-secondary">Sun-Thu: 9:00 AM - 6:00 PM GST</p>
             </div>
           </div>
@@ -298,7 +298,7 @@
                 Level 85, Pudong, Shanghai 200120
               </p>
               <p class="text-0.9rem mb-2 text-tm-txt-secondary">+86 21 1234 5678</p>
-              <p class="text-0.9rem mb-2 text-tm-txt-secondary">shanghai@vmmcglobal.com</p>
+              <p class="text-0.9rem mb-2 text-tm-txt-secondary">info@vmmcglobal.com</p>
               <p class="text-0.9rem mb-2 text-tm-txt-secondary">Mon-Fri: 9:00 AM - 6:00 PM CST</p>
             </div>
           </div>
