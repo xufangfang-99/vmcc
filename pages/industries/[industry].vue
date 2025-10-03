@@ -99,7 +99,7 @@
           <input
             v-model="notifyEmail"
             type="email"
-            placeholder="your@email.com"
+            placeholder="info@vmmcglobal.com"
             class="flex-1 px-4 py-2 rounded-lg border border-[var(--tm-bd-light)] bg-[var(--tm-bg-primary)] text-[var(--tm-txt-primary)]"
           />
           <button

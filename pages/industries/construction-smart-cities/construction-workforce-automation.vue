@@ -1060,10 +1060,10 @@
                   <div>
                     <h4 class="font-semibold text-[var(--tm-txt-primary)]">Email Inquiry</h4>
                     <a
-                      href="mailto:automation@vmmcae.com"
+                      href="mailto:info@vmmcglobal.com"
                       class="text-sm text-[var(--tm-accent-primary)] hover:text-[var(--tm-accent-secondary)] transition-colors duration-300"
                     >
-                      automation@vmmcae.com
+                      info@vmmcglobal.com
                     </a>
                   </div>
                 </div>

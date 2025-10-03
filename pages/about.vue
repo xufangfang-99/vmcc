@@ -78,26 +78,156 @@
   })
 
   useHead({
-    title: 'About Victor Meridian Management Consultancies - Elite Talent Solutions',
+    title: 'About VMMC Dubai | Leading Talent Solutions Provider in UAE & GCC',
     meta: [
       {
         name: 'description',
         content:
-          'Victor Meridian Management Consultancies. Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+          'Victor Meridian Management Consultancies (VMMC) - Leading comprehensive talent solutions provider in Dubai since 2010. Specializing in executive search, flexible staffing, HR outsourcing, and Emiratisation services across UAE and GCC region with offices in Dubai, Singapore, and Malaysia.',
       },
       {
         name: 'keywords',
         content:
-          'Victor Meridian Management Consultancies, about VMMC, elite talent solutions, executive search, global recruitment',
+          'About VMMC Dubai, Victor Meridian Management Consultancies, VMMC history, talent solutions provider UAE, recruitment company Dubai, executive search firm GCC, HR consultancy Dubai, global talent network, Dubai recruitment agency, UAE staffing solutions, GCC headhunting, Emiratisation experts, international recruitment Dubai, talent acquisition Middle East, HR outsourcing UAE',
       },
+      // Open Graph
       {
         property: 'og:title',
-        content: 'About Victor Meridian Management Consultancies',
+        content: 'About VMMC Dubai | Leading Talent Solutions Provider in UAE & GCC',
       },
       {
         property: 'og:description',
         content:
-          'Providing elite talent solutions for forward-thinking organizations. We connect exceptional professionals with industry-leading companies worldwide.',
+          'Leading comprehensive talent solutions provider in Dubai since 2010. Executive search, flexible staffing, and Emiratisation services across UAE and GCC region.',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:url',
+        content: 'https://www.vmmcae.com/about',
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.vmmcae.com/logo.png',
+      },
+      // Twitter Card
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:title',
+        content: 'About VMMC Dubai | Leading Talent Solutions Provider',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Leading talent solutions provider in Dubai and GCC since 2010. Executive search, flexible staffing, and Emiratisation expertise.',
+      },
+      // 其他SEO Meta
+      {
+        name: 'robots',
+        content: 'index, follow',
+      },
+      {
+        name: 'author',
+        content: 'Victor Meridian Management Consultancies',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://www.vmmcae.com/about',
+      },
+    ],
+    script: [
+      // 公司信息结构化数据
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'Victor Meridian Management Consultancies',
+            alternateName: 'VMMC Dubai',
+            url: 'https://www.vmmcae.com',
+            logo: 'https://www.vmmcae.com/logo.png',
+            foundingDate: '2010',
+            description:
+              'Leading comprehensive talent solutions provider in Dubai, UAE. Specializing in executive search, flexible staffing, HR outsourcing, and Emiratisation services across GCC region.',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'ICD Brookfield Place, Level 7',
+              addressLocality: 'Dubai',
+              addressRegion: 'Dubai',
+              addressCountry: 'AE',
+            },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+971-4-376-4600',
+              contactType: 'Customer Service',
+              areaServed: ['AE', 'SA', 'QA', 'KW', 'OM', 'BH'],
+              availableLanguage: ['English', 'Arabic'],
+            },
+            sameAs: [
+              'https://www.linkedin.com/company/vmmc',
+              'https://www.instagram.com/vmmc.global',
+              'https://www.facebook.com/profile.php?id=61579975078423',
+            ],
+            numberOfEmployees: '50-100',
+            areaServed: [
+              {
+                '@type': 'Country',
+                name: 'United Arab Emirates',
+              },
+              {
+                '@type': 'Country',
+                name: 'Saudi Arabia',
+              },
+              {
+                '@type': 'Country',
+                name: 'Qatar',
+              },
+              {
+                '@type': 'Country',
+                name: 'Kuwait',
+              },
+              {
+                '@type': 'Country',
+                name: 'Oman',
+              },
+              {
+                '@type': 'Country',
+                name: 'Bahrain',
+              },
+            ],
+          },
+        }),
+      },
+      // Breadcrumb
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.vmmcae.com',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'About Us',
+              item: 'https://www.vmmcae.com/about',
+            },
+          ],
+        }),
       },
     ],
   })

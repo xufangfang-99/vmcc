@@ -67,7 +67,7 @@
               v-model="formData.email"
               type="email"
               class="form-input"
-              placeholder="your.email@company.com"
+              placeholder="info@vmmcglobal.com"
               required
             />
           </div>

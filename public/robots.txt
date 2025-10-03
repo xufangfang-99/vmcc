@@ -1,22 +1,19 @@
-# 创建 public/robots.txt
+# Robots.txt for VMMC Dubai - Victor Meridian Management Consultancies
 User-agent: *
 Allow: /
 
-# 重要页面 - 基于实际存在的页面
+# 主要页面 - 优先抓取
+Allow: /
 Allow: /about
 Allow: /services
 Allow: /contact
 Allow: /careers
-Allow: /insights
+Allow: /industries
 Allow: /locations
 Allow: /timeline
 Allow: /privacy
 Allow: /dubai
-Allow: /dubai
 Allow: /our-heritage
-
-# 如果industries页面确实存在，保留这行
-Allow: /industries
 
 # 服务子页面
 Allow: /services/executive-search
@@ -24,7 +21,19 @@ Allow: /services/hr-outsourcing
 Allow: /services/strategic-consulting
 Allow: /services/organizational
 
-
+# 行业页面 - 添加具体行业路径
+Allow: /industries/oil-gas
+Allow: /industries/banking-finance
+Allow: /industries/healthcare-medical-tourism
+Allow: /industries/technology-ai
+Allow: /industries/construction-smart-cities
+Allow: /industries/manufacturing
+Allow: /industries/hospitality
+Allow: /industries/retail-ecommerce
+Allow: /industries/education-edtech
+Allow: /industries/legal-services
+Allow: /industries/insurance
+Allow: /industries/logistics
 
 # 禁止访问技术文件和目录
 Disallow: /admin/
@@ -33,9 +42,20 @@ Disallow: /api/
 Disallow: /.env
 Disallow: /node_modules/
 Disallow: /*.json$
+Disallow: /404
+Disallow: /error
 
 # 网站地图
 Sitemap: https://www.vmmcae.com/sitemap.xml
 
-# 一般性指令
+# 爬虫延迟（对服务器友好）
+Crawl-delay: 1
+
+# 特定搜索引擎优化
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1

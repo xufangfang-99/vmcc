@@ -319,7 +319,7 @@
           </NuxtLink>
 
           <a
-            href="mailto:contact@vmmcae.com"
+            href="mailto:info@vmmcglobal.com"
             class="inline-flex items-center gap-3 border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
           >
             <svg
