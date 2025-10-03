@@ -11,6 +11,9 @@ Allow: /insights
 Allow: /locations
 Allow: /timeline
 Allow: /privacy
+Allow: /dubai
+Allow: /dubai
+Allow: /our-heritage
 
 # 如果industries页面确实存在，保留这行
 Allow: /industries
